@@ -94,13 +94,14 @@ export async function saveTreeData(tree: any[], section?: string): Promise<void>
 
 export async function getFileScript(fileId: string, section?: string): Promise<any | null> {
   const data = await getAppData();
-  if (!section || section === 'main') return data.scripts[fileId] || null;
+  if (!section || section === 'main') return data.scripts?.[fileId] || null;
   return data.sections?.[section]?.scripts[fileId] || null;
 }
 
 export async function saveFileScript(fileId: string, script: any, section?: string): Promise<void> {
   const data = await getAppData();
   if (!section || section === 'main') {
+    if (!data.scripts) data.scripts = {};
     data.scripts[fileId] = script;
   } else {
     if (!data.sections) data.sections = {};
@@ -113,9 +114,11 @@ export async function saveFileScript(fileId: string, script: any, section?: stri
 export async function deleteFileScripts(fileIds: string[], section?: string): Promise<void> {
   const data = await getAppData();
   if (!section || section === 'main') {
-    fileIds.forEach((id) => {
-      delete data.scripts[id];
-    });
+    if (data.scripts) {
+      fileIds.forEach((id) => {
+        delete data.scripts[id];
+      });
+    }
   } else if (data.sections?.[section]) {
     fileIds.forEach((id) => {
       delete data.sections![section].scripts[id];

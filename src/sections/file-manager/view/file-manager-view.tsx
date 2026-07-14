@@ -4,7 +4,15 @@ import type { IFile, IFileFilters } from 'src/types/file';
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useBoolean, useSetState, useLocalStorage } from 'minimal-shared/hooks';
-import { DndContext, PointerSensor, useSensor, useSensors, useDroppable, DragEndEvent, pointerWithin } from '@dnd-kit/core';
+import {
+  DndContext,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  useDroppable,
+  DragEndEvent,
+  pointerWithin,
+} from '@dnd-kit/core';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -22,7 +30,6 @@ import { fIsBetween } from 'src/utils/format-time';
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
-
 import { toast } from 'src/components/snackbar';
 import { fileFormat } from 'src/components/file-thumbnail';
 import { EmptyContent } from 'src/components/empty-content';
@@ -31,14 +38,23 @@ import { useTable, rowInPage, getComparator } from 'src/components/table';
 import { LoadingScreen } from 'src/components/loading-screen';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 
-import { getTreeData, saveTreeData, getFileScript, clearAllScripts, getFullData, saveFullData, deleteFileScripts, deleteTreeItems } from 'src/api/indexDB';
+import {
+  getTreeData,
+  saveTreeData,
+  getFileScript,
+  clearAllScripts,
+  getFullData,
+  saveFullData,
+  deleteFileScripts,
+  deleteTreeItems,
+} from 'src/api/indexDB';
 import { FileManagerFilters } from '../file-manager-filters';
 import { FileManagerSidebar } from '../file-manager-sidebar';
 import { FileManagerGridView } from '../file-manager-grid-view';
 import { FileManagerFiltersResult } from '../file-manager-filters-result';
 import { FileManagerCreateFolderDialog } from '../file-manager-create-folder-dialog';
-import { OpicEditorView } from './opic-editor-view';
-import { OpicLiveView } from './opic-live-view';
+import { ProblemSetEditorView } from './problem-set-editor-view';
+import { ProblemSetView } from './problem-set-view';
 import TREE_DATA from 'src/api/dummy/default.json';
 
 // ----------------------------------------------------------------------
@@ -152,7 +168,12 @@ export function FileManagerView() {
   }, [searchParams, isLoaded]);
 
   const updateURL = useCallback(
-    (params: { folder?: string | null; view?: string | null; fileId?: string | null; fileName?: string | null }) => {
+    (params: {
+      folder?: string | null;
+      view?: string | null;
+      fileId?: string | null;
+      fileName?: string | null;
+    }) => {
       const newParams = new URLSearchParams(searchParams.toString());
 
       if (params.folder !== undefined) {
@@ -214,7 +235,11 @@ export function FileManagerView() {
         return false;
       };
 
-      if (movedItem.type === 'folder' && targetFolderId && isDescendant(movedItem, targetFolderId)) {
+      if (
+        movedItem.type === 'folder' &&
+        targetFolderId &&
+        isDescendant(movedItem, targetFolderId)
+      ) {
         toast.error('Cannot move a folder into its own descendant!');
         return { newNodes: nodes, movedItem: null };
       }
@@ -470,25 +495,28 @@ export function FileManagerView() {
     }
   }, []);
 
-  const handleUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = async (e) => {
-        try {
-          const json = JSON.parse(e.target?.result as string);
-          setPendingUploadData(json);
-          setPendingAction('upload');
-          backupConfirm.onTrue();
-        } catch (error) {
-          toast.error('Failed to parse JSON');
-        }
-      };
-      reader.readAsText(file);
-    }
-    // Reset input value to allow uploading the same file again
-    event.target.value = '';
-  }, [backupConfirm]);
+  const handleUpload = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          try {
+            const json = JSON.parse(e.target?.result as string);
+            setPendingUploadData(json);
+            setPendingAction('upload');
+            backupConfirm.onTrue();
+          } catch (error) {
+            toast.error('Failed to parse JSON');
+          }
+        };
+        reader.readAsText(file);
+      }
+      // Reset input value to allow uploading the same file again
+      event.target.value = '';
+    },
+    [backupConfirm]
+  );
 
   const executeDelete = useCallback(
     async (ids: string[]) => {
@@ -543,22 +571,19 @@ export function FileManagerView() {
     handleOpenDeleteConfirm(table.selected);
   }, [table.selected, handleOpenDeleteConfirm]);
 
-  const handleFavoriteItem = useCallback(
-    (id: string) => {
-      const updateFavoriteInTree = (nodes: any[]): any[] =>
-        nodes.map((node) => {
-          if (node.id === id) {
-            return { ...node, isFavorited: !node.isFavorited, modifiedAt: new Date().toISOString() };
-          }
-          if (node.children) {
-            return { ...node, children: updateFavoriteInTree(node.children) };
-          }
-          return node;
-        });
-      setTreeData((prev) => updateFavoriteInTree(prev));
-    },
-    []
-  );
+  const handleFavoriteItem = useCallback((id: string) => {
+    const updateFavoriteInTree = (nodes: any[]): any[] =>
+      nodes.map((node) => {
+        if (node.id === id) {
+          return { ...node, isFavorited: !node.isFavorited, modifiedAt: new Date().toISOString() };
+        }
+        if (node.children) {
+          return { ...node, children: updateFavoriteInTree(node.children) };
+        }
+        return node;
+      });
+    setTreeData((prev) => updateFavoriteInTree(prev));
+  }, []);
 
   const handleOpenRename = useCallback(
     (id: string) => {
@@ -720,11 +745,7 @@ export function FileManagerView() {
         setPendingDeleteIds([]);
       }}
       title="Delete"
-      content={
-        <>
-          정말 삭제하시겠습니까?
-        </>
-      }
+      content={<>정말 삭제하시겠습니까?</>}
       action={
         <Button
           variant="contained"
@@ -870,7 +891,8 @@ export function FileManagerView() {
   };
 
   const renderBreadcrumbs = () => {
-    const pathNodes = currentFolder?.parentIds.map((pid: string) => flattenedTree.find((f) => f.id === pid)) || [];
+    const pathNodes =
+      currentFolder?.parentIds.map((pid: string) => flattenedTree.find((f) => f.id === pid)) || [];
 
     return (
       <Breadcrumbs separator={<ChevronRightIcon sx={{ width: 16, height: 16 }} />} sx={{ mb: 2 }}>
@@ -925,7 +947,7 @@ export function FileManagerView() {
             data={treeData}
             isCollapsed={isCollapsed}
             onToggle={() => setIsCollapsed(!isCollapsed)}
-            selectedId={viewMode === 'list' ? currentFolderId : (selectedFile?.id || null)}
+            selectedId={viewMode === 'list' ? currentFolderId : selectedFile?.id || null}
             onSelectId={handleNavigate}
             onOpenFile={handleOpenFile}
             onUpdateName={handleUpdateItemName}
@@ -957,12 +979,16 @@ export function FileManagerView() {
                 >
                   <Box>
                     <Typography variant="h4" sx={{ mb: 1 }}>
-                      OPIC Drive
+                      Question Drive
                     </Typography>
                     {renderBreadcrumbs()}
                   </Box>
 
-                  <Stack direction="row" spacing={1} sx={{ alignSelf: { xs: 'flex-end', sm: 'center' } }}>
+                  <Stack
+                    direction="row"
+                    spacing={1}
+                    sx={{ alignSelf: { xs: 'flex-end', sm: 'center' } }}
+                  >
                     <IconButton
                       color="error"
                       onClick={() => {
@@ -981,7 +1007,11 @@ export function FileManagerView() {
                     <IconButton
                       color="info"
                       onClick={() => fileInputRef.current?.click()}
-                      sx={{ bgcolor: 'info.main', color: 'info.contrastText', '&:hover': { bgcolor: 'info.dark' } }}
+                      sx={{
+                        bgcolor: 'info.main',
+                        color: 'info.contrastText',
+                        '&:hover': { bgcolor: 'info.dark' },
+                      }}
                     >
                       <CloudUploadIcon />
                     </IconButton>
@@ -1028,7 +1058,7 @@ export function FileManagerView() {
                 </Stack>
               </>
             ) : viewMode === 'editor' && selectedFile ? (
-              <OpicEditorView
+              <ProblemSetEditorView
                 fileId={selectedFile.id}
                 fileName={selectedFile.name}
                 onBack={() => updateURL({ view: 'list', fileId: null, fileName: null })}
@@ -1048,7 +1078,7 @@ export function FileManagerView() {
                 }}
               />
             ) : viewMode === 'live' && selectedFile ? (
-              <OpicLiveView
+              <ProblemSetView
                 fileId={selectedFile.id}
                 fileName={selectedFile.name}
                 onBack={() => updateURL({ view: 'list', fileId: null, fileName: null })}
