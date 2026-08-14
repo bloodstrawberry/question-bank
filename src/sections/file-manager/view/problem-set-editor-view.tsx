@@ -73,6 +73,14 @@ export function ProblemSetEditorView({
     handleChangeExplanationFormula,
     handleRemoveExplanationFormula,
     handleInsertExplanationSymbol,
+    handleAddErd,
+    handleChangeErd,
+    handleRemoveErd,
+    handleInsertErdTemplate,
+    handleAddExplanationErd,
+    handleChangeExplanationErd,
+    handleRemoveExplanationErd,
+    handleInsertExplanationErdTemplate,
     handleAddChoice,
     handleRemoveChoice,
     handleChangeChoice,
@@ -198,6 +206,20 @@ export function ProblemSetEditorView({
         }
         onInsertExplanationSymbol={(fIdx, sym) =>
           handleInsertExplanationSymbol(activeProblemIndex, fIdx, sym)
+        }
+        onAddErd={() => handleAddErd(activeProblemIndex)}
+        onChangeErd={(erdIdx, val) => handleChangeErd(activeProblemIndex, erdIdx, val)}
+        onRemoveErd={(erdIdx) => handleRemoveErd(activeProblemIndex, erdIdx)}
+        onInsertErdTemplate={(erdIdx, tmpl) =>
+          handleInsertErdTemplate(activeProblemIndex, erdIdx, tmpl)
+        }
+        onAddExplanationErd={() => handleAddExplanationErd(activeProblemIndex)}
+        onChangeExplanationErd={(erdIdx, val) =>
+          handleChangeExplanationErd(activeProblemIndex, erdIdx, val)
+        }
+        onRemoveExplanationErd={(erdIdx) => handleRemoveExplanationErd(activeProblemIndex, erdIdx)}
+        onInsertExplanationErdTemplate={(erdIdx, tmpl) =>
+          handleInsertExplanationErdTemplate(activeProblemIndex, erdIdx, tmpl)
         }
         onAddChoice={() => handleAddChoice(activeProblemIndex)}
         onRemoveChoice={(cIdx) => handleRemoveChoice(activeProblemIndex, cIdx)}

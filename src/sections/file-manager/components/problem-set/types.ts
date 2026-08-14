@@ -6,6 +6,10 @@ export interface Problem {
   formula?: string;
   explanationFormulas?: string[];
   explanationFormula?: string;
+  erds?: string[];
+  erd?: string;
+  explanationErds?: string[];
+  explanationErd?: string;
   choices: string[];
   answer: number;
   answers?: number[];
@@ -31,6 +35,8 @@ export function createEmptyProblem(): Problem {
     description: '',
     formulas: [],
     explanationFormulas: [],
+    erds: [],
+    explanationErds: [],
     choices: ['', '', '', ''],
     answer: 0,
     answers: [],

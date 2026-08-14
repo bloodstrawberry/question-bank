@@ -23,8 +23,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import SchemaIcon from '@mui/icons-material/Schema';
 
 import { KatexMath } from 'src/components/katex';
+import { MermaidDiagram } from 'src/components/mermaid';
 
 interface ProblemSetViewCardProps {
   problem: Problem;
@@ -59,6 +61,17 @@ export function ProblemSetViewCard({
     ? problem.explanationFormulas.filter((f: string) => f && f.trim())
     : problem.explanationFormula && problem.explanationFormula.trim()
       ? [problem.explanationFormula.trim()]
+      : [];
+
+  const problemErds = Array.isArray(problem.erds)
+    ? problem.erds.filter((e) => e && e.trim())
+    : problem.erd && problem.erd.trim()
+      ? [problem.erd.trim()]
+      : [];
+  const problemExplanationErds = Array.isArray(problem.explanationErds)
+    ? problem.explanationErds.filter((e: string) => e && e.trim())
+    : problem.explanationErd && problem.explanationErd.trim()
+      ? [problem.explanationErd.trim()]
       : [];
 
   const correctAnswersList = isMultiple
@@ -301,6 +314,46 @@ export function ProblemSetViewCard({
                 >
                   <KatexMath math={fText} />
                 </Box>
+              ))}
+            </Box>
+          </Box>
+        )}
+
+        {/* Problem ERD Diagrams */}
+        {problemErds.length > 0 && (
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: 1.5,
+              bgcolor: (t) => alpha(t.palette.info.main, 0.03),
+              border: (t) => `1px solid ${alpha(t.palette.info.main, 0.16)}`,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1.5,
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <SchemaIcon sx={{ color: 'info.main', fontSize: 20 }} />
+              <Typography
+                variant="caption"
+                sx={{
+                  fontWeight: 800,
+                  color: 'info.main',
+                  textTransform: 'uppercase',
+                  letterSpacing: 0.5,
+                }}
+              >
+                ERD (Entity Relationship Diagram)
+              </Typography>
+            </Box>
+
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              {problemErds.map((erdText, erdIdx) => (
+                <MermaidDiagram
+                  key={erdIdx}
+                  chart={erdText}
+                  idPrefix={`view_erd_${problemIndex}_${erdIdx}`}
+                />
               ))}
             </Box>
           </Box>
@@ -579,6 +632,46 @@ export function ProblemSetViewCard({
                     >
                       <KatexMath math={fText} />
                     </Box>
+                  ))}
+                </Box>
+              </Box>
+            )}
+
+            {/* Explanation ERD Diagrams */}
+            {problemExplanationErds.length > 0 && (
+              <Box
+                sx={{
+                  p: 2,
+                  borderRadius: 1.5,
+                  bgcolor: (t) => alpha(t.palette.info.main, 0.03),
+                  border: (t) => `1px solid ${alpha(t.palette.info.main, 0.16)}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 1.5,
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <SchemaIcon sx={{ color: 'info.main', fontSize: 20 }} />
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontWeight: 800,
+                      color: 'info.main',
+                      textTransform: 'uppercase',
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    해설 ERD (Entity Relationship Diagram)
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                  {problemExplanationErds.map((erdText: string, erdIdx: number) => (
+                    <MermaidDiagram
+                      key={erdIdx}
+                      chart={erdText}
+                      idPrefix={`view_exp_erd_${problemIndex}_${erdIdx}`}
+                    />
                   ))}
                 </Box>
               </Box>

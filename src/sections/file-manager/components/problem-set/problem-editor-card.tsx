@@ -18,6 +18,7 @@ import { FastTextField } from './fast-text-field';
 import { ProblemEditorChoices } from './problem-editor-choices';
 import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
+import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
 
 interface ProblemEditorCardProps {
@@ -39,6 +40,14 @@ interface ProblemEditorCardProps {
   onChangeExplanationFormula: (formulaIndex: number, value: string) => void;
   onRemoveExplanationFormula: (formulaIndex: number) => void;
   onInsertExplanationSymbol: (formulaIndex: number, symbol: string) => void;
+  onAddErd: () => void;
+  onChangeErd: (erdIndex: number, value: string) => void;
+  onRemoveErd: (erdIndex: number) => void;
+  onInsertErdTemplate: (erdIndex: number, template: string) => void;
+  onAddExplanationErd: () => void;
+  onChangeExplanationErd: (erdIndex: number, value: string) => void;
+  onRemoveExplanationErd: (erdIndex: number) => void;
+  onInsertExplanationErdTemplate: (erdIndex: number, template: string) => void;
   onAddChoice: () => void;
   onRemoveChoice: (choiceIndex: number) => void;
   onChangeChoice: (choiceIndex: number, value: string) => void;
@@ -66,6 +75,14 @@ export function ProblemEditorCard({
   onChangeExplanationFormula,
   onRemoveExplanationFormula,
   onInsertExplanationSymbol,
+  onAddErd,
+  onChangeErd,
+  onRemoveErd,
+  onInsertErdTemplate,
+  onAddExplanationErd,
+  onChangeExplanationErd,
+  onRemoveExplanationErd,
+  onInsertExplanationErdTemplate,
   onAddChoice,
   onRemoveChoice,
   onChangeChoice,
@@ -189,6 +206,18 @@ export function ProblemEditorCard({
           labelPrefix="LaTeX 수식"
         />
 
+        {/* ERD Section under Formula */}
+        <ProblemEditorErds
+          title="ERD (Entity Relationship Diagram)"
+          erds={problem.erds || []}
+          onAddErd={onAddErd}
+          onChangeErd={onChangeErd}
+          onRemoveErd={onRemoveErd}
+          onInsertTemplate={onInsertErdTemplate}
+          emptyPlaceholderText="등록된 ERD가 없습니다."
+          labelPrefix="ERD 다이어그램"
+        />
+
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         {/* Choices */}
@@ -227,6 +256,18 @@ export function ProblemEditorCard({
           onInsertSymbol={onInsertExplanationSymbol}
           emptyPlaceholderText="등록된 해설 수식이 없습니다."
           labelPrefix="LaTeX 해설 수식"
+        />
+
+        {/* Explanation ERD Section under Explanation Formula */}
+        <ProblemEditorErds
+          title="해설 ERD (Entity Relationship Diagram)"
+          erds={problem.explanationErds || []}
+          onAddErd={onAddExplanationErd}
+          onChangeErd={onChangeExplanationErd}
+          onRemoveErd={onRemoveExplanationErd}
+          onInsertTemplate={onInsertExplanationErdTemplate}
+          emptyPlaceholderText="등록된 해설 ERD가 없습니다."
+          labelPrefix="LaTeX 해설 ERD"
         />
 
         {/* Choice Explanations */}

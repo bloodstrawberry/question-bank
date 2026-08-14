@@ -61,6 +61,13 @@ export function useProblemSetEditor({
                 ? [p.explanationFormula]
                 : [];
 
+            const erds = Array.isArray(p.erds) ? p.erds : p.erd ? [p.erd] : [];
+            const explanationErds = Array.isArray(p.explanationErds)
+              ? p.explanationErds
+              : p.explanationErd
+                ? [p.explanationErd]
+                : [];
+
             return {
               ...createEmptyProblem(),
               ...p,
@@ -68,6 +75,8 @@ export function useProblemSetEditor({
               choiceExplanations,
               formulas: Array.isArray(p.formulas) ? p.formulas : p.formula ? [p.formula] : [],
               explanationFormulas,
+              erds,
+              explanationErds,
               isMultipleAnswer,
               answers: rawAnswers,
               showMultipleCount,
@@ -329,6 +338,80 @@ export function useProblemSetEditor({
     [data.problems, updateProblem]
   );
 
+  const handleAddErd = useCallback(
+    (problemIndex: number) => {
+      const currentErds = data.problems[problemIndex].erds || [];
+      updateProblem(problemIndex, { erds: [...currentErds, ''] });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeErd = useCallback(
+    (problemIndex: number, erdIndex: number, value: string) => {
+      const currentErds = [...(data.problems[problemIndex].erds || [])];
+      currentErds[erdIndex] = value;
+      updateProblem(problemIndex, { erds: currentErds });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveErd = useCallback(
+    (problemIndex: number, erdIndex: number) => {
+      const currentErds = [...(data.problems[problemIndex].erds || [])];
+      const updated = currentErds.filter((_, i) => i !== erdIndex);
+      updateProblem(problemIndex, { erds: updated });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertErdTemplate = useCallback(
+    (problemIndex: number, erdIndex: number, template: string) => {
+      const currentErds = [...(data.problems[problemIndex].erds || [])];
+      const currentText = currentErds[erdIndex] || '';
+      const updatedText = currentText ? `${currentText}\n${template}` : template;
+      currentErds[erdIndex] = updatedText;
+      updateProblem(problemIndex, { erds: currentErds });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleAddExplanationErd = useCallback(
+    (problemIndex: number) => {
+      const current = data.problems[problemIndex].explanationErds || [];
+      updateProblem(problemIndex, { explanationErds: [...current, ''] });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeExplanationErd = useCallback(
+    (problemIndex: number, erdIndex: number, value: string) => {
+      const current = [...(data.problems[problemIndex].explanationErds || [])];
+      current[erdIndex] = value;
+      updateProblem(problemIndex, { explanationErds: current });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveExplanationErd = useCallback(
+    (problemIndex: number, erdIndex: number) => {
+      const current = [...(data.problems[problemIndex].explanationErds || [])];
+      const updated = current.filter((_, i) => i !== erdIndex);
+      updateProblem(problemIndex, { explanationErds: updated });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertExplanationErdTemplate = useCallback(
+    (problemIndex: number, erdIndex: number, template: string) => {
+      const current = [...(data.problems[problemIndex].explanationErds || [])];
+      const currentText = current[erdIndex] || '';
+      const updatedText = currentText ? `${currentText}\n${template}` : template;
+      current[erdIndex] = updatedText;
+      updateProblem(problemIndex, { explanationErds: current });
+    },
+    [data.problems, updateProblem]
+  );
+
   const handleAddChoice = useCallback(
     (problemIndex: number) => {
       const currentChoices = data.problems[problemIndex].choices || [];
@@ -490,6 +573,14 @@ export function useProblemSetEditor({
     handleChangeExplanationFormula,
     handleRemoveExplanationFormula,
     handleInsertExplanationSymbol,
+    handleAddErd,
+    handleChangeErd,
+    handleRemoveErd,
+    handleInsertErdTemplate,
+    handleAddExplanationErd,
+    handleChangeExplanationErd,
+    handleRemoveExplanationErd,
+    handleInsertExplanationErdTemplate,
     handleAddChoice,
     handleRemoveChoice,
     handleChangeChoice,
