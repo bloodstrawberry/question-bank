@@ -17,6 +17,7 @@ import { Color } from '@tiptap/extension-color';
 import { Highlight } from '@tiptap/extension-highlight';
 import { TaskList } from '@tiptap/extension-task-list';
 import { TaskItem } from '@tiptap/extension-task-item';
+import { TableKit } from '@tiptap/extension-table';
 import { Markdown } from 'tiptap-markdown';
 import { Icon } from '@iconify/react';
 import { debounce } from 'es-toolkit';
@@ -320,6 +321,67 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
         icon="material-symbols:link"
         title="Insert Link"
       />
+
+      <ToolbarDivider />
+
+      {/* Table Actions */}
+      <ToolbarButton
+        onClick={() =>
+          (editor.chain().focus() as any)
+            .insertTable?.({ rows: 3, cols: 3, withHeaderRow: true })
+            ?.run()
+        }
+        active={editor.isActive('table')}
+        icon="material-symbols:table-chart-outline"
+        title="표 삽입 (3x3)"
+      />
+
+      {editor.isActive('table') && (
+        <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).addColumnBefore?.()?.run()}
+            icon="material-symbols:add-column-left-outline"
+            title="왼쪽에 열 추가"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).addColumnAfter?.()?.run()}
+            icon="material-symbols:add-column-right-outline"
+            title="오른쪽에 열 추가"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).deleteColumn?.()?.run()}
+            icon="material-symbols:delete-column-outline"
+            title="현재 열 삭제"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).addRowBefore?.()?.run()}
+            icon="material-symbols:add-row-above-outline"
+            title="위에 행 추가"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).addRowAfter?.()?.run()}
+            icon="material-symbols:add-row-below-outline"
+            title="아래에 행 추가"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).deleteRow?.()?.run()}
+            icon="material-symbols:delete-row-outline"
+            title="현재 행 삭제"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).toggleHeaderRow?.()?.run()}
+            active={editor.isActive('tableHeader')}
+            icon="material-symbols:table-rows-narrow-outline"
+            title="헤더 행 설정/해제"
+          />
+          <ToolbarButton
+            onClick={() => (editor.chain().focus() as any).deleteTable?.()?.run()}
+            icon="material-symbols:table-rows-delete-outline"
+            title="표 삭제"
+          />
+        </Box>
+      )}
+
       <ToolbarButton
         onClick={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}
         icon="material-symbols:format-clear"
@@ -417,6 +479,11 @@ export function MarkdownEditor({
       TaskList,
       TaskItem.configure({
         nested: true,
+      }),
+      TableKit.configure({
+        table: {
+          resizable: true,
+        },
       }),
     ],
     content: value || '',
@@ -612,6 +679,50 @@ export function MarkdownEditor({
               my: 2,
               border: 'none',
               borderTop: `1px dashed ${theme.palette.divider}`,
+            },
+            '& table': {
+              borderCollapse: 'collapse',
+              tableLayout: 'fixed',
+              width: '100%',
+              my: 1.5,
+              overflow: 'hidden',
+              '& td, & th': {
+                minWidth: '1em',
+                border: `1px solid ${alpha(theme.palette.grey[500], 0.3)}`,
+                px: 1.5,
+                py: 1,
+                verticalAlign: 'top',
+                boxSizing: 'border-box',
+                position: 'relative',
+                '& > *': {
+                  mb: 0,
+                },
+              },
+              '& th': {
+                fontWeight: 700,
+                textAlign: 'left',
+                bgcolor: alpha(theme.palette.grey[500], 0.1),
+              },
+              '& .selectedCell:after': {
+                zIndex: 2,
+                position: 'absolute',
+                content: '""',
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                bgcolor: alpha(theme.palette.primary.main, 0.08),
+                pointerEvents: 'none',
+              },
+              '& .column-resize-handle': {
+                bgcolor: theme.palette.primary.main,
+                bottom: 0,
+                pointerEvents: 'none',
+                position: 'absolute',
+                right: -2,
+                top: 0,
+                width: 4,
+              },
             },
           },
         }}

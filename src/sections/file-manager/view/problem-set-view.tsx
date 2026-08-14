@@ -529,8 +529,8 @@ export function ProblemSetView({
                 sx={{
                   p: 2,
                   borderRadius: 1.5,
-                  bgcolor: (t) => alpha(t.palette.info.main, 0.06),
-                  border: (t) => `1px solid ${alpha(t.palette.info.main, 0.12)}`,
+                  bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+                  border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
                   '& p': {
                     m: 0,
                     mb: 1,
@@ -611,20 +611,20 @@ export function ProblemSetView({
               sx={{
                 p: 2,
                 borderRadius: 1.5,
-                bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
-                border: (t) => `1px solid ${alpha(t.palette.primary.main, 0.16)}`,
+                bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+                border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 1.5,
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <FunctionsIcon color="primary" sx={{ fontSize: 20 }} />
+                <FunctionsIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
                 <Typography
                   variant="caption"
                   sx={{
                     fontWeight: 800,
-                    color: 'primary.main',
+                    color: 'text.secondary',
                     textTransform: 'uppercase',
                     letterSpacing: 0.5,
                   }}
@@ -852,6 +852,21 @@ export function ProblemSetView({
                       fontStyle: 'italic',
                     },
                     '& strong': { fontWeight: 700 },
+                    '& table': {
+                      borderCollapse: 'collapse',
+                      width: '100%',
+                      my: 1.5,
+                      '& td, & th': {
+                        border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.24)}`,
+                        px: 1.5,
+                        py: 1,
+                        fontSize: 14,
+                      },
+                      '& th': {
+                        bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                        fontWeight: 700,
+                      },
+                    },
                   }}
                 >
                   <Typography
@@ -872,20 +887,20 @@ export function ProblemSetView({
                   sx={{
                     p: 2,
                     borderRadius: 1.5,
-                    bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
-                    border: (t) => `1px solid ${alpha(t.palette.primary.main, 0.16)}`,
+                    bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+                    border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 1.5,
                   }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <FunctionsIcon color="primary" sx={{ fontSize: 20 }} />
+                    <FunctionsIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
                     <Typography
                       variant="caption"
                       sx={{
                         fontWeight: 800,
-                        color: 'primary.main',
+                        color: 'text.secondary',
                         textTransform: 'uppercase',
                         letterSpacing: 0.5,
                       }}

@@ -1841,6 +1841,26 @@
   resolved "https://registry.npmjs.org/@tiptap/extension-strike/-/extension-strike-3.27.4.tgz#41796c8106e74ecf3a893b397acee45ff41e34d9"
   integrity sha512-8OXwcPKuV3ToBBgyvDxH1jQdObK5FIKCGiyIim6qNWiOpi9BhM3XYD+aO1khjv8qIjtoI/DYbizF4ewj09fX2g==
 
+"@tiptap/extension-table-cell@3.27.4":
+  version "3.27.4"
+  resolved "https://registry.npmjs.org/@tiptap/extension-table-cell/-/extension-table-cell-3.27.4.tgz#d12f5d6ede34752f9fe610be3ddf0b7351799fc4"
+  integrity sha512-1B7J4ZiaXaGxT2IB3hrwtz0433bFVSWsDB+B125vt2DZQr9bgdX40GLesSPlymqOdMxKJwksCPMan2ON2LkVAg==
+
+"@tiptap/extension-table-header@3.27.4":
+  version "3.27.4"
+  resolved "https://registry.npmjs.org/@tiptap/extension-table-header/-/extension-table-header-3.27.4.tgz#e1852e604e9ee1ec1ab7485237982128a5e79144"
+  integrity sha512-V/O690Z6VcHMAWDfgVFiOCwx3eE2/HM2gH+Fp0eQe3WnajQj2DPViW4VWR/rNVl3DspHoL/EU+eEsnhcvO34Vw==
+
+"@tiptap/extension-table-row@3.27.4":
+  version "3.27.4"
+  resolved "https://registry.npmjs.org/@tiptap/extension-table-row/-/extension-table-row-3.27.4.tgz#88c13bcd717a234b3cd5423049d702b978b22f8f"
+  integrity sha512-2RTJtcy90Tc2+HpW1JyKMTwg/zz4u6hHof4CTcJS/eXLk3g1L60DDzYvz4GzBxQvsOT3QVcbaU9QOk9A3Sx7Fg==
+
+"@tiptap/extension-table@3.27.4":
+  version "3.27.4"
+  resolved "https://registry.npmjs.org/@tiptap/extension-table/-/extension-table-3.27.4.tgz#d735d48fc3cb33d65dad46b0d543e2c6b557a9a6"
+  integrity sha512-ejQjqt8GjUn4YswG/SsiLr/W3LZApZGUEDW0N7NoOduE0dBZ/pVJHPuqWu33kK+phJjSNCIN+bSAkoWE01rZSw==
+
 "@tiptap/extension-task-item@^3.27.4":
   version "3.27.4"
   resolved "https://registry.npmjs.org/@tiptap/extension-task-item/-/extension-task-item-3.27.4.tgz#1057960b76152ceaf0a7286ad2722943f20d454c"
