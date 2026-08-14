@@ -263,5 +263,3 @@ export function FileItemActions({
     </Box>
   );
 }
-
-

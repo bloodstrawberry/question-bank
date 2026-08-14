@@ -279,16 +279,16 @@ const SidebarTreeItem = memo(
       >
         {Array.isArray(node.children)
           ? node.children.map((child: any) => (
-            <SidebarTreeItem
-              key={child.id}
-              node={child}
-              editingId={editingId}
-              onSelect={onSelect}
-              onOpenFile={onOpenFile}
-              onSave={onSave}
-              onCancel={onCancel}
-            />
-          ))
+              <SidebarTreeItem
+                key={child.id}
+                node={child}
+                editingId={editingId}
+                onSelect={onSelect}
+                onOpenFile={onOpenFile}
+                onSave={onSave}
+                onCancel={onCancel}
+              />
+            ))
           : null}
       </StyledTreeItem>
     );
@@ -587,7 +587,11 @@ export function FileManagerSidebar({
             renderOption={(props, option) => {
               const { key, ...optionProps } = props as any;
               return (
-                <li key={option.id} {...optionProps} style={{ ...optionProps.style, overflow: 'hidden' }}>
+                <li
+                  key={option.id}
+                  {...optionProps}
+                  style={{ ...optionProps.style, overflow: 'hidden' }}
+                >
                   <Stack
                     direction="row"
                     alignItems="center"
@@ -599,7 +603,9 @@ export function FileManagerSidebar({
                     ) : (
                       <DescriptionIcon sx={{ width: 18, height: 18, color: 'text.disabled' }} />
                     )}
-                    <Box sx={{ minWidth: 0, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                    <Box
+                      sx={{ minWidth: 0, flexGrow: 1, display: 'flex', flexDirection: 'column' }}
+                    >
                       <Typography variant="body2" noWrap sx={{ display: 'block', width: 1 }}>
                         {option.label}
                       </Typography>
@@ -676,23 +682,29 @@ export function FileManagerSidebar({
           opacity: isMounted && !isResizing ? 1 : 0,
         }}
       >
-        {displayCollapsed ? <ArrowForwardIosIcon sx={{ width: 16, height: 16 }} /> : <ArrowBackIosIcon sx={{ width: 16, height: 16 }} />}
+        {displayCollapsed ? (
+          <ArrowForwardIosIcon sx={{ width: 16, height: 16 }} />
+        ) : (
+          <ArrowBackIosIcon sx={{ width: 16, height: 16 }} />
+        )}
       </IconButton>
 
-      {isMounted && document.getElementById('file-manager-sidebar-portal') && createPortal(
-        <IconButton
-          onClick={onToggle}
-          sx={{
-            display: { xs: 'inline-flex', md: 'none' },
-            p: 0.5,
-            width: 32,
-            height: 32,
-          }}
-        >
-          <ViewSidebarIcon sx={{ width: 24, height: 24 }} />
-        </IconButton>,
-        document.getElementById('file-manager-sidebar-portal')!
-      )}
+      {isMounted &&
+        document.getElementById('file-manager-sidebar-portal') &&
+        createPortal(
+          <IconButton
+            onClick={onToggle}
+            sx={{
+              display: { xs: 'inline-flex', md: 'none' },
+              p: 0.5,
+              width: 32,
+              height: 32,
+            }}
+          >
+            <ViewSidebarIcon sx={{ width: 24, height: 24 }} />
+          </IconButton>,
+          document.getElementById('file-manager-sidebar-portal')!
+        )}
     </Box>
   );
 }

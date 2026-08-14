@@ -22,10 +22,7 @@ type Props = {
   filters: UseSetStateReturn<IFileFilters>;
 };
 
-export function FileManagerFilters({
-  filters,
-  onResetPage,
-}: Props) {
+export function FileManagerFilters({ filters, onResetPage }: Props) {
   const { state: currentFilters, setState: updateFilters } = filters;
 
   const [searchValue, setSearchValue] = useState(currentFilters.name);
@@ -44,7 +41,6 @@ export function FileManagerFilters({
     setSearchValue(event.target.value);
   }, []);
 
-
   const renderFilterName = () => (
     <TextField
       value={searchValue}
@@ -62,7 +58,6 @@ export function FileManagerFilters({
       sx={{ width: { xs: 1, md: 260 } }}
     />
   );
-
 
   return (
     <Box

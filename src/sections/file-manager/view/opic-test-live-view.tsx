@@ -89,7 +89,9 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
 
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  const [testResults, setTestResults] = useState<Record<number, { uWord: string; cWord: string; isCorrect: boolean; masked: string }[]>>({});
+  const [testResults, setTestResults] = useState<
+    Record<number, { uWord: string; cWord: string; isCorrect: boolean; masked: string }[]>
+  >({});
   const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
 
   const userAnswersRef = useRef(userAnswers);
@@ -99,55 +101,78 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
     userAnswersRef.current = userAnswers;
   }, [userAnswers]);
 
-  const handleCheckAnswer = useCallback((index: number, text?: string) => {
-    if (!scriptData?.lines?.[index]) return;
+  const handleCheckAnswer = useCallback(
+    (index: number, text?: string) => {
+      if (!scriptData?.lines?.[index]) return;
 
-    const currentAnswers = userAnswersRef.current;
-    const userAnswer = (text !== undefined ? text : (currentAnswers[index] || '')).trim();
-    const correctAnswer = (scriptData.lines[index].en || '').trim();
-    if (!userAnswer) return;
+      const currentAnswers = userAnswersRef.current;
+      const userAnswer = (text !== undefined ? text : currentAnswers[index] || '').trim();
+      const correctAnswer = (scriptData.lines[index].en || '').trim();
+      if (!userAnswer) return;
 
-    const uWords = userAnswer.split(/\s+/);
-    const cWords = correctAnswer.split(/\s+/);
-    const clean = (str: string) => str?.toLowerCase().replace(/’/g, "'").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") || "";
-    const uClean = uWords.map(clean);
-    const cClean = cWords.map(clean);
+      const uWords = userAnswer.split(/\s+/);
+      const cWords = correctAnswer.split(/\s+/);
+      const clean = (str: string) =>
+        str
+          ?.toLowerCase()
+          .replace(/’/g, "'")
+          .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '') || '';
+      const uClean = uWords.map(clean);
+      const cClean = cWords.map(clean);
 
-    const dp = Array(uClean.length + 1).fill(0).map(() => Array(cClean.length + 1).fill(0));
-    for (let i = 1; i <= uClean.length; i++) {
-      for (let j = 1; j <= cClean.length; j++) {
-        if (uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== "") dp[i][j] = dp[i - 1][j - 1] + 1;
-        else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-      }
-    }
-
-    const results: any[] = [];
-    let i = uClean.length; let j = cClean.length;
-    while (i > 0 || j > 0) {
-      if (i > 0 && j > 0 && uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== "") {
-        results.unshift({ uWord: uWords[i - 1], cWord: cWords[j - 1], isCorrect: true, masked: cWords[j - 1] });
-        i--; j--;
-      } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
-        results.unshift({ uWord: "", cWord: cWords[j - 1], isCorrect: false, masked: cWords[j - 1].replace(/[a-zA-Z0-9]/g, "*") });
-        j--;
-      } else {
-        results.unshift({ uWord: uWords[i - 1], cWord: "", isCorrect: false, masked: "" });
-        i--;
-      }
-    }
-    setTestResults(prev => ({ ...prev, [index]: results }));
-    if (results.every(r => r.isCorrect)) setRevealedAnswers(prev => ({ ...prev, [index]: true }));
-
-    // Scroll into view if it's the last script to ensure results are visible
-    if (index === (scriptData?.lines?.length || 0) - 1) {
-      setTimeout(() => {
-        const input = inputRefs.current[index];
-        if (input) {
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const dp = Array(uClean.length + 1)
+        .fill(0)
+        .map(() => Array(cClean.length + 1).fill(0));
+      for (let i = 1; i <= uClean.length; i++) {
+        for (let j = 1; j <= cClean.length; j++) {
+          if (uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== '')
+            dp[i][j] = dp[i - 1][j - 1] + 1;
+          else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
         }
-      }, 100);
-    }
-  }, [scriptData?.lines, inputRefs]);
+      }
+
+      const results: any[] = [];
+      let i = uClean.length;
+      let j = cClean.length;
+      while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== '') {
+          results.unshift({
+            uWord: uWords[i - 1],
+            cWord: cWords[j - 1],
+            isCorrect: true,
+            masked: cWords[j - 1],
+          });
+          i--;
+          j--;
+        } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+          results.unshift({
+            uWord: '',
+            cWord: cWords[j - 1],
+            isCorrect: false,
+            masked: cWords[j - 1].replace(/[a-zA-Z0-9]/g, '*'),
+          });
+          j--;
+        } else {
+          results.unshift({ uWord: uWords[i - 1], cWord: '', isCorrect: false, masked: '' });
+          i--;
+        }
+      }
+      setTestResults((prev) => ({ ...prev, [index]: results }));
+      if (results.every((r) => r.isCorrect))
+        setRevealedAnswers((prev) => ({ ...prev, [index]: true }));
+
+      // Scroll into view if it's the last script to ensure results are visible
+      if (index === (scriptData?.lines?.length || 0) - 1) {
+        setTimeout(() => {
+          const input = inputRefs.current[index];
+          if (input) {
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 100);
+      }
+    },
+    [scriptData?.lines, inputRefs]
+  );
 
   // Auto-check answer when microphone input ends
   useEffect(() => {
@@ -166,7 +191,9 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
   // Pre-load voices
   useEffect(() => {
     if (typeof window !== 'undefined' && window.speechSynthesis) {
-      const loadVoices = () => { window.speechSynthesis.getVoices(); };
+      const loadVoices = () => {
+        window.speechSynthesis.getVoices();
+      };
       loadVoices();
       if (window.speechSynthesis.onvoiceschanged !== undefined) {
         window.speechSynthesis.onvoiceschanged = loadVoices;
@@ -180,17 +207,20 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
       setLoading(true);
       try {
         const data = await getFileScript(fileId, storageKey);
-        const playlistWithDefaults = data && data.fileIds ? {
-          ...data,
-          audioUrlPriority: data.audioUrlPriority ?? true,
-          randomPlay: data.randomPlay ?? false,
-          playQuestion: data.playQuestion ?? true,
-        } : {
-          fileIds: [fileId],
-          audioUrlPriority: true,
-          randomPlay: false,
-          playQuestion: true,
-        };
+        const playlistWithDefaults =
+          data && data.fileIds
+            ? {
+                ...data,
+                audioUrlPriority: data.audioUrlPriority ?? true,
+                randomPlay: data.randomPlay ?? false,
+                playQuestion: data.playQuestion ?? true,
+              }
+            : {
+                fileIds: [fileId],
+                audioUrlPriority: true,
+                randomPlay: false,
+                playQuestion: true,
+              };
 
         const ids = playlistWithDefaults.fileIds;
         let order = Array.from({ length: ids.length }, (_, i) => i);
@@ -267,10 +297,12 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
         }
 
         if (data && !data.questions && (data.questionEn || data.question)) {
-          data.questions = [{
-            en: data.questionEn || data.question || '',
-            ko: data.questionKo || ''
-          }];
+          data.questions = [
+            {
+              en: data.questionEn || data.question || '',
+              ko: data.questionKo || '',
+            },
+          ];
         }
         setScriptData(data);
       } catch (error) {
@@ -326,16 +358,18 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
     setCurrentIndex((prev) => (prev + 1) % fileIds.length);
   }, []);
 
+  const playLine = useCallback(
+    (index: number) => {
+      if (!scriptData || !scriptData.lines || index >= scriptData.lines.length) {
+        return;
+      }
 
-  const playLine = useCallback((index: number) => {
-    if (!scriptData || !scriptData.lines || index >= scriptData.lines.length) {
-      return;
-    }
-
-    setCurrentLineIndex(index);
-    const line = scriptData.lines[index];
-    toggleSpeak(line.en, `auto-content-line-${index}`);
-  }, [scriptData, toggleSpeak]);
+      setCurrentLineIndex(index);
+      const line = scriptData.lines[index];
+      toggleSpeak(line.en, `auto-content-line-${index}`);
+    },
+    [scriptData, toggleSpeak]
+  );
 
   const playContent = useCallback(() => {
     if (!scriptData) return;
@@ -361,14 +395,14 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
           // audio.currentTime will stay at its current position if we don't reset it
           const playPromise = audio.play();
           if (playPromise !== undefined) {
-            playPromise.catch(error => {
-              console.warn("Audio play prevented or failed", error);
+            playPromise.catch((error) => {
+              console.warn('Audio play prevented or failed', error);
               // If play fails (e.g. source error), fallback to speech
               playLine(0);
             });
           }
         } catch (err) {
-          console.warn("Audio playback failed", err);
+          console.warn('Audio playback failed', err);
           playLine(0);
         }
       } else {
@@ -398,15 +432,15 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
 
           const playPromise = fallbackAudio.play();
           if (playPromise !== undefined) {
-            playPromise.catch(error => {
-              console.warn("Audio play prevented or failed", error);
+            playPromise.catch((error) => {
+              console.warn('Audio play prevented or failed', error);
               if (audioRef.current === fallbackAudio) {
                 fallbackAudio.onerror?.(error as any);
               }
             });
           }
         } catch (err) {
-          console.warn("Audio creation failed", err);
+          console.warn('Audio creation failed', err);
           setIsAudioPlaying(false);
           playLine(0);
         }
@@ -603,32 +637,42 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleNext, handlePrev, onEdit, toggleAll]);
 
-
-  const handleChangeAnswer = useCallback((index: number, value: string) => {
-    setUserAnswers((prev) => (prev[index] === value ? prev : { ...prev, [index]: value }));
-  }, [setUserAnswers]);
+  const handleChangeAnswer = useCallback(
+    (index: number, value: string) => {
+      setUserAnswers((prev) => (prev[index] === value ? prev : { ...prev, [index]: value }));
+    },
+    [setUserAnswers]
+  );
 
   const handleToggleAnswerReveal = useCallback((index: number) => {
-    setRevealedAnswers(prev => ({ ...prev, [index]: !prev[index] }));
+    setRevealedAnswers((prev) => ({ ...prev, [index]: !prev[index] }));
   }, []);
 
-  const setInputRef = useCallback((index: number, el: any) => {
-    inputRefs.current[index] = el;
-  }, [inputRefs]);
+  const setInputRef = useCallback(
+    (index: number, el: any) => {
+      inputRefs.current[index] = el;
+    },
+    [inputRefs]
+  );
 
-  const handleFocusNextInput = useCallback((index: number, direction: 'next' | 'prev') => {
-    const nextIndex = direction === 'next' ? index + 1 : index - 1;
-    const nextInput = inputRefs.current[nextIndex];
-    if (nextInput) {
-      nextInput.focus();
-      nextInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }, [inputRefs]);
+  const handleFocusNextInput = useCallback(
+    (index: number, direction: 'next' | 'prev') => {
+      const nextIndex = direction === 'next' ? index + 1 : index - 1;
+      const nextInput = inputRefs.current[nextIndex];
+      if (nextInput) {
+        nextInput.focus();
+        nextInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    },
+    [inputRefs]
+  );
 
   if (loading) {
     return (
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
-        <Typography variant="h6" color="text.secondary">Loading playlist...</Typography>
+        <Typography variant="h6" color="text.secondary">
+          Loading playlist...
+        </Typography>
       </Box>
     );
   }
@@ -656,15 +700,19 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
           if (newAutoPlay && storageKey === 'listening') {
             if (sequenceRef.current === 'question') playQuestion();
             else if (sequenceRef.current === 'content') playContent();
-            else (playlist?.playQuestion === false ? playContent() : playQuestion());
+            else playlist?.playQuestion === false ? playContent() : playQuestion();
           }
         }}
       />
 
       <Box>
         {loadingScript ? (
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '40vh' }}>
-            <Typography variant="body1" color="text.secondary">Loading script details...</Typography>
+          <Box
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '40vh' }}
+          >
+            <Typography variant="body1" color="text.secondary">
+              Loading script details...
+            </Typography>
           </Box>
         ) : scriptData ? (
           <Stack spacing={4}>
@@ -694,7 +742,12 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
               onAudioPause={() => setIsAudioPlaying(false)}
               onAudioEnded={() => {
                 setIsAudioPlaying(false);
-                if (!isSwitching && sequenceRef.current === 'content' && autoPlay && storageKey === 'listening') {
+                if (
+                  !isSwitching &&
+                  sequenceRef.current === 'content' &&
+                  autoPlay &&
+                  storageKey === 'listening'
+                ) {
                   sequenceRef.current = 'idle';
                   setTimeout(() => {
                     handleNextPlaylist();
@@ -706,8 +759,13 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
             {/* Script Lines */}
             <Stack spacing={2.5}>
               <Stack direction="row" alignItems="center" justifyContent="space-between">
-                <Typography variant="h6" sx={{ fontWeight: 800 }}>Script</Typography>
-                <Typography variant="caption" sx={{ color: testMode ? 'info.main' : 'text.disabled', fontWeight: 'bold' }}>
+                <Typography variant="h6" sx={{ fontWeight: 800 }}>
+                  Script
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{ color: testMode ? 'info.main' : 'text.disabled', fontWeight: 'bold' }}
+                >
                   {testMode ? 'TEST MODE' : '* Click to reveal English'}
                 </Typography>
               </Stack>
@@ -725,11 +783,26 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
                   isListening={isListening === index}
                   isPreparing={isPreparing}
                   playingIndex={playingIndex === index}
-                  speakingIndex={speakingIndex === `line-${index}` || speakingIndex === `line-result-${index}` || speakingIndex === `line-view-${index}` || (currentLineIndex === index && !isAudioPlaying && (speakingIndex === `auto-content-line-${index}` || speakingIndex === 'auto-content'))}
+                  speakingIndex={
+                    speakingIndex === `line-${index}` ||
+                    speakingIndex === `line-result-${index}` ||
+                    speakingIndex === `line-view-${index}` ||
+                    (currentLineIndex === index &&
+                      !isAudioPlaying &&
+                      (speakingIndex === `auto-content-line-${index}` ||
+                        speakingIndex === 'auto-content'))
+                  }
                   isMobile={isMobile}
                   recordedAudio={recordedAudios[index]}
                   setInputRef={setInputRef}
-                  itemRef={(currentLineIndex === index && !isAudioPlaying && (speakingIndex === `auto-content-line-${index}` || speakingIndex === 'auto-content')) ? playingRef : null}
+                  itemRef={
+                    currentLineIndex === index &&
+                    !isAudioPlaying &&
+                    (speakingIndex === `auto-content-line-${index}` ||
+                      speakingIndex === 'auto-content')
+                      ? playingRef
+                      : null
+                  }
                   onToggleLine={toggleLine}
                   onToggleSpeak={toggleSpeak}
                   onChangeAnswer={handleChangeAnswer}
@@ -747,11 +820,12 @@ export function OpicTestLiveView({ fileId, fileName, onBack, onEdit, storageKey 
         ) : (
           <Box sx={{ py: 10, textAlign: 'center', bgcolor: 'background.neutral', borderRadius: 2 }}>
             <DescriptionIcon sx={{ color: 'text.disabled', mb: 2, width: 48, height: 48 }} />
-            <Typography variant="body1" sx={{ color: 'text.disabled' }}>스크립트 정보가 없습니다.</Typography>
+            <Typography variant="body1" sx={{ color: 'text.disabled' }}>
+              스크립트 정보가 없습니다.
+            </Typography>
           </Box>
         )}
       </Box>
     </Container>
-
   );
 }

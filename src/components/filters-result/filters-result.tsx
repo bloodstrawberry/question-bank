@@ -33,11 +33,7 @@ export function FiltersResult({
       <ResultContent>
         {children}
 
-        <Button
-          color="error"
-          onClick={onReset}
-          startIcon={<DeleteIcon />}
-        >
+        <Button color="error" onClick={onReset} startIcon={<DeleteIcon />}>
           Clear
         </Button>
       </ResultContent>

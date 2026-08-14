@@ -81,17 +81,9 @@ const SUB_CATEGORY_OPTIONS: Record<string, string[]> = {
     '비교',
     '기타',
   ],
-  '롤플레이': [
-    '질문, 제안하기',
-    '문제 설명 및 대안 제시',
-    '에바에게 질문하기',
-    '13번 - 과거 경험',
-  ],
-  '14, 15': [
-    '과거 현재 비교',
-    '사회 이슈',
-  ],
-  '자기소개': [],
+  롤플레이: ['질문, 제안하기', '문제 설명 및 대안 제시', '에바에게 질문하기', '13번 - 과거 경험'],
+  '14, 15': ['과거 현재 비교', '사회 이슈'],
+  자기소개: [],
 };
 
 type Props = {
@@ -153,16 +145,18 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
     const loadScript = async () => {
       setLoading(true);
       resetStates();
-      
+
       try {
         const data = await getFileScript(fileId);
-        
+
         let questions = data?.questions;
         if (data && !questions && (data.questionEn || data.question)) {
-          questions = [{
-            en: data.questionEn || data.question || '',
-            ko: data.questionKo || ''
-          }];
+          questions = [
+            {
+              en: data.questionEn || data.question || '',
+              ko: data.questionKo || '',
+            },
+          ];
         }
         if (!questions || questions.length === 0) {
           questions = [{ en: '', ko: '' }];
@@ -226,27 +220,36 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
     }));
   }, []);
 
-  const handleChangeLine = useCallback((index: number, field: keyof Line, value: string) => {
-    if (field === 'en') {
-      setUserAnswers((prev) => {
-        if (prev[index] === value) return prev;
-        return { ...prev, [index]: value };
+  const handleChangeLine = useCallback(
+    (index: number, field: keyof Line, value: string) => {
+      if (field === 'en') {
+        setUserAnswers((prev) => {
+          if (prev[index] === value) return prev;
+          return { ...prev, [index]: value };
+        });
+      }
+      setScriptData((prev) => {
+        const newLines = [...prev.lines];
+        if (newLines[index] && newLines[index][field] === value) return prev;
+        newLines[index] = { ...newLines[index], [field]: value };
+        return { ...prev, lines: newLines };
       });
-    }
-    setScriptData((prev) => {
-      const newLines = [...prev.lines];
-      if (newLines[index] && newLines[index][field] === value) return prev;
-      newLines[index] = { ...newLines[index], [field]: value };
-      return { ...prev, lines: newLines };
-    });
-  }, [setUserAnswers]);
+    },
+    [setUserAnswers]
+  );
 
-  const setInputRef = useCallback((index: number, el: any) => {
-    inputRefs.current[index] = el;
-  }, [inputRefs]);
+  const setInputRef = useCallback(
+    (index: number, el: any) => {
+      inputRefs.current[index] = el;
+    },
+    [inputRefs]
+  );
 
   const handleBulkApply = () => {
-    const lines = bulkText.split('\n').map((l) => l.trim()).filter(Boolean);
+    const lines = bulkText
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean);
     const newLines: Line[] = [];
     for (let i = 0; i < lines.length; i += 2) {
       if (lines[i + 1]) {
@@ -274,12 +277,12 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
     setScriptData({ ...scriptData, questions: newQuestions });
   };
 
-
-
   if (loading) {
     return (
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
-        <Typography variant="h6" color="text.secondary">Loading editor...</Typography>
+        <Typography variant="h6" color="text.secondary">
+          Loading editor...
+        </Typography>
       </Box>
     );
   }
@@ -334,9 +337,9 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
 
       <Stack spacing={4}>
         {/* Category Selection */}
-        <Stack 
-          direction={{ xs: 'column', md: 'row' }} 
-          spacing={2} 
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={2}
           sx={{ width: '100%', alignItems: { xs: 'stretch', md: 'center' } }}
         >
           <FormControl sx={{ flex: 1, minWidth: { md: 200 }, width: '100%' }}>
@@ -348,12 +351,12 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                 const cat = e.target.value;
                 let positions: number[] = [];
                 if (cat === '자기소개') positions = [1];
-                
+
                 setScriptData({
                   ...scriptData,
                   category: cat,
                   subCategory: '',
-                  comboPositions: positions
+                  comboPositions: positions,
                 });
               }}
               sx={{
@@ -361,12 +364,16 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                 borderRadius: 1.5,
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: (theme) => alpha(theme.palette.grey[500], 0.2),
-                }
+                },
               }}
             >
-              <MenuItem value=""><em>미지정</em></MenuItem>
+              <MenuItem value="">
+                <em>미지정</em>
+              </MenuItem>
               {CATEGORY_OPTIONS.map((option) => (
-                <MenuItem key={option} value={option}>{option}</MenuItem>
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -380,37 +387,45 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                 onChange={(e) => {
                   const subCat = e.target.value;
                   let positions = scriptData.comboPositions || [];
-                  
+
                   if (scriptData.category === '롤플레이' && subCat === '13번 - 과거 경험') {
                     positions = [13];
                   } else if (scriptData.category === '14, 15') {
                     if (subCat === '과거 현재 비교') positions = [14];
                     else if (subCat === '사회 이슈') positions = [15];
                   }
-                  
-                  setScriptData({ 
-                    ...scriptData, 
+
+                  setScriptData({
+                    ...scriptData,
                     subCategory: subCat,
-                    comboPositions: positions 
+                    comboPositions: positions,
                   });
                 }}
-                sx={{ 
+                sx={{
                   bgcolor: 'background.paper',
                   borderRadius: 1.5,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: (theme) => alpha(theme.palette.grey[500], 0.2),
-                  }
+                  },
                 }}
               >
-                <MenuItem value=""><em>미지정</em></MenuItem>
+                <MenuItem value="">
+                  <em>미지정</em>
+                </MenuItem>
                 {SUB_CATEGORY_OPTIONS[scriptData.category]?.map((option) => (
-                  <MenuItem key={option} value={option}>{option}</MenuItem>
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
           )}
 
-          {(scriptData.category === '자기소개' || ((scriptData.category === '콤보 세트' || scriptData.category === '롤플레이' || scriptData.category === '14, 15') && scriptData.subCategory)) && (
+          {(scriptData.category === '자기소개' ||
+            ((scriptData.category === '콤보 세트' ||
+              scriptData.category === '롤플레이' ||
+              scriptData.category === '14, 15') &&
+              scriptData.subCategory)) && (
             <Box
               sx={{
                 display: 'flex',
@@ -423,15 +438,16 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                 border: (theme) => `solid 1px ${alpha(theme.palette.grey[500], 0.2)}`,
                 flexShrink: 0,
                 alignSelf: { xs: 'flex-end', md: 'center' },
-                ...((
-                  scriptData.category === '자기소개' ||
-                  (scriptData.category === '롤플레이' && scriptData.subCategory === '13번 - 과거 경험') ||
-                  (scriptData.category === '14, 15' && (scriptData.subCategory === '과거 현재 비교' || scriptData.subCategory === '사회 이슈'))
-                ) && {
+                ...((scriptData.category === '자기소개' ||
+                  (scriptData.category === '롤플레이' &&
+                    scriptData.subCategory === '13번 - 과거 경험') ||
+                  (scriptData.category === '14, 15' &&
+                    (scriptData.subCategory === '과거 현재 비교' ||
+                      scriptData.subCategory === '사회 이슈'))) && {
                   bgcolor: (theme) => alpha(theme.palette.action.disabledBackground, 0.12),
                   opacity: 0.9,
                   pointerEvents: 'none',
-                })
+                }),
               }}
             >
               <Typography
@@ -454,13 +470,16 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                 value={scriptData.comboPositions || []}
                 disabled={
                   scriptData.category === '자기소개' ||
-                  (scriptData.category === '롤플레이' && scriptData.subCategory === '13번 - 과거 경험') ||
-                  (scriptData.category === '14, 15' && (scriptData.subCategory === '과거 현재 비교' || scriptData.subCategory === '사회 이슈'))
+                  (scriptData.category === '롤플레이' &&
+                    scriptData.subCategory === '13번 - 과거 경험') ||
+                  (scriptData.category === '14, 15' &&
+                    (scriptData.subCategory === '과거 현재 비교' ||
+                      scriptData.subCategory === '사회 이슈'))
                 }
                 onChange={(_, newPositions) => {
                   setScriptData({ ...scriptData, comboPositions: newPositions });
                 }}
-                sx={{ 
+                sx={{
                   '& .MuiToggleButton-root': {
                     border: 'none',
                     width: 32,
@@ -469,20 +488,20 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                     mx: 0.25,
                     fontWeight: 800,
                     fontSize: 12,
-                      '&.Mui-selected': {
+                    '&.Mui-selected': {
+                      bgcolor: 'text.primary',
+                      color: 'background.paper',
+                      '&:hover': { bgcolor: 'grey.800' },
+                      '&.Mui-disabled': {
                         bgcolor: 'text.primary',
                         color: 'background.paper',
-                        '&:hover': { bgcolor: 'grey.800' },
-                        '&.Mui-disabled': {
-                          bgcolor: 'text.primary',
-                          color: 'background.paper',
-                          opacity: 0.9
-                        }
+                        opacity: 0.9,
                       },
-                      '&.Mui-disabled': {
-                        color: 'text.disabled'
-                      }
-                  }
+                    },
+                    '&.Mui-disabled': {
+                      color: 'text.disabled',
+                    },
+                  },
                 }}
               >
                 {(() => {
@@ -510,13 +529,18 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
         {/* Question Configuration */}
         <Card sx={{ p: 3, border: (theme) => `solid 1px ${theme.vars.palette.divider}` }}>
           <Stack spacing={3}>
-            <Typography variant="h6" sx={{ fontWeight: 800 }}>Configuration</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              Configuration
+            </Typography>
 
             <Stack spacing={3}>
               {scriptData.questions.map((q, index) => (
                 <Stack key={index} spacing={3} sx={{ position: 'relative' }}>
                   <Stack direction="row" spacing={1} alignItems="flex-start">
-                    <Typography variant="caption" sx={{ fontWeight: 800, color: 'text.disabled', mt: 1 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{ fontWeight: 800, color: 'text.disabled', mt: 1 }}
+                    >
                       Q{index + 1}
                     </Typography>
                     <Stack spacing={2} sx={{ flexGrow: 1 }}>
@@ -534,20 +558,22 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                         placeholder="Type the English question here..."
                         slotProps={{
                           input: {
-                            sx: { color: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(q.en) ? 'error.main' : 'inherit' },
+                            sx: {
+                              color: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(q.en) ? 'error.main' : 'inherit',
+                            },
                             endAdornment: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(q.en) && (
                               <InputAdornment position="end">
-                                <IconButton 
-                                  size="small" 
-                                  color="warning" 
+                                <IconButton
+                                  size="small"
+                                  color="warning"
                                   onClick={() => handleSwapQuestion(index)}
                                   title="Swap Korean and English"
                                 >
                                   <SwapVertIcon />
                                 </IconButton>
                               </InputAdornment>
-                            )
-                          }
+                            ),
+                          },
                         }}
                       />
                       <TextField
@@ -576,7 +602,9 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                       <DeleteIcon />
                     </IconButton>
                   </Stack>
-                  {index < scriptData.questions.length - 1 && <Divider sx={{ borderStyle: 'dotted' }} />}
+                  {index < scriptData.questions.length - 1 && (
+                    <Divider sx={{ borderStyle: 'dotted' }} />
+                  )}
                 </Stack>
               ))}
 
@@ -588,7 +616,7 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                 onClick={() => {
                   setScriptData({
                     ...scriptData,
-                    questions: [...scriptData.questions, { en: '', ko: '' }]
+                    questions: [...scriptData.questions, { en: '', ko: '' }],
                   });
                 }}
                 sx={{
@@ -597,7 +625,10 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                   borderStyle: 'dashed',
                   borderRadius: 2,
                   borderColor: 'divider',
-                  '&:hover': { borderColor: 'primary.main', bgcolor: (theme) => alpha(theme.palette.primary.main, 0.04) }
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                    bgcolor: (theme) => alpha(theme.palette.primary.main, 0.04),
+                  },
                 }}
               >
                 Add Question Set
@@ -629,8 +660,13 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
 
             {scriptData.audioUrl && (
               <Box sx={{ p: 2, borderRadius: 1.5, bgcolor: 'background.neutral' }}>
-                <Typography variant="caption" sx={{ color: 'text.disabled', display: 'block', mb: 1, fontWeight: 800 }}>AUDIO PREVIEW</Typography>
-                
+                <Typography
+                  variant="caption"
+                  sx={{ color: 'text.disabled', display: 'block', mb: 1, fontWeight: 800 }}
+                >
+                  AUDIO PREVIEW
+                </Typography>
+
                 {audioError && (
                   <Typography variant="body2" color="error" sx={{ fontWeight: 700, mb: 1 }}>
                     존재하지 않는 URL입니다
@@ -643,10 +679,10 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
                   </Typography>
                 )}
 
-                <audio 
-                  controls 
-                  src={scriptData.audioUrl} 
-                  style={{ width: '100%', display: audioReady ? 'block' : 'none' }} 
+                <audio
+                  controls
+                  src={scriptData.audioUrl}
+                  style={{ width: '100%', display: audioReady ? 'block' : 'none' }}
                   onCanPlay={() => {
                     setAudioReady(true);
                     setAudioError(false);
@@ -666,7 +702,11 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
           <Stack direction="row" alignItems="center" justifyContent="space-between">
             <Typography variant="h6" sx={{ fontWeight: 800 }}>
               Script Lines
-              <Typography component="span" variant="body2" sx={{ ml: 1, color: 'text.disabled', fontWeight: 400 }}>
+              <Typography
+                component="span"
+                variant="body2"
+                sx={{ ml: 1, color: 'text.disabled', fontWeight: 400 }}
+              >
                 ({scriptData.lines.length} lines)
               </Typography>
             </Typography>
@@ -723,7 +763,10 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
               borderStyle: 'dashed',
               borderRadius: 2,
               borderColor: 'divider',
-              '&:hover': { borderColor: 'primary.main', bgcolor: (theme) => alpha(theme.palette.primary.main, 0.04) }
+              '&:hover': {
+                borderColor: 'primary.main',
+                bgcolor: (theme) => alpha(theme.palette.primary.main, 0.04),
+              },
             }}
           >
             Add New Line
@@ -743,7 +786,7 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
               px: 8,
               height: 56,
               borderRadius: 2,
-              boxShadow: (theme) => theme.customShadows?.primary
+              boxShadow: (theme) => theme.customShadows?.primary,
             }}
           >
             Save Script
@@ -761,16 +804,20 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
             fullWidth
             multiline
             rows={12}
-            placeholder={"Korean line 1\nEnglish translation 1\n\nKorean line 2\nEnglish translation 2..."}
+            placeholder={
+              'Korean line 1\nEnglish translation 1\n\nKorean line 2\nEnglish translation 2...'
+            }
             value={bulkText}
             onChange={(e) => setBulkText(e.target.value)}
             sx={{
-              '& .MuiInputBase-root': { fontFamily: 'monospace', fontSize: 14 }
+              '& .MuiInputBase-root': { fontFamily: 'monospace', fontSize: 14 },
             }}
           />
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <Button onClick={bulkModal.onFalse} color="inherit" variant="outlined">Cancel</Button>
+          <Button onClick={bulkModal.onFalse} color="inherit" variant="outlined">
+            Cancel
+          </Button>
           <Button
             variant="contained"
             color="info"

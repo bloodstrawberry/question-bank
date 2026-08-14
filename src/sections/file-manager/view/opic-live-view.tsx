@@ -71,7 +71,9 @@ export function OpicLiveView({ fileId, fileName, onBack, onEdit }: Props) {
 
   const questionAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  const [testResults, setTestResults] = useState<Record<number, { uWord: string; cWord: string; isCorrect: boolean; masked: string }[]>>({});
+  const [testResults, setTestResults] = useState<
+    Record<number, { uWord: string; cWord: string; isCorrect: boolean; masked: string }[]>
+  >({});
   const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
 
   // Pre-load voices for mobile support
@@ -102,10 +104,12 @@ export function OpicLiveView({ fileId, fileName, onBack, onEdit }: Props) {
       try {
         const data = await getFileScript(fileId);
         if (data && !data.questions && (data.questionEn || data.question)) {
-          data.questions = [{
-            en: data.questionEn || data.question || '',
-            ko: data.questionKo || ''
-          }];
+          data.questions = [
+            {
+              en: data.questionEn || data.question || '',
+              ko: data.questionKo || '',
+            },
+          ];
         }
         setScriptData(data || null);
         setAudioReady(false);
@@ -199,126 +203,150 @@ export function OpicLiveView({ fileId, fileName, onBack, onEdit }: Props) {
     userAnswersRef.current = userAnswers;
   }, [userAnswers]);
 
-  const handleCheckAnswer = useCallback((index: number, text?: string) => {
-    const currentAnswers = userAnswersRef.current;
-    const userAnswer = (text !== undefined ? text : (currentAnswers[index] || '')).trim();
-    const correctAnswer = (scriptData.lines[index].en || '').trim();
+  const handleCheckAnswer = useCallback(
+    (index: number, text?: string) => {
+      const currentAnswers = userAnswersRef.current;
+      const userAnswer = (text !== undefined ? text : currentAnswers[index] || '').trim();
+      const correctAnswer = (scriptData.lines[index].en || '').trim();
 
-    if (!userAnswer) return;
+      if (!userAnswer) return;
 
-    const uWords = userAnswer.split(/\s+/);
-    const cWords = correctAnswer.split(/\s+/);
+      const uWords = userAnswer.split(/\s+/);
+      const cWords = correctAnswer.split(/\s+/);
 
-    const clean = (str: string) => str?.toLowerCase().replace(/’/g, "'").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") || "";
+      const clean = (str: string) =>
+        str
+          ?.toLowerCase()
+          .replace(/’/g, "'")
+          .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '') || '';
 
-    // LCS-based Alignment
-    const uClean = uWords.map(clean);
-    const cClean = cWords.map(clean);
+      // LCS-based Alignment
+      const uClean = uWords.map(clean);
+      const cClean = cWords.map(clean);
 
-    const dp = Array(uClean.length + 1).fill(0).map(() => Array(cClean.length + 1).fill(0));
-    for (let i = 1; i <= uClean.length; i++) {
-      for (let j = 1; j <= cClean.length; j++) {
-        if (uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== "") {
-          dp[i][j] = dp[i - 1][j - 1] + 1;
+      const dp = Array(uClean.length + 1)
+        .fill(0)
+        .map(() => Array(cClean.length + 1).fill(0));
+      for (let i = 1; i <= uClean.length; i++) {
+        for (let j = 1; j <= cClean.length; j++) {
+          if (uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== '') {
+            dp[i][j] = dp[i - 1][j - 1] + 1;
+          } else {
+            dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+          }
+        }
+      }
+
+      const results: { uWord: string; cWord: string; isCorrect: boolean; masked: string }[] = [];
+      let i = uClean.length;
+      let j = cClean.length;
+
+      while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== '') {
+          results.unshift({
+            uWord: uWords[i - 1],
+            cWord: cWords[j - 1],
+            isCorrect: true,
+            masked: cWords[j - 1],
+          });
+          i--;
+          j--;
+        } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+          // Missing in user's answer (Gap in User)
+          results.unshift({
+            uWord: '',
+            cWord: cWords[j - 1],
+            isCorrect: false,
+            masked: cWords[j - 1].replace(/[a-zA-Z0-9]/g, '*'),
+          });
+          j--;
         } else {
-          dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+          // Extra in user's answer (Gap in Correct)
+          results.unshift({
+            uWord: uWords[i - 1],
+            cWord: '',
+            isCorrect: false,
+            masked: '',
+          });
+          i--;
         }
       }
-    }
 
-    const results: { uWord: string; cWord: string; isCorrect: boolean; masked: string }[] = [];
-    let i = uClean.length;
-    let j = cClean.length;
+      setTestResults((prev) => ({
+        ...prev,
+        [index]: results,
+      }));
 
-    while (i > 0 || j > 0) {
-      if (i > 0 && j > 0 && uClean[i - 1] === cClean[j - 1] && uClean[i - 1] !== "") {
-        results.unshift({
-          uWord: uWords[i - 1],
-          cWord: cWords[j - 1],
-          isCorrect: true,
-          masked: cWords[j - 1]
-        });
-        i--; j--;
-      } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
-        // Missing in user's answer (Gap in User)
-        results.unshift({
-          uWord: "",
-          cWord: cWords[j - 1],
-          isCorrect: false,
-          masked: cWords[j - 1].replace(/[a-zA-Z0-9]/g, "*")
-        });
-        j--;
-      } else {
-        // Extra in user's answer (Gap in Correct)
-        results.unshift({
-          uWord: uWords[i - 1],
-          cWord: "",
-          isCorrect: false,
-          masked: ""
-        });
-        i--;
+      // Auto-reveal if all words are correct
+      const isAllCorrect = results.every((r) => r.isCorrect);
+      if (isAllCorrect) {
+        setRevealedAnswers((prev) => ({ ...prev, [index]: true }));
       }
-    }
 
-    setTestResults(prev => ({
-      ...prev,
-      [index]: results
-    }));
+      // Refocus and scroll if it's the last script
+      if (index === (scriptData?.lines?.length || 0) - 1) {
+        setTimeout(() => {
+          const input = inputRefs.current[index];
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 150);
+      }
+    },
+    [scriptData?.lines, inputRefs]
+  );
 
-    // Auto-reveal if all words are correct
-    const isAllCorrect = results.every(r => r.isCorrect);
-    if (isAllCorrect) {
-      setRevealedAnswers(prev => ({ ...prev, [index]: true }));
-    }
+  const handleChangeAnswer = useCallback(
+    (index: number, value: string) => {
+      setUserAnswers((prev) => (prev[index] === value ? prev : { ...prev, [index]: value }));
+    },
+    [setUserAnswers]
+  );
 
-    // Refocus and scroll if it's the last script
-    if (index === (scriptData?.lines?.length || 0) - 1) {
-      setTimeout(() => {
-        const input = inputRefs.current[index];
-        if (input) {
-          input.focus();
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }, 150);
-    }
-  }, [scriptData?.lines, inputRefs]);
+  const handleToggleAnswerReveal = useCallback(
+    (index: number) => {
+      setRevealedAnswers((prev) => ({ ...prev, [index]: !prev[index] }));
 
-  const handleChangeAnswer = useCallback((index: number, value: string) => {
-    setUserAnswers((prev) => (prev[index] === value ? prev : { ...prev, [index]: value }));
-  }, [setUserAnswers]);
+      // Refocus and scroll if it's the last script
+      if (index === (scriptData?.lines?.length || 0) - 1) {
+        setTimeout(() => {
+          const input = inputRefs.current[index];
+          if (input) {
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 150);
+      }
+    },
+    [scriptData?.lines, inputRefs]
+  );
 
-  const handleToggleAnswerReveal = useCallback((index: number) => {
-    setRevealedAnswers(prev => ({ ...prev, [index]: !prev[index] }));
+  const setInputRef = useCallback(
+    (index: number, el: any) => {
+      inputRefs.current[index] = el;
+    },
+    [inputRefs]
+  );
 
-    // Refocus and scroll if it's the last script
-    if (index === (scriptData?.lines?.length || 0) - 1) {
-      setTimeout(() => {
-        const input = inputRefs.current[index];
-        if (input) {
-          input.focus();
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }, 150);
-    }
-  }, [scriptData?.lines, inputRefs]);
-
-  const setInputRef = useCallback((index: number, el: any) => {
-    inputRefs.current[index] = el;
-  }, [inputRefs]);
-
-  const handleFocusNextInput = useCallback((index: number, direction: 'next' | 'prev') => {
-    const nextIndex = direction === 'next' ? index + 1 : index - 1;
-    const nextInput = inputRefs.current[nextIndex];
-    if (nextInput) {
-      nextInput.focus();
-      nextInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }, [inputRefs]);
+  const handleFocusNextInput = useCallback(
+    (index: number, direction: 'next' | 'prev') => {
+      const nextIndex = direction === 'next' ? index + 1 : index - 1;
+      const nextInput = inputRefs.current[nextIndex];
+      if (nextInput) {
+        nextInput.focus();
+        nextInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    },
+    [inputRefs]
+  );
 
   if (loading) {
     return (
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
-        <Typography variant="h6" color="text.secondary">Loading script...</Typography>
+        <Typography variant="h6" color="text.secondary">
+          Loading script...
+        </Typography>
       </Box>
     );
   }
@@ -364,8 +392,13 @@ export function OpicLiveView({ fileId, fileName, onBack, onEdit }: Props) {
         {/* Script Lines */}
         <Stack spacing={2.5}>
           <Stack direction="row" alignItems="center" justifyContent="space-between">
-            <Typography variant="h6" sx={{ fontWeight: 800 }}>Script</Typography>
-            <Typography variant="caption" sx={{ color: testMode ? 'info.main' : 'text.disabled', fontWeight: 'bold' }}>
+            <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              Script
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{ color: testMode ? 'info.main' : 'text.disabled', fontWeight: 'bold' }}
+            >
               {testMode ? 'TEST MODE' : '* Click to reveal English'}
             </Typography>
           </Stack>
@@ -398,13 +431,15 @@ export function OpicLiveView({ fileId, fileName, onBack, onEdit }: Props) {
               onFocusNext={handleFocusNextInput}
             />
           )) || (
-              <Box sx={{ py: 10, textAlign: 'center', bgcolor: 'background.neutral', borderRadius: 2 }}>
-                <DescriptionRoundedIcon sx={{ fontSize: 48, color: 'text.disabled', mb: 2 }} />
-                <Typography variant="body2" sx={{ color: 'text.disabled' }}>
-                  No script lines available.
-                </Typography>
-              </Box>
-            )}
+            <Box
+              sx={{ py: 10, textAlign: 'center', bgcolor: 'background.neutral', borderRadius: 2 }}
+            >
+              <DescriptionRoundedIcon sx={{ fontSize: 48, color: 'text.disabled', mb: 2 }} />
+              <Typography variant="body2" sx={{ color: 'text.disabled' }}>
+                No script lines available.
+              </Typography>
+            </Box>
+          )}
         </Stack>
       </Stack>
     </Container>

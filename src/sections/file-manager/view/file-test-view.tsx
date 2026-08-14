@@ -137,7 +137,6 @@ export function FileTestView({ title, category }: Props) {
     });
   }
 
-
   const filters = useSetState<IFileFilters>({
     name: '',
     type: [],
@@ -214,21 +213,18 @@ export function FileTestView({ title, category }: Props) {
     [category]
   );
 
-  const handleDeleteItem = useCallback(
-    (id: string) => {
-      const deleteFromTree = (nodes: any[]): any[] =>
-        nodes
-          .filter((node) => node.id !== id)
-          .map((node) => ({
-            ...node,
-            children: node.children ? deleteFromTree(node.children) : undefined,
-          }));
+  const handleDeleteItem = useCallback((id: string) => {
+    const deleteFromTree = (nodes: any[]): any[] =>
+      nodes
+        .filter((node) => node.id !== id)
+        .map((node) => ({
+          ...node,
+          children: node.children ? deleteFromTree(node.children) : undefined,
+        }));
 
-      setTreeData((prev) => deleteFromTree(prev));
-      toast.success('Delete success!');
-    },
-    []
-  );
+    setTreeData((prev) => deleteFromTree(prev));
+    toast.success('Delete success!');
+  }, []);
 
   const handleDeleteItems = useCallback(() => {
     const idsToDelete = table.selected;
@@ -246,22 +242,19 @@ export function FileTestView({ title, category }: Props) {
     toast.success('Delete success!');
   }, [table]);
 
-  const handleFavoriteItem = useCallback(
-    (id: string) => {
-      const updateFavoriteInTree = (nodes: any[]): any[] =>
-        nodes.map((node) => {
-          if (node.id === id) {
-            return { ...node, isFavorited: !node.isFavorited, modifiedAt: new Date().toISOString() };
-          }
-          if (node.children) {
-            return { ...node, children: updateFavoriteInTree(node.children) };
-          }
-          return node;
-        });
-      setTreeData((prev) => updateFavoriteInTree(prev));
-    },
-    []
-  );
+  const handleFavoriteItem = useCallback((id: string) => {
+    const updateFavoriteInTree = (nodes: any[]): any[] =>
+      nodes.map((node) => {
+        if (node.id === id) {
+          return { ...node, isFavorited: !node.isFavorited, modifiedAt: new Date().toISOString() };
+        }
+        if (node.children) {
+          return { ...node, children: updateFavoriteInTree(node.children) };
+        }
+        return node;
+      });
+    setTreeData((prev) => updateFavoriteInTree(prev));
+  }, []);
 
   const handleOpenRename = useCallback(
     (id: string) => {
@@ -307,8 +300,13 @@ export function FileTestView({ title, category }: Props) {
   const scrollbarStyles = {
     '&::-webkit-scrollbar': { width: 5, height: 5 },
     '&::-webkit-scrollbar-track': { backgroundColor: 'transparent' },
-    '&::-webkit-scrollbar-thumb': { backgroundColor: (theme: any) => theme.vars.palette.divider, borderRadius: 10 },
-    '&::-webkit-scrollbar-thumb:hover': { backgroundColor: (theme: any) => theme.vars.palette.text.disabled },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: (theme: any) => theme.vars.palette.divider,
+      borderRadius: 10,
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: (theme: any) => theme.vars.palette.text.disabled,
+    },
   };
 
   return (
@@ -320,7 +318,7 @@ export function FileTestView({ title, category }: Props) {
           flexDirection: 'column',
           height: '100vh',
           p: 0,
-          overflow: 'hidden'
+          overflow: 'hidden',
         }}
       >
         <Box sx={{ flexGrow: 1, overflowY: 'auto', ...scrollbarStyles, p: 3 }}>
@@ -347,7 +345,7 @@ export function FileTestView({ title, category }: Props) {
                   onOpenRename={handleOpenRename}
                   onCreateItem={handleCreateItem}
                   onOpenConfirm={confirmDialog.onTrue}
-                  onNavigate={() => { }}
+                  onNavigate={() => {}}
                   onOpenFile={handleOpenFile}
                   notFound={notFound}
                   hideFolder
@@ -360,7 +358,7 @@ export function FileTestView({ title, category }: Props) {
               fileName={selectedFile.name}
               storageKey={storageKey}
               onBack={() => updateURL({ view: 'list', fileId: null, fileName: null })}
-              onSaveSuccess={() => { }}
+              onSaveSuccess={() => {}}
               onStartTest={() => updateURL({ view: 'live' })}
               onSave={(id) => {
                 const updateModifiedAt = (nodes: any[]): any[] =>
@@ -415,11 +413,7 @@ export function FileTestView({ title, category }: Props) {
         open={confirmDialog.value}
         onClose={confirmDialog.onFalse}
         title="Delete"
-        content={
-          <>
-            정말 삭제 하시겠습니까?
-          </>
-        }
+        content={<>정말 삭제 하시겠습니까?</>}
         action={
           <Button
             variant="contained"

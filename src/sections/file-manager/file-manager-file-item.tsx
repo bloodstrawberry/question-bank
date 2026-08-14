@@ -45,155 +45,147 @@ type Props = FileItemProps & {
   onFavorite?: (id: string) => void;
 };
 
-export const FileManagerFileItem = memo(({
-  file,
-  selected,
-  onSelect,
-  onDelete,
-  onEdit,
-  onCopy,
-  onOpenFile,
-  onFavorite,
-  sx,
-  ...other
-}: Props) => {
-  const menuActions = usePopover();
+export const FileManagerFileItem = memo(
+  ({
+    file,
+    selected,
+    onSelect,
+    onDelete,
+    onEdit,
+    onCopy,
+    onOpenFile,
+    onFavorite,
+    sx,
+    ...other
+  }: Props) => {
+    const menuActions = usePopover();
 
-  const checkbox = useBoolean();
-  const favorite = useBoolean(file.isFavorited);
+    const checkbox = useBoolean();
+    const favorite = useBoolean(file.isFavorited);
 
-  const [isMobileDevice, setIsMobileDevice] = useState(false);
+    const [isMobileDevice, setIsMobileDevice] = useState(false);
 
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-    id: file.id,
-  });
+    const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+      id: file.id,
+    });
 
-  const style = transform
-    ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-        zIndex: 9999,
-        opacity: 0.8,
+    const style = transform
+      ? {
+          transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+          zIndex: 9999,
+          opacity: 0.8,
+        }
+      : undefined;
+
+    useEffect(() => {
+      setIsMobileDevice(getIsMobile());
+    }, []);
+
+    useEffect(() => {
+      if (file.isFavorited !== favorite.value) {
+        favorite.setValue(file.isFavorited);
       }
-    : undefined;
+    }, [file.isFavorited, favorite]);
 
-  useEffect(() => {
-    setIsMobileDevice(getIsMobile());
-  }, []);
+    const handleFavorite = useCallback(() => {
+      favorite.onToggle();
+      onFavorite?.(file.id);
+    }, [favorite, onFavorite, file.id]);
 
-  useEffect(() => {
-    if (file.isFavorited !== favorite.value) {
-      favorite.setValue(file.isFavorited);
-    }
-  }, [file.isFavorited, favorite]);
+    const handleDoubleClick = useCallback(() => {
+      onOpenFile?.();
+    }, [onOpenFile]);
 
-  const handleFavorite = useCallback(() => {
-    favorite.onToggle();
-    onFavorite?.(file.id);
-  }, [favorite, onFavorite, file.id]);
-
-  const handleDoubleClick = useCallback(() => {
-    onOpenFile?.();
-  }, [onOpenFile]);
-
-  const renderMenuActions = () => (
-    <CustomPopover
-      open={menuActions.open}
-      anchorEl={menuActions.anchorEl}
-      onClose={menuActions.onClose}
-      slotProps={{ arrow: { placement: 'right-top' } }}
-    >
-      <MenuList>
-        <MenuItem
-          onClick={() => {
-            menuActions.onClose();
-            onOpenFile?.();
-          }}
-        >
-          <VisibilityIcon sx={{ mr: 1, width: 18, height: 18 }} />
-          Open
-        </MenuItem>
-
-        <MenuItem
-          onClick={() => {
-            menuActions.onClose();
-            onEdit();
-          }}
-        >
-          <EditIcon sx={{ mr: 1, width: 18, height: 18 }} />
-          Rename
-        </MenuItem>
-
-        <MenuItem
-          onClick={() => {
-            menuActions.onClose();
-            onCopy?.();
-          }}
-        >
-          <ContentCopyIcon sx={{ mr: 1, width: 18, height: 18 }} />
-          Copy
-        </MenuItem>
-
-        <Divider sx={{ borderStyle: 'dashed' }} />
-
-        <MenuItem
-          onClick={() => {
-            onDelete();
-            menuActions.onClose();
-          }}
-          sx={{ color: 'error.main' }}
-        >
-          <DeleteIcon sx={{ mr: 1, width: 18, height: 18 }} />
-          Delete
-        </MenuItem>
-      </MenuList>
-    </CustomPopover>
-  );
-
-
-
-
-
-  return (
-    <>
-      <FileItem
-        ref={setNodeRef}
-        variant="outlined"
-        selected={selected}
-        sx={{ ...sx, ...style }}
-        onDoubleClick={handleDoubleClick}
-        onClick={isMobileDevice ? handleDoubleClick : undefined}
-        {...attributes}
-        {...listeners}
-        {...other}
+    const renderMenuActions = () => (
+      <CustomPopover
+        open={menuActions.open}
+        anchorEl={menuActions.anchorEl}
+        onClose={menuActions.onClose}
+        slotProps={{ arrow: { placement: 'right-top' } }}
       >
+        <MenuList>
+          <MenuItem
+            onClick={() => {
+              menuActions.onClose();
+              onOpenFile?.();
+            }}
+          >
+            <VisibilityIcon sx={{ mr: 1, width: 18, height: 18 }} />
+            Open
+          </MenuItem>
 
-        <FileItemIcon
-          id={file.id}
-          onMouseEnter={checkbox.onTrue}
-          onMouseLeave={checkbox.onFalse}
-          hovered={checkbox.value}
-          checked={selected}
-          onChange={onSelect}
-          fileType={file.type}
-        />
+          <MenuItem
+            onClick={() => {
+              menuActions.onClose();
+              onEdit();
+            }}
+          >
+            <EditIcon sx={{ mr: 1, width: 18, height: 18 }} />
+            Rename
+          </MenuItem>
 
-        <FileItemInfo
-          type="file"
-          title={file.name}
-          values={[fDateTime(file.modifiedAt)]}
-        />
+          <MenuItem
+            onClick={() => {
+              menuActions.onClose();
+              onCopy?.();
+            }}
+          >
+            <ContentCopyIcon sx={{ mr: 1, width: 18, height: 18 }} />
+            Copy
+          </MenuItem>
 
+          <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <FileItemActions
-          id={file.id}
-          checked={favorite.value}
-          onChange={handleFavorite}
-          openMenu={menuActions.open}
-          onOpenMenu={menuActions.onOpen}
-        />
-      </FileItem>
+          <MenuItem
+            onClick={() => {
+              onDelete();
+              menuActions.onClose();
+            }}
+            sx={{ color: 'error.main' }}
+          >
+            <DeleteIcon sx={{ mr: 1, width: 18, height: 18 }} />
+            Delete
+          </MenuItem>
+        </MenuList>
+      </CustomPopover>
+    );
 
-      {renderMenuActions()}
-    </>
-  );
-});
+    return (
+      <>
+        <FileItem
+          ref={setNodeRef}
+          variant="outlined"
+          selected={selected}
+          sx={{ ...sx, ...style }}
+          onDoubleClick={handleDoubleClick}
+          onClick={isMobileDevice ? handleDoubleClick : undefined}
+          {...attributes}
+          {...listeners}
+          {...other}
+        >
+          <FileItemIcon
+            id={file.id}
+            onMouseEnter={checkbox.onTrue}
+            onMouseLeave={checkbox.onFalse}
+            hovered={checkbox.value}
+            checked={selected}
+            onChange={onSelect}
+            fileType={file.type}
+          />
+
+          <FileItemInfo type="file" title={file.name} values={[fDateTime(file.modifiedAt)]} />
+
+          <FileItemActions
+            id={file.id}
+            checked={favorite.value}
+            onChange={handleFavorite}
+            openMenu={menuActions.open}
+            onOpenMenu={menuActions.onOpen}
+          />
+        </FileItem>
+
+        {renderMenuActions()}
+      </>
+    );
+  }
+);

@@ -92,8 +92,7 @@ export function Footer({
                 justifyContent: 'center',
                 [theme.breakpoints.up(layoutQuery)]: { mb: 0, justifyContent: 'flex-start' },
               })}
-            >
-            </Box>
+            ></Box>
           </Grid>
 
           <Grid size={{ xs: 12, [layoutQuery]: 6 }}>

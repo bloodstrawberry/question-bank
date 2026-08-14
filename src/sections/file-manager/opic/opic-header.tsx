@@ -109,7 +109,8 @@ export function OpicHeader({
             variant="h5"
             sx={{
               fontWeight: 800,
-              color: (isContentSequence && autoPlay && !isAudioPlaying) ? 'error.main' : 'text.primary',
+              color:
+                isContentSequence && autoPlay && !isAudioPlaying ? 'error.main' : 'text.primary',
               transition: (theme) => theme.transitions.create('color'),
               wordBreak: 'break-all',
               overflow: 'hidden',
@@ -121,7 +122,10 @@ export function OpicHeader({
           </Typography>
 
           {totalFiles > 1 ? (
-            <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 700, wordBreak: 'break-all' }}>
+            <Typography
+              variant="caption"
+              sx={{ color: 'text.secondary', fontWeight: 700, wordBreak: 'break-all' }}
+            >
               {currentIndex + 1}/{totalFiles} • {currentFileName}
             </Typography>
           ) : (
@@ -210,13 +214,20 @@ export function OpicHeader({
 
           {storageKey === 'listening' && onToggleRandom && (
             <>
-              <Divider orientation="vertical" flexItem sx={{ mx: 0.5, height: 24, alignSelf: 'center' }} />
-              <Tooltip title={randomPlay ? "Shuffle: ON" : "Shuffle: OFF"}>
+              <Divider
+                orientation="vertical"
+                flexItem
+                sx={{ mx: 0.5, height: 24, alignSelf: 'center' }}
+              />
+              <Tooltip title={randomPlay ? 'Shuffle: ON' : 'Shuffle: OFF'}>
                 <IconButton
                   size="small"
                   color={randomPlay ? 'primary' : 'default'}
                   onClick={onToggleRandom}
-                  sx={{ bgcolor: (theme) => (randomPlay ? alpha(theme.palette.primary.main, 0.16) : 'background.neutral') }}
+                  sx={{
+                    bgcolor: (theme) =>
+                      randomPlay ? alpha(theme.palette.primary.main, 0.16) : 'background.neutral',
+                  }}
                 >
                   <ShuffleIcon />
                 </IconButton>
@@ -230,7 +241,8 @@ export function OpicHeader({
                 color={testMode ? 'info' : 'default'}
                 onClick={onToggleTestMode}
                 sx={{
-                  bgcolor: (theme) => (testMode ? alpha(theme.palette.info.main, 0.16) : 'background.neutral'),
+                  bgcolor: (theme) =>
+                    testMode ? alpha(theme.palette.info.main, 0.16) : 'background.neutral',
                 }}
               >
                 <AssignmentTurnedInIcon />
@@ -238,35 +250,64 @@ export function OpicHeader({
             </Tooltip>
           )}
 
-          <Tooltip title={allRevealed ? "Hide All (Ctrl + R)" : "Reveal All (Ctrl + R)"}>
+          <Tooltip title={allRevealed ? 'Hide All (Ctrl + R)' : 'Reveal All (Ctrl + R)'}>
             <IconButton
               size="small"
               color={allRevealed ? 'warning' : 'success'}
               onClick={onToggleAllRevealed}
-              sx={{ bgcolor: (theme) => (allRevealed ? alpha(theme.palette.warning.main, 0.16) : alpha(theme.palette.success.main, 0.16)) }}
+              sx={{
+                bgcolor: (theme) =>
+                  allRevealed
+                    ? alpha(theme.palette.warning.main, 0.16)
+                    : alpha(theme.palette.success.main, 0.16),
+              }}
             >
               {allRevealed ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </IconButton>
           </Tooltip>
 
           <Tooltip title="Edit (Ctrl + E)">
-            <IconButton size="small" color="primary" onClick={onEdit} sx={{ bgcolor: (theme) => alpha(theme.palette.primary.main, 0.16) }}>
+            <IconButton
+              size="small"
+              color="primary"
+              onClick={onEdit}
+              sx={{ bgcolor: (theme) => alpha(theme.palette.primary.main, 0.16) }}
+            >
               <EditIcon />
             </IconButton>
           </Tooltip>
 
           {onToggleAutoPlay && (
-            <Tooltip title={autoPlay ? (storageKey === 'listening' ? "Stop" : "Auto Play: ON") : (storageKey === 'listening' ? "Play" : "Auto Play: OFF")}>
+            <Tooltip
+              title={
+                autoPlay
+                  ? storageKey === 'listening'
+                    ? 'Stop'
+                    : 'Auto Play: ON'
+                  : storageKey === 'listening'
+                    ? 'Play'
+                    : 'Auto Play: OFF'
+              }
+            >
               <IconButton
                 size="small"
                 color={autoPlay ? 'primary' : 'default'}
                 onClick={onToggleAutoPlay}
-                sx={{ bgcolor: (theme) => (autoPlay ? alpha(theme.palette.primary.main, 0.16) : 'background.neutral') }}
+                sx={{
+                  bgcolor: (theme) =>
+                    autoPlay ? alpha(theme.palette.primary.main, 0.16) : 'background.neutral',
+                }}
               >
                 {storageKey === 'listening' ? (
-                  autoPlay ? <StopCircleIcon /> : <PlayCircleFilledIcon />
+                  autoPlay ? (
+                    <StopCircleIcon />
+                  ) : (
+                    <PlayCircleFilledIcon />
+                  )
+                ) : autoPlay ? (
+                  <PlayCircleFilledIcon />
                 ) : (
-                  autoPlay ? <PlayCircleFilledIcon /> : <PlayCircleOutlineIcon />
+                  <PlayCircleOutlineIcon />
                 )}
               </IconButton>
             </Tooltip>

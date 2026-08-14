@@ -17,6 +17,6 @@ export function useOpicSpeech() {
   const mobile = useMobile();
 
   const result = useMemo(() => (isMobile ? mobile : pc), [isMobile, mobile, pc]);
-  
+
   return { ...result, isMobile };
 }

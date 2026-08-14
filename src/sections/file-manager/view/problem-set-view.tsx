@@ -28,8 +28,10 @@ import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import FunctionsIcon from '@mui/icons-material/Functions';
 
 import { getFileScript } from 'src/api/indexDB';
+import { KatexMath } from 'src/components/katex';
 
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -41,6 +43,8 @@ interface Problem {
   hashtags: string[];
   question: string;
   description: string;
+  formulas?: string[];
+  formula?: string;
   choices: string[];
   answer: number;
   explanation: string;
@@ -55,16 +59,23 @@ interface Props {
   fileId: string;
   fileName: string;
   onBack: () => void;
-  onEdit: () => void;
+  onEdit: (problemIndex?: number) => void;
+  initialProblemIndex?: number;
 }
 
-export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
+export function ProblemSetView({
+  fileId,
+  fileName,
+  onBack,
+  onEdit,
+  initialProblemIndex = 0,
+}: Props) {
   const theme = useTheme();
 
   const [data, setData] = useState<ProblemSetData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [pageInput, setPageInput] = useState('1');
+  const [currentIndex, setCurrentIndex] = useState(initialProblemIndex);
+  const [pageInput, setPageInput] = useState(String(initialProblemIndex + 1));
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [submittedAnswers, setSubmittedAnswers] = useState<Record<number, boolean>>({});
   const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
@@ -72,8 +83,9 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
   useEffect(() => {
     const loadScript = async () => {
       setLoading(true);
-      setCurrentIndex(0);
-      setPageInput('1');
+      const startIdx = initialProblemIndex ?? 0;
+      setCurrentIndex(startIdx);
+      setPageInput(String(startIdx + 1));
       setSelectedAnswers({});
       setSubmittedAnswers({});
       setRevealedAnswers({});
@@ -81,6 +93,9 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
         const saved = await getFileScript(fileId);
         if (saved?.problems && saved.problems.length > 0) {
           setData(saved as ProblemSetData);
+          const validIndex = Math.min(Math.max(0, startIdx), saved.problems.length - 1);
+          setCurrentIndex(validIndex);
+          setPageInput(String(validIndex + 1));
         } else {
           setData(null);
         }
@@ -91,7 +106,7 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
       }
     };
     loadScript();
-  }, [fileId]);
+  }, [fileId, initialProblemIndex]);
 
   useEffect(() => {
     setPageInput(String(currentIndex + 1));
@@ -147,7 +162,7 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toLowerCase() === 'e') {
         event.preventDefault();
-        onEdit();
+        onEdit(currentIndex);
         return;
       }
 
@@ -167,7 +182,7 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
       return () => window.removeEventListener('keydown', handleKeyDown);
     }
     return undefined;
-  }, [data?.problems, onEdit]);
+  }, [data?.problems, onEdit, currentIndex]);
 
   const handleSelectAnswer = useCallback((problemIndex: number, choiceNum: number) => {
     // Don't allow changing after submission
@@ -227,7 +242,12 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
           <Typography variant="body1" sx={{ color: 'text.disabled', mb: 3 }}>
             등록된 문제가 없습니다.
           </Typography>
-          <Button variant="contained" color="primary" startIcon={<EditIcon />} onClick={onEdit}>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<EditIcon />}
+            onClick={() => onEdit(0)}
+          >
             문제 등록하기
           </Button>
         </Box>
@@ -237,6 +257,11 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
 
   const problem = data.problems[currentIndex] || data.problems[0];
   const pIndex = currentIndex;
+  const problemFormulas = Array.isArray(problem.formulas)
+    ? problem.formulas.filter((f) => f && f.trim())
+    : problem.formula && problem.formula.trim()
+      ? [problem.formula.trim()]
+      : [];
   const isSubmitted = !!submittedAnswers[pIndex];
   const isRevealed = !!revealedAnswers[pIndex];
   const selected = selectedAnswers[pIndex];
@@ -359,7 +384,7 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
           <Button
             variant="contained"
             color="warning"
-            onClick={onEdit}
+            onClick={() => onEdit(currentIndex)}
             startIcon={<EditIcon />}
             sx={{ boxShadow: (t) => t.customShadows?.warning }}
           >
@@ -527,6 +552,53 @@ export function ProblemSetView({ fileId, fileName, onBack, onEdit }: Props) {
                 </ReactMarkdown>
               </Box>
             )}
+
+          {/* Formulas */}
+          {problemFormulas.length > 0 && (
+            <Box
+              sx={{
+                p: 2,
+                borderRadius: 1.5,
+                bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
+                border: (t) => `1px solid ${alpha(t.palette.primary.main, 0.16)}`,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1.5,
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <FunctionsIcon color="primary" sx={{ fontSize: 20 }} />
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontWeight: 800,
+                    color: 'primary.main',
+                    textTransform: 'uppercase',
+                    letterSpacing: 0.5,
+                  }}
+                >
+                  수식
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                {problemFormulas.map((fText, fIdx) => (
+                  <Box
+                    key={fIdx}
+                    sx={{
+                      p: 1.5,
+                      borderRadius: 1,
+                      bgcolor: 'background.paper',
+                      border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                      boxShadow: (t) => t.customShadows?.z1,
+                    }}
+                  >
+                    <KatexMath math={fText} />
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          )}
 
           <Divider sx={{ borderStyle: 'dashed' }} />
 

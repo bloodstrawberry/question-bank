@@ -60,7 +60,6 @@ export const navData: NavSectionProps['data'] = [
           { title: '랜덤 듣기', path: paths.listening.random },
         ],
       },
-
     ],
   },
 ];
@@ -102,5 +101,4 @@ export const mainNavData: NavMainProps['data'] = [
       },
     ],
   },
-
 ];

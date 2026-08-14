@@ -129,6 +129,7 @@ export function FileManagerView() {
 
   const [viewMode, setViewMode] = useState<'list' | 'editor' | 'live'>('list');
   const [selectedFile, setSelectedFile] = useState<{ id: string; name: string } | null>(null);
+  const [activeProblemIndex, setActiveProblemIndex] = useState<number>(0);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { state: isCollapsed, setState: setIsCollapsed } = useLocalStorage(
@@ -156,9 +157,15 @@ export function FileManagerView() {
       const view = searchParams.get('view') as 'list' | 'editor' | 'live' | null;
       const fileId = searchParams.get('fileId');
       const fileName = searchParams.get('fileName');
+      const probIdx = searchParams.get('problemIndex');
 
       setCurrentFolderId(folderId || null);
       setViewMode(view || 'list');
+      if (probIdx !== null && !isNaN(parseInt(probIdx, 10))) {
+        setActiveProblemIndex(parseInt(probIdx, 10));
+      } else {
+        setActiveProblemIndex(0);
+      }
       if (fileId && fileName) {
         setSelectedFile({ id: fileId, name: fileName });
       } else {
@@ -173,6 +180,7 @@ export function FileManagerView() {
       view?: string | null;
       fileId?: string | null;
       fileName?: string | null;
+      problemIndex?: number | null;
     }) => {
       const newParams = new URLSearchParams(searchParams.toString());
 
@@ -191,6 +199,13 @@ export function FileManagerView() {
       if (params.fileName !== undefined) {
         if (params.fileName) newParams.set('fileName', params.fileName);
         else newParams.delete('fileName');
+      }
+      if (params.problemIndex !== undefined) {
+        if (params.problemIndex !== null && params.problemIndex !== undefined) {
+          newParams.set('problemIndex', String(params.problemIndex));
+        } else {
+          newParams.delete('problemIndex');
+        }
       }
 
       const query = newParams.toString();
@@ -1061,8 +1076,15 @@ export function FileManagerView() {
               <ProblemSetEditorView
                 fileId={selectedFile.id}
                 fileName={selectedFile.name}
-                onBack={() => updateURL({ view: 'list', fileId: null, fileName: null })}
-                onSaveSuccess={() => updateURL({ view: 'live' })}
+                initialProblemIndex={activeProblemIndex}
+                onBack={() =>
+                  updateURL({ view: 'list', fileId: null, fileName: null, problemIndex: null })
+                }
+                onSaveSuccess={(savedIdx) => {
+                  const targetIdx = savedIdx ?? activeProblemIndex;
+                  setActiveProblemIndex(targetIdx);
+                  updateURL({ view: 'live', problemIndex: targetIdx });
+                }}
                 onSave={(id) => {
                   const updateModifiedAt = (nodes: any[]): any[] =>
                     nodes.map((node) => {
@@ -1081,8 +1103,15 @@ export function FileManagerView() {
               <ProblemSetView
                 fileId={selectedFile.id}
                 fileName={selectedFile.name}
-                onBack={() => updateURL({ view: 'list', fileId: null, fileName: null })}
-                onEdit={() => updateURL({ view: 'editor' })}
+                initialProblemIndex={activeProblemIndex}
+                onBack={() =>
+                  updateURL({ view: 'list', fileId: null, fileName: null, problemIndex: null })
+                }
+                onEdit={(editIdx) => {
+                  const targetIdx = editIdx ?? activeProblemIndex;
+                  setActiveProblemIndex(targetIdx);
+                  updateURL({ view: 'editor', problemIndex: targetIdx });
+                }}
               />
             ) : null}
           </Box>

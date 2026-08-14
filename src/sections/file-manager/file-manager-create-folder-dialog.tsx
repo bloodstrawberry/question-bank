@@ -146,18 +146,14 @@ export function FileManagerCreateFolderDialog({
             value={files}
             onDrop={handleDrop}
             onRemove={handleRemoveFile}
-            sx={{ mt: (onCreate || onUpdate) ? 2 : 0 }}
+            sx={{ mt: onCreate || onUpdate ? 2 : 0 }}
           />
         )}
       </DialogContent>
 
       <DialogActions sx={{ p: (theme) => theme.spacing(1, 3, 3, 3) }}>
         {!hideUpload && (
-          <Button
-            variant="contained"
-            startIcon={<CloudUploadIcon />}
-            onClick={handleUpload}
-          >
+          <Button variant="contained" startIcon={<CloudUploadIcon />} onClick={handleUpload}>
             Upload
           </Button>
         )}

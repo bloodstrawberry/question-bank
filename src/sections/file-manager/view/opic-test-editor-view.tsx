@@ -76,14 +76,9 @@ type SortableScriptItemProps = {
 };
 
 function SortableScriptItem({ file, index, onRemove }: SortableScriptItemProps) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({ id: file.id });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: file.id,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -102,7 +97,10 @@ function SortableScriptItem({ file, index, onRemove }: SortableScriptItemProps) 
         display: 'flex',
         alignItems: 'center',
         border: (theme) => `solid 1px ${theme.vars.palette.divider}`,
-        bgcolor: (theme) => isDragging ? alpha(theme.palette.primary.main, 0.08) : alpha(theme.palette.background.neutral, 0.4),
+        bgcolor: (theme) =>
+          isDragging
+            ? alpha(theme.palette.primary.main, 0.08)
+            : alpha(theme.palette.background.neutral, 0.4),
         cursor: 'grab',
         '&:active': { cursor: 'grabbing' },
         touchAction: 'none', // Prevents scrolling while dragging on touch devices
@@ -123,7 +121,7 @@ function SortableScriptItem({ file, index, onRemove }: SortableScriptItemProps) 
           justifyContent: 'center',
           fontWeight: 800,
           mr: 2,
-          flexShrink: 0
+          flexShrink: 0,
         }}
       >
         {index + 1}
@@ -138,8 +136,8 @@ function SortableScriptItem({ file, index, onRemove }: SortableScriptItemProps) 
         </Typography>
       </Stack>
 
-      <IconButton 
-        color="error" 
+      <IconButton
+        color="error"
         onClick={(e) => {
           e.stopPropagation(); // Prevent drag start when clicking delete
           onRemove(file.id);
@@ -152,10 +150,18 @@ function SortableScriptItem({ file, index, onRemove }: SortableScriptItemProps) 
   );
 }
 
-export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, onStartTest, onSave, storageKey }: Props) {
+export function OpicTestEditorView({
+  fileId,
+  fileName,
+  onBack,
+  onSaveSuccess,
+  onStartTest,
+  onSave,
+  storageKey,
+}: Props) {
   const theme = useTheme();
 
-  const [playlist, setPlaylist] = useState<PlaylistData>({ 
+  const [playlist, setPlaylist] = useState<PlaylistData>({
     fileIds: [],
     audioUrlPriority: true,
     randomPlay: false,
@@ -229,8 +235,8 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
         const data = await getFileScript(fileId, storageKey);
         if (data && data.fileIds) {
           const uniqueFileIds = Array.from(new Set(data.fileIds as string[]));
-          const cleanedData = { 
-            ...data, 
+          const cleanedData = {
+            ...data,
             fileIds: uniqueFileIds,
             audioUrlPriority: data.audioUrlPriority ?? true,
             randomPlay: data.randomPlay ?? false,
@@ -239,7 +245,7 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
           setPlaylist(cleanedData);
           initialPlaylistRef.current = JSON.stringify(cleanedData);
         } else {
-          const defaultPlaylist = { 
+          const defaultPlaylist = {
             fileIds: [],
             audioUrlPriority: true,
             randomPlay: false,
@@ -257,25 +263,28 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
     loadPlaylist();
   }, [fileId, storageKey]);
 
-  const handleSave = useCallback(async (silent = false) => {
-    try {
-      const currentDataStr = JSON.stringify(playlist);
-      const hasChanged = currentDataStr !== initialPlaylistRef.current;
+  const handleSave = useCallback(
+    async (silent = false) => {
+      try {
+        const currentDataStr = JSON.stringify(playlist);
+        const hasChanged = currentDataStr !== initialPlaylistRef.current;
 
-      await saveFileScript(fileId, playlist, storageKey);
-      onSave?.(fileId);
-      
-      if (!silent || hasChanged) {
-        toast.success('Playlist saved successfully!');
+        await saveFileScript(fileId, playlist, storageKey);
+        onSave?.(fileId);
+
+        if (!silent || hasChanged) {
+          toast.success('Playlist saved successfully!');
+        }
+
+        initialPlaylistRef.current = currentDataStr;
+        onSaveSuccess();
+      } catch (error) {
+        console.error('Failed to save playlist', error);
+        toast.error('Failed to save playlist');
       }
-
-      initialPlaylistRef.current = currentDataStr;
-      onSaveSuccess();
-    } catch (error) {
-      console.error('Failed to save playlist', error);
-      toast.error('Failed to save playlist');
-    }
-  }, [fileId, playlist, storageKey, onSave, onSaveSuccess]);
+    },
+    [fileId, playlist, storageKey, onSave, onSaveSuccess]
+  );
 
   // Keyboard Shortcuts
   useEffect(() => {
@@ -306,13 +315,19 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
   };
 
   const selectedFiles = useMemo(() => {
-    return playlist.fileIds.map(id => driveFiles.find(f => f.id === id)).filter(Boolean) as { id: string; label: string; path: string }[];
+    return playlist.fileIds.map((id) => driveFiles.find((f) => f.id === id)).filter(Boolean) as {
+      id: string;
+      label: string;
+      path: string;
+    }[];
   }, [playlist.fileIds, driveFiles]);
 
   if (loading) {
     return (
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
-        <Typography variant="h6" color="text.secondary">Loading playlist...</Typography>
+        <Typography variant="h6" color="text.secondary">
+          Loading playlist...
+        </Typography>
       </Box>
     );
   }
@@ -371,7 +386,7 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
                 bgcolor: 'primary.main',
                 color: 'primary.contrastText',
                 boxShadow: (theme) => theme.customShadows?.primary,
-                '&:hover': { bgcolor: 'primary.dark' }
+                '&:hover': { bgcolor: 'primary.dark' },
               }}
             >
               <SaveIcon />
@@ -390,7 +405,7 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
                   bgcolor: 'info.main',
                   color: 'info.contrastText',
                   boxShadow: (theme) => theme.customShadows?.info,
-                  '&:hover': { bgcolor: 'info.dark' }
+                  '&:hover': { bgcolor: 'info.dark' },
                 }}
               >
                 <PlayArrowIcon />
@@ -403,7 +418,9 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
       <Stack spacing={4}>
         <Card sx={{ p: 3 }}>
           <Stack spacing={3}>
-            <Typography variant="h6" sx={{ fontWeight: 800 }}>DRIVE에서 스크립트 추가</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              DRIVE에서 스크립트 추가
+            </Typography>
 
             <Autocomplete
               multiple
@@ -439,19 +456,21 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
                           noWrap
                           sx={{
                             color: selected ? 'primary.main' : 'text.primary',
-                            fontWeight: selected ? 800 : 600
+                            fontWeight: selected ? 800 : 600,
                           }}
                         >
                           {option.label}
                         </Typography>
-                        <Typography variant="caption" sx={{ color: 'text.disabled', display: 'block' }} noWrap>
+                        <Typography
+                          variant="caption"
+                          sx={{ color: 'text.disabled', display: 'block' }}
+                          noWrap
+                        >
                           {option.path}
                         </Typography>
                       </Stack>
                       {selected && (
-                        <CheckCircleIcon
-                          sx={{ color: 'primary.main', width: 20, height: 20 }}
-                        />
+                        <CheckCircleIcon sx={{ color: 'primary.main', width: 20, height: 20 }} />
                       )}
                     </Stack>
                   </li>
@@ -485,42 +504,60 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
         </Card>
 
         {storageKey === 'listening' && (
-          <Card sx={{ 
-            p: 1.5, 
-            px: 2, 
-            bgcolor: (theme) => alpha(theme.palette.info.main, 0.04), 
-            border: (theme) => `dashed 1px ${alpha(theme.palette.info.main, 0.2)}`,
-          }}>
-            <Stack 
+          <Card
+            sx={{
+              p: 1.5,
+              px: 2,
+              bgcolor: (theme) => alpha(theme.palette.info.main, 0.04),
+              border: (theme) => `dashed 1px ${alpha(theme.palette.info.main, 0.2)}`,
+            }}
+          >
+            <Stack
               direction={{ xs: 'column', sm: 'row' }}
               alignItems={{ xs: 'flex-start', sm: 'center' }}
-              justifyContent="space-between" 
+              justifyContent="space-between"
               spacing={1.5}
             >
               <Stack direction="row" alignItems="center" spacing={1} sx={{ flexShrink: 0 }}>
                 <SettingsIcon sx={{ color: 'info.main', width: 20, height: 20 }} />
-                <Typography 
-                  variant="subtitle2" 
-                  sx={{ 
-                    fontWeight: 800, 
-                    color: 'info.main', 
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: 800,
+                    color: 'info.main',
                     whiteSpace: 'nowrap',
-                    fontSize: { xs: 14, md: 14 }
+                    fontSize: { xs: 14, md: 14 },
                   }}
                 >
                   Listening 설정
                 </Typography>
               </Stack>
 
-              <Stack direction="row" alignItems="center" spacing={1.5} sx={{ width: { xs: '100%', sm: 'auto' }, justifyContent: 'flex-end' }}>
-                <Stack direction="row" spacing={0.5} sx={{ bgcolor: 'background.neutral', p: 0.4, borderRadius: 1, flexShrink: 0 }}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={1.5}
+                sx={{ width: { xs: '100%', sm: 'auto' }, justifyContent: 'flex-end' }}
+              >
+                <Stack
+                  direction="row"
+                  spacing={0.5}
+                  sx={{ bgcolor: 'background.neutral', p: 0.4, borderRadius: 1, flexShrink: 0 }}
+                >
                   <Tooltip title="Audio URL이 있는 경우에만 재생됩니다.">
                     <Button
                       size="small"
                       variant={playlist.audioUrlPriority ? 'contained' : 'text'}
                       color={playlist.audioUrlPriority ? 'primary' : 'inherit'}
-                      onClick={() => setPlaylist(prev => ({ ...prev, audioUrlPriority: true }))}
-                      sx={{ px: { xs: 1.25, md: 2 }, py: 0.5, fontSize: 11.5, fontWeight: 800, height: 30, whiteSpace: 'nowrap' }}
+                      onClick={() => setPlaylist((prev) => ({ ...prev, audioUrlPriority: true }))}
+                      sx={{
+                        px: { xs: 1.25, md: 2 },
+                        py: 0.5,
+                        fontSize: 11.5,
+                        fontWeight: 800,
+                        height: 30,
+                        whiteSpace: 'nowrap',
+                      }}
                     >
                       Audio 우선
                     </Button>
@@ -529,42 +566,65 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
                     size="small"
                     variant={!playlist.audioUrlPriority ? 'contained' : 'text'}
                     color={!playlist.audioUrlPriority ? 'primary' : 'inherit'}
-                    onClick={() => setPlaylist(prev => ({ ...prev, audioUrlPriority: false }))}
-                    sx={{ px: { xs: 1.25, md: 2 }, py: 0.5, fontSize: 11.5, fontWeight: 800, height: 30, whiteSpace: 'nowrap' }}
+                    onClick={() => setPlaylist((prev) => ({ ...prev, audioUrlPriority: false }))}
+                    sx={{
+                      px: { xs: 1.25, md: 2 },
+                      py: 0.5,
+                      fontSize: 11.5,
+                      fontWeight: 800,
+                      height: 30,
+                      whiteSpace: 'nowrap',
+                    }}
                   >
                     Web Speech
                   </Button>
                 </Stack>
-                
-                <Divider orientation="vertical" flexItem sx={{ height: 16, alignSelf: 'center', opacity: 0.3, mx: { xs: 0.25, sm: 0.5 } }} />
+
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ height: 16, alignSelf: 'center', opacity: 0.3, mx: { xs: 0.25, sm: 0.5 } }}
+                />
 
                 <Stack direction="row" spacing={0.5} sx={{ flexShrink: 0 }}>
-                  <Tooltip title={playlist.randomPlay ? "랜덤 재생 On" : "랜덤 재생 Off"}>
+                  <Tooltip title={playlist.randomPlay ? '랜덤 재생 On' : '랜덤 재생 Off'}>
                     <IconButton
                       size="small"
                       color={playlist.randomPlay ? 'primary' : 'default'}
-                      onClick={() => setPlaylist(prev => ({ ...prev, randomPlay: !prev.randomPlay }))}
-                      sx={{ 
+                      onClick={() =>
+                        setPlaylist((prev) => ({ ...prev, randomPlay: !prev.randomPlay }))
+                      }
+                      sx={{
                         width: 28,
                         height: 28,
-                        bgcolor: (theme) => playlist.randomPlay ? alpha(theme.palette.primary.main, 0.1) : 'background.neutral',
-                        border: (theme) => `solid 1px ${playlist.randomPlay ? alpha(theme.palette.primary.main, 0.2) : 'transparent'}`
+                        bgcolor: (theme) =>
+                          playlist.randomPlay
+                            ? alpha(theme.palette.primary.main, 0.1)
+                            : 'background.neutral',
+                        border: (theme) =>
+                          `solid 1px ${playlist.randomPlay ? alpha(theme.palette.primary.main, 0.2) : 'transparent'}`,
                       }}
                     >
                       <ShuffleIcon sx={{ width: 16, height: 16 }} />
                     </IconButton>
                   </Tooltip>
 
-                  <Tooltip title={playlist.playQuestion ? "질문 재생 On" : "질문 재생 Off"}>
+                  <Tooltip title={playlist.playQuestion ? '질문 재생 On' : '질문 재생 Off'}>
                     <IconButton
                       size="small"
                       color={playlist.playQuestion ? 'info' : 'default'}
-                      onClick={() => setPlaylist(prev => ({ ...prev, playQuestion: !prev.playQuestion }))}
-                      sx={{ 
+                      onClick={() =>
+                        setPlaylist((prev) => ({ ...prev, playQuestion: !prev.playQuestion }))
+                      }
+                      sx={{
                         width: 28,
                         height: 28,
-                        bgcolor: (theme) => playlist.playQuestion ? alpha(theme.palette.info.main, 0.1) : 'background.neutral',
-                        border: (theme) => `solid 1px ${playlist.playQuestion ? alpha(theme.palette.info.main, 0.2) : 'transparent'}`
+                        bgcolor: (theme) =>
+                          playlist.playQuestion
+                            ? alpha(theme.palette.info.main, 0.1)
+                            : 'background.neutral',
+                        border: (theme) =>
+                          `solid 1px ${playlist.playQuestion ? alpha(theme.palette.info.main, 0.2) : 'transparent'}`,
                       }}
                     >
                       <QuestionAnswerIcon sx={{ width: 16, height: 16 }} />
@@ -583,20 +643,28 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
             </Typography>
 
             {storageKey !== 'listening' && (
-              <Tooltip title={playlist.randomPlay ? "랜덤 셔플 On" : "랜덤 셔플 Off"}>
+              <Tooltip title={playlist.randomPlay ? '랜덤 셔플 On' : '랜덤 셔플 Off'}>
                 <IconButton
                   size="small"
                   color={playlist.randomPlay ? 'primary' : 'default'}
-                  onClick={() => setPlaylist(prev => ({ ...prev, randomPlay: !prev.randomPlay }))}
-                  sx={{ 
+                  onClick={() => setPlaylist((prev) => ({ ...prev, randomPlay: !prev.randomPlay }))}
+                  sx={{
                     width: 32,
                     height: 32,
-                    bgcolor: (theme) => playlist.randomPlay ? alpha(theme.palette.primary.main, 0.1) : 'background.neutral',
-                    border: (theme) => `solid 1px ${playlist.randomPlay ? alpha(theme.palette.primary.main, 0.2) : 'transparent'}`,
-                    transition: (theme) => theme.transitions.create(['background-color', 'border-color']),
+                    bgcolor: (theme) =>
+                      playlist.randomPlay
+                        ? alpha(theme.palette.primary.main, 0.1)
+                        : 'background.neutral',
+                    border: (theme) =>
+                      `solid 1px ${playlist.randomPlay ? alpha(theme.palette.primary.main, 0.2) : 'transparent'}`,
+                    transition: (theme) =>
+                      theme.transitions.create(['background-color', 'border-color']),
                     '&:hover': {
-                      bgcolor: (theme) => playlist.randomPlay ? alpha(theme.palette.primary.main, 0.2) : alpha(theme.palette.action.hover, 0.1),
-                    }
+                      bgcolor: (theme) =>
+                        playlist.randomPlay
+                          ? alpha(theme.palette.primary.main, 0.2)
+                          : alpha(theme.palette.action.hover, 0.1),
+                    },
                   }}
                 >
                   <ShuffleIcon sx={{ width: 20, height: 20 }} />
@@ -611,10 +679,7 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
               collisionDetection={closestCenter}
               onDragEnd={handleDragEnd}
             >
-              <SortableContext
-                items={playlist.fileIds}
-                strategy={verticalListSortingStrategy}
-              >
+              <SortableContext items={playlist.fileIds} strategy={verticalListSortingStrategy}>
                 <Stack spacing={1.5} sx={{ userSelect: { xs: 'none', md: 'auto' } }}>
                   {selectedFiles.map((file, index) => (
                     <SortableScriptItem
@@ -648,4 +713,3 @@ export function OpicTestEditorView({ fileId, fileName, onBack, onSaveSuccess, on
     </Container>
   );
 }
-

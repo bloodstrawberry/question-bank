@@ -17,7 +17,7 @@ export function useOpicSpeech() {
   const [recordedAudios, setRecordedAudios] = useState<Record<number, string>>({});
   const [isListening, setIsListening] = useState<number | null>(null);
   const [isPreparing, setIsPreparing] = useState(false);
-  
+
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [speakingIndex, setSpeakingIndex] = useState<number | string | null>(null);
 
@@ -27,7 +27,7 @@ export function useOpicSpeech() {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   const mediaStreamRef = useRef<MediaStream | null>(null);
-  
+
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
   const isManualStopRef = useRef(false);
   const accumulatedTranscriptRef = useRef('');
@@ -49,14 +49,18 @@ export function useOpicSpeech() {
     if (recognitionRef.current) {
       try {
         recognitionRef.current.stop();
-      } catch (e) { /* already stopped */ }
+      } catch (e) {
+        /* already stopped */
+      }
       recognitionRef.current = null;
     }
 
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       try {
         mediaRecorderRef.current.stop();
-      } catch (e) { /* already stopped */ }
+      } catch (e) {
+        /* already stopped */
+      }
       mediaRecorderRef.current = null;
     }
 
@@ -73,7 +77,7 @@ export function useOpicSpeech() {
     if (silenceTimerRef.current) {
       clearTimeout(silenceTimerRef.current);
     }
-    
+
     // PC version: fixed 3 seconds
     const timeoutDuration = 3000;
     const timeoutMessage = '3초간 입력이 없어 녹음을 종료합니다.';
@@ -84,141 +88,167 @@ export function useOpicSpeech() {
     }, timeoutDuration);
   }, [stopListening]);
 
-  const setupRecognition = useCallback((index: number) => {
-    const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognitionCtor();
-    recognitionRef.current = recognition;
+  const setupRecognition = useCallback(
+    (index: number) => {
+      const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognitionCtor();
+      recognitionRef.current = recognition;
 
-    recognition.lang = 'en-US';
-    recognition.continuous = true; // Desktop is fine with continuous
-    recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      recognition.continuous = true; // Desktop is fine with continuous
+      recognition.interimResults = true;
 
-    recognition.onstart = () => {
-      setIsListening(index);
-      resetSilenceTimer();
-    };
+      recognition.onstart = () => {
+        setIsListening(index);
+        resetSilenceTimer();
+      };
 
-    recognition.onresult = (event: any) => {
-      resetSilenceTimer();
+      recognition.onresult = (event: any) => {
+        resetSilenceTimer();
 
-      let currentSessionTranscript = '';
-      for (let i = 0; i < event.results.length; ++i) {
-        currentSessionTranscript += event.results[i][0].transcript;
-      }
-
-      currentSessionTranscriptRef.current = currentSessionTranscript;
-      const fullTranscript = (accumulatedTranscriptRef.current + ' ' + currentSessionTranscript).trim();
-      
-      setUserAnswers((prev) => ({ ...prev, [index]: fullTranscript }));
-      
-      if (inputRefs.current[index]) {
-        inputRefs.current[index].value = fullTranscript;
-      }
-    };
-
-    recognition.onerror = (event: any) => {
-      console.warn('Speech recognition error', event.error);
-      if (event.error === 'not-allowed') {
-        toast.warning('마이크 권한이 거부되었습니다.');
-        stopListening();
-      }
-    };
-
-    recognition.onend = () => {
-      if (currentSessionTranscriptRef.current) {
-        accumulatedTranscriptRef.current = (accumulatedTranscriptRef.current + ' ' + currentSessionTranscriptRef.current).trim();
-        currentSessionTranscriptRef.current = '';
-      }
-
-      if (!isManualStopRef.current && isListeningRef.current === index) {
-        try {
-          recognition.start();
-        } catch (e) {
-          console.warn('Speech recognition restart failed', e);
-        }
-      }
-    };
-
-    return recognition;
-  }, [resetSilenceTimer, stopListening]);
-
-  const startListening = useCallback((index: number) => {
-    const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-    if (!SpeechRecognitionCtor) {
-      toast.warning('이 브라우저는 음성 인식을 지원하지 않습니다. Chrome 혹은 Safari 최신 버전을 사용해주세요.');
-      return;
-    }
-
-    isManualStopRef.current = false;
-    accumulatedTranscriptRef.current = '';
-    currentSessionTranscriptRef.current = '';
-
-    if (recognitionRef.current) { try { recognitionRef.current.abort(); } catch (e) { } }
-    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') { try { mediaRecorderRef.current.stop(); } catch (e) { } }
-    if (mediaStreamRef.current) { mediaStreamRef.current.getTracks().forEach((t) => t.stop()); mediaStreamRef.current = null; }
-    if (typeof window !== 'undefined' && window.speechSynthesis?.speaking) window.speechSynthesis.cancel();
-
-    setIsPreparing(true);
-
-    // =========================================================
-    // 데스크톱 경로: SpeechRecognition + MediaRecorder 동시 사용
-    // =========================================================
-    const initializeRecording = async () => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        mediaStreamRef.current = stream;
-
-        if (isManualStopRef.current) {
-          stream.getTracks().forEach(t => t.stop());
-          return;
+        let currentSessionTranscript = '';
+        for (let i = 0; i < event.results.length; ++i) {
+          currentSessionTranscript += event.results[i][0].transcript;
         }
 
-        const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorderRef.current = mediaRecorder;
-        audioChunksRef.current = [];
+        currentSessionTranscriptRef.current = currentSessionTranscript;
+        const fullTranscript = (
+          accumulatedTranscriptRef.current +
+          ' ' +
+          currentSessionTranscript
+        ).trim();
 
-        mediaRecorder.ondataavailable = (event) => {
-          if (event.data.size > 0) audioChunksRef.current.push(event.data);
-        };
+        setUserAnswers((prev) => ({ ...prev, [index]: fullTranscript }));
 
-        mediaRecorder.onstop = () => {
-          if (audioChunksRef.current.length > 0) {
-            const audioBlob = new Blob(audioChunksRef.current, { type: mediaRecorder.mimeType });
-            const audioUrl = URL.createObjectURL(audioBlob);
-            setRecordedAudios((prev) => {
-              if (prev[index]) URL.revokeObjectURL(prev[index]);
-              return { ...prev, [index]: audioUrl };
-            });
+        if (inputRefs.current[index]) {
+          inputRefs.current[index].value = fullTranscript;
+        }
+      };
+
+      recognition.onerror = (event: any) => {
+        console.warn('Speech recognition error', event.error);
+        if (event.error === 'not-allowed') {
+          toast.warning('마이크 권한이 거부되었습니다.');
+          stopListening();
+        }
+      };
+
+      recognition.onend = () => {
+        if (currentSessionTranscriptRef.current) {
+          accumulatedTranscriptRef.current = (
+            accumulatedTranscriptRef.current +
+            ' ' +
+            currentSessionTranscriptRef.current
+          ).trim();
+          currentSessionTranscriptRef.current = '';
+        }
+
+        if (!isManualStopRef.current && isListeningRef.current === index) {
+          try {
+            recognition.start();
+          } catch (e) {
+            console.warn('Speech recognition restart failed', e);
           }
-        };
-
-        const recognition = setupRecognition(index);
-
-        try {
-          recognition.start();
-        } catch (e) {
-          console.error('Recognition start failed', e);
         }
+      };
 
-        setTimeout(() => {
-          if (isManualStopRef.current || mediaRecorder.state !== 'inactive') return;
-          mediaRecorder.start();
-          setIsPreparing(false);
-          toast.info('준비되었습니다. 말씀해 주세요!');
-        }, 500);
+      return recognition;
+    },
+    [resetSilenceTimer, stopListening]
+  );
 
-      } catch (err) {
-        console.warn('Media setup failed', err);
-        setIsPreparing(false);
-        setIsListening(null);
-        toast.warning('마이크 접근 권한을 허용해 주세요.');
+  const startListening = useCallback(
+    (index: number) => {
+      const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognitionCtor) {
+        toast.warning(
+          '이 브라우저는 음성 인식을 지원하지 않습니다. Chrome 혹은 Safari 최신 버전을 사용해주세요.'
+        );
+        return;
       }
-    };
 
-    initializeRecording();
+      isManualStopRef.current = false;
+      accumulatedTranscriptRef.current = '';
+      currentSessionTranscriptRef.current = '';
 
-  }, [setupRecognition, stopListening]);
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.abort();
+        } catch (e) {}
+      }
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+        try {
+          mediaRecorderRef.current.stop();
+        } catch (e) {}
+      }
+      if (mediaStreamRef.current) {
+        mediaStreamRef.current.getTracks().forEach((t) => t.stop());
+        mediaStreamRef.current = null;
+      }
+      if (typeof window !== 'undefined' && window.speechSynthesis?.speaking)
+        window.speechSynthesis.cancel();
+
+      setIsPreparing(true);
+
+      // =========================================================
+      // 데스크톱 경로: SpeechRecognition + MediaRecorder 동시 사용
+      // =========================================================
+      const initializeRecording = async () => {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaStreamRef.current = stream;
+
+          if (isManualStopRef.current) {
+            stream.getTracks().forEach((t) => t.stop());
+            return;
+          }
+
+          const mediaRecorder = new MediaRecorder(stream);
+          mediaRecorderRef.current = mediaRecorder;
+          audioChunksRef.current = [];
+
+          mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) audioChunksRef.current.push(event.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            if (audioChunksRef.current.length > 0) {
+              const audioBlob = new Blob(audioChunksRef.current, { type: mediaRecorder.mimeType });
+              const audioUrl = URL.createObjectURL(audioBlob);
+              setRecordedAudios((prev) => {
+                if (prev[index]) URL.revokeObjectURL(prev[index]);
+                return { ...prev, [index]: audioUrl };
+              });
+            }
+          };
+
+          const recognition = setupRecognition(index);
+
+          try {
+            recognition.start();
+          } catch (e) {
+            console.error('Recognition start failed', e);
+          }
+
+          setTimeout(() => {
+            if (isManualStopRef.current || mediaRecorder.state !== 'inactive') return;
+            mediaRecorder.start();
+            setIsPreparing(false);
+            toast.info('준비되었습니다. 말씀해 주세요!');
+          }, 500);
+        } catch (err) {
+          console.warn('Media setup failed', err);
+          setIsPreparing(false);
+          setIsListening(null);
+          toast.warning('마이크 접근 권한을 허용해 주세요.');
+        }
+      };
+
+      initializeRecording();
+    },
+    [setupRecognition, stopListening]
+  );
 
   const recordedAudiosRef = useRef<Record<number, string>>({});
   useEffect(() => {
@@ -230,7 +260,7 @@ export function useOpicSpeech() {
       if (recognitionRef.current) recognitionRef.current.abort();
       if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
       if (mediaStreamRef.current) {
-        mediaStreamRef.current.getTracks().forEach(t => t.stop());
+        mediaStreamRef.current.getTracks().forEach((t) => t.stop());
       }
       if (currentAudioRef.current) {
         currentAudioRef.current.pause();
@@ -238,8 +268,10 @@ export function useOpicSpeech() {
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
-      Object.values(recordedAudiosRef.current).forEach(url => {
-        try { URL.revokeObjectURL(url); } catch (e) {}
+      Object.values(recordedAudiosRef.current).forEach((url) => {
+        try {
+          URL.revokeObjectURL(url);
+        } catch (e) {}
       });
     };
   }, []);
@@ -299,9 +331,10 @@ export function useOpicSpeech() {
     utterance.rate = 0.85;
 
     const voices = window.speechSynthesis.getVoices();
-    const enVoice = voices.find((v) => v.lang.startsWith('en') && v.name.includes('Google')) ||
-                    voices.find((v) => v.lang.startsWith('en')) ||
-                    voices[0];
+    const enVoice =
+      voices.find((v) => v.lang.startsWith('en') && v.name.includes('Google')) ||
+      voices.find((v) => v.lang.startsWith('en')) ||
+      voices[0];
     if (enVoice) utterance.voice = enVoice;
 
     utterance.onend = () => setSpeakingIndex(null);
@@ -329,7 +362,7 @@ export function useOpicSpeech() {
   const resetStates = useCallback(() => {
     setUserAnswers({});
     setRecordedAudios((prev) => {
-      Object.values(prev).forEach(url => URL.revokeObjectURL(url));
+      Object.values(prev).forEach((url) => URL.revokeObjectURL(url));
       return {};
     });
     setIsListening(null);

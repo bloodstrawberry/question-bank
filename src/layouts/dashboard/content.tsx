@@ -8,7 +8,6 @@ import { mergeClasses } from 'minimal-shared/utils';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 
-
 import { layoutClasses } from '../core';
 
 // ----------------------------------------------------------------------
@@ -27,7 +26,6 @@ export function DashboardContent({
   layoutQuery = 'lg',
   ...other
 }: DashboardContentProps) {
-
   const isNavHorizontal = false;
 
   return (
@@ -44,17 +42,19 @@ export function DashboardContent({
           [theme.breakpoints.up(layoutQuery)]: {
             px: 'var(--layout-dashboard-content-px)',
             ...(isNavHorizontal ? { '--layout-dashboard-content-pt': '40px' } : {}),
-            ...({ maxWidth: '90%' }),
+            ...{ maxWidth: '90%' },
           },
-          ...(disablePadding ? {
-            p: {
-              xs: 0,
-              sm: 0,
-              md: 0,
-              lg: 0,
-              xl: 0,
-            },
-          } : {}),
+          ...(disablePadding
+            ? {
+                p: {
+                  xs: 0,
+                  sm: 0,
+                  md: 0,
+                  lg: 0,
+                  xl: 0,
+                },
+              }
+            : {}),
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
