@@ -1,0 +1,641 @@
+import type { Problem } from './types';
+
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
+import ReactMarkdown from 'react-markdown';
+
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
+import Radio from '@mui/material/Radio';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Checkbox from '@mui/material/Checkbox';
+import Collapse from '@mui/material/Collapse';
+import Typography from '@mui/material/Typography';
+import CancelIcon from '@mui/icons-material/Cancel';
+import { alpha, useTheme } from '@mui/material/styles';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import FunctionsIcon from '@mui/icons-material/Functions';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+
+import { KatexMath } from 'src/components/katex';
+
+interface ProblemSetViewCardProps {
+  problem: Problem;
+  problemIndex: number;
+  isSubmitted: boolean;
+  isRevealed: boolean;
+  userSelections: number[];
+  onSelectAnswer: (choiceNum: number, isMultiple: boolean) => void;
+  onSubmitAnswer: () => void;
+  onRevealAnswer: () => void;
+}
+
+export function ProblemSetViewCard({
+  problem,
+  problemIndex,
+  isSubmitted,
+  isRevealed,
+  userSelections,
+  onSelectAnswer,
+  onSubmitAnswer,
+  onRevealAnswer,
+}: ProblemSetViewCardProps) {
+  const theme = useTheme();
+
+  const isMultiple = Boolean(problem.isMultipleAnswer);
+  const problemFormulas = Array.isArray(problem.formulas)
+    ? problem.formulas.filter((f) => f && f.trim())
+    : problem.formula && problem.formula.trim()
+      ? [problem.formula.trim()]
+      : [];
+  const problemExplanationFormulas = Array.isArray(problem.explanationFormulas)
+    ? problem.explanationFormulas.filter((f: string) => f && f.trim())
+    : problem.explanationFormula && problem.explanationFormula.trim()
+      ? [problem.explanationFormula.trim()]
+      : [];
+
+  const correctAnswersList = isMultiple
+    ? (problem.answers || []).slice().sort((a, b) => a - b)
+    : problem.answer
+      ? [problem.answer]
+      : [];
+
+  const isCorrect =
+    isSubmitted &&
+    (isMultiple
+      ? correctAnswersList.length === userSelections.length &&
+        correctAnswersList.every(
+          (val, idx) => [...userSelections].sort((a, b) => a - b)[idx] === val
+        )
+      : userSelections[0] === problem.answer);
+
+  return (
+    <Card
+      key={problemIndex}
+      sx={{
+        p: 3,
+        border: (t) => `solid 1px ${t.vars.palette.divider}`,
+        ...(isSubmitted && {
+          borderColor: isCorrect ? 'success.main' : 'error.main',
+          borderWidth: 2,
+        }),
+      }}
+    >
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
+        {/* Problem Number + Hashtags */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1.5 }}>
+            <Box
+              sx={{
+                width: 36,
+                height: 36,
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 800,
+                fontSize: 14,
+                bgcolor: isSubmitted ? (isCorrect ? 'success.main' : 'error.main') : 'text.primary',
+                color: 'background.paper',
+              }}
+            >
+              {problemIndex + 1}
+            </Box>
+
+            {isSubmitted && (
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 800,
+                  color: isCorrect ? 'success.main' : 'error.main',
+                }}
+              >
+                {isCorrect ? '정답!' : '오답'}
+              </Typography>
+            )}
+          </Box>
+
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              gap: 0.5,
+              justifyContent: 'flex-end',
+            }}
+          >
+            {problem.hashtags.map((tag, tagIndex) => (
+              <Chip
+                key={tagIndex}
+                label={tag}
+                size="small"
+                color="primary"
+                variant="soft"
+                sx={{ fontWeight: 600, fontSize: 12 }}
+              />
+            ))}
+          </Box>
+        </Box>
+
+        {/* Question */}
+        <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 700,
+              lineHeight: 1.8,
+              whiteSpace: 'pre-wrap',
+            }}
+          >
+            {problem.question}
+          </Typography>
+
+          {problem.isMultipleAnswer && problem.showMultipleCount !== false && (
+            <Chip
+              size="small"
+              color="warning"
+              variant="soft"
+              label={`정답 ${(problem.answers || []).length || 2}개`}
+              sx={{ fontWeight: 700, height: 22, fontSize: 11 }}
+            />
+          )}
+        </Box>
+
+        {/* Description */}
+        {problem.description &&
+          problem.description.trim() &&
+          problem.description.trim() !== '<p></p>' && (
+            <Box
+              sx={{
+                p: 2,
+                borderRadius: 1.5,
+                bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+                border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                '& p': {
+                  m: 0,
+                  mb: 1,
+                  fontSize: 14,
+                  lineHeight: 1.8,
+                  color: (t) => t.palette.text.secondary,
+                  '&:last-child': { mb: 0 },
+                },
+                '& h1, & h2, & h3': {
+                  mt: 1.5,
+                  mb: 0.5,
+                  fontWeight: 700,
+                  color: (t) => t.palette.text.secondary,
+                },
+                '& ul, & ol': {
+                  pl: 3,
+                  mb: 1,
+                  '& li': {
+                    fontSize: 14,
+                    lineHeight: 1.8,
+                    color: (t) => t.palette.text.secondary,
+                  },
+                },
+                '& code': {
+                  px: 0.5,
+                  py: 0.25,
+                  borderRadius: 0.5,
+                  fontSize: 13,
+                  fontFamily: 'monospace',
+                  bgcolor: (t) => alpha(t.palette.grey[500], 0.12),
+                  color: 'error.main',
+                },
+                '& pre': {
+                  p: 1.5,
+                  borderRadius: 1,
+                  bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                  overflow: 'auto',
+                  '& code': {
+                    bgcolor: 'transparent',
+                    color: (t) => t.palette.text.primary,
+                    px: 0,
+                    py: 0,
+                  },
+                },
+                '& blockquote': {
+                  m: 0,
+                  pl: 2,
+                  borderLeft: (t) => `3px solid ${t.palette.primary.main}`,
+                  color: (t) => t.palette.text.disabled,
+                  fontStyle: 'italic',
+                },
+                '& strong': { fontWeight: 700 },
+                '& table': {
+                  width: '100%',
+                  borderCollapse: 'collapse',
+                  '& th, & td': {
+                    px: 1.5,
+                    py: 1,
+                    fontSize: 13,
+                    border: (t) => `1px solid ${t.palette.divider}`,
+                  },
+                  '& th': {
+                    fontWeight: 700,
+                    bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                  },
+                },
+              }}
+            >
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                {problem.description}
+              </ReactMarkdown>
+            </Box>
+          )}
+
+        {/* Formulas */}
+        {problemFormulas.length > 0 && (
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: 1.5,
+              bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+              border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1.5,
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <FunctionsIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
+              <Typography
+                variant="caption"
+                sx={{
+                  fontWeight: 800,
+                  color: 'text.secondary',
+                  textTransform: 'uppercase',
+                  letterSpacing: 0.5,
+                }}
+              >
+                수식
+              </Typography>
+            </Box>
+
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              {problemFormulas.map((fText, fIdx) => (
+                <Box
+                  key={fIdx}
+                  sx={{
+                    p: 1.5,
+                    borderRadius: 1,
+                    bgcolor: 'background.paper',
+                    border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                    boxShadow: (t) => t.customShadows?.z1,
+                  }}
+                >
+                  <KatexMath math={fText} />
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        )}
+
+        <Divider sx={{ borderStyle: 'dashed' }} />
+
+        {/* Choices */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+          {problem.choices.map((choice, cIndex) => {
+            const choiceNum = cIndex + 1;
+            const isThisCorrect = correctAnswersList.includes(choiceNum);
+            const isThisSelected = userSelections.includes(choiceNum);
+
+            let choiceBgColor = 'transparent';
+            let choiceBorderColor = 'divider';
+            let choiceIcon = isMultiple ? (
+              <CheckBoxOutlineBlankIcon />
+            ) : (
+              <RadioButtonUncheckedIcon />
+            );
+
+            if (isSubmitted) {
+              if (isThisCorrect) {
+                choiceBgColor = alpha(theme.palette.success.main, 0.08);
+                choiceBorderColor = theme.palette.success.main;
+                choiceIcon = <CheckCircleIcon sx={{ color: 'success.main' }} />;
+              } else if (isThisSelected && !isThisCorrect) {
+                choiceBgColor = alpha(theme.palette.error.main, 0.08);
+                choiceBorderColor = theme.palette.error.main;
+                choiceIcon = <CancelIcon sx={{ color: 'error.main' }} />;
+              }
+            } else if (isThisSelected) {
+              choiceIcon = isMultiple ? (
+                <CheckBoxIcon color="primary" />
+              ) : (
+                <RadioButtonCheckedIcon color="primary" />
+              );
+            }
+
+            return (
+              <Box
+                key={cIndex}
+                onClick={() => !isSubmitted && onSelectAnswer(choiceNum, isMultiple)}
+                sx={{
+                  p: 1.5,
+                  borderRadius: 1.5,
+                  border: `1px solid`,
+                  borderColor: choiceBorderColor,
+                  bgcolor: choiceBgColor,
+                  cursor: isSubmitted ? 'default' : 'pointer',
+                  transition: (t) => t.transitions.create(['background-color', 'border-color']),
+                  ...(!isSubmitted && {
+                    '&:hover': {
+                      bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
+                      borderColor: 'primary.main',
+                    },
+                  }),
+                  ...(isThisSelected &&
+                    !isSubmitted && {
+                      bgcolor: (t) => alpha(t.palette.primary.main, 0.08),
+                      borderColor: 'primary.main',
+                      borderWidth: 2,
+                    }),
+                }}
+              >
+                <FormControlLabel
+                  value={choiceNum}
+                  disabled={isSubmitted}
+                  control={
+                    isMultiple ? (
+                      <Checkbox
+                        size="small"
+                        checked={isThisSelected}
+                        icon={isSubmitted && isThisCorrect ? choiceIcon : undefined}
+                        checkedIcon={isSubmitted ? choiceIcon : undefined}
+                        sx={{
+                          ...(isSubmitted &&
+                            isThisCorrect && {
+                              color: 'success.main',
+                            }),
+                        }}
+                      />
+                    ) : (
+                      <Radio
+                        size="small"
+                        checked={isThisSelected}
+                        icon={isSubmitted && isThisCorrect ? choiceIcon : undefined}
+                        checkedIcon={isSubmitted ? choiceIcon : undefined}
+                        sx={{
+                          ...(isSubmitted &&
+                            isThisCorrect && {
+                              color: 'success.main',
+                            }),
+                        }}
+                      />
+                    )
+                  }
+                  label={
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                      }}
+                    >
+                      {choiceNum}. {choice}
+                    </Typography>
+                  }
+                  sx={{
+                    m: 0,
+                    width: '100%',
+                    pointerEvents: 'none',
+                    '& .MuiFormControlLabel-label': { flexGrow: 1 },
+                  }}
+                />
+              </Box>
+            );
+          })}
+        </Box>
+
+        {/* Action Buttons */}
+        <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1.5, justifyContent: 'flex-end' }}>
+          {!isSubmitted && userSelections.length > 0 && (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={onSubmitAnswer}
+              sx={{ fontWeight: 700 }}
+            >
+              제출하기
+            </Button>
+          )}
+          <Button
+            variant={isRevealed ? 'contained' : 'outlined'}
+            color="info"
+            startIcon={<VisibilityIcon />}
+            onClick={onRevealAnswer}
+            sx={{ fontWeight: 700 }}
+          >
+            {isRevealed ? '정답 숨기기' : '정답 보기'}
+          </Button>
+        </Box>
+
+        {/* Answer Reveal Section */}
+        <Collapse in={isRevealed}>
+          <Box
+            sx={{
+              mt: 1,
+              p: 2.5,
+              borderRadius: 2,
+              bgcolor: (t) => alpha(t.palette.warning.main, 0.04),
+              border: (t) => `1px solid ${alpha(t.palette.warning.main, 0.16)}`,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2.5,
+            }}
+          >
+            {/* Correct Answer */}
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1 }}>
+              <CheckCircleIcon sx={{ color: 'success.main' }} />
+              <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
+                정답:{' '}
+                {correctAnswersList.length > 0 ? `${correctAnswersList.join(', ')}번` : '미지정'}
+              </Typography>
+            </Box>
+
+            {problem.explanation && (
+              <Box
+                sx={{
+                  '& p': {
+                    m: 0,
+                    mb: 1,
+                    fontSize: 14,
+                    lineHeight: 1.8,
+                    '&:last-child': { mb: 0 },
+                  },
+                  '& h1, & h2, & h3': { mt: 1.5, mb: 0.5, fontWeight: 700 },
+                  '& ul, & ol': { pl: 3, mb: 1, '& li': { fontSize: 14, lineHeight: 1.8 } },
+                  '& code': {
+                    px: 0.5,
+                    py: 0.25,
+                    borderRadius: 0.5,
+                    fontSize: 13,
+                    fontFamily: 'monospace',
+                    bgcolor: (t) => alpha(t.palette.grey[500], 0.12),
+                    color: (t) => t.palette.error.main,
+                  },
+                  '& pre': {
+                    p: 1.5,
+                    borderRadius: 1,
+                    bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                    overflow: 'auto',
+                    '& code': {
+                      bgcolor: 'transparent',
+                      color: (t) => t.palette.text.primary,
+                      px: 0,
+                      py: 0,
+                    },
+                  },
+                  '& blockquote': {
+                    m: 0,
+                    pl: 2,
+                    borderLeft: (t) => `3px solid ${t.palette.primary.main}`,
+                    color: (t) => t.palette.text.disabled,
+                    fontStyle: 'italic',
+                  },
+                  '& strong': { fontWeight: 700 },
+                  '& table': {
+                    borderCollapse: 'collapse',
+                    width: '100%',
+                    my: 1.5,
+                    '& td, & th': {
+                      border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.24)}`,
+                      px: 1.5,
+                      py: 1,
+                      fontSize: 14,
+                    },
+                    '& th': {
+                      bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                      fontWeight: 700,
+                    },
+                  },
+                }}
+              >
+                <Typography
+                  variant="subtitle2"
+                  sx={{ fontWeight: 700, color: 'text.secondary', mb: 1 }}
+                >
+                  해설
+                </Typography>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                  {problem.explanation}
+                </ReactMarkdown>
+              </Box>
+            )}
+
+            {/* Explanation Formulas */}
+            {problemExplanationFormulas.length > 0 && (
+              <Box
+                sx={{
+                  p: 2,
+                  borderRadius: 1.5,
+                  bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+                  border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 1.5,
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <FunctionsIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontWeight: 800,
+                      color: 'text.secondary',
+                      textTransform: 'uppercase',
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    해설 수식
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  {problemExplanationFormulas.map((fText: string, fIdx: number) => (
+                    <Box
+                      key={fIdx}
+                      sx={{
+                        p: 1.5,
+                        borderRadius: 1,
+                        bgcolor: 'background.paper',
+                        border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                        boxShadow: (t) => t.customShadows?.z1,
+                      }}
+                    >
+                      <KatexMath math={fText} />
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            )}
+
+            {/* Choice Explanations */}
+            {problem.choiceExplanations.some((e) => e) && (
+              <Box>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ fontWeight: 700, color: 'text.secondary', mb: 1.5 }}
+                >
+                  객관식별 설명
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  {problem.choiceExplanations.map((exp, cIndex) =>
+                    exp ? (
+                      <Box
+                        key={cIndex}
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          gap: 1,
+                          alignItems: 'flex-start',
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            minWidth: 24,
+                            height: 24,
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: 12,
+                            fontWeight: 800,
+                            bgcolor:
+                              problem.answer === cIndex + 1 ? 'success.main' : 'text.disabled',
+                            color: 'background.paper',
+                            flexShrink: 0,
+                            mt: 0.25,
+                          }}
+                        >
+                          {cIndex + 1}
+                        </Box>
+                        <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                          {exp}
+                        </Typography>
+                      </Box>
+                    ) : null
+                  )}
+                </Box>
+              </Box>
+            )}
+          </Box>
+        </Collapse>
+      </Box>
+    </Card>
+  );
+}

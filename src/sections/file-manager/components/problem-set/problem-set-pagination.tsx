@@ -1,0 +1,170 @@
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+
+interface ProblemSetPaginationProps {
+  currentIndex: number;
+  totalProblems: number;
+  pageInput: string;
+  onPrev: () => void;
+  onNext: () => void;
+  onPageInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onPageInputBlur: () => void;
+  onPageInputKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  variant?: 'header' | 'footer';
+}
+
+export function ProblemSetPagination({
+  currentIndex,
+  totalProblems,
+  pageInput,
+  onPrev,
+  onNext,
+  onPageInputChange,
+  onPageInputBlur,
+  onPageInputKeyDown,
+  variant = 'header',
+}: ProblemSetPaginationProps) {
+  if (variant === 'header') {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1,
+          bgcolor: 'background.neutral',
+          px: 1.5,
+          py: 0.5,
+          borderRadius: 1.5,
+        }}
+      >
+        <Tooltip title="이전 문제 (Shift + ←)">
+          <span>
+            <IconButton
+              size="small"
+              onClick={onPrev}
+              disabled={currentIndex === 0}
+              sx={{ color: 'text.primary' }}
+            >
+              <NavigateBeforeIcon />
+            </IconButton>
+          </span>
+        </Tooltip>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <Typography
+            variant="body2"
+            sx={{ fontWeight: 700, color: 'text.secondary', whiteSpace: 'nowrap' }}
+          >
+            문제
+          </Typography>
+          <TextField
+            size="small"
+            value={pageInput}
+            onChange={onPageInputChange}
+            onBlur={onPageInputBlur}
+            onKeyDown={onPageInputKeyDown}
+            slotProps={{
+              htmlInput: {
+                style: {
+                  textAlign: 'center',
+                  padding: '4px 6px',
+                  width: '40px',
+                  fontWeight: 700,
+                },
+              },
+            }}
+            sx={{
+              width: 52,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                bgcolor: 'background.paper',
+              },
+            }}
+          />
+          <Typography
+            variant="body2"
+            sx={{ fontWeight: 700, color: 'text.secondary', whiteSpace: 'nowrap' }}
+          >
+            / {totalProblems}
+          </Typography>
+        </Box>
+
+        <Tooltip title="다음 문제 (Shift + →)">
+          <span>
+            <IconButton
+              size="small"
+              onClick={onNext}
+              disabled={currentIndex === totalProblems - 1}
+              sx={{ color: 'text.primary' }}
+            >
+              <NavigateNextIcon />
+            </IconButton>
+          </span>
+        </Tooltip>
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Button
+        variant="outlined"
+        disabled={currentIndex === 0}
+        onClick={onPrev}
+        startIcon={<NavigateBeforeIcon />}
+        sx={{ fontWeight: 700 }}
+      >
+        이전 문제
+      </Button>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+        <Typography variant="body2" sx={{ fontWeight: 700, color: 'text.secondary' }}>
+          문제
+        </Typography>
+        <TextField
+          size="small"
+          value={pageInput}
+          onChange={onPageInputChange}
+          onBlur={onPageInputBlur}
+          onKeyDown={onPageInputKeyDown}
+          slotProps={{
+            htmlInput: {
+              style: {
+                textAlign: 'center',
+                padding: '4px 6px',
+                width: '40px',
+                fontWeight: 700,
+              },
+            },
+          }}
+          sx={{
+            width: 52,
+            '& .MuiOutlinedInput-root': {
+              borderRadius: 1,
+              bgcolor: 'background.paper',
+            },
+          }}
+        />
+        <Typography variant="body2" sx={{ fontWeight: 700, color: 'text.secondary' }}>
+          / {totalProblems}
+        </Typography>
+      </Box>
+
+      <Button
+        variant="outlined"
+        disabled={currentIndex === totalProblems - 1}
+        onClick={onNext}
+        endIcon={<NavigateNextIcon />}
+        sx={{ fontWeight: 700 }}
+      >
+        다음 문제
+      </Button>
+    </Box>
+  );
+}
