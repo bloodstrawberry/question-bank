@@ -17,6 +17,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import ListItemText from '@mui/material/ListItemText';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import Dialog from '@mui/material/Dialog';
@@ -156,8 +160,13 @@ interface Problem {
   description: string;
   formulas?: string[];
   formula?: string;
+  explanationFormulas?: string[];
+  explanationFormula?: string;
   choices: string[];
   answer: number;
+  answers?: number[];
+  isMultipleAnswer?: boolean;
+  showMultipleCount?: boolean;
   explanation: string;
   choiceExplanations: string[];
 }
@@ -172,8 +181,12 @@ function createEmptyProblem(): Problem {
     question: '',
     description: '',
     formulas: [],
+    explanationFormulas: [],
     choices: ['', '', '', ''],
     answer: 0,
+    answers: [],
+    isMultipleAnswer: false,
+    showMultipleCount: true,
     explanation: '',
     choiceExplanations: ['', '', '', ''],
   };
@@ -221,12 +234,31 @@ export function ProblemSetEditorView({
               ? p.choiceExplanations
               : [];
             const choiceExplanations = choices.map((_: string, i: number) => rawExps[i] || '');
+            const isMultipleAnswer = Boolean(p.isMultipleAnswer);
+            const rawAnswers = Array.isArray(p.answers)
+              ? p.answers
+              : typeof p.answer === 'number' && p.answer > 0
+                ? [p.answer]
+                : [];
+            const showMultipleCount =
+              p.showMultipleCount !== undefined ? Boolean(p.showMultipleCount) : true;
+
+            const explanationFormulas = Array.isArray(p.explanationFormulas)
+              ? p.explanationFormulas
+              : p.explanationFormula
+                ? [p.explanationFormula]
+                : [];
+
             return {
               ...createEmptyProblem(),
               ...p,
               choices,
               choiceExplanations,
               formulas: Array.isArray(p.formulas) ? p.formulas : p.formula ? [p.formula] : [],
+              explanationFormulas,
+              isMultipleAnswer,
+              answers: rawAnswers,
+              showMultipleCount,
             };
           });
           setData({ problems: normalized });
@@ -445,6 +477,43 @@ export function ProblemSetEditorView({
       const updatedText = currentText ? `${currentText} ${symbol}` : symbol;
       currentFormulas[formulaIndex] = updatedText;
       updateProblem(problemIndex, { formulas: currentFormulas });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleAddExplanationFormula = useCallback(
+    (problemIndex: number) => {
+      const current = data.problems[problemIndex].explanationFormulas || [];
+      updateProblem(problemIndex, { explanationFormulas: [...current, ''] });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeExplanationFormula = useCallback(
+    (problemIndex: number, formulaIndex: number, value: string) => {
+      const current = [...(data.problems[problemIndex].explanationFormulas || [])];
+      current[formulaIndex] = value;
+      updateProblem(problemIndex, { explanationFormulas: current });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveExplanationFormula = useCallback(
+    (problemIndex: number, formulaIndex: number) => {
+      const current = [...(data.problems[problemIndex].explanationFormulas || [])];
+      const updated = current.filter((_, i) => i !== formulaIndex);
+      updateProblem(problemIndex, { explanationFormulas: updated });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertExplanationSymbol = useCallback(
+    (problemIndex: number, formulaIndex: number, symbol: string) => {
+      const current = [...(data.problems[problemIndex].explanationFormulas || [])];
+      const currentText = current[formulaIndex] || '';
+      const updatedText = currentText ? `${currentText} ${symbol}` : symbol;
+      current[formulaIndex] = updatedText;
+      updateProblem(problemIndex, { explanationFormulas: current });
     },
     [data.problems, updateProblem]
   );
@@ -985,66 +1054,160 @@ export function ProblemSetEditorView({
             </Box>
 
             <Stack spacing={1.5}>
-              {problem.choices.map((choice, cIndex) => (
-                <Box
-                  key={cIndex}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1,
-                  }}
-                >
-                  <FastTextField
-                    fullWidth
-                    size="small"
-                    label={`${cIndex + 1}번`}
-                    value={choice}
-                    onChange={(val) => handleChangeChoice(pIndex, cIndex, val)}
-                    placeholder={`${cIndex + 1}번 선택지를 입력하세요`}
+              {problem.choices.map((choice, cIndex) => {
+                const isThisChoiceCorrect = problem.isMultipleAnswer
+                  ? (problem.answers || []).includes(cIndex + 1)
+                  : problem.answer === cIndex + 1;
+
+                return (
+                  <Box
+                    key={cIndex}
                     sx={{
-                      '& .MuiOutlinedInput-root': {
-                        ...(problem.answer === cIndex + 1 && {
-                          bgcolor: (t) => alpha(t.palette.success.main, 0.08),
-                          '& fieldset': {
-                            borderColor: 'success.main',
-                            borderWidth: 2,
-                          },
-                        }),
-                      },
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1,
                     }}
-                  />
-                  <IconButton
-                    size="small"
-                    color="error"
-                    disabled={problem.choices.length <= 2}
-                    onClick={() => handleRemoveChoice(pIndex, cIndex)}
-                    title="선택지 삭제"
                   >
-                    <DeleteIcon fontSize="small" />
-                  </IconButton>
-                </Box>
-              ))}
+                    <FastTextField
+                      fullWidth
+                      size="small"
+                      label={`${cIndex + 1}번`}
+                      value={choice}
+                      onChange={(val) => handleChangeChoice(pIndex, cIndex, val)}
+                      placeholder={`${cIndex + 1}번 선택지를 입력하세요`}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          ...(isThisChoiceCorrect && {
+                            bgcolor: (t) => alpha(t.palette.success.main, 0.08),
+                            '& fieldset': {
+                              borderColor: 'success.main',
+                              borderWidth: 2,
+                            },
+                          }),
+                        },
+                      }}
+                    />
+                    <IconButton
+                      size="small"
+                      color="error"
+                      disabled={problem.choices.length <= 2}
+                      onClick={() => handleRemoveChoice(pIndex, cIndex)}
+                      title="선택지 삭제"
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </Box>
+                );
+              })}
             </Stack>
           </Box>
 
           {/* Answer */}
-          <FormControl sx={{ maxWidth: 200 }}>
-            <InputLabel>정답 번호</InputLabel>
-            <Select
-              label="정답 번호"
-              value={problem.answer || ''}
-              onChange={(e) => updateProblem(pIndex, { answer: e.target.value as number })}
-            >
-              <MenuItem value="">
-                <em>미지정</em>
-              </MenuItem>
-              {Array.from({ length: problem.choices.length }, (_, i) => i + 1).map((num) => (
-                <MenuItem key={num} value={num}>
-                  {num}번
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 2.5 }}>
+            {!problem.isMultipleAnswer ? (
+              <FormControl sx={{ minWidth: 160 }}>
+                <InputLabel>정답 번호</InputLabel>
+                <Select
+                  label="정답 번호"
+                  value={problem.answer || ''}
+                  onChange={(e) => {
+                    const val = e.target.value as number;
+                    updateProblem(pIndex, { answer: val, answers: val ? [val] : [] });
+                  }}
+                >
+                  <MenuItem value="">
+                    <em>미지정</em>
+                  </MenuItem>
+                  {Array.from({ length: problem.choices.length }, (_, i) => i + 1).map((num) => (
+                    <MenuItem key={num} value={num}>
+                      {num}번
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            ) : (
+              <FormControl sx={{ minWidth: 220 }}>
+                <InputLabel>정답 번호 (복수 선택)</InputLabel>
+                <Select
+                  multiple
+                  label="정답 번호 (복수 선택)"
+                  value={problem.answers || []}
+                  onChange={(e) => {
+                    const val =
+                      typeof e.target.value === 'string'
+                        ? e.target.value.split(',').map(Number)
+                        : (e.target.value as number[]);
+                    const sorted = [...val].sort((a, b) => a - b);
+                    updateProblem(pIndex, {
+                      answers: sorted,
+                      answer: sorted[0] || 0,
+                    });
+                  }}
+                  renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {(selected as number[])
+                        .sort((a, b) => a - b)
+                        .map((num) => (
+                          <Chip key={num} size="small" label={`${num}번`} color="primary" />
+                        ))}
+                    </Box>
+                  )}
+                >
+                  {Array.from({ length: problem.choices.length }, (_, i) => i + 1).map((num) => (
+                    <MenuItem key={num} value={num}>
+                      <Checkbox checked={(problem.answers || []).indexOf(num) > -1} />
+                      <ListItemText primary={`${num}번`} />
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            )}
+
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={Boolean(problem.isMultipleAnswer)}
+                  onChange={(e) => {
+                    const checked = e.target.checked;
+                    const currentAnswers =
+                      problem.answers && problem.answers.length > 0
+                        ? problem.answers
+                        : problem.answer
+                          ? [problem.answer]
+                          : [];
+                    updateProblem(pIndex, {
+                      isMultipleAnswer: checked,
+                      answers: currentAnswers,
+                      showMultipleCount: problem.showMultipleCount !== false,
+                    });
+                  }}
+                  color="primary"
+                />
+              }
+              label={
+                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                  복수 정답
+                </Typography>
+              }
+            />
+
+            {problem.isMultipleAnswer && (
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={problem.showMultipleCount !== false}
+                    onChange={(e) => updateProblem(pIndex, { showMultipleCount: e.target.checked })}
+                    color="primary"
+                  />
+                }
+                label={
+                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                    문제에 정답 개수 표시 ({`정답 ${(problem.answers || []).length}개`})
+                  </Typography>
+                }
+              />
+            )}
+          </Box>
 
           <Divider sx={{ borderStyle: 'dashed' }} />
 
@@ -1056,6 +1219,149 @@ export function ProblemSetEditorView({
             placeholder="정답에 대한 해설을 입력하세요... (마크다운 지원)"
             minRows={3}
           />
+
+          {/* Explanation Formulas */}
+          <Box>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                mb: 1.5,
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <FunctionsIcon color="primary" sx={{ fontSize: 20 }} />
+                <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.secondary' }}>
+                  해설 수식 (KaTeX)
+                </Typography>
+              </Box>
+              <Button
+                size="small"
+                variant="outlined"
+                color="primary"
+                startIcon={<AddIcon />}
+                onClick={() => handleAddExplanationFormula(pIndex)}
+                sx={{ borderRadius: 1.5, fontWeight: 700 }}
+              >
+                해설 수식 추가
+              </Button>
+            </Box>
+
+            {!problem.explanationFormulas || problem.explanationFormulas.length === 0 ? (
+              <Box
+                onClick={() => handleAddExplanationFormula(pIndex)}
+                sx={{
+                  p: 3,
+                  border: (t) => `1px dashed ${alpha(t.palette.primary.main, 0.3)}`,
+                  borderRadius: 1.5,
+                  bgcolor: (t) => alpha(t.palette.primary.main, 0.02),
+                  textAlign: 'center',
+                  cursor: 'pointer',
+                  transition: (t) => t.transitions.create(['background-color', 'border-color']),
+                  '&:hover': {
+                    bgcolor: (t) => alpha(t.palette.primary.main, 0.06),
+                    borderColor: 'primary.main',
+                  },
+                }}
+              >
+                <FunctionsIcon sx={{ fontSize: 32, color: 'primary.main', mb: 1, opacity: 0.7 }} />
+                <Typography variant="body2" sx={{ fontWeight: 700, color: 'text.secondary' }}>
+                  등록된 해설 수식이 없습니다.
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{ color: 'text.disabled', display: 'block', mt: 0.5 }}
+                >
+                  "+ 해설 수식 추가" 버튼을 누르거나 여기를 클릭하여 LaTeX 수식을 입력하세요.
+                </Typography>
+              </Box>
+            ) : (
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                {problem.explanationFormulas.map((fText, fIndex) => (
+                  <Card
+                    key={fIndex}
+                    variant="outlined"
+                    sx={{
+                      p: 2,
+                      bgcolor: (t) => alpha(t.palette.grey[500], 0.02),
+                      borderColor: (t) => alpha(t.palette.grey[500], 0.2),
+                      borderRadius: 1.5,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        mb: 1.5,
+                      }}
+                    >
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 700, color: 'primary.main' }}
+                      >
+                        해설 수식 #{fIndex + 1}
+                      </Typography>
+                      <IconButton
+                        size="small"
+                        color="error"
+                        onClick={() => handleRemoveExplanationFormula(pIndex, fIndex)}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Box>
+
+                    {/* Quick Symbol Toolbar */}
+                    <Box sx={{ mb: 1.5 }}>
+                      <Typography
+                        variant="caption"
+                        sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}
+                      >
+                        자주 쓰는 기호 클릭 삽입:
+                      </Typography>
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                        {COMMON_LATEX_SYMBOLS.map((sym) => (
+                          <Chip
+                            key={sym.label}
+                            label={sym.label}
+                            size="small"
+                            clickable
+                            variant="outlined"
+                            onClick={() => handleInsertExplanationSymbol(pIndex, fIndex, sym.code)}
+                            sx={{
+                              fontSize: 11,
+                              fontWeight: 600,
+                              height: 22,
+                              borderRadius: 1,
+                              '&:hover': {
+                                bgcolor: (t) => alpha(t.palette.primary.main, 0.1),
+                              },
+                            }}
+                          />
+                        ))}
+                      </Box>
+                    </Box>
+
+                    <FastTextField
+                      fullWidth
+                      size="small"
+                      multiline
+                      minRows={2}
+                      label={`LaTeX 해설 수식 #${fIndex + 1}`}
+                      value={fText}
+                      onChange={(val) => handleChangeExplanationFormula(pIndex, fIndex, val)}
+                      placeholder="예: \int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}"
+                      sx={{ mb: 1.5 }}
+                    />
+
+                    {/* Live Preview Box */}
+                    <FormulaPreviewCard fText={fText} />
+                  </Card>
+                ))}
+              </Box>
+            )}
+          </Box>
 
           {/* Choice Explanations */}
           <Box>

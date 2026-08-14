@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Collapse from '@mui/material/Collapse';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -25,6 +26,9 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
@@ -45,8 +49,13 @@ interface Problem {
   description: string;
   formulas?: string[];
   formula?: string;
+  explanationFormulas?: string[];
+  explanationFormula?: string;
   choices: string[];
   answer: number;
+  answers?: number[];
+  isMultipleAnswer?: boolean;
+  showMultipleCount?: boolean;
   explanation: string;
   choiceExplanations: string[];
 }
@@ -76,7 +85,7 @@ export function ProblemSetView({
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(initialProblemIndex);
   const [pageInput, setPageInput] = useState(String(initialProblemIndex + 1));
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number[]>>({});
   const [submittedAnswers, setSubmittedAnswers] = useState<Record<number, boolean>>({});
   const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
 
@@ -184,20 +193,31 @@ export function ProblemSetView({
     return undefined;
   }, [data?.problems, onEdit, currentIndex]);
 
-  const handleSelectAnswer = useCallback((problemIndex: number, choiceNum: number) => {
-    // Don't allow changing after submission
-    setSubmittedAnswers((prev) => {
-      if (prev[problemIndex]) return prev;
-      setSelectedAnswers((s) => ({ ...s, [problemIndex]: choiceNum }));
-      return prev;
-    });
-  }, []);
+  const handleSelectAnswer = useCallback(
+    (problemIndex: number, choiceNum: number, isMultiple: boolean) => {
+      setSubmittedAnswers((prev) => {
+        if (prev[problemIndex]) return prev;
+        setSelectedAnswers((s) => {
+          const current = s[problemIndex] || [];
+          if (isMultiple) {
+            const updated = current.includes(choiceNum)
+              ? current.filter((n) => n !== choiceNum)
+              : [...current, choiceNum].sort((a, b) => a - b);
+            return { ...s, [problemIndex]: updated };
+          }
+          return { ...s, [problemIndex]: [choiceNum] };
+        });
+        return prev;
+      });
+    },
+    []
+  );
 
   const handleSubmitAnswer = useCallback(
     (problemIndex: number) => {
       if (!data) return;
       const selected = selectedAnswers[problemIndex];
-      if (!selected) return;
+      if (!selected || selected.length === 0) return;
 
       setSubmittedAnswers((prev) => ({ ...prev, [problemIndex]: true }));
       setRevealedAnswers((prev) => ({ ...prev, [problemIndex]: true }));
@@ -262,10 +282,30 @@ export function ProblemSetView({
     : problem.formula && problem.formula.trim()
       ? [problem.formula.trim()]
       : [];
+  const problemExplanationFormulas = Array.isArray(problem.explanationFormulas)
+    ? problem.explanationFormulas.filter((f: string) => f && f.trim())
+    : problem.explanationFormula && problem.explanationFormula.trim()
+      ? [problem.explanationFormula.trim()]
+      : [];
   const isSubmitted = !!submittedAnswers[pIndex];
   const isRevealed = !!revealedAnswers[pIndex];
-  const selected = selectedAnswers[pIndex];
-  const isCorrect = isSubmitted && selected === problem.answer;
+  const userSelections = selectedAnswers[pIndex] || [];
+  const isMultiple = Boolean(problem.isMultipleAnswer);
+
+  const correctAnswersList = isMultiple
+    ? (problem.answers || []).slice().sort((a, b) => a - b)
+    : problem.answer
+      ? [problem.answer]
+      : [];
+
+  const isCorrect =
+    isSubmitted &&
+    (isMultiple
+      ? correctAnswersList.length === userSelections.length &&
+        correctAnswersList.every(
+          (val, idx) => [...userSelections].sort((a, b) => a - b)[idx] === val
+        )
+      : userSelections[0] === problem.answer);
 
   return (
     <Container maxWidth={false} sx={{ py: { xs: 2, md: 5 }, px: { xs: 2, md: 8 } }}>
@@ -458,16 +498,28 @@ export function ProblemSetView({
           </Stack>
 
           {/* Question */}
-          <Typography
-            variant="subtitle1"
-            sx={{
-              fontWeight: 700,
-              lineHeight: 1.8,
-              whiteSpace: 'pre-wrap',
-            }}
-          >
-            {problem.question}
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontWeight: 700,
+                lineHeight: 1.8,
+                whiteSpace: 'pre-wrap',
+              }}
+            >
+              {problem.question}
+            </Typography>
+
+            {problem.isMultipleAnswer && problem.showMultipleCount !== false && (
+              <Chip
+                size="small"
+                color="warning"
+                variant="soft"
+                label={`정답 ${(problem.answers || []).length || 2}개`}
+                sx={{ fontWeight: 700, height: 22, fontSize: 11 }}
+              />
+            )}
+          </Box>
 
           {/* Description */}
           {problem.description &&
@@ -603,65 +655,74 @@ export function ProblemSetView({
           <Divider sx={{ borderStyle: 'dashed' }} />
 
           {/* Choices */}
-          <RadioGroup
-            value={selected || ''}
-            onChange={(e) => handleSelectAnswer(pIndex, parseInt(e.target.value, 10))}
-          >
-            <Stack spacing={1}>
-              {problem.choices.map((choice, cIndex) => {
-                const choiceNum = cIndex + 1;
-                const isThisCorrect = problem.answer === choiceNum;
-                const isThisSelected = selected === choiceNum;
+          <Stack spacing={1}>
+            {problem.choices.map((choice, cIndex) => {
+              const choiceNum = cIndex + 1;
+              const isThisCorrect = correctAnswersList.includes(choiceNum);
+              const isThisSelected = userSelections.includes(choiceNum);
 
-                let choiceBgColor = 'transparent';
-                let choiceBorderColor = 'divider';
-                let choiceIcon = <RadioButtonUncheckedIcon />;
+              let choiceBgColor = 'transparent';
+              let choiceBorderColor = 'divider';
+              let choiceIcon = isMultiple ? (
+                <CheckBoxOutlineBlankIcon />
+              ) : (
+                <RadioButtonUncheckedIcon />
+              );
 
-                if (isSubmitted) {
-                  if (isThisCorrect) {
-                    choiceBgColor = alpha(theme.palette.success.main, 0.08);
-                    choiceBorderColor = theme.palette.success.main;
-                    choiceIcon = <CheckCircleIcon sx={{ color: 'success.main' }} />;
-                  } else if (isThisSelected && !isThisCorrect) {
-                    choiceBgColor = alpha(theme.palette.error.main, 0.08);
-                    choiceBorderColor = theme.palette.error.main;
-                    choiceIcon = <CancelIcon sx={{ color: 'error.main' }} />;
-                  }
+              if (isSubmitted) {
+                if (isThisCorrect) {
+                  choiceBgColor = alpha(theme.palette.success.main, 0.08);
+                  choiceBorderColor = theme.palette.success.main;
+                  choiceIcon = <CheckCircleIcon sx={{ color: 'success.main' }} />;
+                } else if (isThisSelected && !isThisCorrect) {
+                  choiceBgColor = alpha(theme.palette.error.main, 0.08);
+                  choiceBorderColor = theme.palette.error.main;
+                  choiceIcon = <CancelIcon sx={{ color: 'error.main' }} />;
                 }
+              } else if (isThisSelected) {
+                choiceIcon = isMultiple ? (
+                  <CheckBoxIcon color="primary" />
+                ) : (
+                  <RadioButtonCheckedIcon color="primary" />
+                );
+              }
 
-                return (
-                  <Box
-                    key={cIndex}
-                    sx={{
-                      p: 1.5,
-                      borderRadius: 1.5,
-                      border: `1px solid`,
-                      borderColor: choiceBorderColor,
-                      bgcolor: choiceBgColor,
-                      cursor: isSubmitted ? 'default' : 'pointer',
-                      transition: (t) => t.transitions.create(['background-color', 'border-color']),
-                      ...(!isSubmitted && {
-                        '&:hover': {
-                          bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
-                          borderColor: 'primary.main',
-                        },
+              return (
+                <Box
+                  key={cIndex}
+                  onClick={() => !isSubmitted && handleSelectAnswer(pIndex, choiceNum, isMultiple)}
+                  sx={{
+                    p: 1.5,
+                    borderRadius: 1.5,
+                    border: `1px solid`,
+                    borderColor: choiceBorderColor,
+                    bgcolor: choiceBgColor,
+                    cursor: isSubmitted ? 'default' : 'pointer',
+                    transition: (t) => t.transitions.create(['background-color', 'border-color']),
+                    ...(!isSubmitted && {
+                      '&:hover': {
+                        bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
+                        borderColor: 'primary.main',
+                      },
+                    }),
+                    ...(isThisSelected &&
+                      !isSubmitted && {
+                        bgcolor: (t) => alpha(t.palette.primary.main, 0.08),
+                        borderColor: 'primary.main',
+                        borderWidth: 2,
                       }),
-                      ...(isThisSelected &&
-                        !isSubmitted && {
-                          bgcolor: (t) => alpha(t.palette.primary.main, 0.08),
-                          borderColor: 'primary.main',
-                          borderWidth: 2,
-                        }),
-                    }}
-                  >
-                    <FormControlLabel
-                      value={choiceNum}
-                      disabled={isSubmitted}
-                      control={
-                        <Radio
+                  }}
+                >
+                  <FormControlLabel
+                    value={choiceNum}
+                    disabled={isSubmitted}
+                    control={
+                      isMultiple ? (
+                        <Checkbox
                           size="small"
-                          checkedIcon={isSubmitted ? choiceIcon : undefined}
+                          checked={isThisSelected}
                           icon={isSubmitted && isThisCorrect ? choiceIcon : undefined}
+                          checkedIcon={isSubmitted ? choiceIcon : undefined}
                           sx={{
                             ...(isSubmitted &&
                               isThisCorrect && {
@@ -669,33 +730,46 @@ export function ProblemSetView({
                               }),
                           }}
                         />
-                      }
-                      label={
-                        <Typography
-                          variant="body2"
+                      ) : (
+                        <Radio
+                          size="small"
+                          checked={isThisSelected}
+                          icon={isSubmitted && isThisCorrect ? choiceIcon : undefined}
+                          checkedIcon={isSubmitted ? choiceIcon : undefined}
                           sx={{
-                            fontWeight:
-                              isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                            ...(isSubmitted &&
+                              isThisCorrect && {
+                                color: 'success.main',
+                              }),
                           }}
-                        >
-                          {choiceNum}. {choice}
-                        </Typography>
-                      }
-                      sx={{
-                        m: 0,
-                        width: '100%',
-                        '& .MuiFormControlLabel-label': { flexGrow: 1 },
-                      }}
-                    />
-                  </Box>
-                );
-              })}
-            </Stack>
-          </RadioGroup>
+                        />
+                      )
+                    }
+                    label={
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                        }}
+                      >
+                        {choiceNum}. {choice}
+                      </Typography>
+                    }
+                    sx={{
+                      m: 0,
+                      width: '100%',
+                      pointerEvents: 'none',
+                      '& .MuiFormControlLabel-label': { flexGrow: 1 },
+                    }}
+                  />
+                </Box>
+              );
+            })}
+          </Stack>
 
           {/* Action Buttons */}
           <Stack direction="row" spacing={1.5} justifyContent="flex-end">
-            {!isSubmitted && selected && (
+            {!isSubmitted && userSelections.length > 0 && (
               <Button
                 variant="contained"
                 color="primary"
@@ -732,7 +806,8 @@ export function ProblemSetView({
               <Stack direction="row" alignItems="center" spacing={1}>
                 <CheckCircleIcon sx={{ color: 'success.main' }} />
                 <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
-                  정답: {problem.answer}번
+                  정답:{' '}
+                  {correctAnswersList.length > 0 ? `${correctAnswersList.join(', ')}번` : '미지정'}
                 </Typography>
               </Stack>
 
@@ -788,6 +863,53 @@ export function ProblemSetView({
                   <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                     {problem.explanation}
                   </ReactMarkdown>
+                </Box>
+              )}
+
+              {/* Explanation Formulas */}
+              {problemExplanationFormulas.length > 0 && (
+                <Box
+                  sx={{
+                    p: 2,
+                    borderRadius: 1.5,
+                    bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
+                    border: (t) => `1px solid ${alpha(t.palette.primary.main, 0.16)}`,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1.5,
+                  }}
+                >
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <FunctionsIcon color="primary" sx={{ fontSize: 20 }} />
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        fontWeight: 800,
+                        color: 'primary.main',
+                        textTransform: 'uppercase',
+                        letterSpacing: 0.5,
+                      }}
+                    >
+                      해설 수식
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    {problemExplanationFormulas.map((fText: string, fIdx: number) => (
+                      <Box
+                        key={fIdx}
+                        sx={{
+                          p: 1.5,
+                          borderRadius: 1,
+                          bgcolor: 'background.paper',
+                          border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                          boxShadow: (t) => t.customShadows?.z1,
+                        }}
+                      >
+                        <KatexMath math={fText} />
+                      </Box>
+                    ))}
+                  </Box>
                 </Box>
               )}
 
