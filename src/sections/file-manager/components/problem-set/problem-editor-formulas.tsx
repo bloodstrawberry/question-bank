@@ -22,6 +22,7 @@ interface ProblemEditorFormulasProps {
   onInsertSymbol: (formulaIndex: number, symbol: string) => void;
   emptyPlaceholderText?: string;
   labelPrefix?: string;
+  hideHeader?: boolean;
 }
 
 export function ProblemEditorFormulas({
@@ -33,44 +34,47 @@ export function ProblemEditorFormulas({
   onInsertSymbol,
   emptyPlaceholderText = '등록된 수식이 없습니다.',
   labelPrefix = 'LaTeX 수식',
+  hideHeader = false,
 }: ProblemEditorFormulasProps) {
   return (
-    <Box sx={{ mt: 1 }}>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          mb: 1.5,
-        }}
-      >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <FunctionsIcon color="primary" sx={{ fontSize: 22 }} />
-          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
-            {title}
-          </Typography>
-          {formulas.length > 0 && (
-            <Chip
-              label={`${formulas.length}개`}
-              size="small"
-              color="primary"
-              variant="soft"
-              sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
-            />
-          )}
-        </Box>
-
-        <Button
-          size="small"
-          variant="outlined"
-          color="primary"
-          startIcon={<AddIcon />}
-          onClick={onAddFormula}
-          sx={{ borderRadius: 1.5, fontWeight: 700 }}
+    <Box sx={{ mt: hideHeader ? 0 : 1 }}>
+      {!hideHeader && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            mb: 1.5,
+          }}
         >
-          {title} 추가
-        </Button>
-      </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <FunctionsIcon color="primary" sx={{ fontSize: 22 }} />
+            <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
+              {title}
+            </Typography>
+            {formulas.length > 0 && (
+              <Chip
+                label={`${formulas.length}개`}
+                size="small"
+                color="primary"
+                variant="soft"
+                sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
+              />
+            )}
+          </Box>
+
+          <Button
+            size="small"
+            variant="outlined"
+            color="primary"
+            startIcon={<AddIcon />}
+            onClick={onAddFormula}
+            sx={{ borderRadius: 1.5, fontWeight: 700 }}
+          >
+            {title} 추가
+          </Button>
+        </Box>
+      )}
 
       {formulas.length === 0 ? (
         <Box

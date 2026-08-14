@@ -51,6 +51,7 @@ interface ProblemEditorErdsProps {
   onInsertTemplate: (erdIndex: number, template: string) => void;
   emptyPlaceholderText?: string;
   labelPrefix?: string;
+  hideHeader?: boolean;
 }
 
 export function ProblemEditorErds({
@@ -62,44 +63,47 @@ export function ProblemEditorErds({
   onInsertTemplate,
   emptyPlaceholderText = '등록된 ERD 다이어그램이 없습니다.',
   labelPrefix = 'ERD 다이어그램',
+  hideHeader = false,
 }: ProblemEditorErdsProps) {
   return (
-    <Box sx={{ mt: 1 }}>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          mb: 1.5,
-        }}
-      >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <SchemaIcon color="info" sx={{ fontSize: 22 }} />
-          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
-            {title}
-          </Typography>
-          {erds.length > 0 && (
-            <Chip
-              label={`${erds.length}개`}
-              size="small"
-              color="info"
-              variant="soft"
-              sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
-            />
-          )}
-        </Box>
-
-        <Button
-          size="small"
-          variant="outlined"
-          color="info"
-          startIcon={<AddIcon />}
-          onClick={onAddErd}
-          sx={{ borderRadius: 1.5, fontWeight: 700 }}
+    <Box sx={{ mt: hideHeader ? 0 : 1 }}>
+      {!hideHeader && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            mb: 1.5,
+          }}
         >
-          {title} 추가
-        </Button>
-      </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <SchemaIcon color="info" sx={{ fontSize: 22 }} />
+            <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
+              {title}
+            </Typography>
+            {erds.length > 0 && (
+              <Chip
+                label={`${erds.length}개`}
+                size="small"
+                color="info"
+                variant="soft"
+                sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
+              />
+            )}
+          </Box>
+
+          <Button
+            size="small"
+            variant="outlined"
+            color="info"
+            startIcon={<AddIcon />}
+            onClick={onAddErd}
+            sx={{ borderRadius: 1.5, fontWeight: 700 }}
+          >
+            {title} 추가
+          </Button>
+        </Box>
+      )}
 
       {erds.length === 0 ? (
         <Box

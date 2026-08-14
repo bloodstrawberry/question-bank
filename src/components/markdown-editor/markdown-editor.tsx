@@ -394,12 +394,13 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
 // ----------------------------------------------------------------------
 
 interface MarkdownEditorProps {
-  label: string;
+  label?: string;
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
   minRows?: number;
   readOnly?: boolean;
+  hideHeader?: boolean;
 }
 
 export function MarkdownEditor({
@@ -409,6 +410,7 @@ export function MarkdownEditor({
   placeholder,
   minRows = 4,
   readOnly = false,
+  hideHeader = false,
 }: MarkdownEditorProps) {
   const theme = useTheme();
   const [isMounted, setIsMounted] = useState(false);
@@ -548,29 +550,31 @@ export function MarkdownEditor({
       }}
     >
       {/* Label/Header banner */}
-      <Box
-        sx={{
-          px: 1.5,
-          py: 0.75,
-          borderBottom: `1px solid ${alpha(theme.palette.grey[500], 0.12)}`,
-          bgcolor: alpha(theme.palette.grey[500], 0.04),
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Typography
-          variant="caption"
+      {!hideHeader && label && (
+        <Box
           sx={{
-            fontWeight: 700,
-            color: 'text.secondary',
-            textTransform: 'uppercase',
-            letterSpacing: 0.5,
+            px: 1.5,
+            py: 0.75,
+            borderBottom: `1px solid ${alpha(theme.palette.grey[500], 0.12)}`,
+            bgcolor: alpha(theme.palette.grey[500], 0.04),
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
-          {label}
-        </Typography>
-      </Box>
+          <Typography
+            variant="caption"
+            sx={{
+              fontWeight: 700,
+              color: 'text.secondary',
+              textTransform: 'uppercase',
+              letterSpacing: 0.5,
+            }}
+          >
+            {label}
+          </Typography>
+        </Box>
+      )}
 
       {/* TipTap WYSIWYG Toolbar */}
       {editor && !readOnly && (

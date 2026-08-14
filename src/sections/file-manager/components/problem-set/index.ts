@@ -13,3 +13,5 @@ export * from './problem-editor-formulas';
 export * from './problem-editor-erds';
 export * from './problem-editor-bulk-dialog';
 export * from './problem-editor-answer-select';
+export * from './problem-editor-collapsible-section';
+

@@ -1,4 +1,5 @@
 import type { Problem } from './types';
+import { useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -8,6 +9,10 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import AddIcon from '@mui/icons-material/Add';
+import FunctionsIcon from '@mui/icons-material/Functions';
+import SchemaIcon from '@mui/icons-material/Schema';
+import ArticleIcon from '@mui/icons-material/Article';
 
 import Button from '@mui/material/Button';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
@@ -20,6 +25,11 @@ import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
 import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
+import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
+
+type SectionKey = 'description' | 'formulas' | 'erds' | 'explanationFormulas' | 'explanationErds';
+
+const LOCAL_STORAGE_KEY = 'problem_editor_expanded_sections';
 
 interface ProblemEditorCardProps {
   problem: Problem;
@@ -90,6 +100,66 @@ export function ProblemEditorCard({
   onOpenBulkDialog,
   onOpenProblemBulkDialog,
 }: ProblemEditorCardProps) {
+  const [userExpandedState, setUserExpandedState] = useState<
+    Record<SectionKey, boolean | undefined>
+  >({
+    description: undefined,
+    formulas: undefined,
+    erds: undefined,
+    explanationFormulas: undefined,
+    explanationErds: undefined,
+  });
+  const [hasLoadedStorage, setHasLoadedStorage] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === 'object') {
+          setUserExpandedState(parsed);
+        }
+      }
+    } catch (e) {
+      console.error('Failed to load expanded sections state:', e);
+    }
+    setHasLoadedStorage(true);
+  }, []);
+
+  useEffect(() => {
+    if (hasLoadedStorage) {
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(userExpandedState));
+      } catch (e) {
+        console.error('Failed to save expanded sections state:', e);
+      }
+    }
+  }, [userExpandedState, hasLoadedStorage]);
+
+  const isSectionExpanded = (key: SectionKey, hasContent: boolean): boolean => {
+    const manualState = userExpandedState[key];
+    if (typeof manualState === 'boolean') {
+      return manualState;
+    }
+    return hasContent;
+  };
+
+  const handleToggleSection = (key: SectionKey, hasContent: boolean) => {
+    const currentExpanded = isSectionExpanded(key, hasContent);
+    setUserExpandedState((prev) => ({
+      ...prev,
+      [key]: !currentExpanded,
+    }));
+  };
+
+  const handleExpandAndAdd = (key: SectionKey, addFn: () => void) => {
+    setUserExpandedState((prev) => ({
+      ...prev,
+      [key]: true,
+    }));
+    addFn();
+  };
+
   return (
     <Card
       key={problemIndex}
@@ -185,38 +255,102 @@ export function ProblemEditorCard({
           />
         </Box>
 
-        {/* Description */}
-        <MarkdownEditor
-          label="문제 추가 설명"
-          value={problem.description}
-          onChange={(val) => onUpdateProblem({ description: val })}
-          placeholder="문제에 대한 보충 설명을 입력하세요... (마크다운 지원)"
-          minRows={3}
-        />
+        {/* Description (Collapsible) */}
+        <ProblemEditorCollapsibleSection
+          title="문제 추가 설명"
+          icon={<ArticleIcon sx={{ fontSize: 20, color: 'text.secondary' }} />}
+          hasContent={Boolean(problem.description && problem.description.trim().length > 0)}
+          color="primary"
+          expanded={isSectionExpanded(
+            'description',
+            Boolean(problem.description && problem.description.trim().length > 0)
+          )}
+          onToggle={() =>
+            handleToggleSection(
+              'description',
+              Boolean(problem.description && problem.description.trim().length > 0)
+            )
+          }
+        >
+          <MarkdownEditor
+            hideHeader
+            label="문제 추가 설명"
+            value={problem.description}
+            onChange={(val) => onUpdateProblem({ description: val })}
+            placeholder="문제에 대한 보충 설명을 입력하세요... (마크다운 지원)"
+            minRows={3}
+          />
+        </ProblemEditorCollapsibleSection>
 
-        {/* Formula Section */}
-        <ProblemEditorFormulas
+        {/* Formula Section (Collapsible) */}
+        <ProblemEditorCollapsibleSection
           title="수식 (KaTeX)"
-          formulas={problem.formulas || []}
-          onAddFormula={onAddFormula}
-          onChangeFormula={onChangeFormula}
-          onRemoveFormula={onRemoveFormula}
-          onInsertSymbol={onInsertSymbol}
-          emptyPlaceholderText="등록된 수식이 없습니다."
-          labelPrefix="LaTeX 수식"
-        />
+          icon={<FunctionsIcon color="primary" sx={{ fontSize: 20 }} />}
+          count={problem.formulas?.length || 0}
+          hasContent={(problem.formulas?.length || 0) > 0}
+          color="primary"
+          expanded={isSectionExpanded('formulas', (problem.formulas?.length || 0) > 0)}
+          onToggle={() => handleToggleSection('formulas', (problem.formulas?.length || 0) > 0)}
+          action={
+            <Button
+              size="small"
+              variant="outlined"
+              color="primary"
+              startIcon={<AddIcon />}
+              onClick={() => handleExpandAndAdd('formulas', onAddFormula)}
+              sx={{ borderRadius: 1.5, fontWeight: 700 }}
+            >
+              수식 추가
+            </Button>
+          }
+        >
+          <ProblemEditorFormulas
+            hideHeader
+            title="수식 (KaTeX)"
+            formulas={problem.formulas || []}
+            onAddFormula={() => handleExpandAndAdd('formulas', onAddFormula)}
+            onChangeFormula={onChangeFormula}
+            onRemoveFormula={onRemoveFormula}
+            onInsertSymbol={onInsertSymbol}
+            emptyPlaceholderText="등록된 수식이 없습니다."
+            labelPrefix="LaTeX 수식"
+          />
+        </ProblemEditorCollapsibleSection>
 
-        {/* ERD Section under Formula */}
-        <ProblemEditorErds
+        {/* ERD Section (Collapsible) */}
+        <ProblemEditorCollapsibleSection
           title="ERD (Entity Relationship Diagram)"
-          erds={problem.erds || []}
-          onAddErd={onAddErd}
-          onChangeErd={onChangeErd}
-          onRemoveErd={onRemoveErd}
-          onInsertTemplate={onInsertErdTemplate}
-          emptyPlaceholderText="등록된 ERD가 없습니다."
-          labelPrefix="ERD 다이어그램"
-        />
+          icon={<SchemaIcon color="info" sx={{ fontSize: 20 }} />}
+          count={problem.erds?.length || 0}
+          hasContent={(problem.erds?.length || 0) > 0}
+          color="info"
+          expanded={isSectionExpanded('erds', (problem.erds?.length || 0) > 0)}
+          onToggle={() => handleToggleSection('erds', (problem.erds?.length || 0) > 0)}
+          action={
+            <Button
+              size="small"
+              variant="outlined"
+              color="info"
+              startIcon={<AddIcon />}
+              onClick={() => handleExpandAndAdd('erds', onAddErd)}
+              sx={{ borderRadius: 1.5, fontWeight: 700 }}
+            >
+              ERD 추가
+            </Button>
+          }
+        >
+          <ProblemEditorErds
+            hideHeader
+            title="ERD (Entity Relationship Diagram)"
+            erds={problem.erds || []}
+            onAddErd={() => handleExpandAndAdd('erds', onAddErd)}
+            onChangeErd={onChangeErd}
+            onRemoveErd={onRemoveErd}
+            onInsertTemplate={onInsertErdTemplate}
+            emptyPlaceholderText="등록된 ERD가 없습니다."
+            labelPrefix="ERD 다이어그램"
+          />
+        </ProblemEditorCollapsibleSection>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
@@ -246,29 +380,88 @@ export function ProblemEditorCard({
           minRows={3}
         />
 
-        {/* Explanation Formulas */}
-        <ProblemEditorFormulas
+        {/* Explanation Formulas (Collapsible) */}
+        <ProblemEditorCollapsibleSection
           title="해설 수식 (KaTeX)"
-          formulas={problem.explanationFormulas || []}
-          onAddFormula={onAddExplanationFormula}
-          onChangeFormula={onChangeExplanationFormula}
-          onRemoveFormula={onRemoveExplanationFormula}
-          onInsertSymbol={onInsertExplanationSymbol}
-          emptyPlaceholderText="등록된 해설 수식이 없습니다."
-          labelPrefix="LaTeX 해설 수식"
-        />
+          icon={<FunctionsIcon color="primary" sx={{ fontSize: 20 }} />}
+          count={problem.explanationFormulas?.length || 0}
+          hasContent={(problem.explanationFormulas?.length || 0) > 0}
+          color="primary"
+          expanded={isSectionExpanded(
+            'explanationFormulas',
+            (problem.explanationFormulas?.length || 0) > 0
+          )}
+          onToggle={() =>
+            handleToggleSection(
+              'explanationFormulas',
+              (problem.explanationFormulas?.length || 0) > 0
+            )
+          }
+          action={
+            <Button
+              size="small"
+              variant="outlined"
+              color="primary"
+              startIcon={<AddIcon />}
+              onClick={() => handleExpandAndAdd('explanationFormulas', onAddExplanationFormula)}
+              sx={{ borderRadius: 1.5, fontWeight: 700 }}
+            >
+              해설 수식 추가
+            </Button>
+          }
+        >
+          <ProblemEditorFormulas
+            hideHeader
+            title="해설 수식 (KaTeX)"
+            formulas={problem.explanationFormulas || []}
+            onAddFormula={() => handleExpandAndAdd('explanationFormulas', onAddExplanationFormula)}
+            onChangeFormula={onChangeExplanationFormula}
+            onRemoveFormula={onRemoveExplanationFormula}
+            onInsertSymbol={onInsertExplanationSymbol}
+            emptyPlaceholderText="등록된 해설 수식이 없습니다."
+            labelPrefix="LaTeX 해설 수식"
+          />
+        </ProblemEditorCollapsibleSection>
 
-        {/* Explanation ERD Section under Explanation Formula */}
-        <ProblemEditorErds
+        {/* Explanation ERD Section (Collapsible) */}
+        <ProblemEditorCollapsibleSection
           title="해설 ERD (Entity Relationship Diagram)"
-          erds={problem.explanationErds || []}
-          onAddErd={onAddExplanationErd}
-          onChangeErd={onChangeExplanationErd}
-          onRemoveErd={onRemoveExplanationErd}
-          onInsertTemplate={onInsertExplanationErdTemplate}
-          emptyPlaceholderText="등록된 해설 ERD가 없습니다."
-          labelPrefix="LaTeX 해설 ERD"
-        />
+          icon={<SchemaIcon color="info" sx={{ fontSize: 20 }} />}
+          count={problem.explanationErds?.length || 0}
+          hasContent={(problem.explanationErds?.length || 0) > 0}
+          color="info"
+          expanded={isSectionExpanded(
+            'explanationErds',
+            (problem.explanationErds?.length || 0) > 0
+          )}
+          onToggle={() =>
+            handleToggleSection('explanationErds', (problem.explanationErds?.length || 0) > 0)
+          }
+          action={
+            <Button
+              size="small"
+              variant="outlined"
+              color="info"
+              startIcon={<AddIcon />}
+              onClick={() => handleExpandAndAdd('explanationErds', onAddExplanationErd)}
+              sx={{ borderRadius: 1.5, fontWeight: 700 }}
+            >
+              해설 ERD 추가
+            </Button>
+          }
+        >
+          <ProblemEditorErds
+            hideHeader
+            title="해설 ERD (Entity Relationship Diagram)"
+            erds={problem.explanationErds || []}
+            onAddErd={() => handleExpandAndAdd('explanationErds', onAddExplanationErd)}
+            onChangeErd={onChangeErd}
+            onRemoveErd={onRemoveErd}
+            onInsertTemplate={onInsertExplanationErdTemplate}
+            emptyPlaceholderText="등록된 해설 ERD가 없습니다."
+            labelPrefix="LaTeX 해설 ERD"
+          />
+        </ProblemEditorCollapsibleSection>
 
         {/* Choice Explanations */}
         <Box>
