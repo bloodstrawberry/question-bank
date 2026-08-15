@@ -1,5 +1,7 @@
 'use client';
 
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Collapse from '@mui/material/Collapse';
@@ -20,7 +22,7 @@ interface ProblemEditorCollapsibleSectionProps {
   children: React.ReactNode;
 }
 
-export function ProblemEditorCollapsibleSection({
+export const ProblemEditorCollapsibleSection = memo(function ProblemEditorCollapsibleSection({
   title,
   icon,
   count,
@@ -155,4 +157,4 @@ export function ProblemEditorCollapsibleSection({
       </Collapse>
     </Box>
   );
-}
+});

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
@@ -25,7 +27,7 @@ interface ProblemEditorFormulasProps {
   hideHeader?: boolean;
 }
 
-export function ProblemEditorFormulas({
+export const ProblemEditorFormulas = memo(function ProblemEditorFormulas({
   title = '수식 (KaTeX)',
   formulas = [],
   onAddFormula,
@@ -188,4 +190,4 @@ export function ProblemEditorFormulas({
       )}
     </Box>
   );
-}
+});

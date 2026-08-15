@@ -1,6 +1,6 @@
 import type { Problem, ProblemSetData } from './types';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { arrayMove } from '@dnd-kit/sortable';
 
 import { getFileScript, saveFileScript } from 'src/api/indexDB';
@@ -34,6 +34,8 @@ export function useProblemSetEditor({
   const [reorderDialogOpen, setReorderDialogOpen] = useState(false);
 
   const initialDataRef = useRef<string>('');
+  const dataRef = useRef(data);
+  dataRef.current = data;
 
   useEffect(() => {
     const loadScript = async () => {
@@ -174,9 +176,10 @@ export function useProblemSetEditor({
   }, [currentIndex]);
 
   const handleSave = useCallback(async () => {
+    const currentData = dataRef.current;
     try {
-      await saveFileScript(fileId, data);
-      initialDataRef.current = JSON.stringify(data);
+      await saveFileScript(fileId, currentData);
+      initialDataRef.current = JSON.stringify(currentData);
       onSave?.(fileId);
       toast.success('문제 모음이 저장되었습니다!');
       onSaveSuccess?.(currentIndex);
@@ -184,41 +187,39 @@ export function useProblemSetEditor({
       console.error('Failed to save problem set', error);
       toast.error('저장에 실패했습니다.');
     }
-  }, [fileId, data, onSave, onSaveSuccess, currentIndex]);
+  }, [fileId, onSave, onSaveSuccess, currentIndex]);
 
   const handlePrevProblem = useCallback(() => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
   }, []);
 
   const handleNextProblem = useCallback(() => {
-    setCurrentIndex((prev) => Math.min(data.problems.length - 1, prev + 1));
-  }, [data.problems.length]);
+    setCurrentIndex((prev) => Math.min(dataRef.current.problems.length - 1, prev + 1));
+  }, []);
 
-  const handlePageInputChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value;
-      setPageInput(val);
-      const num = parseInt(val, 10);
-      if (!isNaN(num) && num >= 1 && num <= data.problems.length) {
-        setCurrentIndex(num - 1);
-      }
-    },
-    [data.problems.length]
-  );
+  const handlePageInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setPageInput(val);
+    const num = parseInt(val, 10);
+    if (!isNaN(num) && num >= 1 && num <= dataRef.current.problems.length) {
+      setCurrentIndex(num - 1);
+    }
+  }, []);
 
   const handlePageInputBlur = useCallback(() => {
     const num = parseInt(pageInput, 10);
+    const total = dataRef.current.problems.length;
     if (isNaN(num) || num < 1) {
       setCurrentIndex(0);
       setPageInput('1');
-    } else if (num > data.problems.length) {
-      setCurrentIndex(data.problems.length - 1);
-      setPageInput(String(data.problems.length));
+    } else if (num > total) {
+      setCurrentIndex(total - 1);
+      setPageInput(String(total));
     } else {
       setCurrentIndex(num - 1);
       setPageInput(String(num));
     }
-  }, [data.problems.length, pageInput]);
+  }, [pageInput]);
 
   const handlePageInputKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -237,13 +238,19 @@ export function useProblemSetEditor({
     });
   }, []);
 
-  const updateProblem = useCallback((index: number, updates: Partial<Problem>) => {
-    setData((prev) => {
-      const newProblems = [...prev.problems];
-      newProblems[index] = { ...newProblems[index], ...updates };
-      return { ...prev, problems: newProblems };
-    });
-  }, []);
+  const updateProblem = useCallback(
+    (index: number, updates: Partial<Problem> | ((prev: Problem) => Partial<Problem>)) => {
+      setData((prev) => {
+        const currentProblem = prev.problems[index];
+        if (!currentProblem) return prev;
+        const resolved = typeof updates === 'function' ? updates(currentProblem) : updates;
+        const newProblems = [...prev.problems];
+        newProblems[index] = { ...currentProblem, ...resolved };
+        return { ...prev, problems: newProblems };
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -268,14 +275,15 @@ export function useProblemSetEditor({
 
         if (isInput) return;
 
-        if (!data?.problems || data.problems.length <= 1) return;
+        const currentProblems = dataRef.current?.problems;
+        if (!currentProblems || currentProblems.length <= 1) return;
 
         if (event.key === 'ArrowLeft') {
           event.preventDefault();
           setCurrentIndex((prev) => Math.max(0, prev - 1));
         } else if (event.key === 'ArrowRight') {
           event.preventDefault();
-          setCurrentIndex((prev) => Math.min(data.problems.length - 1, prev + 1));
+          setCurrentIndex((prev) => Math.min(currentProblems.length - 1, prev + 1));
         }
       }
     };
@@ -284,7 +292,7 @@ export function useProblemSetEditor({
       return () => window.removeEventListener('keydown', handleKeyDown);
     }
     return undefined;
-  }, [data?.problems, handleSave, handleAddProblem]);
+  }, [handleSave, handleAddProblem]);
 
   const handleDuplicateProblem = useCallback((index: number) => {
     setData((prev) => {
@@ -313,744 +321,798 @@ export function useProblemSetEditor({
       const cleaned = tag.trim();
       if (!cleaned) return;
       const formatted = cleaned.startsWith('#') ? cleaned : `#${cleaned}`;
-      const current = data.problems[problemIndex].hashtags;
-      if (!current.includes(formatted)) {
-        updateProblem(problemIndex, { hashtags: [...current, formatted] });
-      }
+      updateProblem(problemIndex, (prob) => {
+        if (prob.hashtags.includes(formatted)) return {};
+        return { hashtags: [...prob.hashtags, formatted] };
+      });
       setHashtagInput((prev) => ({ ...prev, [problemIndex]: '' }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveHashtag = useCallback(
     (problemIndex: number, tagIndex: number) => {
-      const current = data.problems[problemIndex].hashtags;
-      updateProblem(problemIndex, { hashtags: current.filter((_, i) => i !== tagIndex) });
+      updateProblem(problemIndex, (prob) => ({
+        hashtags: prob.hashtags.filter((_, i) => i !== tagIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddFormula = useCallback(
     (problemIndex: number) => {
-      const currentFormulas = data.problems[problemIndex].formulas || [];
-      updateProblem(problemIndex, { formulas: [...currentFormulas, ''] });
+      updateProblem(problemIndex, (prob) => ({
+        formulas: [...(prob.formulas || []), ''],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeFormula = useCallback(
     (problemIndex: number, formulaIndex: number, value: string) => {
-      const currentFormulas = [...(data.problems[problemIndex].formulas || [])];
-      currentFormulas[formulaIndex] = value;
-      updateProblem(problemIndex, { formulas: currentFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const currentFormulas = [...(prob.formulas || [])];
+        currentFormulas[formulaIndex] = value;
+        return { formulas: currentFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveFormula = useCallback(
     (problemIndex: number, formulaIndex: number) => {
-      const currentFormulas = [...(data.problems[problemIndex].formulas || [])];
-      const updated = currentFormulas.filter((_, i) => i !== formulaIndex);
-      updateProblem(problemIndex, { formulas: updated });
+      updateProblem(problemIndex, (prob) => ({
+        formulas: (prob.formulas || []).filter((_, i) => i !== formulaIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertSymbol = useCallback(
     (problemIndex: number, formulaIndex: number, symbol: string) => {
-      const currentFormulas = [...(data.problems[problemIndex].formulas || [])];
-      const currentText = currentFormulas[formulaIndex] || '';
-      const updatedText = currentText ? `${currentText} ${symbol}` : symbol;
-      currentFormulas[formulaIndex] = updatedText;
-      updateProblem(problemIndex, { formulas: currentFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const currentFormulas = [...(prob.formulas || [])];
+        const currentText = currentFormulas[formulaIndex] || '';
+        currentFormulas[formulaIndex] = currentText ? `${currentText} ${symbol}` : symbol;
+        return { formulas: currentFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddExplanationFormula = useCallback(
     (problemIndex: number) => {
-      const current = data.problems[problemIndex].explanationFormulas || [];
-      updateProblem(problemIndex, { explanationFormulas: [...current, ''] });
+      updateProblem(problemIndex, (prob) => ({
+        explanationFormulas: [...(prob.explanationFormulas || []), ''],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeExplanationFormula = useCallback(
     (problemIndex: number, formulaIndex: number, value: string) => {
-      const current = [...(data.problems[problemIndex].explanationFormulas || [])];
-      current[formulaIndex] = value;
-      updateProblem(problemIndex, { explanationFormulas: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.explanationFormulas || [])];
+        current[formulaIndex] = value;
+        return { explanationFormulas: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveExplanationFormula = useCallback(
     (problemIndex: number, formulaIndex: number) => {
-      const current = [...(data.problems[problemIndex].explanationFormulas || [])];
-      const updated = current.filter((_, i) => i !== formulaIndex);
-      updateProblem(problemIndex, { explanationFormulas: updated });
+      updateProblem(problemIndex, (prob) => ({
+        explanationFormulas: (prob.explanationFormulas || []).filter((_, i) => i !== formulaIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertExplanationSymbol = useCallback(
     (problemIndex: number, formulaIndex: number, symbol: string) => {
-      const current = [...(data.problems[problemIndex].explanationFormulas || [])];
-      const currentText = current[formulaIndex] || '';
-      const updatedText = currentText ? `${currentText} ${symbol}` : symbol;
-      current[formulaIndex] = updatedText;
-      updateProblem(problemIndex, { explanationFormulas: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.explanationFormulas || [])];
+        const currentText = current[formulaIndex] || '';
+        current[formulaIndex] = currentText ? `${currentText} ${symbol}` : symbol;
+        return { explanationFormulas: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddErd = useCallback(
     (problemIndex: number) => {
-      const currentErds = data.problems[problemIndex].erds || [];
-      updateProblem(problemIndex, { erds: [...currentErds, ''] });
+      updateProblem(problemIndex, (prob) => ({
+        erds: [...(prob.erds || []), ''],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeErd = useCallback(
     (problemIndex: number, erdIndex: number, value: string) => {
-      const currentErds = [...(data.problems[problemIndex].erds || [])];
-      currentErds[erdIndex] = value;
-      updateProblem(problemIndex, { erds: currentErds });
+      updateProblem(problemIndex, (prob) => {
+        const currentErds = [...(prob.erds || [])];
+        currentErds[erdIndex] = value;
+        return { erds: currentErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveErd = useCallback(
     (problemIndex: number, erdIndex: number) => {
-      const currentErds = [...(data.problems[problemIndex].erds || [])];
-      const updated = currentErds.filter((_, i) => i !== erdIndex);
-      updateProblem(problemIndex, { erds: updated });
+      updateProblem(problemIndex, (prob) => ({
+        erds: (prob.erds || []).filter((_, i) => i !== erdIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertErdTemplate = useCallback(
     (problemIndex: number, erdIndex: number, template: string) => {
-      const currentErds = [...(data.problems[problemIndex].erds || [])];
-      const currentText = currentErds[erdIndex] || '';
-      const updatedText = currentText ? `${currentText}\n${template}` : template;
-      currentErds[erdIndex] = updatedText;
-      updateProblem(problemIndex, { erds: currentErds });
+      updateProblem(problemIndex, (prob) => {
+        const currentErds = [...(prob.erds || [])];
+        const currentText = currentErds[erdIndex] || '';
+        currentErds[erdIndex] = currentText ? `${currentText}\n${template}` : template;
+        return { erds: currentErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddExplanationErd = useCallback(
     (problemIndex: number) => {
-      const current = data.problems[problemIndex].explanationErds || [];
-      updateProblem(problemIndex, { explanationErds: [...current, ''] });
+      updateProblem(problemIndex, (prob) => ({
+        explanationErds: [...(prob.explanationErds || []), ''],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeExplanationErd = useCallback(
     (problemIndex: number, erdIndex: number, value: string) => {
-      const current = [...(data.problems[problemIndex].explanationErds || [])];
-      current[erdIndex] = value;
-      updateProblem(problemIndex, { explanationErds: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.explanationErds || [])];
+        current[erdIndex] = value;
+        return { explanationErds: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveExplanationErd = useCallback(
     (problemIndex: number, erdIndex: number) => {
-      const current = [...(data.problems[problemIndex].explanationErds || [])];
-      const updated = current.filter((_, i) => i !== erdIndex);
-      updateProblem(problemIndex, { explanationErds: updated });
+      updateProblem(problemIndex, (prob) => ({
+        explanationErds: (prob.explanationErds || []).filter((_, i) => i !== erdIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertExplanationErdTemplate = useCallback(
     (problemIndex: number, erdIndex: number, template: string) => {
-      const current = [...(data.problems[problemIndex].explanationErds || [])];
-      const currentText = current[erdIndex] || '';
-      const updatedText = currentText ? `${currentText}\n${template}` : template;
-      current[erdIndex] = updatedText;
-      updateProblem(problemIndex, { explanationErds: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.explanationErds || [])];
+        const currentText = current[erdIndex] || '';
+        current[erdIndex] = currentText ? `${currentText}\n${template}` : template;
+        return { explanationErds: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   // Problem Chart Handlers
   const handleAddChart = useCallback(
     (problemIndex: number) => {
-      const currentCharts = data.problems[problemIndex].charts || [];
-      updateProblem(problemIndex, { charts: [...currentCharts, ''] });
+      updateProblem(problemIndex, (prob) => ({
+        charts: [...(prob.charts || []), ''],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChart = useCallback(
     (problemIndex: number, chartIndex: number, value: string) => {
-      const currentCharts = [...(data.problems[problemIndex].charts || [])];
-      currentCharts[chartIndex] = value;
-      updateProblem(problemIndex, { charts: currentCharts });
+      updateProblem(problemIndex, (prob) => {
+        const currentCharts = [...(prob.charts || [])];
+        currentCharts[chartIndex] = value;
+        return { charts: currentCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChart = useCallback(
     (problemIndex: number, chartIndex: number) => {
-      const currentCharts = [...(data.problems[problemIndex].charts || [])];
-      const updated = currentCharts.filter((_, i) => i !== chartIndex);
-      updateProblem(problemIndex, { charts: updated });
+      updateProblem(problemIndex, (prob) => ({
+        charts: (prob.charts || []).filter((_, i) => i !== chartIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChartTemplate = useCallback(
     (problemIndex: number, chartIndex: number, template: string) => {
-      const currentCharts = [...(data.problems[problemIndex].charts || [])];
-      const currentText = currentCharts[chartIndex] || '';
-      const updatedText = currentText ? `${currentText}\n${template}` : template;
-      currentCharts[chartIndex] = updatedText;
-      updateProblem(problemIndex, { charts: currentCharts });
+      updateProblem(problemIndex, (prob) => {
+        const currentCharts = [...(prob.charts || [])];
+        const currentText = currentCharts[chartIndex] || '';
+        currentCharts[chartIndex] = currentText ? `${currentText}\n${template}` : template;
+        return { charts: currentCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   // Explanation Chart Handlers
   const handleAddExplanationChart = useCallback(
     (problemIndex: number) => {
-      const current = data.problems[problemIndex].explanationCharts || [];
-      updateProblem(problemIndex, { explanationCharts: [...current, ''] });
+      updateProblem(problemIndex, (prob) => ({
+        explanationCharts: [...(prob.explanationCharts || []), ''],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeExplanationChart = useCallback(
     (problemIndex: number, chartIndex: number, value: string) => {
-      const current = [...(data.problems[problemIndex].explanationCharts || [])];
-      current[chartIndex] = value;
-      updateProblem(problemIndex, { explanationCharts: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.explanationCharts || [])];
+        current[chartIndex] = value;
+        return { explanationCharts: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveExplanationChart = useCallback(
     (problemIndex: number, chartIndex: number) => {
-      const current = [...(data.problems[problemIndex].explanationCharts || [])];
-      const updated = current.filter((_, i) => i !== chartIndex);
-      updateProblem(problemIndex, { explanationCharts: updated });
+      updateProblem(problemIndex, (prob) => ({
+        explanationCharts: (prob.explanationCharts || []).filter((_, i) => i !== chartIndex),
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertExplanationChartTemplate = useCallback(
     (problemIndex: number, chartIndex: number, template: string) => {
-      const current = [...(data.problems[problemIndex].explanationCharts || [])];
-      const currentText = current[chartIndex] || '';
-      const updatedText = currentText ? `${currentText}\n${template}` : template;
-      current[chartIndex] = updatedText;
-      updateProblem(problemIndex, { explanationCharts: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.explanationCharts || [])];
+        const currentText = current[chartIndex] || '';
+        current[chartIndex] = currentText ? `${currentText}\n${template}` : template;
+        return { explanationCharts: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddChoice = useCallback(
     (problemIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const currentChoices = prob.choices || [];
-      const currentChoiceDescriptions = prob.choiceDescriptions || [];
-      const currentChoiceFormulas = prob.choiceFormulas || [];
-      const currentChoiceErds = prob.choiceErds || [];
-      const currentChoiceCharts = prob.choiceCharts || [];
-      const currentExplanations = prob.choiceExplanations || [];
-      const currentChoiceExplanationDescriptions = prob.choiceExplanationDescriptions || [];
-      const currentChoiceExplanationFormulas = prob.choiceExplanationFormulas || [];
-      const currentChoiceExplanationErds = prob.choiceExplanationErds || [];
-      const currentChoiceExplanationCharts = prob.choiceExplanationCharts || [];
-
-      updateProblem(problemIndex, {
-        choices: [...currentChoices, ''],
-        choiceDescriptions: [...currentChoiceDescriptions, ''],
-        choiceFormulas: [...currentChoiceFormulas, []],
-        choiceErds: [...currentChoiceErds, []],
-        choiceCharts: [...currentChoiceCharts, []],
-        choiceExplanations: [...currentExplanations, ''],
-        choiceExplanationDescriptions: [...currentChoiceExplanationDescriptions, ''],
-        choiceExplanationFormulas: [...currentChoiceExplanationFormulas, []],
-        choiceExplanationErds: [...currentChoiceExplanationErds, []],
-        choiceExplanationCharts: [...currentChoiceExplanationCharts, []],
-      });
+      updateProblem(problemIndex, (prob) => ({
+        choices: [...(prob.choices || []), ''],
+        choiceDescriptions: [...(prob.choiceDescriptions || []), ''],
+        choiceFormulas: [...(prob.choiceFormulas || []), []],
+        choiceErds: [...(prob.choiceErds || []), []],
+        choiceCharts: [...(prob.choiceCharts || []), []],
+        choiceExplanations: [...(prob.choiceExplanations || []), ''],
+        choiceExplanationDescriptions: [...(prob.choiceExplanationDescriptions || []), ''],
+        choiceExplanationFormulas: [...(prob.choiceExplanationFormulas || []), []],
+        choiceExplanationErds: [...(prob.choiceExplanationErds || []), []],
+        choiceExplanationCharts: [...(prob.choiceExplanationCharts || []), []],
+      }));
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoice = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const currentChoices = prob.choices || [];
-      if (currentChoices.length <= 2) return;
+      updateProblem(problemIndex, (prob) => {
+        const currentChoices = prob.choices || [];
+        if (currentChoices.length <= 2) return {};
 
-      const currentExplanations = prob.choiceExplanations || [];
-      const newChoices = currentChoices.filter((_, i) => i !== choiceIndex);
-      const newExplanations = currentExplanations.filter((_, i) => i !== choiceIndex);
+        const currentExplanations = prob.choiceExplanations || [];
+        const newChoices = currentChoices.filter((_, i) => i !== choiceIndex);
+        const newExplanations = currentExplanations.filter((_, i) => i !== choiceIndex);
 
-      let newAnswer = prob.answer;
-      const choiceNum = choiceIndex + 1;
-      if (prob.answer === choiceNum) {
-        newAnswer = 0;
-      } else if (prob.answer > choiceNum) {
-        newAnswer = prob.answer - 1;
-      }
+        let newAnswer = prob.answer;
+        const choiceNum = choiceIndex + 1;
+        if (prob.answer === choiceNum) {
+          newAnswer = 0;
+        } else if (prob.answer > choiceNum) {
+          newAnswer = prob.answer - 1;
+        }
 
-      updateProblem(problemIndex, {
-        choices: newChoices,
-        choiceDescriptions: (prob.choiceDescriptions || []).filter((_, i) => i !== choiceIndex),
-        choiceFormulas: (prob.choiceFormulas || []).filter((_, i) => i !== choiceIndex),
-        choiceErds: (prob.choiceErds || []).filter((_, i) => i !== choiceIndex),
-        choiceCharts: (prob.choiceCharts || []).filter((_, i) => i !== choiceIndex),
-        choiceExplanations: newExplanations,
-        choiceExplanationDescriptions: (prob.choiceExplanationDescriptions || []).filter(
-          (_, i) => i !== choiceIndex
-        ),
-        choiceExplanationFormulas: (prob.choiceExplanationFormulas || []).filter(
-          (_, i) => i !== choiceIndex
-        ),
-        choiceExplanationErds: (prob.choiceExplanationErds || []).filter(
-          (_, i) => i !== choiceIndex
-        ),
-        choiceExplanationCharts: (prob.choiceExplanationCharts || []).filter(
-          (_, i) => i !== choiceIndex
-        ),
-        answer: newAnswer,
+        let newAnswers = prob.answers;
+        if (Array.isArray(prob.answers) && prob.answers.length > 0) {
+          newAnswers = prob.answers
+            .filter((a) => a !== choiceNum)
+            .map((a) => (a > choiceNum ? a - 1 : a));
+        }
+
+        return {
+          choices: newChoices,
+          choiceDescriptions: (prob.choiceDescriptions || []).filter((_, i) => i !== choiceIndex),
+          choiceFormulas: (prob.choiceFormulas || []).filter((_, i) => i !== choiceIndex),
+          choiceErds: (prob.choiceErds || []).filter((_, i) => i !== choiceIndex),
+          choiceCharts: (prob.choiceCharts || []).filter((_, i) => i !== choiceIndex),
+          choiceExplanations: newExplanations,
+          choiceExplanationDescriptions: (prob.choiceExplanationDescriptions || []).filter(
+            (_, i) => i !== choiceIndex
+          ),
+          choiceExplanationFormulas: (prob.choiceExplanationFormulas || []).filter(
+            (_, i) => i !== choiceIndex
+          ),
+          choiceExplanationErds: (prob.choiceExplanationErds || []).filter(
+            (_, i) => i !== choiceIndex
+          ),
+          choiceExplanationCharts: (prob.choiceExplanationCharts || []).filter(
+            (_, i) => i !== choiceIndex
+          ),
+          answer: newAnswer,
+          answers: newAnswers,
+        };
       });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleReorderChoices = useCallback(
     (problemIndex: number, oldIndex: number, newIndex: number) => {
       if (oldIndex === newIndex) return;
 
-      const prob = data.problems[problemIndex];
-      if (!prob) return;
+      updateProblem(problemIndex, (prob) => {
+        const reorderArray = <T>(arr: T[] | undefined, defaultVal: T): T[] => {
+          const fullArr = prob.choices.map((_, i) =>
+            arr && arr[i] !== undefined ? arr[i] : defaultVal
+          );
+          return arrayMove(fullArr, oldIndex, newIndex);
+        };
 
-      const reorderArray = <T>(arr: T[] | undefined, defaultVal: T): T[] => {
-        const fullArr = prob.choices.map((_, i) =>
-          arr && arr[i] !== undefined ? arr[i] : defaultVal
+        const newChoices = reorderArray(prob.choices, '');
+        const newChoiceDescriptions = reorderArray(prob.choiceDescriptions, '');
+        const newChoiceFormulas = reorderArray(prob.choiceFormulas, []);
+        const newChoiceErds = reorderArray(prob.choiceErds, []);
+        const newChoiceCharts = reorderArray(prob.choiceCharts, []);
+        const newChoiceExplanations = reorderArray(prob.choiceExplanations, '');
+        const newChoiceExplanationDescriptions = reorderArray(
+          prob.choiceExplanationDescriptions,
+          ''
         );
-        return arrayMove(fullArr, oldIndex, newIndex);
-      };
+        const newChoiceExplanationFormulas = reorderArray(prob.choiceExplanationFormulas, []);
+        const newChoiceExplanationErds = reorderArray(prob.choiceExplanationErds, []);
+        const newChoiceExplanationCharts = reorderArray(prob.choiceExplanationCharts, []);
 
-      const newChoices = reorderArray(prob.choices, '');
-      const newChoiceDescriptions = reorderArray(prob.choiceDescriptions, '');
-      const newChoiceFormulas = reorderArray(prob.choiceFormulas, []);
-      const newChoiceErds = reorderArray(prob.choiceErds, []);
-      const newChoiceCharts = reorderArray(prob.choiceCharts, []);
-      const newChoiceExplanations = reorderArray(prob.choiceExplanations, '');
-      const newChoiceExplanationDescriptions = reorderArray(prob.choiceExplanationDescriptions, '');
-      const newChoiceExplanationFormulas = reorderArray(prob.choiceExplanationFormulas, []);
-      const newChoiceExplanationErds = reorderArray(prob.choiceExplanationErds, []);
-      const newChoiceExplanationCharts = reorderArray(prob.choiceExplanationCharts, []);
+        const originalAnswerNumbers = prob.choices.map((_, i) => i + 1);
+        const reorderedAnswerNumbers = arrayMove(originalAnswerNumbers, oldIndex, newIndex);
 
-      const originalAnswerNumbers = prob.choices.map((_, i) => i + 1);
-      const reorderedAnswerNumbers = arrayMove(originalAnswerNumbers, oldIndex, newIndex);
-
-      let newAnswer = prob.answer;
-      if (prob.answer > 0) {
-        const newPos = reorderedAnswerNumbers.indexOf(prob.answer);
-        if (newPos !== -1) {
-          newAnswer = newPos + 1;
+        let newAnswer = prob.answer;
+        if (prob.answer > 0) {
+          const newPos = reorderedAnswerNumbers.indexOf(prob.answer);
+          if (newPos !== -1) {
+            newAnswer = newPos + 1;
+          }
         }
-      }
 
-      let newAnswers = prob.answers;
-      if (Array.isArray(prob.answers) && prob.answers.length > 0) {
-        newAnswers = prob.answers.map((ans) => {
-          const newPos = reorderedAnswerNumbers.indexOf(ans);
-          return newPos !== -1 ? newPos + 1 : ans;
-        });
-      }
+        let newAnswers = prob.answers;
+        if (Array.isArray(prob.answers) && prob.answers.length > 0) {
+          newAnswers = prob.answers.map((ans) => {
+            const newPos = reorderedAnswerNumbers.indexOf(ans);
+            return newPos !== -1 ? newPos + 1 : ans;
+          });
+        }
 
-      updateProblem(problemIndex, {
-        choices: newChoices,
-        choiceDescriptions: newChoiceDescriptions,
-        choiceFormulas: newChoiceFormulas,
-        choiceErds: newChoiceErds,
-        choiceCharts: newChoiceCharts,
-        choiceExplanations: newChoiceExplanations,
-        choiceExplanationDescriptions: newChoiceExplanationDescriptions,
-        choiceExplanationFormulas: newChoiceExplanationFormulas,
-        choiceExplanationErds: newChoiceExplanationErds,
-        choiceExplanationCharts: newChoiceExplanationCharts,
-        answer: newAnswer,
-        answers: newAnswers,
+        return {
+          choices: newChoices,
+          choiceDescriptions: newChoiceDescriptions,
+          choiceFormulas: newChoiceFormulas,
+          choiceErds: newChoiceErds,
+          choiceCharts: newChoiceCharts,
+          choiceExplanations: newChoiceExplanations,
+          choiceExplanationDescriptions: newChoiceExplanationDescriptions,
+          choiceExplanationFormulas: newChoiceExplanationFormulas,
+          choiceExplanationErds: newChoiceExplanationErds,
+          choiceExplanationCharts: newChoiceExplanationCharts,
+          answer: newAnswer,
+          answers: newAnswers,
+        };
       });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoice = useCallback(
     (problemIndex: number, choiceIndex: number, value: string) => {
-      const newChoices = [...data.problems[problemIndex].choices];
-      newChoices[choiceIndex] = value;
-      updateProblem(problemIndex, { choices: newChoices });
+      updateProblem(problemIndex, (prob) => {
+        const newChoices = [...prob.choices];
+        newChoices[choiceIndex] = value;
+        return { choices: newChoices };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceExplanation = useCallback(
     (problemIndex: number, choiceIndex: number, value: string) => {
-      const newExplanations = [...data.problems[problemIndex].choiceExplanations];
-      newExplanations[choiceIndex] = value;
-      updateProblem(problemIndex, { choiceExplanations: newExplanations });
+      updateProblem(problemIndex, (prob) => {
+        const newExplanations = [...prob.choiceExplanations];
+        newExplanations[choiceIndex] = value;
+        return { choiceExplanations: newExplanations };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceDescription = useCallback(
     (problemIndex: number, choiceIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const current = [...(prob.choiceDescriptions || [])];
-      current[choiceIndex] = value;
-      updateProblem(problemIndex, { choiceDescriptions: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.choiceDescriptions || [])];
+        current[choiceIndex] = value;
+        return { choiceDescriptions: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddChoiceFormula = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      allFormulas[choiceIndex] = [...(allFormulas[choiceIndex] || []), ''];
-      updateProblem(problemIndex, { choiceFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        allFormulas[choiceIndex] = [...(allFormulas[choiceIndex] || []), ''];
+        return { choiceFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceFormula = useCallback(
     (problemIndex: number, choiceIndex: number, formulaIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      const choiceForms = [...(allFormulas[choiceIndex] || [])];
-      choiceForms[formulaIndex] = value;
-      allFormulas[choiceIndex] = choiceForms;
-      updateProblem(problemIndex, { choiceFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        const choiceForms = [...(allFormulas[choiceIndex] || [])];
+        choiceForms[formulaIndex] = value;
+        allFormulas[choiceIndex] = choiceForms;
+        return { choiceFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoiceFormula = useCallback(
     (problemIndex: number, choiceIndex: number, formulaIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      const choiceForms = (allFormulas[choiceIndex] || []).filter((_, i) => i !== formulaIndex);
-      allFormulas[choiceIndex] = choiceForms;
-      updateProblem(problemIndex, { choiceFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        const choiceForms = (allFormulas[choiceIndex] || []).filter((_, i) => i !== formulaIndex);
+        allFormulas[choiceIndex] = choiceForms;
+        return { choiceFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChoiceSymbol = useCallback(
     (problemIndex: number, choiceIndex: number, formulaIndex: number, symbol: string) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      const choiceForms = [...(allFormulas[choiceIndex] || [])];
-      const currentText = choiceForms[formulaIndex] || '';
-      choiceForms[formulaIndex] = currentText ? `${currentText} ${symbol}` : symbol;
-      allFormulas[choiceIndex] = choiceForms;
-      updateProblem(problemIndex, { choiceFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceFormulas ? prob.choiceFormulas.map((arr) => [...arr]) : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        const choiceForms = [...(allFormulas[choiceIndex] || [])];
+        const currentText = choiceForms[formulaIndex] || '';
+        choiceForms[formulaIndex] = currentText ? `${currentText} ${symbol}` : symbol;
+        allFormulas[choiceIndex] = choiceForms;
+        return { choiceFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddChoiceErd = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      allErds[choiceIndex] = [...(allErds[choiceIndex] || []), ''];
-      updateProblem(problemIndex, { choiceErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        allErds[choiceIndex] = [...(allErds[choiceIndex] || []), ''];
+        return { choiceErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceErd = useCallback(
     (problemIndex: number, choiceIndex: number, erdIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      const choiceErdsList = [...(allErds[choiceIndex] || [])];
-      choiceErdsList[erdIndex] = value;
-      allErds[choiceIndex] = choiceErdsList;
-      updateProblem(problemIndex, { choiceErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        const choiceErdsList = [...(allErds[choiceIndex] || [])];
+        choiceErdsList[erdIndex] = value;
+        allErds[choiceIndex] = choiceErdsList;
+        return { choiceErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoiceErd = useCallback(
     (problemIndex: number, choiceIndex: number, erdIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      const choiceErdsList = (allErds[choiceIndex] || []).filter((_, i) => i !== erdIndex);
-      allErds[choiceIndex] = choiceErdsList;
-      updateProblem(problemIndex, { choiceErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        const choiceErdsList = (allErds[choiceIndex] || []).filter((_, i) => i !== erdIndex);
+        allErds[choiceIndex] = choiceErdsList;
+        return { choiceErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChoiceErdTemplate = useCallback(
     (problemIndex: number, choiceIndex: number, erdIndex: number, template: string) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      const choiceErdsList = [...(allErds[choiceIndex] || [])];
-      const currentText = choiceErdsList[erdIndex] || '';
-      choiceErdsList[erdIndex] = currentText ? `${currentText}\n${template}` : template;
-      allErds[choiceIndex] = choiceErdsList;
-      updateProblem(problemIndex, { choiceErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceErds ? prob.choiceErds.map((arr) => [...arr]) : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        const choiceErdsList = [...(allErds[choiceIndex] || [])];
+        const currentText = choiceErdsList[erdIndex] || '';
+        choiceErdsList[erdIndex] = currentText ? `${currentText}\n${template}` : template;
+        allErds[choiceIndex] = choiceErdsList;
+        return { choiceErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceExplanationDescription = useCallback(
     (problemIndex: number, choiceIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const current = [...(prob.choiceExplanationDescriptions || [])];
-      current[choiceIndex] = value;
-      updateProblem(problemIndex, { choiceExplanationDescriptions: current });
+      updateProblem(problemIndex, (prob) => {
+        const current = [...(prob.choiceExplanationDescriptions || [])];
+        current[choiceIndex] = value;
+        return { choiceExplanationDescriptions: current };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddChoiceExplanationFormula = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceExplanationFormulas
-        ? prob.choiceExplanationFormulas.map((arr) => [...arr])
-        : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      allFormulas[choiceIndex] = [...(allFormulas[choiceIndex] || []), ''];
-      updateProblem(problemIndex, { choiceExplanationFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceExplanationFormulas
+          ? prob.choiceExplanationFormulas.map((arr) => [...arr])
+          : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        allFormulas[choiceIndex] = [...(allFormulas[choiceIndex] || []), ''];
+        return { choiceExplanationFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceExplanationFormula = useCallback(
     (problemIndex: number, choiceIndex: number, formulaIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceExplanationFormulas
-        ? prob.choiceExplanationFormulas.map((arr) => [...arr])
-        : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      const choiceForms = [...(allFormulas[choiceIndex] || [])];
-      choiceForms[formulaIndex] = value;
-      allFormulas[choiceIndex] = choiceForms;
-      updateProblem(problemIndex, { choiceExplanationFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceExplanationFormulas
+          ? prob.choiceExplanationFormulas.map((arr) => [...arr])
+          : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        const choiceForms = [...(allFormulas[choiceIndex] || [])];
+        choiceForms[formulaIndex] = value;
+        allFormulas[choiceIndex] = choiceForms;
+        return { choiceExplanationFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoiceExplanationFormula = useCallback(
     (problemIndex: number, choiceIndex: number, formulaIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceExplanationFormulas
-        ? prob.choiceExplanationFormulas.map((arr) => [...arr])
-        : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      const choiceForms = (allFormulas[choiceIndex] || []).filter((_, i) => i !== formulaIndex);
-      allFormulas[choiceIndex] = choiceForms;
-      updateProblem(problemIndex, { choiceExplanationFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceExplanationFormulas
+          ? prob.choiceExplanationFormulas.map((arr) => [...arr])
+          : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        const choiceForms = (allFormulas[choiceIndex] || []).filter((_, i) => i !== formulaIndex);
+        allFormulas[choiceIndex] = choiceForms;
+        return { choiceExplanationFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChoiceExplanationSymbol = useCallback(
     (problemIndex: number, choiceIndex: number, formulaIndex: number, symbol: string) => {
-      const prob = data.problems[problemIndex];
-      const allFormulas = prob.choiceExplanationFormulas
-        ? prob.choiceExplanationFormulas.map((arr) => [...arr])
-        : [];
-      while (allFormulas.length <= choiceIndex) allFormulas.push([]);
-      const choiceForms = [...(allFormulas[choiceIndex] || [])];
-      const currentText = choiceForms[formulaIndex] || '';
-      choiceForms[formulaIndex] = currentText ? `${currentText} ${symbol}` : symbol;
-      allFormulas[choiceIndex] = choiceForms;
-      updateProblem(problemIndex, { choiceExplanationFormulas: allFormulas });
+      updateProblem(problemIndex, (prob) => {
+        const allFormulas = prob.choiceExplanationFormulas
+          ? prob.choiceExplanationFormulas.map((arr) => [...arr])
+          : [];
+        while (allFormulas.length <= choiceIndex) allFormulas.push([]);
+        const choiceForms = [...(allFormulas[choiceIndex] || [])];
+        const currentText = choiceForms[formulaIndex] || '';
+        choiceForms[formulaIndex] = currentText ? `${currentText} ${symbol}` : symbol;
+        allFormulas[choiceIndex] = choiceForms;
+        return { choiceExplanationFormulas: allFormulas };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleAddChoiceExplanationErd = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceExplanationErds
-        ? prob.choiceExplanationErds.map((arr) => [...arr])
-        : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      allErds[choiceIndex] = [...(allErds[choiceIndex] || []), ''];
-      updateProblem(problemIndex, { choiceExplanationErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceExplanationErds
+          ? prob.choiceExplanationErds.map((arr) => [...arr])
+          : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        allErds[choiceIndex] = [...(allErds[choiceIndex] || []), ''];
+        return { choiceExplanationErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceExplanationErd = useCallback(
     (problemIndex: number, choiceIndex: number, erdIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceExplanationErds
-        ? prob.choiceExplanationErds.map((arr) => [...arr])
-        : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      const choiceErdsList = [...(allErds[choiceIndex] || [])];
-      choiceErdsList[erdIndex] = value;
-      allErds[choiceIndex] = choiceErdsList;
-      updateProblem(problemIndex, { choiceExplanationErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceExplanationErds
+          ? prob.choiceExplanationErds.map((arr) => [...arr])
+          : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        const choiceErdsList = [...(allErds[choiceIndex] || [])];
+        choiceErdsList[erdIndex] = value;
+        allErds[choiceIndex] = choiceErdsList;
+        return { choiceExplanationErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoiceExplanationErd = useCallback(
     (problemIndex: number, choiceIndex: number, erdIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceExplanationErds
-        ? prob.choiceExplanationErds.map((arr) => [...arr])
-        : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      const choiceErdsList = (allErds[choiceIndex] || []).filter((_, i) => i !== erdIndex);
-      allErds[choiceIndex] = choiceErdsList;
-      updateProblem(problemIndex, { choiceExplanationErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceExplanationErds
+          ? prob.choiceExplanationErds.map((arr) => [...arr])
+          : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        const choiceErdsList = (allErds[choiceIndex] || []).filter((_, i) => i !== erdIndex);
+        allErds[choiceIndex] = choiceErdsList;
+        return { choiceExplanationErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChoiceExplanationErdTemplate = useCallback(
     (problemIndex: number, choiceIndex: number, erdIndex: number, template: string) => {
-      const prob = data.problems[problemIndex];
-      const allErds = prob.choiceExplanationErds
-        ? prob.choiceExplanationErds.map((arr) => [...arr])
-        : [];
-      while (allErds.length <= choiceIndex) allErds.push([]);
-      const choiceErdsList = [...(allErds[choiceIndex] || [])];
-      const currentText = choiceErdsList[erdIndex] || '';
-      choiceErdsList[erdIndex] = currentText ? `${currentText}\n${template}` : template;
-      allErds[choiceIndex] = choiceErdsList;
-      updateProblem(problemIndex, { choiceExplanationErds: allErds });
+      updateProblem(problemIndex, (prob) => {
+        const allErds = prob.choiceExplanationErds
+          ? prob.choiceExplanationErds.map((arr) => [...arr])
+          : [];
+        while (allErds.length <= choiceIndex) allErds.push([]);
+        const choiceErdsList = [...(allErds[choiceIndex] || [])];
+        const currentText = choiceErdsList[erdIndex] || '';
+        choiceErdsList[erdIndex] = currentText ? `${currentText}\n${template}` : template;
+        allErds[choiceIndex] = choiceErdsList;
+        return { choiceExplanationErds: allErds };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   // Choice Chart Handlers
   const handleAddChoiceChart = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      allCharts[choiceIndex] = [...(allCharts[choiceIndex] || []), ''];
-      updateProblem(problemIndex, { choiceCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        allCharts[choiceIndex] = [...(allCharts[choiceIndex] || []), ''];
+        return { choiceCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceChart = useCallback(
     (problemIndex: number, choiceIndex: number, chartIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
-      choiceChartsList[chartIndex] = value;
-      allCharts[choiceIndex] = choiceChartsList;
-      updateProblem(problemIndex, { choiceCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+        choiceChartsList[chartIndex] = value;
+        allCharts[choiceIndex] = choiceChartsList;
+        return { choiceCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoiceChart = useCallback(
     (problemIndex: number, choiceIndex: number, chartIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      const choiceChartsList = (allCharts[choiceIndex] || []).filter((_, i) => i !== chartIndex);
-      allCharts[choiceIndex] = choiceChartsList;
-      updateProblem(problemIndex, { choiceCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        const choiceChartsList = (allCharts[choiceIndex] || []).filter((_, i) => i !== chartIndex);
+        allCharts[choiceIndex] = choiceChartsList;
+        return { choiceCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChoiceChartTemplate = useCallback(
     (problemIndex: number, choiceIndex: number, chartIndex: number, template: string) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
-      const currentText = choiceChartsList[chartIndex] || '';
-      choiceChartsList[chartIndex] = currentText ? `${currentText}\n${template}` : template;
-      allCharts[choiceIndex] = choiceChartsList;
-      updateProblem(problemIndex, { choiceCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+        const currentText = choiceChartsList[chartIndex] || '';
+        choiceChartsList[chartIndex] = currentText ? `${currentText}\n${template}` : template;
+        allCharts[choiceIndex] = choiceChartsList;
+        return { choiceCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   // Choice Explanation Chart Handlers
   const handleAddChoiceExplanationChart = useCallback(
     (problemIndex: number, choiceIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceExplanationCharts
-        ? prob.choiceExplanationCharts.map((arr) => [...arr])
-        : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      allCharts[choiceIndex] = [...(allCharts[choiceIndex] || []), ''];
-      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceExplanationCharts
+          ? prob.choiceExplanationCharts.map((arr) => [...arr])
+          : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        allCharts[choiceIndex] = [...(allCharts[choiceIndex] || []), ''];
+        return { choiceExplanationCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleChangeChoiceExplanationChart = useCallback(
     (problemIndex: number, choiceIndex: number, chartIndex: number, value: string) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceExplanationCharts
-        ? prob.choiceExplanationCharts.map((arr) => [...arr])
-        : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
-      choiceChartsList[chartIndex] = value;
-      allCharts[choiceIndex] = choiceChartsList;
-      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceExplanationCharts
+          ? prob.choiceExplanationCharts.map((arr) => [...arr])
+          : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+        choiceChartsList[chartIndex] = value;
+        allCharts[choiceIndex] = choiceChartsList;
+        return { choiceExplanationCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleRemoveChoiceExplanationChart = useCallback(
     (problemIndex: number, choiceIndex: number, chartIndex: number) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceExplanationCharts
-        ? prob.choiceExplanationCharts.map((arr) => [...arr])
-        : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      const choiceChartsList = (allCharts[choiceIndex] || []).filter((_, i) => i !== chartIndex);
-      allCharts[choiceIndex] = choiceChartsList;
-      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceExplanationCharts
+          ? prob.choiceExplanationCharts.map((arr) => [...arr])
+          : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        const choiceChartsList = (allCharts[choiceIndex] || []).filter((_, i) => i !== chartIndex);
+        allCharts[choiceIndex] = choiceChartsList;
+        return { choiceExplanationCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const handleInsertChoiceExplanationChartTemplate = useCallback(
     (problemIndex: number, choiceIndex: number, chartIndex: number, template: string) => {
-      const prob = data.problems[problemIndex];
-      const allCharts = prob.choiceExplanationCharts
-        ? prob.choiceExplanationCharts.map((arr) => [...arr])
-        : [];
-      while (allCharts.length <= choiceIndex) allCharts.push([]);
-      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
-      const currentText = choiceChartsList[chartIndex] || '';
-      choiceChartsList[chartIndex] = currentText ? `${currentText}\n${template}` : template;
-      allCharts[choiceIndex] = choiceChartsList;
-      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+      updateProblem(problemIndex, (prob) => {
+        const allCharts = prob.choiceExplanationCharts
+          ? prob.choiceExplanationCharts.map((arr) => [...arr])
+          : [];
+        while (allCharts.length <= choiceIndex) allCharts.push([]);
+        const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+        const currentText = choiceChartsList[chartIndex] || '';
+        choiceChartsList[chartIndex] = currentText ? `${currentText}\n${template}` : template;
+        allCharts[choiceIndex] = choiceChartsList;
+        return { choiceExplanationCharts: allCharts };
+      });
     },
-    [data.problems, updateProblem]
+    [updateProblem]
   );
 
   const activeProblemIndex = Math.min(currentIndex, Math.max(0, data.problems.length - 1));
@@ -1058,10 +1120,10 @@ export function useProblemSetEditor({
     data.problems[activeProblemIndex] || data.problems[0] || createEmptyProblem();
 
   const handleOpenBulkDialog = useCallback(() => {
-    const currentChoices = activeProblem?.choices || [];
+    const currentChoices = dataRef.current.problems[activeProblemIndex]?.choices || [];
     setBulkText(currentChoices.filter(Boolean).join('\n'));
     setBulkDialogOpen(true);
-  }, [activeProblem?.choices]);
+  }, [activeProblemIndex]);
 
   const handleApplyBulk = useCallback(() => {
     const lines = bulkText
@@ -1070,21 +1132,23 @@ export function useProblemSetEditor({
       .filter((line) => line.length > 0)
       .map((line) => line.replace(/^\s*(?:\d+[.)]|\(\d+\)|[①-⑮])\s*/, ''));
 
-    const currentChoices = activeProblem?.choices || [];
-    const newChoices = currentChoices.map((existing, i) => (i < lines.length ? lines[i] : ''));
-
-    updateProblem(activeProblemIndex, { choices: newChoices });
+    updateProblem(activeProblemIndex, (prob) => {
+      const currentChoices = prob.choices || [];
+      const newChoices = currentChoices.map((existing, i) => (i < lines.length ? lines[i] : ''));
+      return { choices: newChoices };
+    });
     setBulkDialogOpen(false);
     toast.success('선택지가 일괄 적용되었습니다.');
-  }, [bulkText, activeProblem?.choices, updateProblem, activeProblemIndex]);
+  }, [bulkText, updateProblem, activeProblemIndex]);
 
   const handleOpenProblemBulkDialog = useCallback(() => {
-    const question = activeProblem?.question || '';
-    const currentChoices = activeProblem?.choices || [];
+    const prob = dataRef.current.problems[activeProblemIndex];
+    const question = prob?.question || '';
+    const currentChoices = prob?.choices || [];
     const lines = [question, ...currentChoices].filter(Boolean);
     setProblemBulkText(lines.join('\n'));
     setProblemBulkDialogOpen(true);
-  }, [activeProblem?.question, activeProblem?.choices]);
+  }, [activeProblemIndex]);
 
   const handleApplyProblemBulk = useCallback(() => {
     const lines = problemBulkText
@@ -1096,29 +1160,25 @@ export function useProblemSetEditor({
     const newQuestion = lines[0] || '';
     const choiceLines = lines.slice(1);
 
-    const currentChoices = activeProblem?.choices || [];
-    const targetLength = Math.max(currentChoices.length, choiceLines.length);
-    const newChoices = Array.from({ length: targetLength }, (_, i) =>
-      i < choiceLines.length ? choiceLines[i] : currentChoices[i] || ''
-    );
+    updateProblem(activeProblemIndex, (prob) => {
+      const currentChoices = prob.choices || [];
+      const targetLength = Math.max(currentChoices.length, choiceLines.length);
+      const newChoices = Array.from({ length: targetLength }, (_, i) =>
+        i < choiceLines.length ? choiceLines[i] : currentChoices[i] || ''
+      );
+      const currentExplanations = prob.choiceExplanations || [];
+      const newExplanations = newChoices.map((_, i) => currentExplanations[i] || '');
 
-    const currentExplanations = activeProblem?.choiceExplanations || [];
-    const newExplanations = newChoices.map((_, i) => currentExplanations[i] || '');
-
-    updateProblem(activeProblemIndex, {
-      question: newQuestion,
-      choices: newChoices,
-      choiceExplanations: newExplanations,
+      return {
+        question: newQuestion,
+        choices: newChoices,
+        choiceExplanations: newExplanations,
+      };
     });
+
     setProblemBulkDialogOpen(false);
     toast.success('문제 및 선택지가 일괄 적용되었습니다.');
-  }, [
-    problemBulkText,
-    activeProblem?.choices,
-    activeProblem?.choiceExplanations,
-    updateProblem,
-    activeProblemIndex,
-  ]);
+  }, [problemBulkText, updateProblem, activeProblemIndex]);
 
   const handleOpenReorderDialog = useCallback(() => {
     setReorderDialogOpen(true);
@@ -1135,9 +1195,10 @@ export function useProblemSetEditor({
     []
   );
 
-  const hasUnsavedChanges = Boolean(
-    initialDataRef.current && JSON.stringify(data) !== initialDataRef.current
-  );
+  const hasUnsavedChanges = useMemo(() => {
+    if (!initialDataRef.current) return false;
+    return JSON.stringify(data) !== initialDataRef.current;
+  }, [data]);
 
   return {
     data,

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef, memo } from 'react';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -409,7 +409,7 @@ interface MarkdownEditorProps {
   hideHeader?: boolean;
 }
 
-export function MarkdownEditor({
+export const MarkdownEditor = memo(function MarkdownEditor({
   label,
   value,
   onChange,
@@ -752,6 +752,6 @@ export function MarkdownEditor({
       </Box>
     </Box>
   );
-}
+});
 
 export default MarkdownEditor;

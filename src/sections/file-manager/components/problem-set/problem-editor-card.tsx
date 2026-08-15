@@ -1,6 +1,6 @@
 import type { Problem } from './types';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -130,7 +130,7 @@ interface ProblemEditorCardProps {
   onOpenProblemBulkDialog?: () => void;
 }
 
-export function ProblemEditorCard({
+export const ProblemEditorCard = memo(function ProblemEditorCard({
   problem,
   problemIndex,
   totalProblems,
@@ -218,21 +218,21 @@ export function ProblemEditorCard({
   const [openExpErdState, setOpenExpErdState] = useState<Record<number, boolean>>({});
   const [openExpChartState, setOpenExpChartState] = useState<Record<number, boolean>>({});
 
-  const toggleExpDesc = (cIndex: number) => {
+  const toggleExpDesc = useCallback((cIndex: number) => {
     setOpenExpDescState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
-  const toggleExpFormula = (cIndex: number) => {
+  const toggleExpFormula = useCallback((cIndex: number) => {
     setOpenExpFormulaState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
-  const toggleExpErd = (cIndex: number) => {
+  const toggleExpErd = useCallback((cIndex: number) => {
     setOpenExpErdState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
-  const toggleExpChart = (cIndex: number) => {
+  const toggleExpChart = useCallback((cIndex: number) => {
     setOpenExpChartState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
   useEffect(() => {
     try {
@@ -259,29 +259,35 @@ export function ProblemEditorCard({
     }
   }, [userExpandedState, hasLoadedStorage]);
 
-  const isSectionExpanded = (key: SectionKey, hasContent: boolean): boolean => {
-    const manualState = userExpandedState[key];
-    if (typeof manualState === 'boolean') {
-      return manualState;
-    }
-    return hasContent;
-  };
+  const isSectionExpanded = useCallback(
+    (key: SectionKey, hasContent: boolean): boolean => {
+      const manualState = userExpandedState[key];
+      if (typeof manualState === 'boolean') {
+        return manualState;
+      }
+      return hasContent;
+    },
+    [userExpandedState]
+  );
 
-  const handleToggleSection = (key: SectionKey, hasContent: boolean) => {
-    const currentExpanded = isSectionExpanded(key, hasContent);
-    setUserExpandedState((prev) => ({
-      ...prev,
-      [key]: !currentExpanded,
-    }));
-  };
+  const handleToggleSection = useCallback(
+    (key: SectionKey, hasContent: boolean) => {
+      const currentExpanded = isSectionExpanded(key, hasContent);
+      setUserExpandedState((prev) => ({
+        ...prev,
+        [key]: !currentExpanded,
+      }));
+    },
+    [isSectionExpanded]
+  );
 
-  const handleExpandAndAdd = (key: SectionKey, addFn: () => void) => {
+  const handleExpandAndAdd = useCallback((key: SectionKey, addFn: () => void) => {
     setUserExpandedState((prev) => ({
       ...prev,
       [key]: true,
     }));
     addFn();
-  };
+  }, []);
 
   return (
     <Card
@@ -1039,4 +1045,4 @@ export function ProblemEditorCard({
       </Box>
     </Card>
   );
-}
+});

@@ -2,7 +2,7 @@
 
 import type { Theme, SxProps } from '@mui/material/styles';
 
-import React from 'react';
+import { memo, useMemo } from 'react';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
@@ -84,17 +84,17 @@ interface RichContentRendererProps {
   inline?: boolean;
 }
 
-export function RichContentRenderer({
+export const RichContentRenderer = memo(function RichContentRenderer({
   content,
   idPrefix = 'rich_content',
   sx,
   inline = false,
 }: RichContentRendererProps) {
+  const segments = useMemo(() => parseRichContent(content), [content]);
+
   if (!content || !content.trim()) {
     return null;
   }
-
-  const segments = parseRichContent(content);
 
   return (
     <Box
@@ -155,6 +155,6 @@ export function RichContentRenderer({
       })}
     </Box>
   );
-}
+});
 
 export default RichContentRenderer;

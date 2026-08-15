@@ -1,5 +1,7 @@
 'use client';
 
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
@@ -30,7 +32,7 @@ interface ProblemEditorChartsProps {
   hideHeader?: boolean;
 }
 
-export function ProblemEditorCharts({
+export const ProblemEditorCharts = memo(function ProblemEditorCharts({
   title = '차트 (Plotly / Mermaid)',
   charts = [],
   onAddChart,
@@ -218,4 +220,4 @@ export function ProblemEditorCharts({
       )}
     </Box>
   );
-}
+});

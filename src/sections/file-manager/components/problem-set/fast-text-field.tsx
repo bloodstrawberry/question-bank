@@ -1,5 +1,5 @@
 import { debounce } from 'es-toolkit';
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { memo, useRef, useMemo, useState, useEffect, useCallback } from 'react';
 
 import TextField, { type TextFieldProps } from '@mui/material/TextField';
 
@@ -11,11 +11,12 @@ export interface FastTextFieldProps extends Omit<TextFieldProps, 'onChange'> {
   debounceMs?: number;
 }
 
-export function FastTextField({
+export const FastTextField = memo(function FastTextField({
   value,
   onChange,
   debounceMs = 250,
   onBlur,
+  onFocus,
   onKeyDown,
   ...other
 }: FastTextFieldProps) {
@@ -23,8 +24,15 @@ export function FastTextField({
   const onChangeRef = useRef(onChange);
   onChangeRef.current = onChange;
 
+  const isFocusedRef = useRef(false);
+  const localValueRef = useRef(localValue);
+  localValueRef.current = localValue;
+
+  // Synchronize prop value when not actively focused or if value externally changed
   useEffect(() => {
-    setLocalValue(value || '');
+    if (!isFocusedRef.current && (value || '') !== localValueRef.current) {
+      setLocalValue(value || '');
+    }
   }, [value]);
 
   const debouncedOnChange = useMemo(
@@ -42,39 +50,60 @@ export function FastTextField({
     [debouncedOnChange]
   );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const newText = e.target.value;
-    setLocalValue(newText);
-    debouncedOnChange(newText);
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (onBlur) {
-      onBlur(e);
-    }
-    debouncedOnChange.cancel();
-    onChangeRef.current(localValue);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Tab') {
-      const handled = focusNextInput(e.currentTarget as HTMLElement, e.shiftKey);
-      if (handled) {
-        e.preventDefault();
+  const handleFocus = useCallback(
+    (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      isFocusedRef.current = true;
+      if (onFocus) {
+        onFocus(e);
       }
-    }
-    if (onKeyDown) {
-      onKeyDown(e);
-    }
-  };
+    },
+    [onFocus]
+  );
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const newText = e.target.value;
+      setLocalValue(newText);
+      debouncedOnChange(newText);
+    },
+    [debouncedOnChange]
+  );
+
+  const handleBlur = useCallback(
+    (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      isFocusedRef.current = false;
+      debouncedOnChange.cancel();
+      onChangeRef.current(localValueRef.current);
+      if (onBlur) {
+        onBlur(e);
+      }
+    },
+    [debouncedOnChange, onBlur]
+  );
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === 'Tab') {
+        const handled = focusNextInput(e.currentTarget as HTMLElement, e.shiftKey);
+        if (handled) {
+          e.preventDefault();
+        }
+      }
+      if (onKeyDown) {
+        onKeyDown(e);
+      }
+    },
+    [onKeyDown]
+  );
 
   return (
     <TextField
       {...other}
       value={localValue}
+      onFocus={handleFocus}
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
     />
   );
-}
+});

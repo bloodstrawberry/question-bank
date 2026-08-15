@@ -1,5 +1,7 @@
 import type { Problem } from './types';
 
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Select from '@mui/material/Select';
@@ -42,7 +44,7 @@ function isZeroOrClearKey(e: React.KeyboardEvent): boolean {
   return code === 'Digit0' || code === 'Numpad0';
 }
 
-export function ProblemEditorAnswerSelect({
+export const ProblemEditorAnswerSelect = memo(function ProblemEditorAnswerSelect({
   problem,
   onUpdateProblem,
 }: ProblemEditorAnswerSelectProps) {
@@ -215,4 +217,4 @@ export function ProblemEditorAnswerSelect({
       )}
     </Box>
   );
-}
+});

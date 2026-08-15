@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import TagIcon from '@mui/icons-material/Tag';
@@ -12,7 +14,7 @@ interface ProblemEditorHashtagsProps {
   onRemoveHashtag: (tagIndex: number) => void;
 }
 
-export function ProblemEditorHashtags({
+export const ProblemEditorHashtags = memo(function ProblemEditorHashtags({
   hashtags,
   hashtagInput,
   onHashtagInputChange,
@@ -56,4 +58,4 @@ export function ProblemEditorHashtags({
       />
     </Box>
   );
-}
+});

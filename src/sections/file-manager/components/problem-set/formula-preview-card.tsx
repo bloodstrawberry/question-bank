@@ -1,4 +1,4 @@
-import { useDeferredValue } from 'react';
+import { memo, useDeferredValue } from 'react';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -9,7 +9,9 @@ interface FormulaPreviewCardProps {
   fText: string;
 }
 
-export function FormulaPreviewCard({ fText }: FormulaPreviewCardProps) {
+export const FormulaPreviewCard = memo(function FormulaPreviewCard({
+  fText,
+}: FormulaPreviewCardProps) {
   const deferredText = useDeferredValue(fText);
 
   return (
@@ -46,4 +48,4 @@ export function FormulaPreviewCard({ fText }: FormulaPreviewCardProps) {
       )}
     </Box>
   );
-}
+});

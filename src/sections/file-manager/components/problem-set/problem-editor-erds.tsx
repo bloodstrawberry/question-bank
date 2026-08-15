@@ -1,5 +1,7 @@
 'use client';
 
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
@@ -30,7 +32,7 @@ interface ProblemEditorErdsProps {
   hideHeader?: boolean;
 }
 
-export function ProblemEditorErds({
+export const ProblemEditorErds = memo(function ProblemEditorErds({
   title = 'ERD (Entity Relationship Diagram)',
   erds = [],
   onAddErd,
@@ -207,4 +209,4 @@ export function ProblemEditorErds({
       )}
     </Box>
   );
-}
+});

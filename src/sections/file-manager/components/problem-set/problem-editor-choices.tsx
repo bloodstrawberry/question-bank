@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { memo, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -121,7 +121,7 @@ interface SortableChoiceItemProps {
   onInsertChoiceChartTemplate?: (choiceIndex: number, chartIndex: number, template: string) => void;
 }
 
-function SortableChoiceItem({
+const SortableChoiceItem = memo(function SortableChoiceItem({
   id,
   cIndex,
   choice,
@@ -480,9 +480,9 @@ function SortableChoiceItem({
       )}
     </Box>
   );
-}
+});
 
-export function ProblemEditorChoices({
+export const ProblemEditorChoices = memo(function ProblemEditorChoices({
   choices = [],
   choiceDescriptions = [],
   choiceFormulas = [],
@@ -542,33 +542,36 @@ export function ProblemEditorChoices({
     })
   );
 
-  const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
-    if (over && active.id !== over.id) {
-      const oldIndex = choiceIds.indexOf(String(active.id));
-      const newIndex = choiceIds.indexOf(String(over.id));
-      if (oldIndex !== -1 && newIndex !== -1) {
-        setChoiceIds((prevIds) => arrayMove(prevIds, oldIndex, newIndex));
-        onReorderChoice?.(oldIndex, newIndex);
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const { active, over } = event;
+      if (over && active.id !== over.id) {
+        const oldIndex = choiceIds.indexOf(String(active.id));
+        const newIndex = choiceIds.indexOf(String(over.id));
+        if (oldIndex !== -1 && newIndex !== -1) {
+          setChoiceIds((prevIds) => arrayMove(prevIds, oldIndex, newIndex));
+          onReorderChoice?.(oldIndex, newIndex);
+        }
       }
-    }
-  };
+    },
+    [choiceIds, onReorderChoice]
+  );
 
-  const toggleDesc = (cIndex: number) => {
+  const toggleDesc = useCallback((cIndex: number) => {
     setOpenDescState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
-  const toggleFormula = (cIndex: number) => {
+  const toggleFormula = useCallback((cIndex: number) => {
     setOpenFormulaState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
-  const toggleErd = (cIndex: number) => {
+  const toggleErd = useCallback((cIndex: number) => {
     setOpenErdState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
-  const toggleChart = (cIndex: number) => {
+  const toggleChart = useCallback((cIndex: number) => {
     setOpenChartState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
-  };
+  }, []);
 
   return (
     <Box>
@@ -695,4 +698,4 @@ export function ProblemEditorChoices({
       </DndContext>
     </Box>
   );
-}
+});
