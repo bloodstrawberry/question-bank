@@ -215,10 +215,12 @@ export function ProblemSetViewCard({
                 border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
                 '& p': {
                   m: 0,
-                  mb: 1,
+                  mb: 1.5,
                   fontSize: 14,
                   lineHeight: 1.8,
                   color: (t) => t.palette.text.secondary,
+                  whiteSpace: 'pre-wrap',
+                  minHeight: '1.2em',
                   '&:last-child': { mb: 0 },
                 },
                 '& h1, & h2, & h3': {
@@ -548,7 +550,21 @@ export function ProblemSetViewCard({
                 {/* Choice Extra Description */}
                 {problem.choiceDescriptions?.[cIndex] &&
                   problem.choiceDescriptions[cIndex].trim().length > 0 && (
-                    <Box sx={{ pl: 4.5, pb: 1, color: 'text.secondary', fontSize: 13 }}>
+                    <Box
+                      sx={{
+                        pl: 4.5,
+                        pb: 1,
+                        color: 'text.secondary',
+                        fontSize: 13,
+                        '& p': {
+                          m: 0,
+                          mb: 1.5,
+                          whiteSpace: 'pre-wrap',
+                          minHeight: '1.2em',
+                          '&:last-child': { mb: 0 },
+                        },
+                      }}
+                    >
                       <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                         {problem.choiceDescriptions[cIndex]}
                       </ReactMarkdown>
@@ -655,9 +671,11 @@ export function ProblemSetViewCard({
                 sx={{
                   '& p': {
                     m: 0,
-                    mb: 1,
+                    mb: 1.5,
                     fontSize: 14,
                     lineHeight: 1.8,
+                    whiteSpace: 'pre-wrap',
+                    minHeight: '1.2em',
                     '&:last-child': { mb: 0 },
                   },
                   '& h1, & h2, & h3': { mt: 1.5, mb: 0.5, fontWeight: 700 },
@@ -897,7 +915,19 @@ export function ProblemSetViewCard({
                           {/* Choice Explanation Extra Description */}
                           {problem.choiceExplanationDescriptions?.[cIndex] &&
                             problem.choiceExplanationDescriptions[cIndex].trim().length > 0 && (
-                              <Box sx={{ color: 'text.secondary', fontSize: 13 }}>
+                              <Box
+                                sx={{
+                                  color: 'text.secondary',
+                                  fontSize: 13,
+                                  '& p': {
+                                    m: 0,
+                                    mb: 1.5,
+                                    whiteSpace: 'pre-wrap',
+                                    minHeight: '1.2em',
+                                    '&:last-child': { mb: 0 },
+                                  },
+                                }}
+                              >
                                 <ReactMarkdown
                                   remarkPlugins={[remarkGfm]}
                                   rehypePlugins={[rehypeRaw]}

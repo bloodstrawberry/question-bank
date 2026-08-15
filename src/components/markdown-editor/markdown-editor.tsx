@@ -8,6 +8,8 @@ import { alpha, useTheme } from '@mui/material/styles';
 
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import { StarterKit } from '@tiptap/starter-kit';
+import { Paragraph } from '@tiptap/extension-paragraph';
+import { HardBreak } from '@tiptap/extension-hard-break';
 import { Underline } from '@tiptap/extension-underline';
 import { TextAlign } from '@tiptap/extension-text-align';
 import { Link } from '@tiptap/extension-link';
@@ -23,6 +25,38 @@ import { Icon } from '@iconify/react';
 import { debounce } from 'es-toolkit';
 
 import { focusNextInput } from 'src/sections/file-manager/components/problem-set/focus-utils';
+
+const CustomParagraph = Paragraph.extend({
+  addStorage() {
+    return {
+      markdown: {
+        serialize(state: any, node: any) {
+          if (node.childCount === 0) {
+            state.write('&nbsp;');
+            state.closeBlock(node);
+            return;
+          }
+          state.renderInline(node);
+          state.closeBlock(node);
+        },
+        parse: {},
+      },
+    };
+  },
+});
+
+const CustomHardBreak = HardBreak.extend({
+  addStorage() {
+    return {
+      markdown: {
+        serialize(state: any, node: any, parent: any, index: number) {
+          state.write(state.inTable ? '<br>' : '\\\n');
+        },
+        parse: {},
+      },
+    };
+  },
+});
 
 // ----------------------------------------------------------------------
 
@@ -451,6 +485,8 @@ export const MarkdownEditor = memo(function MarkdownEditor({
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
+        paragraph: false,
+        hardBreak: false,
         bulletList: {
           keepMarks: true,
           keepAttributes: false,
@@ -463,6 +499,8 @@ export const MarkdownEditor = memo(function MarkdownEditor({
           levels: [1, 2, 3, 4, 5, 6],
         },
       }),
+      CustomParagraph,
+      CustomHardBreak,
       Markdown.configure({
         html: true,
         tightLists: true,
@@ -623,7 +661,13 @@ export const MarkdownEditor = memo(function MarkdownEditor({
             lineHeight: 1.8,
             fontFamily: theme.typography.fontFamily,
             color: 'text.primary',
-            '& p': { m: 0, mb: 1, '&:last-child': { mb: 0 } },
+            '& p': {
+              m: 0,
+              mb: 1.5,
+              whiteSpace: 'pre-wrap',
+              minHeight: '1.2em',
+              '&:last-child': { mb: 0 },
+            },
             '& p.is-editor-empty:first-of-type::before': {
               color: 'text.disabled',
               content: 'attr(data-placeholder)',

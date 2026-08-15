@@ -107,9 +107,13 @@ export const RichContentRenderer = memo(function RichContentRenderer({
         gap: 0.5,
         '& p': {
           m: 0,
-          display: inline ? 'inline' : 'block',
+          mb: 1.5,
+          display: inline ? 'inline-block' : 'block',
           fontSize: 14,
           lineHeight: 1.6,
+          whiteSpace: 'pre-wrap',
+          minHeight: '1.2em',
+          '&:last-child': { mb: 0 },
         },
         '& code': {
           px: 0.5,
