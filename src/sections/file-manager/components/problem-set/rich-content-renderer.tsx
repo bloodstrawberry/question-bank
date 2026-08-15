@@ -17,8 +17,14 @@ export interface RichContentSegment {
   content: string;
 }
 
+export function isRichTextEmpty(text?: string | null): boolean {
+  if (!text) return true;
+  const stripped = text.replace(/&nbsp;|<p><\/p>|<br\s*\/?>|\s|\u200B/g, '');
+  return stripped.length === 0;
+}
+
 export function parseRichContent(text: string): RichContentSegment[] {
-  if (!text || !text.trim()) return [];
+  if (isRichTextEmpty(text)) return [];
 
   const trimmed = text.trim();
 
@@ -92,7 +98,7 @@ export const RichContentRenderer = memo(function RichContentRenderer({
 }: RichContentRendererProps) {
   const segments = useMemo(() => parseRichContent(content), [content]);
 
-  if (!content || !content.trim()) {
+  if (isRichTextEmpty(content)) {
     return null;
   }
 

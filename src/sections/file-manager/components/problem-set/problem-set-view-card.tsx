@@ -30,7 +30,7 @@ import { KatexMath } from 'src/components/katex';
 import { ChartRenderer } from 'src/components/chart';
 import { MermaidDiagram } from 'src/components/mermaid';
 
-import { RichContentRenderer } from './rich-content-renderer';
+import { RichContentRenderer, isRichTextEmpty } from './rich-content-renderer';
 
 interface ProblemSetViewCardProps {
   problem: Problem;
@@ -204,90 +204,88 @@ export function ProblemSetViewCard({
         </Box>
 
         {/* Description */}
-        {problem.description &&
-          problem.description.trim() &&
-          problem.description.trim() !== '<p></p>' && (
-            <Box
-              sx={{
-                p: 2,
-                borderRadius: 1.5,
-                bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
-                border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
-                '& p': {
-                  m: 0,
-                  mb: 1.5,
+        {!isRichTextEmpty(problem.description) && (
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: 1.5,
+              bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+              border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+              '& p': {
+                m: 0,
+                mb: 1.5,
+                fontSize: 14,
+                lineHeight: 1.8,
+                color: (t) => t.palette.text.secondary,
+                whiteSpace: 'pre-wrap',
+                minHeight: '1.2em',
+                '&:last-child': { mb: 0 },
+              },
+              '& h1, & h2, & h3': {
+                mt: 1.5,
+                mb: 0.5,
+                fontWeight: 700,
+                color: (t) => t.palette.text.secondary,
+              },
+              '& ul, & ol': {
+                pl: 3,
+                mb: 1,
+                '& li': {
                   fontSize: 14,
                   lineHeight: 1.8,
                   color: (t) => t.palette.text.secondary,
-                  whiteSpace: 'pre-wrap',
-                  minHeight: '1.2em',
-                  '&:last-child': { mb: 0 },
                 },
-                '& h1, & h2, & h3': {
-                  mt: 1.5,
-                  mb: 0.5,
-                  fontWeight: 700,
-                  color: (t) => t.palette.text.secondary,
-                },
-                '& ul, & ol': {
-                  pl: 3,
-                  mb: 1,
-                  '& li': {
-                    fontSize: 14,
-                    lineHeight: 1.8,
-                    color: (t) => t.palette.text.secondary,
-                  },
-                },
+              },
+              '& code': {
+                px: 0.5,
+                py: 0.25,
+                borderRadius: 0.5,
+                fontSize: 13,
+                fontFamily: 'monospace',
+                bgcolor: (t) => alpha(t.palette.grey[500], 0.12),
+                color: 'error.main',
+              },
+              '& pre': {
+                p: 1.5,
+                borderRadius: 1,
+                bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                overflow: 'auto',
                 '& code': {
-                  px: 0.5,
-                  py: 0.25,
-                  borderRadius: 0.5,
+                  bgcolor: 'transparent',
+                  color: (t) => t.palette.text.primary,
+                  px: 0,
+                  py: 0,
+                },
+              },
+              '& blockquote': {
+                m: 0,
+                pl: 2,
+                borderLeft: (t) => `3px solid ${t.palette.primary.main}`,
+                color: (t) => t.palette.text.disabled,
+                fontStyle: 'italic',
+              },
+              '& strong': { fontWeight: 700 },
+              '& table': {
+                width: '100%',
+                borderCollapse: 'collapse',
+                '& th, & td': {
+                  px: 1.5,
+                  py: 1,
                   fontSize: 13,
-                  fontFamily: 'monospace',
-                  bgcolor: (t) => alpha(t.palette.grey[500], 0.12),
-                  color: 'error.main',
+                  border: (t) => `1px solid ${t.palette.divider}`,
                 },
-                '& pre': {
-                  p: 1.5,
-                  borderRadius: 1,
+                '& th': {
+                  fontWeight: 700,
                   bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
-                  overflow: 'auto',
-                  '& code': {
-                    bgcolor: 'transparent',
-                    color: (t) => t.palette.text.primary,
-                    px: 0,
-                    py: 0,
-                  },
                 },
-                '& blockquote': {
-                  m: 0,
-                  pl: 2,
-                  borderLeft: (t) => `3px solid ${t.palette.primary.main}`,
-                  color: (t) => t.palette.text.disabled,
-                  fontStyle: 'italic',
-                },
-                '& strong': { fontWeight: 700 },
-                '& table': {
-                  width: '100%',
-                  borderCollapse: 'collapse',
-                  '& th, & td': {
-                    px: 1.5,
-                    py: 1,
-                    fontSize: 13,
-                    border: (t) => `1px solid ${t.palette.divider}`,
-                  },
-                  '& th': {
-                    fontWeight: 700,
-                    bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
-                  },
-                },
-              }}
-            >
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-                {problem.description}
-              </ReactMarkdown>
-            </Box>
-          )}
+              },
+            }}
+          >
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+              {problem.description}
+            </ReactMarkdown>
+          </Box>
+        )}
 
         {/* Formulas */}
         {problemFormulas.length > 0 && (
@@ -548,28 +546,27 @@ export function ProblemSetViewCard({
                 />
 
                 {/* Choice Extra Description */}
-                {problem.choiceDescriptions?.[cIndex] &&
-                  problem.choiceDescriptions[cIndex].trim().length > 0 && (
-                    <Box
-                      sx={{
-                        pl: 4.5,
-                        pb: 1,
-                        color: 'text.secondary',
-                        fontSize: 13,
-                        '& p': {
-                          m: 0,
-                          mb: 1.5,
-                          whiteSpace: 'pre-wrap',
-                          minHeight: '1.2em',
-                          '&:last-child': { mb: 0 },
-                        },
-                      }}
-                    >
-                      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-                        {problem.choiceDescriptions[cIndex]}
-                      </ReactMarkdown>
-                    </Box>
-                  )}
+                {!isRichTextEmpty(problem.choiceDescriptions?.[cIndex]) && (
+                  <Box
+                    sx={{
+                      pl: 4.5,
+                      pb: 1,
+                      color: 'text.secondary',
+                      fontSize: 13,
+                      '& p': {
+                        m: 0,
+                        mb: 1.5,
+                        whiteSpace: 'pre-wrap',
+                        minHeight: '1.2em',
+                        '&:last-child': { mb: 0 },
+                      },
+                    }}
+                  >
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                      {problem.choiceDescriptions?.[cIndex] || ''}
+                    </ReactMarkdown>
+                  </Box>
+                )}
 
                 {/* Choice Extra Formulas */}
                 {problem.choiceFormulas?.[cIndex] && problem.choiceFormulas[cIndex].length > 0 && (
@@ -666,7 +663,7 @@ export function ProblemSetViewCard({
               </Typography>
             </Box>
 
-            {problem.explanation && (
+            {!isRichTextEmpty(problem.explanation) && (
               <Box
                 sx={{
                   '& p': {
@@ -913,29 +910,28 @@ export function ProblemSetViewCard({
                           />
 
                           {/* Choice Explanation Extra Description */}
-                          {problem.choiceExplanationDescriptions?.[cIndex] &&
-                            problem.choiceExplanationDescriptions[cIndex].trim().length > 0 && (
-                              <Box
-                                sx={{
-                                  color: 'text.secondary',
-                                  fontSize: 13,
-                                  '& p': {
-                                    m: 0,
-                                    mb: 1.5,
-                                    whiteSpace: 'pre-wrap',
-                                    minHeight: '1.2em',
-                                    '&:last-child': { mb: 0 },
-                                  },
-                                }}
+                          {!isRichTextEmpty(problem.choiceExplanationDescriptions?.[cIndex]) && (
+                            <Box
+                              sx={{
+                                color: 'text.secondary',
+                                fontSize: 13,
+                                '& p': {
+                                  m: 0,
+                                  mb: 1.5,
+                                  whiteSpace: 'pre-wrap',
+                                  minHeight: '1.2em',
+                                  '&:last-child': { mb: 0 },
+                                },
+                              }}
+                            >
+                              <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
+                                rehypePlugins={[rehypeRaw]}
                               >
-                                <ReactMarkdown
-                                  remarkPlugins={[remarkGfm]}
-                                  rehypePlugins={[rehypeRaw]}
-                                >
-                                  {problem.choiceExplanationDescriptions[cIndex]}
-                                </ReactMarkdown>
-                              </Box>
-                            )}
+                                {problem.choiceExplanationDescriptions?.[cIndex] || ''}
+                              </ReactMarkdown>
+                            </Box>
+                          )}
 
                           {/* Choice Explanation Extra Formulas */}
                           {problem.choiceExplanationFormulas?.[cIndex] &&

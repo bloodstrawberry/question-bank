@@ -26,7 +26,7 @@ import { MarkdownEditor } from 'src/components/markdown-editor';
 import { FastTextField } from './fast-text-field';
 import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorCharts } from './problem-editor-charts';
-import { RichContentRenderer } from './rich-content-renderer';
+import { RichContentRenderer, isRichTextEmpty } from './rich-content-renderer';
 import { ProblemEditorChoices } from './problem-editor-choices';
 import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
@@ -390,17 +390,25 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
         <ProblemEditorCollapsibleSection
           title="문제 추가 설명"
           icon={<ArticleIcon sx={{ fontSize: 20, color: 'text.secondary' }} />}
-          hasContent={Boolean(problem.description && problem.description.trim().length > 0)}
+          hasContent={!isRichTextEmpty(problem.description)}
           color="primary"
-          expanded={isSectionExpanded(
-            'description',
-            Boolean(problem.description && problem.description.trim().length > 0)
-          )}
-          onToggle={() =>
-            handleToggleSection(
-              'description',
-              Boolean(problem.description && problem.description.trim().length > 0)
-            )
+          expanded={isSectionExpanded('description', !isRichTextEmpty(problem.description))}
+          onToggle={() => handleToggleSection('description', !isRichTextEmpty(problem.description))}
+          action={
+            <Tooltip title="설명 초기화/삭제">
+              <IconButton
+                size="small"
+                tabIndex={-1}
+                color="error"
+                onClick={() => {
+                  onUpdateProblem({ description: '' });
+                  setUserExpandedState((prev) => ({ ...prev, description: false }));
+                }}
+                sx={{ p: 0.5 }}
+              >
+                <DeleteIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
           }
         >
           <MarkdownEditor

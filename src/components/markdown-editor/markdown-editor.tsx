@@ -25,6 +25,7 @@ import { Icon } from '@iconify/react';
 import { debounce } from 'es-toolkit';
 
 import { focusNextInput } from 'src/sections/file-manager/components/problem-set/focus-utils';
+import { isRichTextEmpty } from 'src/sections/file-manager/components/problem-set/rich-content-renderer';
 
 const CustomParagraph = Paragraph.extend({
   addStorage() {
@@ -534,14 +535,24 @@ export const MarkdownEditor = memo(function MarkdownEditor({
     ],
     content: value || '',
     onUpdate: ({ editor: currentEditor }) => {
+      if (currentEditor.isEmpty) {
+        debouncedOnChange('');
+        return;
+      }
       const markdown = (currentEditor.storage as any).markdown.getMarkdown();
-      debouncedOnChange(markdown);
+      const finalVal = isRichTextEmpty(markdown) ? '' : markdown;
+      debouncedOnChange(finalVal);
     },
     onBlur: ({ editor: currentEditor }) => {
-      const markdown = (currentEditor.storage as any).markdown.getMarkdown();
       debouncedOnChange.cancel();
       isLocalChangeRef.current = true;
-      onChangeRef.current(markdown);
+      if (currentEditor.isEmpty) {
+        onChangeRef.current('');
+        return;
+      }
+      const markdown = (currentEditor.storage as any).markdown.getMarkdown();
+      const finalVal = isRichTextEmpty(markdown) ? '' : markdown;
+      onChangeRef.current(finalVal);
     },
     editable: !readOnly,
     immediatelyRender: false,
@@ -572,8 +583,10 @@ export const MarkdownEditor = memo(function MarkdownEditor({
     }
 
     const currentMarkdown = (editor.storage as any).markdown.getMarkdown();
-    if (value !== currentMarkdown) {
-      editor.commands.setContent(value);
+    const currentNormalized = isRichTextEmpty(currentMarkdown) ? '' : currentMarkdown;
+    const valueNormalized = isRichTextEmpty(value) ? '' : value;
+    if (valueNormalized !== currentNormalized) {
+      editor.commands.setContent(valueNormalized || '');
     }
   }, [value, editor, isMounted]);
 
