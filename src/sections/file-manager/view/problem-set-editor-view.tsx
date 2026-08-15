@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -24,6 +24,7 @@ import {
   ProblemSetPagination,
   ProblemEditorBulkDialog,
   ProblemEditorReorderDialog,
+  ProblemEditorNoAnswerDialog,
 } from '../components/problem-set';
 
 // ----------------------------------------------------------------------
@@ -63,6 +64,13 @@ export function ProblemSetEditorView({
     setProblemBulkDialogOpen,
     problemBulkText,
     setProblemBulkText,
+    reorderDialogOpen,
+    setReorderDialogOpen,
+    noAnswerWarningOpen,
+    setNoAnswerWarningOpen,
+    unansweredProblems,
+    handleOpenReorderDialog,
+    handleApplyReorderProblems,
     handleSave,
     handlePrevProblem,
     handleNextProblem,
@@ -134,10 +142,6 @@ export function ProblemSetEditorView({
     handleApplyBulk,
     handleOpenProblemBulkDialog,
     handleApplyProblemBulk,
-    reorderDialogOpen,
-    setReorderDialogOpen,
-    handleOpenReorderDialog,
-    handleApplyReorderProblems,
   } = useProblemSetEditor({
     fileId,
     initialProblemIndex,
@@ -161,8 +165,14 @@ export function ProblemSetEditorView({
     }, 50);
   }, [hasUnsavedChanges, onBack]);
 
+  const pendingExitRef = useRef(false);
+
   const isAnyDialogOpen =
-    bulkDialogOpen || problemBulkDialogOpen || reorderDialogOpen || exitConfirmDialogOpen;
+    bulkDialogOpen ||
+    problemBulkDialogOpen ||
+    reorderDialogOpen ||
+    exitConfirmDialogOpen ||
+    noAnswerWarningOpen;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -265,7 +275,7 @@ export function ProblemSetEditorView({
           <Button
             variant="contained"
             color="primary"
-            onClick={handleSave}
+            onClick={() => handleSave()}
             startIcon={<SaveIcon />}
             sx={{ boxShadow: (t) => t.customShadows?.primary }}
           >
@@ -492,11 +502,11 @@ export function ProblemSetEditorView({
             variant="contained"
             size="large"
             color="primary"
-            onClick={handleSave}
+            onClick={() => handleSave()}
             sx={{
-              px: 8,
-              height: 56,
-              borderRadius: 2,
+              px: 4,
+              height: 48,
+              borderRadius: 1.5,
               boxShadow: (t) => t.customShadows?.primary,
             }}
           >
@@ -563,8 +573,12 @@ export function ProblemSetEditorView({
             color="primary"
             onClick={async () => {
               setExitConfirmDialogOpen(false);
-              await handleSave();
-              onBack();
+              pendingExitRef.current = true;
+              const success = await handleSave();
+              if (success) {
+                pendingExitRef.current = false;
+                onBack();
+              }
             }}
             sx={{ fontWeight: 700 }}
           >
@@ -592,6 +606,23 @@ export function ProblemSetEditorView({
           </Button>
         </DialogActions>
       </Dialog>
+      {/* No Answer Warning Dialog */}
+      <ProblemEditorNoAnswerDialog
+        open={noAnswerWarningOpen}
+        onClose={() => {
+          setNoAnswerWarningOpen(false);
+          pendingExitRef.current = false;
+        }}
+        unansweredProblems={unansweredProblems}
+        onIgnoreAndSave={async () => {
+          setNoAnswerWarningOpen(false);
+          const success = await handleSave(true);
+          if (success && pendingExitRef.current) {
+            pendingExitRef.current = false;
+            onBack();
+          }
+        }}
+      />
     </Container>
   );
 }

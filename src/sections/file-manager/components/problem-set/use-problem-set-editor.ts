@@ -32,6 +32,8 @@ export function useProblemSetEditor({
   const [problemBulkDialogOpen, setProblemBulkDialogOpen] = useState(false);
   const [problemBulkText, setProblemBulkText] = useState('');
   const [reorderDialogOpen, setReorderDialogOpen] = useState(false);
+  const [noAnswerWarningOpen, setNoAnswerWarningOpen] = useState(false);
+  const [unansweredProblems, setUnansweredProblems] = useState<number[]>([]);
 
   const initialDataRef = useRef<string>('');
   const dataRef = useRef(data);
@@ -175,7 +177,7 @@ export function useProblemSetEditor({
     setPageInput(String(currentIndex + 1));
   }, [currentIndex]);
 
-  const handleSave = useCallback(async () => {
+  const executeSave = useCallback(async (): Promise<boolean> => {
     const currentData = dataRef.current;
     try {
       await saveFileScript(fileId, currentData);
@@ -183,11 +185,39 @@ export function useProblemSetEditor({
       onSave?.(fileId);
       toast.success('문제 모음이 저장되었습니다!');
       onSaveSuccess?.(currentIndex);
+      return true;
     } catch (error) {
       console.error('Failed to save problem set', error);
       toast.error('저장에 실패했습니다.');
+      return false;
     }
   }, [fileId, onSave, onSaveSuccess, currentIndex]);
+
+  const handleSave = useCallback(
+    async (forceSave = false): Promise<boolean> => {
+      if (!forceSave) {
+        const currentProblems = dataRef.current.problems || [];
+        const missingAnswers: number[] = [];
+        currentProblems.forEach((p, idx) => {
+          if (p.isMultipleAnswer) {
+            if (!p.answers || p.answers.length === 0) {
+              missingAnswers.push(idx + 1);
+            }
+          } else if (!p.answer || p.answer <= 0) {
+            missingAnswers.push(idx + 1);
+          }
+        });
+
+        if (missingAnswers.length > 0) {
+          setUnansweredProblems(missingAnswers);
+          setNoAnswerWarningOpen(true);
+          return false;
+        }
+      }
+      return executeSave();
+    },
+    [executeSave]
+  );
 
   const handlePrevProblem = useCallback(() => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
@@ -1228,6 +1258,9 @@ export function useProblemSetEditor({
     setProblemBulkText,
     reorderDialogOpen,
     setReorderDialogOpen,
+    noAnswerWarningOpen,
+    setNoAnswerWarningOpen,
+    unansweredProblems,
     handleOpenReorderDialog,
     handleApplyReorderProblems,
     handleSave,
