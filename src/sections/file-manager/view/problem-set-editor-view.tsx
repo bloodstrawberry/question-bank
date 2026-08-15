@@ -511,7 +511,6 @@ export function ProblemSetEditorView({
         onClose={() => setBulkDialogOpen(false)}
         choicesCount={activeProblem.choices.length}
         bulkText={bulkText}
-        onBulkTextChange={setBulkText}
         onApplyBulk={handleApplyBulk}
       />
 
@@ -523,7 +522,6 @@ export function ProblemSetEditorView({
         description="첫 줄은 문제로 입력되고, 두 번째 줄부터는 객관식 선택지로 입력됩니다. 앞에 붙은 문제 번호(1., ① 등)와 줄바꿈 공백은 자동으로 정돈됩니다."
         placeholder={`1. 다음 중 옳은 것을 고르시오.\n1) 선택지 A\n2) 선택지 B\n3) 선택지 C\n4) 선택지 D`}
         bulkText={problemBulkText}
-        onBulkTextChange={setProblemBulkText}
         onApplyBulk={handleApplyProblemBulk}
       />
       {/* Problem Set Reorder Dialog */}

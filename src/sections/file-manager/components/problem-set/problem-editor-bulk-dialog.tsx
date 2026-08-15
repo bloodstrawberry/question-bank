@@ -1,3 +1,7 @@
+'use client';
+
+import { useState, useEffect, useCallback, memo } from 'react';
+
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import TextField from '@mui/material/TextField';
@@ -13,22 +17,44 @@ interface ProblemEditorBulkDialogProps {
   description?: React.ReactNode;
   placeholder?: string;
   choicesCount?: number;
-  bulkText: string;
-  onBulkTextChange: (text: string) => void;
-  onApplyBulk: () => void;
+  bulkText?: string;
+  onBulkTextChange?: (text: string) => void;
+  onApplyBulk: (text?: string) => void;
 }
 
-export function ProblemEditorBulkDialog({
+export const ProblemEditorBulkDialog = memo(function ProblemEditorBulkDialog({
   open,
   onClose,
   title = '선택지 일괄 입력 (Bulk Edit)',
   description,
   placeholder = `A\nB\n\nC\nD\nE`,
   choicesCount,
-  bulkText,
+  bulkText = '',
   onBulkTextChange,
   onApplyBulk,
 }: ProblemEditorBulkDialogProps) {
+  const [localText, setLocalText] = useState(bulkText);
+
+  // Sync initial bulk text when dialog opens
+  useEffect(() => {
+    if (open) {
+      setLocalText(bulkText);
+    }
+  }, [open, bulkText]);
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const val = e.target.value;
+      setLocalText(val);
+      onBulkTextChange?.(val);
+    },
+    [onBulkTextChange]
+  );
+
+  const handleApply = useCallback(() => {
+    onApplyBulk(localText);
+  }, [onApplyBulk, localText]);
+
   const defaultDescription =
     choicesCount !== undefined ? (
       <>
@@ -63,8 +89,8 @@ export function ProblemEditorBulkDialog({
           multiline
           minRows={6}
           maxRows={12}
-          value={bulkText}
-          onChange={(e) => onBulkTextChange(e.target.value)}
+          value={localText}
+          onChange={handleChange}
           placeholder={placeholder}
           sx={{
             '& .MuiOutlinedInput-root': {
@@ -79,10 +105,10 @@ export function ProblemEditorBulkDialog({
         <Button variant="outlined" color="inherit" onClick={onClose}>
           취소
         </Button>
-        <Button variant="contained" color="primary" onClick={onApplyBulk} sx={{ fontWeight: 700 }}>
+        <Button variant="contained" color="primary" onClick={handleApply} sx={{ fontWeight: 700 }}>
           적용하기
         </Button>
       </DialogActions>
     </Dialog>
   );
-}
+});

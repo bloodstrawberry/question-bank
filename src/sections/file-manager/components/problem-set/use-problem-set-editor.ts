@@ -1125,21 +1125,25 @@ export function useProblemSetEditor({
     setBulkDialogOpen(true);
   }, [activeProblemIndex]);
 
-  const handleApplyBulk = useCallback(() => {
-    const lines = bulkText
-      .split('\n')
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0)
-      .map((line) => line.replace(/^\s*(?:\d+[.)]|\(\d+\)|[①-⑮])\s*/, ''));
+  const handleApplyBulk = useCallback(
+    (appliedText?: string) => {
+      const raw = typeof appliedText === 'string' ? appliedText : bulkText;
+      const lines = raw
+        .split('\n')
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0)
+        .map((line) => line.replace(/^\s*(?:\d+[.)]|\(\d+\)|[①-⑮])\s*/, ''));
 
-    updateProblem(activeProblemIndex, (prob) => {
-      const currentChoices = prob.choices || [];
-      const newChoices = currentChoices.map((existing, i) => (i < lines.length ? lines[i] : ''));
-      return { choices: newChoices };
-    });
-    setBulkDialogOpen(false);
-    toast.success('선택지가 일괄 적용되었습니다.');
-  }, [bulkText, updateProblem, activeProblemIndex]);
+      updateProblem(activeProblemIndex, (prob) => {
+        const currentChoices = prob.choices || [];
+        const newChoices = currentChoices.map((existing, i) => (i < lines.length ? lines[i] : ''));
+        return { choices: newChoices };
+      });
+      setBulkDialogOpen(false);
+      toast.success('선택지가 일괄 적용되었습니다.');
+    },
+    [bulkText, updateProblem, activeProblemIndex]
+  );
 
   const handleOpenProblemBulkDialog = useCallback(() => {
     const prob = dataRef.current.problems[activeProblemIndex];
@@ -1150,35 +1154,39 @@ export function useProblemSetEditor({
     setProblemBulkDialogOpen(true);
   }, [activeProblemIndex]);
 
-  const handleApplyProblemBulk = useCallback(() => {
-    const lines = problemBulkText
-      .split('\n')
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0)
-      .map((line) => line.replace(/^\s*(?:\d+[.)]|\(\d+\)|[①-⑮])\s*/, ''));
+  const handleApplyProblemBulk = useCallback(
+    (appliedText?: string) => {
+      const raw = typeof appliedText === 'string' ? appliedText : problemBulkText;
+      const lines = raw
+        .split('\n')
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0)
+        .map((line) => line.replace(/^\s*(?:\d+[.)]|\(\d+\)|[①-⑮])\s*/, ''));
 
-    const newQuestion = lines[0] || '';
-    const choiceLines = lines.slice(1);
+      const newQuestion = lines[0] || '';
+      const choiceLines = lines.slice(1);
 
-    updateProblem(activeProblemIndex, (prob) => {
-      const currentChoices = prob.choices || [];
-      const targetLength = Math.max(currentChoices.length, choiceLines.length);
-      const newChoices = Array.from({ length: targetLength }, (_, i) =>
-        i < choiceLines.length ? choiceLines[i] : currentChoices[i] || ''
-      );
-      const currentExplanations = prob.choiceExplanations || [];
-      const newExplanations = newChoices.map((_, i) => currentExplanations[i] || '');
+      updateProblem(activeProblemIndex, (prob) => {
+        const currentChoices = prob.choices || [];
+        const targetLength = Math.max(currentChoices.length, choiceLines.length);
+        const newChoices = Array.from({ length: targetLength }, (_, i) =>
+          i < choiceLines.length ? choiceLines[i] : currentChoices[i] || ''
+        );
+        const currentExplanations = prob.choiceExplanations || [];
+        const newExplanations = newChoices.map((_, i) => currentExplanations[i] || '');
 
-      return {
-        question: newQuestion,
-        choices: newChoices,
-        choiceExplanations: newExplanations,
-      };
-    });
+        return {
+          question: newQuestion,
+          choices: newChoices,
+          choiceExplanations: newExplanations,
+        };
+      });
 
-    setProblemBulkDialogOpen(false);
-    toast.success('문제 및 선택지가 일괄 적용되었습니다.');
-  }, [problemBulkText, updateProblem, activeProblemIndex]);
+      setProblemBulkDialogOpen(false);
+      toast.success('문제 및 선택지가 일괄 적용되었습니다.');
+    },
+    [problemBulkText, updateProblem, activeProblemIndex]
+  );
 
   const handleOpenReorderDialog = useCallback(() => {
     setReorderDialogOpen(true);

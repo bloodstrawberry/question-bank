@@ -245,8 +245,9 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
     [inputRefs]
   );
 
-  const handleBulkApply = () => {
-    const lines = bulkText
+  const handleBulkApply = (appliedText?: string) => {
+    const text = typeof appliedText === 'string' ? appliedText : bulkText;
+    const lines = text
       .split('\n')
       .map((l) => l.trim())
       .filter(Boolean);
@@ -794,40 +795,68 @@ export function OpicEditorView({ fileId, fileName, onBack, onSaveSuccess, onSave
         </Tooltip>
       </Box>
 
-      <Dialog open={bulkModal.value} onClose={bulkModal.onFalse} fullWidth maxWidth="lg">
-        <DialogTitle sx={{ fontWeight: 800 }}>Bulk Import Lines</DialogTitle>
-        <DialogContent sx={{ pt: 1 }}>
-          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
-            Paste Korean and English pairs below. Each pair will be converted into one script line.
-          </Typography>
-          <TextField
-            fullWidth
-            multiline
-            rows={12}
-            placeholder={
-              'Korean line 1\nEnglish translation 1\n\nKorean line 2\nEnglish translation 2...'
-            }
-            value={bulkText}
-            onChange={(e) => setBulkText(e.target.value)}
-            sx={{
-              '& .MuiInputBase-root': { fontFamily: 'monospace', fontSize: 14 },
-            }}
-          />
-        </DialogContent>
-        <DialogActions sx={{ p: 3 }}>
-          <Button onClick={bulkModal.onFalse} color="inherit" variant="outlined">
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            color="info"
-            onClick={handleBulkApply}
-            disabled={!bulkText.trim()}
-          >
-            Apply to Script
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <OpicBulkDialog
+        open={bulkModal.value}
+        onClose={bulkModal.onFalse}
+        onApply={handleBulkApply}
+      />
     </Container>
   );
 }
+
+interface OpicBulkDialogProps {
+  open: boolean;
+  onClose: () => void;
+  onApply: (text: string) => void;
+}
+
+const OpicBulkDialog = memo(function OpicBulkDialog({
+  open,
+  onClose,
+  onApply,
+}: OpicBulkDialogProps) {
+  const [localText, setLocalText] = useState('');
+
+  useEffect(() => {
+    if (open) {
+      setLocalText('');
+    }
+  }, [open]);
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+      <DialogTitle sx={{ fontWeight: 800 }}>Bulk Import Lines</DialogTitle>
+      <DialogContent sx={{ pt: 1 }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
+          Paste Korean and English pairs below. Each pair will be converted into one script line.
+        </Typography>
+        <TextField
+          fullWidth
+          multiline
+          rows={12}
+          placeholder={
+            'Korean line 1\nEnglish translation 1\n\nKorean line 2\nEnglish translation 2...'
+          }
+          value={localText}
+          onChange={(e) => setLocalText(e.target.value)}
+          sx={{
+            '& .MuiInputBase-root': { fontFamily: 'monospace', fontSize: 14 },
+          }}
+        />
+      </DialogContent>
+      <DialogActions sx={{ p: 3 }}>
+        <Button onClick={onClose} color="inherit" variant="outlined">
+          Cancel
+        </Button>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={() => onApply(localText)}
+          disabled={!localText.trim()}
+        >
+          Apply to Script
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+});
