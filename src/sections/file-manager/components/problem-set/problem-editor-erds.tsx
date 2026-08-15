@@ -6,41 +6,17 @@ import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import { alpha } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
-import SchemaIcon from '@mui/icons-material/Schema';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import SchemaIcon from '@mui/icons-material/Schema';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { FastTextField } from './fast-text-field';
 import { MermaidDiagram } from 'src/components/mermaid';
 
-export interface ERDTemplate {
-  label: string;
-  code: string;
-}
+import { FastTextField } from './fast-text-field';
+import { type ERDTemplate, COMMON_ERD_TEMPLATES } from './constants';
 
-export const COMMON_ERD_TEMPLATES: ERDTemplate[] = [
-  {
-    label: '1:N 관계 (일대다)',
-    code: 'CUSTOMER ||--o{ ORDER : "places"',
-  },
-  {
-    label: 'N:M 관계 (다대다)',
-    code: 'STUDENT }|--|{ COURSE : "enrolls"',
-  },
-  {
-    label: '엔티티 & 속성 정의',
-    code: `USER {\n    int id PK\n    string email UK\n    string name\n    datetime created_at\n}`,
-  },
-  {
-    label: '식별 관계 (1:1)',
-    code: 'PERSON ||--|| PASSPORT : "has"',
-  },
-  {
-    label: '비식별 관계 (0/1:N)',
-    code: 'DEPARTMENT ||..o{ EMPLOYEE : "employs"',
-  },
-];
+export { type ERDTemplate, COMMON_ERD_TEMPLATES };
 
 interface ProblemEditorErdsProps {
   title?: string;

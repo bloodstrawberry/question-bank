@@ -11,12 +11,18 @@ export interface Problem {
   explanationErds?: string[];
   explanationErd?: string;
   choices: string[];
+  choiceDescriptions?: string[];
+  choiceFormulas?: string[][];
+  choiceErds?: string[][];
   answer: number;
   answers?: number[];
   isMultipleAnswer?: boolean;
   showMultipleCount?: boolean;
   explanation: string;
   choiceExplanations: string[];
+  choiceExplanationDescriptions?: string[];
+  choiceExplanationFormulas?: string[][];
+  choiceExplanationErds?: string[][];
 }
 
 export interface ProblemSetData {
@@ -38,11 +44,17 @@ export function createEmptyProblem(): Problem {
     erds: [],
     explanationErds: [],
     choices: ['', '', '', ''],
+    choiceDescriptions: ['', '', '', ''],
+    choiceFormulas: [[], [], [], []],
+    choiceErds: [[], [], [], []],
     answer: 0,
     answers: [],
     isMultipleAnswer: false,
     showMultipleCount: true,
     explanation: '',
     choiceExplanations: ['', '', '', ''],
+    choiceExplanationDescriptions: ['', '', '', ''],
+    choiceExplanationFormulas: [[], [], [], []],
+    choiceExplanationErds: [[], [], [], []],
   };
 }

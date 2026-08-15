@@ -85,6 +85,24 @@ export function ProblemSetEditorView({
     handleRemoveChoice,
     handleChangeChoice,
     handleChangeChoiceExplanation,
+    handleChangeChoiceDescription,
+    handleAddChoiceFormula,
+    handleChangeChoiceFormula,
+    handleRemoveChoiceFormula,
+    handleInsertChoiceSymbol,
+    handleAddChoiceErd,
+    handleChangeChoiceErd,
+    handleRemoveChoiceErd,
+    handleInsertChoiceErdTemplate,
+    handleChangeChoiceExplanationDescription,
+    handleAddChoiceExplanationFormula,
+    handleChangeChoiceExplanationFormula,
+    handleRemoveChoiceExplanationFormula,
+    handleInsertChoiceExplanationSymbol,
+    handleAddChoiceExplanationErd,
+    handleChangeChoiceExplanationErd,
+    handleRemoveChoiceExplanationErd,
+    handleInsertChoiceExplanationErdTemplate,
     handleOpenBulkDialog,
     handleApplyBulk,
     handleOpenProblemBulkDialog,
@@ -224,8 +242,58 @@ export function ProblemSetEditorView({
         onAddChoice={() => handleAddChoice(activeProblemIndex)}
         onRemoveChoice={(cIdx) => handleRemoveChoice(activeProblemIndex, cIdx)}
         onChangeChoice={(cIdx, val) => handleChangeChoice(activeProblemIndex, cIdx, val)}
+        onChangeChoiceDescription={(cIdx, val) =>
+          handleChangeChoiceDescription(activeProblemIndex, cIdx, val)
+        }
+        onAddChoiceFormula={(cIdx) => handleAddChoiceFormula(activeProblemIndex, cIdx)}
+        onChangeChoiceFormula={(cIdx, fIdx, val) =>
+          handleChangeChoiceFormula(activeProblemIndex, cIdx, fIdx, val)
+        }
+        onRemoveChoiceFormula={(cIdx, fIdx) =>
+          handleRemoveChoiceFormula(activeProblemIndex, cIdx, fIdx)
+        }
+        onInsertChoiceSymbol={(cIdx, fIdx, sym) =>
+          handleInsertChoiceSymbol(activeProblemIndex, cIdx, fIdx, sym)
+        }
+        onAddChoiceErd={(cIdx) => handleAddChoiceErd(activeProblemIndex, cIdx)}
+        onChangeChoiceErd={(cIdx, erdIdx, val) =>
+          handleChangeChoiceErd(activeProblemIndex, cIdx, erdIdx, val)
+        }
+        onRemoveChoiceErd={(cIdx, erdIdx) =>
+          handleRemoveChoiceErd(activeProblemIndex, cIdx, erdIdx)
+        }
+        onInsertChoiceErdTemplate={(cIdx, erdIdx, tmpl) =>
+          handleInsertChoiceErdTemplate(activeProblemIndex, cIdx, erdIdx, tmpl)
+        }
         onChangeChoiceExplanation={(cIdx, val) =>
           handleChangeChoiceExplanation(activeProblemIndex, cIdx, val)
+        }
+        onChangeChoiceExplanationDescription={(cIdx, val) =>
+          handleChangeChoiceExplanationDescription(activeProblemIndex, cIdx, val)
+        }
+        onAddChoiceExplanationFormula={(cIdx) =>
+          handleAddChoiceExplanationFormula(activeProblemIndex, cIdx)
+        }
+        onChangeChoiceExplanationFormula={(cIdx, fIdx, val) =>
+          handleChangeChoiceExplanationFormula(activeProblemIndex, cIdx, fIdx, val)
+        }
+        onRemoveChoiceExplanationFormula={(cIdx, fIdx) =>
+          handleRemoveChoiceExplanationFormula(activeProblemIndex, cIdx, fIdx)
+        }
+        onInsertChoiceExplanationSymbol={(cIdx, fIdx, sym) =>
+          handleInsertChoiceExplanationSymbol(activeProblemIndex, cIdx, fIdx, sym)
+        }
+        onAddChoiceExplanationErd={(cIdx) =>
+          handleAddChoiceExplanationErd(activeProblemIndex, cIdx)
+        }
+        onChangeChoiceExplanationErd={(cIdx, erdIdx, val) =>
+          handleChangeChoiceExplanationErd(activeProblemIndex, cIdx, erdIdx, val)
+        }
+        onRemoveChoiceExplanationErd={(cIdx, erdIdx) =>
+          handleRemoveChoiceExplanationErd(activeProblemIndex, cIdx, erdIdx)
+        }
+        onInsertChoiceExplanationErdTemplate={(cIdx, erdIdx, tmpl) =>
+          handleInsertChoiceExplanationErdTemplate(activeProblemIndex, cIdx, erdIdx, tmpl)
         }
         onOpenBulkDialog={handleOpenBulkDialog}
         onOpenProblemBulkDialog={handleOpenProblemBulkDialog}

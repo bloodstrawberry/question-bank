@@ -14,6 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import CancelIcon from '@mui/icons-material/Cancel';
+import SchemaIcon from '@mui/icons-material/Schema';
 import { alpha, useTheme } from '@mui/material/styles';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FunctionsIcon from '@mui/icons-material/Functions';
@@ -23,10 +24,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import SchemaIcon from '@mui/icons-material/Schema';
 
 import { KatexMath } from 'src/components/katex';
 import { MermaidDiagram } from 'src/components/mermaid';
+
+import { RichContentRenderer } from './rich-content-renderer';
 
 interface ProblemSetViewCardProps {
   problem: Problem;
@@ -453,14 +455,34 @@ export function ProblemSetViewCard({
                     )
                   }
                   label={
-                    <Typography
-                      variant="body2"
+                    <Box
                       sx={{
-                        fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 0.5,
+                        py: 0.25,
+                        width: '100%',
                       }}
                     >
-                      {choiceNum}. {choice}
-                    </Typography>
+                      <Typography
+                        variant="body2"
+                        component="span"
+                        sx={{
+                          fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                          flexShrink: 0,
+                        }}
+                      >
+                        {choiceNum}.
+                      </Typography>
+                      <RichContentRenderer
+                        content={choice}
+                        inline
+                        idPrefix={`view_choice_${problemIndex}_${cIndex}`}
+                        sx={{
+                          fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                        }}
+                      />
+                    </Box>
                   }
                   sx={{
                     m: 0,
@@ -469,6 +491,48 @@ export function ProblemSetViewCard({
                     '& .MuiFormControlLabel-label': { flexGrow: 1 },
                   }}
                 />
+
+                {/* Choice Extra Description */}
+                {problem.choiceDescriptions?.[cIndex] &&
+                  problem.choiceDescriptions[cIndex].trim().length > 0 && (
+                    <Box sx={{ pl: 4.5, pb: 1, color: 'text.secondary', fontSize: 13 }}>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                        {problem.choiceDescriptions[cIndex]}
+                      </ReactMarkdown>
+                    </Box>
+                  )}
+
+                {/* Choice Extra Formulas */}
+                {problem.choiceFormulas?.[cIndex] && problem.choiceFormulas[cIndex].length > 0 && (
+                  <Box sx={{ pl: 4.5, pb: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    {problem.choiceFormulas[cIndex].map((fText, fIdx) => (
+                      <Box
+                        key={fIdx}
+                        sx={{
+                          p: 1.5,
+                          borderRadius: 1,
+                          bgcolor: 'background.paper',
+                          border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                        }}
+                      >
+                        <KatexMath math={fText} />
+                      </Box>
+                    ))}
+                  </Box>
+                )}
+
+                {/* Choice Extra ERDs */}
+                {problem.choiceErds?.[cIndex] && problem.choiceErds[cIndex].length > 0 && (
+                  <Box sx={{ pl: 4.5, pb: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    {problem.choiceErds[cIndex].map((erdText, erdIdx) => (
+                      <MermaidDiagram
+                        key={erdIdx}
+                        chart={erdText}
+                        idPrefix={`view_choice_erd_${problemIndex}_${cIndex}_${erdIdx}`}
+                      />
+                    ))}
+                  </Box>
+                )}
               </Box>
             );
           })}
@@ -717,9 +781,61 @@ export function ProblemSetViewCard({
                         >
                           {cIndex + 1}
                         </Box>
-                        <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
-                          {exp}
-                        </Typography>
+                        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                          <RichContentRenderer
+                            content={exp}
+                            idPrefix={`view_choice_exp_${problemIndex}_${cIndex}`}
+                            sx={{ lineHeight: 1.7 }}
+                          />
+
+                          {/* Choice Explanation Extra Description */}
+                          {problem.choiceExplanationDescriptions?.[cIndex] &&
+                            problem.choiceExplanationDescriptions[cIndex].trim().length > 0 && (
+                              <Box sx={{ color: 'text.secondary', fontSize: 13 }}>
+                                <ReactMarkdown
+                                  remarkPlugins={[remarkGfm]}
+                                  rehypePlugins={[rehypeRaw]}
+                                >
+                                  {problem.choiceExplanationDescriptions[cIndex]}
+                                </ReactMarkdown>
+                              </Box>
+                            )}
+
+                          {/* Choice Explanation Extra Formulas */}
+                          {problem.choiceExplanationFormulas?.[cIndex] &&
+                            problem.choiceExplanationFormulas[cIndex].length > 0 && (
+                              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                {problem.choiceExplanationFormulas[cIndex].map((fText, fIdx) => (
+                                  <Box
+                                    key={fIdx}
+                                    sx={{
+                                      p: 1.5,
+                                      borderRadius: 1,
+                                      bgcolor: 'background.paper',
+                                      border: (t) =>
+                                        `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
+                                    }}
+                                  >
+                                    <KatexMath math={fText} />
+                                  </Box>
+                                ))}
+                              </Box>
+                            )}
+
+                          {/* Choice Explanation Extra ERDs */}
+                          {problem.choiceExplanationErds?.[cIndex] &&
+                            problem.choiceExplanationErds[cIndex].length > 0 && (
+                              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                {problem.choiceExplanationErds[cIndex].map((erdText, erdIdx) => (
+                                  <MermaidDiagram
+                                    key={erdIdx}
+                                    chart={erdText}
+                                    idPrefix={`view_exp_erd_${problemIndex}_${cIndex}_${erdIdx}`}
+                                  />
+                                ))}
+                              </Box>
+                            )}
+                        </Box>
                       </Box>
                     ) : null
                   )}

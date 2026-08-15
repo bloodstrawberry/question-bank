@@ -1,29 +1,33 @@
 import type { Problem } from './types';
+
 import { useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { alpha } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
-import FunctionsIcon from '@mui/icons-material/Functions';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import DeleteIcon from '@mui/icons-material/Delete';
 import SchemaIcon from '@mui/icons-material/Schema';
 import ArticleIcon from '@mui/icons-material/Article';
-
-import Button from '@mui/material/Button';
+import FunctionsIcon from '@mui/icons-material/Functions';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 
 import { MarkdownEditor } from 'src/components/markdown-editor';
 
 import { FastTextField } from './fast-text-field';
+import { ProblemEditorErds } from './problem-editor-erds';
+import { RichContentRenderer } from './rich-content-renderer';
 import { ProblemEditorChoices } from './problem-editor-choices';
 import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
-import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
 import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
 
@@ -61,7 +65,37 @@ interface ProblemEditorCardProps {
   onAddChoice: () => void;
   onRemoveChoice: (choiceIndex: number) => void;
   onChangeChoice: (choiceIndex: number, value: string) => void;
+  onChangeChoiceDescription?: (choiceIndex: number, value: string) => void;
+  onAddChoiceFormula?: (choiceIndex: number) => void;
+  onChangeChoiceFormula?: (choiceIndex: number, formulaIndex: number, value: string) => void;
+  onRemoveChoiceFormula?: (choiceIndex: number, formulaIndex: number) => void;
+  onInsertChoiceSymbol?: (choiceIndex: number, formulaIndex: number, symbol: string) => void;
+  onAddChoiceErd?: (choiceIndex: number) => void;
+  onChangeChoiceErd?: (choiceIndex: number, erdIndex: number, value: string) => void;
+  onRemoveChoiceErd?: (choiceIndex: number, erdIndex: number) => void;
+  onInsertChoiceErdTemplate?: (choiceIndex: number, erdIndex: number, template: string) => void;
   onChangeChoiceExplanation: (choiceIndex: number, value: string) => void;
+  onChangeChoiceExplanationDescription?: (choiceIndex: number, value: string) => void;
+  onAddChoiceExplanationFormula?: (choiceIndex: number) => void;
+  onChangeChoiceExplanationFormula?: (
+    choiceIndex: number,
+    formulaIndex: number,
+    value: string
+  ) => void;
+  onRemoveChoiceExplanationFormula?: (choiceIndex: number, formulaIndex: number) => void;
+  onInsertChoiceExplanationSymbol?: (
+    choiceIndex: number,
+    formulaIndex: number,
+    symbol: string
+  ) => void;
+  onAddChoiceExplanationErd?: (choiceIndex: number) => void;
+  onChangeChoiceExplanationErd?: (choiceIndex: number, erdIndex: number, value: string) => void;
+  onRemoveChoiceExplanationErd?: (choiceIndex: number, erdIndex: number) => void;
+  onInsertChoiceExplanationErdTemplate?: (
+    choiceIndex: number,
+    erdIndex: number,
+    template: string
+  ) => void;
   onOpenBulkDialog: () => void;
   onOpenProblemBulkDialog?: () => void;
 }
@@ -96,7 +130,25 @@ export function ProblemEditorCard({
   onAddChoice,
   onRemoveChoice,
   onChangeChoice,
+  onChangeChoiceDescription,
+  onAddChoiceFormula,
+  onChangeChoiceFormula,
+  onRemoveChoiceFormula,
+  onInsertChoiceSymbol,
+  onAddChoiceErd,
+  onChangeChoiceErd,
+  onRemoveChoiceErd,
+  onInsertChoiceErdTemplate,
   onChangeChoiceExplanation,
+  onChangeChoiceExplanationDescription,
+  onAddChoiceExplanationFormula,
+  onChangeChoiceExplanationFormula,
+  onRemoveChoiceExplanationFormula,
+  onInsertChoiceExplanationSymbol,
+  onAddChoiceExplanationErd,
+  onChangeChoiceExplanationErd,
+  onRemoveChoiceExplanationErd,
+  onInsertChoiceExplanationErdTemplate,
   onOpenBulkDialog,
   onOpenProblemBulkDialog,
 }: ProblemEditorCardProps) {
@@ -110,6 +162,23 @@ export function ProblemEditorCard({
     explanationErds: undefined,
   });
   const [hasLoadedStorage, setHasLoadedStorage] = useState(false);
+  const [showExpPreview, setShowExpPreview] = useState(false);
+
+  const [openExpDescState, setOpenExpDescState] = useState<Record<number, boolean>>({});
+  const [openExpFormulaState, setOpenExpFormulaState] = useState<Record<number, boolean>>({});
+  const [openExpErdState, setOpenExpErdState] = useState<Record<number, boolean>>({});
+
+  const toggleExpDesc = (cIndex: number) => {
+    setOpenExpDescState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
+  };
+
+  const toggleExpFormula = (cIndex: number) => {
+    setOpenExpFormulaState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
+  };
+
+  const toggleExpErd = (cIndex: number) => {
+    setOpenExpErdState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
+  };
 
   useEffect(() => {
     try {
@@ -357,12 +426,24 @@ export function ProblemEditorCard({
         {/* Choices */}
         <ProblemEditorChoices
           choices={problem.choices}
+          choiceDescriptions={problem.choiceDescriptions}
+          choiceFormulas={problem.choiceFormulas}
+          choiceErds={problem.choiceErds}
           answers={problem.answers}
           answer={problem.answer}
           isMultipleAnswer={problem.isMultipleAnswer}
           onAddChoice={onAddChoice}
           onRemoveChoice={onRemoveChoice}
           onChangeChoice={onChangeChoice}
+          onChangeChoiceDescription={onChangeChoiceDescription}
+          onAddChoiceFormula={onAddChoiceFormula}
+          onChangeChoiceFormula={onChangeChoiceFormula}
+          onRemoveChoiceFormula={onRemoveChoiceFormula}
+          onInsertChoiceSymbol={onInsertChoiceSymbol}
+          onAddChoiceErd={onAddChoiceErd}
+          onChangeChoiceErd={onChangeChoiceErd}
+          onRemoveChoiceErd={onRemoveChoiceErd}
+          onInsertChoiceErdTemplate={onInsertChoiceErdTemplate}
           onOpenBulkDialog={onOpenBulkDialog}
         />
 
@@ -465,27 +546,131 @@ export function ProblemEditorCard({
 
         {/* Choice Explanations */}
         <Box>
-          <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 700, color: 'text.secondary' }}>
-            객관식별 설명
-          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              mb: 2,
+            }}
+          >
+            <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.secondary' }}>
+              객관식별 설명
+            </Typography>
+
+            <Button
+              size="small"
+              variant="outlined"
+              color={showExpPreview ? 'primary' : 'inherit'}
+              startIcon={showExpPreview ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              onClick={() => setShowExpPreview((prev) => !prev)}
+              sx={{ borderRadius: 1.5, fontWeight: 700 }}
+            >
+              미리보기 {showExpPreview ? 'ON' : 'OFF'}
+            </Button>
+          </Box>
+
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             {problem.choiceExplanations.map((exp, cIndex) => {
               const choiceText = problem.choices?.[cIndex] || '';
+              const expDesc = problem.choiceExplanationDescriptions?.[cIndex] || '';
+              const expFormulasList = problem.choiceExplanationFormulas?.[cIndex] || [];
+              const expErdsList = problem.choiceExplanationErds?.[cIndex] || [];
+
+              const hasExpDesc = Boolean(expDesc && expDesc.trim().length > 0);
+              const hasExpFormulas = expFormulasList.length > 0;
+              const hasExpErds = expErdsList.length > 0;
+
+              const isExpDescOpen = openExpDescState[cIndex] ?? hasExpDesc;
+              const isExpFormulaOpen = openExpFormulaState[cIndex] ?? hasExpFormulas;
+              const isExpErdOpen = openExpErdState[cIndex] ?? hasExpErds;
+
               return (
-                <Box key={cIndex} sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                  <Typography
-                    variant="caption"
+                <Box
+                  key={cIndex}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1.5,
+                    p: 1.5,
+                    borderRadius: 1.5,
+                    border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.16)}`,
+                    bgcolor: (t) => alpha(t.palette.grey[500], 0.02),
+                  }}
+                >
+                  <Box
                     sx={{
-                      fontWeight: 700,
-                      color: 'text.secondary',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
                       px: 0.5,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
                     }}
                   >
-                    {cIndex + 1}번: {choiceText || '(내용 없음)'}
-                  </Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        fontWeight: 700,
+                        color: 'text.secondary',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {cIndex + 1}번: {choiceText || '(내용 없음)'}
+                    </Typography>
+
+                    {/* Section Toggle Buttons for Choice Explanation */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                      <Tooltip title={`${cIndex + 1}번 설명 추가 설명`}>
+                        <IconButton
+                          size="small"
+                          color={isExpDescOpen || hasExpDesc ? 'primary' : 'default'}
+                          onClick={() => toggleExpDesc(cIndex)}
+                          sx={{
+                            bgcolor:
+                              isExpDescOpen || hasExpDesc
+                                ? (t) => alpha(t.palette.primary.main, 0.08)
+                                : 'transparent',
+                          }}
+                        >
+                          <ArticleIcon fontSize="small" />
+                        </IconButton>
+                      </Tooltip>
+
+                      <Tooltip title={`${cIndex + 1}번 설명 추가 수식`}>
+                        <IconButton
+                          size="small"
+                          color={isExpFormulaOpen || hasExpFormulas ? 'primary' : 'default'}
+                          onClick={() => toggleExpFormula(cIndex)}
+                          sx={{
+                            bgcolor:
+                              isExpFormulaOpen || hasExpFormulas
+                                ? (t) => alpha(t.palette.primary.main, 0.08)
+                                : 'transparent',
+                          }}
+                        >
+                          <FunctionsIcon fontSize="small" />
+                        </IconButton>
+                      </Tooltip>
+
+                      <Tooltip title={`${cIndex + 1}번 설명 추가 ERD`}>
+                        <IconButton
+                          size="small"
+                          color={isExpErdOpen || hasExpErds ? 'info' : 'default'}
+                          onClick={() => toggleExpErd(cIndex)}
+                          sx={{
+                            bgcolor:
+                              isExpErdOpen || hasExpErds
+                                ? (t) => alpha(t.palette.info.main, 0.08)
+                                : 'transparent',
+                          }}
+                        >
+                          <SchemaIcon fontSize="small" />
+                        </IconButton>
+                      </Tooltip>
+                    </Box>
+                  </Box>
+
                   <FastTextField
                     fullWidth
                     size="small"
@@ -494,6 +679,137 @@ export function ProblemEditorCard({
                     onChange={(val) => onChangeChoiceExplanation(cIndex, val)}
                     placeholder={`${cIndex + 1}번 선택지에 대한 설명`}
                   />
+
+                  {/* Dedicated Sub-Section: N번 설명 추가 설명 */}
+                  {(isExpDescOpen || hasExpDesc) && onChangeChoiceExplanationDescription && (
+                    <ProblemEditorCollapsibleSection
+                      title={`${cIndex + 1}번 설명 추가 설명`}
+                      icon={<ArticleIcon sx={{ fontSize: 18, color: 'text.secondary' }} />}
+                      hasContent={hasExpDesc}
+                      color="primary"
+                      expanded={isExpDescOpen}
+                      onToggle={() => toggleExpDesc(cIndex)}
+                    >
+                      <MarkdownEditor
+                        hideHeader
+                        label={`${cIndex + 1}번 설명 추가 설명`}
+                        value={expDesc}
+                        onChange={(val) => onChangeChoiceExplanationDescription(cIndex, val)}
+                        placeholder={`${cIndex + 1}번 선택지 설명에 대한 보충 설명을 입력하세요... (마크다운 지원)`}
+                        minRows={2}
+                      />
+                    </ProblemEditorCollapsibleSection>
+                  )}
+
+                  {/* Dedicated Sub-Section: N번 설명 추가 수식 */}
+                  {(isExpFormulaOpen || hasExpFormulas) &&
+                    onAddChoiceExplanationFormula &&
+                    onChangeChoiceExplanationFormula &&
+                    onRemoveChoiceExplanationFormula &&
+                    onInsertChoiceExplanationSymbol && (
+                      <ProblemEditorCollapsibleSection
+                        title={`${cIndex + 1}번 설명 추가 수식`}
+                        icon={<FunctionsIcon color="primary" sx={{ fontSize: 18 }} />}
+                        count={expFormulasList.length}
+                        hasContent={hasExpFormulas}
+                        color="primary"
+                        expanded={isExpFormulaOpen}
+                        onToggle={() => toggleExpFormula(cIndex)}
+                        action={
+                          <Button
+                            size="small"
+                            variant="outlined"
+                            color="primary"
+                            startIcon={<AddIcon />}
+                            onClick={() => onAddChoiceExplanationFormula(cIndex)}
+                            sx={{ borderRadius: 1.5, fontWeight: 700 }}
+                          >
+                            해설 수식 추가
+                          </Button>
+                        }
+                      >
+                        <ProblemEditorFormulas
+                          hideHeader
+                          title={`${cIndex + 1}번 설명 추가 수식`}
+                          formulas={expFormulasList}
+                          onAddFormula={() => onAddChoiceExplanationFormula(cIndex)}
+                          onChangeFormula={(fIdx, val) =>
+                            onChangeChoiceExplanationFormula(cIndex, fIdx, val)
+                          }
+                          onRemoveFormula={(fIdx) => onRemoveChoiceExplanationFormula(cIndex, fIdx)}
+                          onInsertSymbol={(fIdx, sym) =>
+                            onInsertChoiceExplanationSymbol(cIndex, fIdx, sym)
+                          }
+                          emptyPlaceholderText={`${cIndex + 1}번 설명에 등록된 수식이 없습니다.`}
+                          labelPrefix={`${cIndex + 1}번 설명 수식`}
+                        />
+                      </ProblemEditorCollapsibleSection>
+                    )}
+
+                  {/* Dedicated Sub-Section: N번 설명 추가 ERD */}
+                  {(isExpErdOpen || hasExpErds) &&
+                    onAddChoiceExplanationErd &&
+                    onChangeChoiceExplanationErd &&
+                    onRemoveChoiceExplanationErd &&
+                    onInsertChoiceExplanationErdTemplate && (
+                      <ProblemEditorCollapsibleSection
+                        title={`${cIndex + 1}번 설명 추가 ERD`}
+                        icon={<SchemaIcon color="info" sx={{ fontSize: 18 }} />}
+                        count={expErdsList.length}
+                        hasContent={hasExpErds}
+                        color="info"
+                        expanded={isExpErdOpen}
+                        onToggle={() => toggleExpErd(cIndex)}
+                        action={
+                          <Button
+                            size="small"
+                            variant="outlined"
+                            color="info"
+                            startIcon={<AddIcon />}
+                            onClick={() => onAddChoiceExplanationErd(cIndex)}
+                            sx={{ borderRadius: 1.5, fontWeight: 700 }}
+                          >
+                            해설 ERD 추가
+                          </Button>
+                        }
+                      >
+                        <ProblemEditorErds
+                          hideHeader
+                          title={`${cIndex + 1}번 설명 추가 ERD`}
+                          erds={expErdsList}
+                          onAddErd={() => onAddChoiceExplanationErd(cIndex)}
+                          onChangeErd={(erdIdx, val) =>
+                            onChangeChoiceExplanationErd(cIndex, erdIdx, val)
+                          }
+                          onRemoveErd={(erdIdx) => onRemoveChoiceExplanationErd(cIndex, erdIdx)}
+                          onInsertTemplate={(erdIdx, tmpl) =>
+                            onInsertChoiceExplanationErdTemplate(cIndex, erdIdx, tmpl)
+                          }
+                          emptyPlaceholderText={`${cIndex + 1}번 설명에 등록된 ERD가 없습니다.`}
+                          labelPrefix={`${cIndex + 1}번 설명 ERD`}
+                        />
+                      </ProblemEditorCollapsibleSection>
+                    )}
+
+                  {/* Live Preview Box for Choice Explanation (Toggled via showExpPreview, default OFF) */}
+                  {showExpPreview && exp && exp.trim().length > 0 && (
+                    <Box
+                      sx={{
+                        p: 1.5,
+                        borderRadius: 1,
+                        bgcolor: (t) => alpha(t.palette.grey[500], 0.04),
+                        border: (t) => `1px dashed ${alpha(t.palette.grey[500], 0.2)}`,
+                      }}
+                    >
+                      <Typography
+                        variant="caption"
+                        sx={{ color: 'text.disabled', fontWeight: 700, mb: 0.5, display: 'block' }}
+                      >
+                        {cIndex + 1}번 설명 미리보기:
+                      </Typography>
+                      <RichContentRenderer content={exp} idPrefix={`exp_edit_${cIndex}`} />
+                    </Box>
+                  )}
                 </Box>
               );
             })}
