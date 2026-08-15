@@ -19,26 +19,100 @@ interface ProblemEditorAnswerSelectProps {
   onUpdateProblem: (updates: Partial<Problem>) => void;
 }
 
+function getDigitFromEvent(e: React.KeyboardEvent): number | null {
+  if (/^[1-9]$/.test(e.key)) {
+    return parseInt(e.key, 10);
+  }
+  const code = e.code || (e.nativeEvent as any)?.code || '';
+  if (code.startsWith('Digit') || code.startsWith('Numpad')) {
+    const digitStr = code.replace(/^(Digit|Numpad)/, '');
+    const parsed = parseInt(digitStr, 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 9) {
+      return parsed;
+    }
+  }
+  return null;
+}
+
+function isZeroOrClearKey(e: React.KeyboardEvent): boolean {
+  if (e.key === '0' || e.key === 'Backspace' || e.key === 'Delete') {
+    return true;
+  }
+  const code = e.code || (e.nativeEvent as any)?.code || '';
+  return code === 'Digit0' || code === 'Numpad0';
+}
+
 export function ProblemEditorAnswerSelect({
   problem,
   onUpdateProblem,
 }: ProblemEditorAnswerSelectProps) {
   const choicesCount = problem.choices.length;
 
+  const handleKeyDownSingle = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Tab') {
+      const handled = focusNextInput(e.currentTarget, e.shiftKey);
+      if (handled) e.preventDefault();
+      return;
+    }
+
+    const num = getDigitFromEvent(e);
+    if (num !== null && num >= 1 && num <= choicesCount) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      onUpdateProblem({ answer: num, answers: [num] });
+      return;
+    }
+
+    if (isZeroOrClearKey(e)) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      onUpdateProblem({ answer: 0, answers: [] });
+    }
+  };
+
+  const handleKeyDownMultiple = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Tab') {
+      const handled = focusNextInput(e.currentTarget, e.shiftKey);
+      if (handled) e.preventDefault();
+      return;
+    }
+
+    const num = getDigitFromEvent(e);
+    if (num !== null && num >= 1 && num <= choicesCount) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      const currentAnswers = problem.answers || [];
+      const exists = currentAnswers.includes(num);
+      const newAnswers = exists
+        ? currentAnswers.filter((n) => n !== num)
+        : [...currentAnswers, num].sort((a, b) => a - b);
+      onUpdateProblem({
+        answers: newAnswers,
+        answer: newAnswers[0] || 0,
+      });
+      return;
+    }
+
+    if (isZeroOrClearKey(e)) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      onUpdateProblem({ answers: [], answer: 0 });
+    }
+  };
+
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 2.5 }}>
       {!problem.isMultipleAnswer ? (
-        <FormControl sx={{ minWidth: 160 }}>
+        <FormControl sx={{ minWidth: 160 }} onKeyDownCapture={handleKeyDownSingle}>
           <InputLabel>정답 번호</InputLabel>
           <Select
             label="정답 번호"
             value={problem.answer || ''}
-            onKeyDown={(e) => {
-              if (e.key === 'Tab') {
-                const handled = focusNextInput(e.currentTarget, e.shiftKey);
-                if (handled) e.preventDefault();
-              }
-            }}
+            onKeyDownCapture={handleKeyDownSingle}
             onChange={(e) => {
               const val = e.target.value as number;
               onUpdateProblem({ answer: val, answers: val ? [val] : [] });
@@ -55,18 +129,13 @@ export function ProblemEditorAnswerSelect({
           </Select>
         </FormControl>
       ) : (
-        <FormControl sx={{ minWidth: 220 }}>
+        <FormControl sx={{ minWidth: 220 }} onKeyDownCapture={handleKeyDownMultiple}>
           <InputLabel>정답 번호 (복수 선택)</InputLabel>
           <Select
             multiple
             label="정답 번호 (복수 선택)"
             value={problem.answers || []}
-            onKeyDown={(e) => {
-              if (e.key === 'Tab') {
-                const handled = focusNextInput(e.currentTarget, e.shiftKey);
-                if (handled) e.preventDefault();
-              }
-            }}
+            onKeyDownCapture={handleKeyDownMultiple}
             onChange={(e) => {
               const val =
                 typeof e.target.value === 'string'
