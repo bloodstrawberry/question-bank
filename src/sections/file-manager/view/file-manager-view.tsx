@@ -1077,13 +1077,10 @@ export function FileManagerView() {
                 fileId={selectedFile.id}
                 fileName={selectedFile.name}
                 initialProblemIndex={activeProblemIndex}
-                onBack={() =>
-                  updateURL({ view: 'list', fileId: null, fileName: null, problemIndex: null })
-                }
+                onBack={() => updateURL({ view: 'live', problemIndex: activeProblemIndex })}
                 onSaveSuccess={(savedIdx) => {
                   const targetIdx = savedIdx ?? activeProblemIndex;
                   setActiveProblemIndex(targetIdx);
-                  updateURL({ view: 'live', problemIndex: targetIdx });
                 }}
                 onSave={(id) => {
                   const updateModifiedAt = (nodes: any[]): any[] =>

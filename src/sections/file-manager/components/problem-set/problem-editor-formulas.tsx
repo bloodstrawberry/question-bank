@@ -65,6 +65,7 @@ export function ProblemEditorFormulas({
 
           <Button
             size="small"
+            tabIndex={-1}
             variant="outlined"
             color="primary"
             startIcon={<AddIcon />}
@@ -125,7 +126,12 @@ export function ProblemEditorFormulas({
                 <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'primary.main' }}>
                   {labelPrefix} #{fIndex + 1}
                 </Typography>
-                <IconButton size="small" color="error" onClick={() => onRemoveFormula(fIndex)}>
+                <IconButton
+                  size="small"
+                  tabIndex={-1}
+                  color="error"
+                  onClick={() => onRemoveFormula(fIndex)}
+                >
                   <DeleteIcon fontSize="small" />
                 </IconButton>
               </Box>
@@ -142,6 +148,7 @@ export function ProblemEditorFormulas({
                   {COMMON_LATEX_SYMBOLS.map((sym) => (
                     <Chip
                       key={sym.label}
+                      tabIndex={-1}
                       label={sym.label}
                       size="small"
                       clickable

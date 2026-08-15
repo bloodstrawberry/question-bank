@@ -22,6 +22,8 @@ import { Markdown } from 'tiptap-markdown';
 import { Icon } from '@iconify/react';
 import { debounce } from 'es-toolkit';
 
+import { focusNextInput } from 'src/sections/file-manager/components/problem-set/focus-utils';
+
 // ----------------------------------------------------------------------
 
 interface ToolbarButtonProps {
@@ -37,6 +39,7 @@ function ToolbarButton({ onClick, active, icon, title, disabled }: ToolbarButton
   return (
     <Box
       component="button"
+      tabIndex={-1}
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -118,6 +121,7 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
       {/* Heading Selector */}
       <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
         <select
+          tabIndex={-1}
           value={
             editor.isActive('heading', { level: 1 })
               ? '1'
@@ -215,6 +219,7 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
         <input
           ref={colorInputRef}
           type="color"
+          tabIndex={-1}
           style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}
           onInput={(e) => {
             editor
@@ -234,6 +239,7 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
         <input
           ref={highlightInputRef}
           type="color"
+          tabIndex={-1}
           style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}
           onInput={(e) => {
             editor
@@ -501,6 +507,17 @@ export function MarkdownEditor({
     },
     editable: !readOnly,
     immediatelyRender: false,
+    editorProps: {
+      handleKeyDown(view, event) {
+        if (event.key === 'Tab') {
+          const handled = focusNextInput(view.dom, event.shiftKey);
+          if (handled) {
+            return true;
+          }
+        }
+        return false;
+      },
+    },
   });
 
   // Sync external changes (e.g. load, reset) back to editor

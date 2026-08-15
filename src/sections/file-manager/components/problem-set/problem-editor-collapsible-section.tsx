@@ -79,6 +79,7 @@ export function ProblemEditorCollapsibleSection({
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <IconButton
             size="small"
+            tabIndex={-1}
             sx={{
               p: 0.25,
               transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -142,7 +143,7 @@ export function ProblemEditorCollapsibleSection({
       </Box>
 
       {/* Collapse Content */}
-      <Collapse in={expanded} timeout="auto" unmountOnExit={false}>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Box
           sx={{
             p: 2,

@@ -12,6 +12,8 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
+import { focusNextInput } from './focus-utils';
+
 interface ProblemEditorAnswerSelectProps {
   problem: Problem;
   onUpdateProblem: (updates: Partial<Problem>) => void;
@@ -31,6 +33,12 @@ export function ProblemEditorAnswerSelect({
           <Select
             label="정답 번호"
             value={problem.answer || ''}
+            onKeyDown={(e) => {
+              if (e.key === 'Tab') {
+                const handled = focusNextInput(e.currentTarget, e.shiftKey);
+                if (handled) e.preventDefault();
+              }
+            }}
             onChange={(e) => {
               const val = e.target.value as number;
               onUpdateProblem({ answer: val, answers: val ? [val] : [] });
@@ -53,6 +61,12 @@ export function ProblemEditorAnswerSelect({
             multiple
             label="정답 번호 (복수 선택)"
             value={problem.answers || []}
+            onKeyDown={(e) => {
+              if (e.key === 'Tab') {
+                const handled = focusNextInput(e.currentTarget, e.shiftKey);
+                if (handled) e.preventDefault();
+              }
+            }}
             onChange={(e) => {
               const val =
                 typeof e.target.value === 'string'
@@ -88,6 +102,7 @@ export function ProblemEditorAnswerSelect({
         control={
           <Switch
             checked={Boolean(problem.isMultipleAnswer)}
+            inputProps={{ tabIndex: -1 }}
             onChange={(e) => {
               const checked = e.target.checked;
               const currentAnswers =
@@ -117,6 +132,7 @@ export function ProblemEditorAnswerSelect({
           control={
             <Switch
               checked={problem.showMultipleCount !== false}
+              inputProps={{ tabIndex: -1 }}
               onChange={(e) => onUpdateProblem({ showMultipleCount: e.target.checked })}
               color="primary"
             />

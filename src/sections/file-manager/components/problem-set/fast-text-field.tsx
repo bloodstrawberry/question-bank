@@ -3,6 +3,8 @@ import { useRef, useMemo, useState, useEffect } from 'react';
 
 import TextField, { type TextFieldProps } from '@mui/material/TextField';
 
+import { focusNextInput } from './focus-utils';
+
 export interface FastTextFieldProps extends Omit<TextFieldProps, 'onChange'> {
   value: string;
   onChange: (val: string) => void;
@@ -14,6 +16,7 @@ export function FastTextField({
   onChange,
   debounceMs = 250,
   onBlur,
+  onKeyDown,
   ...other
 }: FastTextFieldProps) {
   const [localValue, setLocalValue] = useState(value || '');
@@ -53,5 +56,25 @@ export function FastTextField({
     onChangeRef.current(localValue);
   };
 
-  return <TextField {...other} value={localValue} onChange={handleChange} onBlur={handleBlur} />;
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Tab') {
+      const handled = focusNextInput(e.currentTarget as HTMLElement, e.shiftKey);
+      if (handled) {
+        e.preventDefault();
+      }
+    }
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
+  };
+
+  return (
+    <TextField
+      {...other}
+      value={localValue}
+      onChange={handleChange}
+      onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
+    />
+  );
 }

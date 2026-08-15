@@ -70,6 +70,7 @@ export function ProblemEditorErds({
 
           <Button
             size="small"
+            tabIndex={-1}
             variant="outlined"
             color="info"
             startIcon={<AddIcon />}
@@ -131,7 +132,12 @@ export function ProblemEditorErds({
                 <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'info.main' }}>
                   {labelPrefix} #{erdIndex + 1}
                 </Typography>
-                <IconButton size="small" color="error" onClick={() => onRemoveErd(erdIndex)}>
+                <IconButton
+                  size="small"
+                  tabIndex={-1}
+                  color="error"
+                  onClick={() => onRemoveErd(erdIndex)}
+                >
                   <DeleteIcon fontSize="small" />
                 </IconButton>
               </Box>
@@ -148,6 +154,7 @@ export function ProblemEditorErds({
                   {COMMON_ERD_TEMPLATES.map((tmpl) => (
                     <Chip
                       key={tmpl.label}
+                      tabIndex={-1}
                       label={tmpl.label}
                       size="small"
                       clickable

@@ -64,6 +64,7 @@ interface ProblemEditorCardProps {
   onInsertExplanationErdTemplate: (erdIndex: number, template: string) => void;
   onAddChoice: () => void;
   onRemoveChoice: (choiceIndex: number) => void;
+  onReorderChoice?: (oldIndex: number, newIndex: number) => void;
   onChangeChoice: (choiceIndex: number, value: string) => void;
   onChangeChoiceDescription?: (choiceIndex: number, value: string) => void;
   onAddChoiceFormula?: (choiceIndex: number) => void;
@@ -129,6 +130,7 @@ export function ProblemEditorCard({
   onInsertExplanationErdTemplate,
   onAddChoice,
   onRemoveChoice,
+  onReorderChoice,
   onChangeChoice,
   onChangeChoiceDescription,
   onAddChoiceFormula,
@@ -256,13 +258,14 @@ export function ProblemEditorCard({
 
         <Box sx={{ display: 'flex', gap: 0.5 }}>
           <Tooltip title="문제 복제">
-            <IconButton size="small" onClick={() => onDuplicateProblem(problemIndex)}>
+            <IconButton size="small" tabIndex={-1} onClick={() => onDuplicateProblem(problemIndex)}>
               <ContentCopyIcon fontSize="small" />
             </IconButton>
           </Tooltip>
           <Tooltip title="문제 삭제">
             <IconButton
               size="small"
+              tabIndex={-1}
               color="error"
               disabled={totalProblems === 1}
               onClick={() => onRemoveProblem(problemIndex)}
@@ -303,6 +306,7 @@ export function ProblemEditorCard({
             {onOpenProblemBulkDialog && (
               <Button
                 size="small"
+                tabIndex={-1}
                 variant="outlined"
                 color="info"
                 startIcon={<FormatListNumberedIcon />}
@@ -434,6 +438,7 @@ export function ProblemEditorCard({
           isMultipleAnswer={problem.isMultipleAnswer}
           onAddChoice={onAddChoice}
           onRemoveChoice={onRemoveChoice}
+          onReorderChoice={onReorderChoice}
           onChangeChoice={onChangeChoice}
           onChangeChoiceDescription={onChangeChoiceDescription}
           onAddChoiceFormula={onAddChoiceFormula}
@@ -560,6 +565,7 @@ export function ProblemEditorCard({
 
             <Button
               size="small"
+              tabIndex={-1}
               variant="outlined"
               color={showExpPreview ? 'primary' : 'inherit'}
               startIcon={showExpPreview ? <VisibilityIcon /> : <VisibilityOffIcon />}
@@ -624,6 +630,7 @@ export function ProblemEditorCard({
                       <Tooltip title={`${cIndex + 1}번 설명 추가 설명`}>
                         <IconButton
                           size="small"
+                          tabIndex={-1}
                           color={isExpDescOpen || hasExpDesc ? 'primary' : 'default'}
                           onClick={() => toggleExpDesc(cIndex)}
                           sx={{
@@ -640,6 +647,7 @@ export function ProblemEditorCard({
                       <Tooltip title={`${cIndex + 1}번 설명 추가 수식`}>
                         <IconButton
                           size="small"
+                          tabIndex={-1}
                           color={isExpFormulaOpen || hasExpFormulas ? 'primary' : 'default'}
                           onClick={() => toggleExpFormula(cIndex)}
                           sx={{
@@ -656,6 +664,7 @@ export function ProblemEditorCard({
                       <Tooltip title={`${cIndex + 1}번 설명 추가 ERD`}>
                         <IconButton
                           size="small"
+                          tabIndex={-1}
                           color={isExpErdOpen || hasExpErds ? 'info' : 'default'}
                           onClick={() => toggleExpErd(cIndex)}
                           sx={{

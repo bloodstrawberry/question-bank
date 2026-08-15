@@ -8,13 +8,21 @@ import Container from '@mui/material/Container';
 import SaveIcon from '@mui/icons-material/Save';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ReorderIcon from '@mui/icons-material/Reorder';
+import { useState, useCallback, useEffect } from 'react';
 
 import {
   ProblemEditorCard,
   useProblemSetEditor,
   ProblemSetPagination,
   ProblemEditorBulkDialog,
+  ProblemEditorReorderDialog,
 } from '../components/problem-set';
 
 // ----------------------------------------------------------------------
@@ -39,6 +47,7 @@ export function ProblemSetEditorView({
   const {
     data,
     loading,
+    hasUnsavedChanges,
     currentIndex,
     activeProblemIndex,
     activeProblem,
@@ -83,6 +92,7 @@ export function ProblemSetEditorView({
     handleInsertExplanationErdTemplate,
     handleAddChoice,
     handleRemoveChoice,
+    handleReorderChoices,
     handleChangeChoice,
     handleChangeChoiceExplanation,
     handleChangeChoiceDescription,
@@ -107,12 +117,46 @@ export function ProblemSetEditorView({
     handleApplyBulk,
     handleOpenProblemBulkDialog,
     handleApplyProblemBulk,
+    reorderDialogOpen,
+    setReorderDialogOpen,
+    handleOpenReorderDialog,
+    handleApplyReorderProblems,
   } = useProblemSetEditor({
     fileId,
     initialProblemIndex,
     onSaveSuccess,
     onSave,
   });
+
+  const [exitConfirmDialogOpen, setExitConfirmDialogOpen] = useState(false);
+
+  const handleExitRequest = useCallback(() => {
+    if (typeof document !== 'undefined') {
+      (document.activeElement as HTMLElement)?.blur();
+    }
+
+    setTimeout(() => {
+      if (hasUnsavedChanges) {
+        setExitConfirmDialogOpen(true);
+      } else {
+        onBack();
+      }
+    }, 50);
+  }, [hasUnsavedChanges, onBack]);
+
+  const isAnyDialogOpen =
+    bulkDialogOpen || problemBulkDialogOpen || reorderDialogOpen || exitConfirmDialogOpen;
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !isAnyDialogOpen) {
+        e.preventDefault();
+        handleExitRequest();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleExitRequest, isAnyDialogOpen]);
 
   if (loading) {
     return (
@@ -142,7 +186,11 @@ export function ProblemSetEditorView({
           px: { xs: 2, md: 8 },
         }}
       >
-        <IconButton onClick={onBack} sx={{ bgcolor: 'background.neutral' }}>
+        <IconButton
+          onClick={handleExitRequest}
+          sx={{ bgcolor: 'background.neutral' }}
+          title="나가기 (Esc)"
+        >
           <ArrowBackIosIcon sx={{ width: 16, height: 16, ml: 0.5 }} />
         </IconButton>
 
@@ -172,6 +220,18 @@ export function ProblemSetEditorView({
           onPageInputKeyDown={handlePageInputKeyDown}
         />
 
+        <Tooltip title="문제 순서 변경">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={handleOpenReorderDialog}
+            startIcon={<ReorderIcon />}
+            sx={{ fontWeight: 700 }}
+          >
+            순서 변경
+          </Button>
+        </Tooltip>
+
         <Tooltip title="문제 추가 (Ctrl + Q)">
           <Button
             variant="outlined"
@@ -193,6 +253,18 @@ export function ProblemSetEditorView({
             sx={{ boxShadow: (t) => t.customShadows?.primary }}
           >
             Save
+          </Button>
+        </Tooltip>
+
+        <Tooltip title="나가기 (Esc)">
+          <Button
+            variant="outlined"
+            color="inherit"
+            onClick={handleExitRequest}
+            startIcon={<ExitToAppIcon />}
+            sx={{ fontWeight: 700 }}
+          >
+            나가기
           </Button>
         </Tooltip>
       </Box>
@@ -241,6 +313,9 @@ export function ProblemSetEditorView({
         }
         onAddChoice={() => handleAddChoice(activeProblemIndex)}
         onRemoveChoice={(cIdx) => handleRemoveChoice(activeProblemIndex, cIdx)}
+        onReorderChoice={(oldIdx, newIdx) =>
+          handleReorderChoices(activeProblemIndex, oldIdx, newIdx)
+        }
         onChangeChoice={(cIdx, val) => handleChangeChoice(activeProblemIndex, cIdx, val)}
         onChangeChoiceDescription={(cIdx, val) =>
           handleChangeChoiceDescription(activeProblemIndex, cIdx, val)
@@ -322,20 +397,37 @@ export function ProblemSetEditorView({
           onPageInputKeyDown={handlePageInputKeyDown}
         />
 
-        <Button
-          startIcon={<AddIcon />}
-          onClick={handleAddProblem}
-          variant="outlined"
-          color="primary"
-          sx={{
-            py: 1,
-            px: 3,
-            fontWeight: 700,
-            borderRadius: 1.5,
-          }}
-        >
-          문제 추가
-        </Button>
+        <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap' }}>
+          <Button
+            startIcon={<ReorderIcon />}
+            onClick={handleOpenReorderDialog}
+            variant="outlined"
+            color="primary"
+            sx={{
+              py: 1,
+              px: 3,
+              fontWeight: 700,
+              borderRadius: 1.5,
+            }}
+          >
+            순서 변경
+          </Button>
+
+          <Button
+            startIcon={<AddIcon />}
+            onClick={handleAddProblem}
+            variant="outlined"
+            color="primary"
+            sx={{
+              py: 1,
+              px: 3,
+              fontWeight: 700,
+              borderRadius: 1.5,
+            }}
+          >
+            문제 추가
+          </Button>
+        </Box>
       </Box>
 
       {/* Footer Save Button */}
@@ -379,6 +471,74 @@ export function ProblemSetEditorView({
         onBulkTextChange={setProblemBulkText}
         onApplyBulk={handleApplyProblemBulk}
       />
+      {/* Problem Set Reorder Dialog */}
+      <ProblemEditorReorderDialog
+        open={reorderDialogOpen}
+        onClose={() => setReorderDialogOpen(false)}
+        problems={data.problems}
+        activeProblemIndex={activeProblemIndex}
+        onApplyReorder={handleApplyReorderProblems}
+      />
+
+      {/* Unsaved Changes Exit Confirmation Dialog */}
+      <Dialog
+        open={exitConfirmDialogOpen}
+        onClose={() => setExitConfirmDialogOpen(false)}
+        fullWidth
+        maxWidth="xs"
+        sx={{
+          '& .MuiDialog-paper': {
+            borderRadius: 2,
+            p: 3,
+          },
+        }}
+      >
+        <DialogTitle sx={{ p: 0, mb: 1, fontWeight: 800, fontSize: 18 }}>
+          저장되지 않은 변경 사항
+        </DialogTitle>
+
+        <DialogContent sx={{ p: 0, py: 1 }}>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            수정 중인 내용이 있습니다. 저장하고 나가시겠습니까?
+          </Typography>
+        </DialogContent>
+
+        <DialogActions sx={{ p: 0, mt: 3, gap: 1, flexDirection: 'column' }}>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={async () => {
+              setExitConfirmDialogOpen(false);
+              await handleSave();
+              onBack();
+            }}
+            sx={{ fontWeight: 700 }}
+          >
+            저장하고 나가기
+          </Button>
+          <Button
+            fullWidth
+            variant="outlined"
+            color="error"
+            onClick={() => {
+              setExitConfirmDialogOpen(false);
+              onBack();
+            }}
+            sx={{ fontWeight: 700 }}
+          >
+            저장하지 않고 나가기
+          </Button>
+          <Button
+            fullWidth
+            variant="outlined"
+            color="inherit"
+            onClick={() => setExitConfirmDialogOpen(false)}
+          >
+            취소
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }

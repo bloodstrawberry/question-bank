@@ -1,6 +1,7 @@
 import type { Problem, ProblemSetData } from './types';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { arrayMove } from '@dnd-kit/sortable';
 
 import { getFileScript, saveFileScript } from 'src/api/indexDB';
 
@@ -30,6 +31,9 @@ export function useProblemSetEditor({
   const [bulkText, setBulkText] = useState('');
   const [problemBulkDialogOpen, setProblemBulkDialogOpen] = useState(false);
   const [problemBulkText, setProblemBulkText] = useState('');
+  const [reorderDialogOpen, setReorderDialogOpen] = useState(false);
+
+  const initialDataRef = useRef<string>('');
 
   useEffect(() => {
     const loadScript = async () => {
@@ -117,12 +121,16 @@ export function useProblemSetEditor({
               showMultipleCount,
             };
           });
-          setData({ problems: normalized });
+          const nextData = { problems: normalized };
+          setData(nextData);
+          initialDataRef.current = JSON.stringify(nextData);
           const validIndex = Math.min(Math.max(0, startIdx), normalized.length - 1);
           setCurrentIndex(validIndex);
           setPageInput(String(validIndex + 1));
         } else {
-          setData({ problems: [createEmptyProblem()] });
+          const fallbackData = { problems: [createEmptyProblem()] };
+          setData(fallbackData);
+          initialDataRef.current = JSON.stringify(fallbackData);
         }
       } catch (error) {
         console.error('Failed to load problem set', error);
@@ -146,6 +154,7 @@ export function useProblemSetEditor({
   const handleSave = useCallback(async () => {
     try {
       await saveFileScript(fileId, data);
+      initialDataRef.current = JSON.stringify(data);
       onSave?.(fileId);
       toast.success('문제 모음이 저장되었습니다!');
       onSaveSuccess?.(currentIndex);
@@ -512,6 +521,64 @@ export function useProblemSetEditor({
     [data.problems, updateProblem]
   );
 
+  const handleReorderChoices = useCallback(
+    (problemIndex: number, oldIndex: number, newIndex: number) => {
+      if (oldIndex === newIndex) return;
+
+      const prob = data.problems[problemIndex];
+      if (!prob) return;
+
+      const reorderArray = <T>(arr: T[] | undefined, defaultVal: T): T[] => {
+        const fullArr = prob.choices.map((_, i) =>
+          arr && arr[i] !== undefined ? arr[i] : defaultVal
+        );
+        return arrayMove(fullArr, oldIndex, newIndex);
+      };
+
+      const newChoices = reorderArray(prob.choices, '');
+      const newChoiceDescriptions = reorderArray(prob.choiceDescriptions, '');
+      const newChoiceFormulas = reorderArray(prob.choiceFormulas, []);
+      const newChoiceErds = reorderArray(prob.choiceErds, []);
+      const newChoiceExplanations = reorderArray(prob.choiceExplanations, '');
+      const newChoiceExplanationDescriptions = reorderArray(prob.choiceExplanationDescriptions, '');
+      const newChoiceExplanationFormulas = reorderArray(prob.choiceExplanationFormulas, []);
+      const newChoiceExplanationErds = reorderArray(prob.choiceExplanationErds, []);
+
+      const originalAnswerNumbers = prob.choices.map((_, i) => i + 1);
+      const reorderedAnswerNumbers = arrayMove(originalAnswerNumbers, oldIndex, newIndex);
+
+      let newAnswer = prob.answer;
+      if (prob.answer > 0) {
+        const newPos = reorderedAnswerNumbers.indexOf(prob.answer);
+        if (newPos !== -1) {
+          newAnswer = newPos + 1;
+        }
+      }
+
+      let newAnswers = prob.answers;
+      if (Array.isArray(prob.answers) && prob.answers.length > 0) {
+        newAnswers = prob.answers.map((ans) => {
+          const newPos = reorderedAnswerNumbers.indexOf(ans);
+          return newPos !== -1 ? newPos + 1 : ans;
+        });
+      }
+
+      updateProblem(problemIndex, {
+        choices: newChoices,
+        choiceDescriptions: newChoiceDescriptions,
+        choiceFormulas: newChoiceFormulas,
+        choiceErds: newChoiceErds,
+        choiceExplanations: newChoiceExplanations,
+        choiceExplanationDescriptions: newChoiceExplanationDescriptions,
+        choiceExplanationFormulas: newChoiceExplanationFormulas,
+        choiceExplanationErds: newChoiceExplanationErds,
+        answer: newAnswer,
+        answers: newAnswers,
+      });
+    },
+    [data.problems, updateProblem]
+  );
+
   const handleChangeChoice = useCallback(
     (problemIndex: number, choiceIndex: number, value: string) => {
       const newChoices = [...data.problems[problemIndex].choices];
@@ -833,9 +900,29 @@ export function useProblemSetEditor({
     activeProblemIndex,
   ]);
 
+  const handleOpenReorderDialog = useCallback(() => {
+    setReorderDialogOpen(true);
+  }, []);
+
+  const handleApplyReorderProblems = useCallback(
+    (newProblems: Problem[], newActiveIndex: number) => {
+      setData({ problems: newProblems });
+      const validIndex = Math.min(Math.max(0, newActiveIndex), newProblems.length - 1);
+      setCurrentIndex(validIndex);
+      setPageInput(String(validIndex + 1));
+      toast.success('문제 순서가 변경되었습니다.');
+    },
+    []
+  );
+
+  const hasUnsavedChanges = Boolean(
+    initialDataRef.current && JSON.stringify(data) !== initialDataRef.current
+  );
+
   return {
     data,
     loading,
+    hasUnsavedChanges,
     currentIndex,
     activeProblemIndex,
     activeProblem,
@@ -850,6 +937,10 @@ export function useProblemSetEditor({
     setProblemBulkDialogOpen,
     problemBulkText,
     setProblemBulkText,
+    reorderDialogOpen,
+    setReorderDialogOpen,
+    handleOpenReorderDialog,
+    handleApplyReorderProblems,
     handleSave,
     handlePrevProblem,
     handleNextProblem,
@@ -880,6 +971,7 @@ export function useProblemSetEditor({
     handleInsertExplanationErdTemplate,
     handleAddChoice,
     handleRemoveChoice,
+    handleReorderChoices,
     handleChangeChoice,
     handleChangeChoiceExplanation,
     handleChangeChoiceDescription,
