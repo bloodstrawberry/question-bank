@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SchemaIcon from '@mui/icons-material/Schema';
 import ArticleIcon from '@mui/icons-material/Article';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
@@ -38,6 +39,7 @@ import { MarkdownEditor } from 'src/components/markdown-editor';
 
 import { FastTextField } from './fast-text-field';
 import { ProblemEditorErds } from './problem-editor-erds';
+import { ProblemEditorCharts } from './problem-editor-charts';
 import { RichContentRenderer } from './rich-content-renderer';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
 import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
@@ -55,6 +57,7 @@ interface ProblemEditorChoicesProps {
   choiceDescriptions?: string[];
   choiceFormulas?: string[][];
   choiceErds?: string[][];
+  choiceCharts?: string[][];
   answers?: number[];
   answer: number;
   isMultipleAnswer?: boolean;
@@ -71,6 +74,10 @@ interface ProblemEditorChoicesProps {
   onChangeChoiceErd?: (choiceIndex: number, erdIndex: number, value: string) => void;
   onRemoveChoiceErd?: (choiceIndex: number, erdIndex: number) => void;
   onInsertChoiceErdTemplate?: (choiceIndex: number, erdIndex: number, template: string) => void;
+  onAddChoiceChart?: (choiceIndex: number) => void;
+  onChangeChoiceChart?: (choiceIndex: number, chartIndex: number, value: string) => void;
+  onRemoveChoiceChart?: (choiceIndex: number, chartIndex: number) => void;
+  onInsertChoiceChartTemplate?: (choiceIndex: number, chartIndex: number, template: string) => void;
   onOpenBulkDialog: () => void;
 }
 
@@ -83,18 +90,22 @@ interface SortableChoiceItemProps {
   description: string;
   formulasList: string[];
   erdsList: string[];
+  chartsList: string[];
   hasDesc: boolean;
   hasFormulas: boolean;
   hasErds: boolean;
+  hasCharts: boolean;
   isDescOpen: boolean;
   isFormulaOpen: boolean;
   isErdOpen: boolean;
+  isChartOpen: boolean;
   showPreview: boolean;
   onChangeChoice: (choiceIndex: number, value: string) => void;
   onRemoveChoice: (choiceIndex: number) => void;
   toggleDesc: (cIndex: number) => void;
   toggleFormula: (cIndex: number) => void;
   toggleErd: (cIndex: number) => void;
+  toggleChart: (cIndex: number) => void;
   onChangeChoiceDescription?: (choiceIndex: number, value: string) => void;
   onAddChoiceFormula?: (choiceIndex: number) => void;
   onChangeChoiceFormula?: (choiceIndex: number, formulaIndex: number, value: string) => void;
@@ -104,6 +115,10 @@ interface SortableChoiceItemProps {
   onChangeChoiceErd?: (choiceIndex: number, erdIndex: number, value: string) => void;
   onRemoveChoiceErd?: (choiceIndex: number, erdIndex: number) => void;
   onInsertChoiceErdTemplate?: (choiceIndex: number, erdIndex: number, template: string) => void;
+  onAddChoiceChart?: (choiceIndex: number) => void;
+  onChangeChoiceChart?: (choiceIndex: number, chartIndex: number, value: string) => void;
+  onRemoveChoiceChart?: (choiceIndex: number, chartIndex: number) => void;
+  onInsertChoiceChartTemplate?: (choiceIndex: number, chartIndex: number, template: string) => void;
 }
 
 function SortableChoiceItem({
@@ -115,18 +130,22 @@ function SortableChoiceItem({
   description,
   formulasList,
   erdsList,
+  chartsList,
   hasDesc,
   hasFormulas,
   hasErds,
+  hasCharts,
   isDescOpen,
   isFormulaOpen,
   isErdOpen,
+  isChartOpen,
   showPreview,
   onChangeChoice,
   onRemoveChoice,
   toggleDesc,
   toggleFormula,
   toggleErd,
+  toggleChart,
   onChangeChoiceDescription,
   onAddChoiceFormula,
   onChangeChoiceFormula,
@@ -136,6 +155,10 @@ function SortableChoiceItem({
   onChangeChoiceErd,
   onRemoveChoiceErd,
   onInsertChoiceErdTemplate,
+  onAddChoiceChart,
+  onChangeChoiceChart,
+  onRemoveChoiceChart,
+  onInsertChoiceChartTemplate,
 }: SortableChoiceItemProps) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id,
@@ -258,6 +281,23 @@ function SortableChoiceItem({
               <SchemaIcon fontSize="small" />
             </IconButton>
           </Tooltip>
+
+          <Tooltip title={`${cIndex + 1}번 객관식 추가 차트`}>
+            <IconButton
+              size="small"
+              tabIndex={-1}
+              color={isChartOpen || hasCharts ? 'success' : 'default'}
+              onClick={() => toggleChart(cIndex)}
+              sx={{
+                bgcolor:
+                  isChartOpen || hasCharts
+                    ? (t) => alpha(t.palette.success.main, 0.08)
+                    : 'transparent',
+              }}
+            >
+              <BarChartIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
         </Box>
 
         <IconButton
@@ -375,6 +415,50 @@ function SortableChoiceItem({
           </ProblemEditorCollapsibleSection>
         )}
 
+      {/* Dedicated Sub-Section: N번 객관식 추가 차트 */}
+      {(isChartOpen || hasCharts) &&
+        onAddChoiceChart &&
+        onChangeChoiceChart &&
+        onRemoveChoiceChart &&
+        onInsertChoiceChartTemplate && (
+          <ProblemEditorCollapsibleSection
+            title={`${cIndex + 1}번 객관식 추가 차트`}
+            icon={<BarChartIcon color="success" sx={{ fontSize: 18 }} />}
+            count={chartsList.length}
+            hasContent={hasCharts}
+            color="success"
+            expanded={isChartOpen}
+            onToggle={() => toggleChart(cIndex)}
+            action={
+              <Button
+                size="small"
+                tabIndex={-1}
+                variant="outlined"
+                color="success"
+                startIcon={<AddIcon />}
+                onClick={() => onAddChoiceChart(cIndex)}
+                sx={{ borderRadius: 1.5, fontWeight: 700 }}
+              >
+                차트 추가
+              </Button>
+            }
+          >
+            <ProblemEditorCharts
+              hideHeader
+              title={`${cIndex + 1}번 객관식 추가 차트`}
+              charts={chartsList}
+              onAddChart={() => onAddChoiceChart(cIndex)}
+              onChangeChart={(chartIdx, val) => onChangeChoiceChart(cIndex, chartIdx, val)}
+              onRemoveChart={(chartIdx) => onRemoveChoiceChart(cIndex, chartIdx)}
+              onInsertTemplate={(chartIdx, tmpl) =>
+                onInsertChoiceChartTemplate(cIndex, chartIdx, tmpl)
+              }
+              emptyPlaceholderText={`${cIndex + 1}번 선택지에 등록된 차트가 없습니다.`}
+              labelPrefix={`${cIndex + 1}번 선택지 차트`}
+            />
+          </ProblemEditorCollapsibleSection>
+        )}
+
       {/* Optional Live Preview Box (Toggled via showPreview, default OFF) */}
       {showPreview && choice && choice.trim().length > 0 && (
         <Box
@@ -403,6 +487,7 @@ export function ProblemEditorChoices({
   choiceDescriptions = [],
   choiceFormulas = [],
   choiceErds = [],
+  choiceCharts = [],
   answers = [],
   answer = 0,
   isMultipleAnswer = false,
@@ -419,12 +504,17 @@ export function ProblemEditorChoices({
   onChangeChoiceErd,
   onRemoveChoiceErd,
   onInsertChoiceErdTemplate,
+  onAddChoiceChart,
+  onChangeChoiceChart,
+  onRemoveChoiceChart,
+  onInsertChoiceChartTemplate,
   onOpenBulkDialog,
 }: ProblemEditorChoicesProps) {
   const [showPreview, setShowPreview] = useState(false);
   const [openDescState, setOpenDescState] = useState<Record<number, boolean>>({});
   const [openFormulaState, setOpenFormulaState] = useState<Record<number, boolean>>({});
   const [openErdState, setOpenErdState] = useState<Record<number, boolean>>({});
+  const [openChartState, setOpenChartState] = useState<Record<number, boolean>>({});
 
   const [choiceIds, setChoiceIds] = useState<string[]>(() => choices.map(() => generateChoiceId()));
 
@@ -474,6 +564,10 @@ export function ProblemEditorChoices({
 
   const toggleErd = (cIndex: number) => {
     setOpenErdState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
+  };
+
+  const toggleChart = (cIndex: number) => {
+    setOpenChartState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
   };
 
   return (
@@ -541,14 +635,17 @@ export function ProblemEditorChoices({
               const description = choiceDescriptions[cIndex] || '';
               const formulasList = choiceFormulas[cIndex] || [];
               const erdsList = choiceErds[cIndex] || [];
+              const chartsList = choiceCharts[cIndex] || [];
 
               const hasDesc = Boolean(description && description.trim().length > 0);
               const hasFormulas = formulasList.length > 0;
               const hasErds = erdsList.length > 0;
+              const hasCharts = chartsList.length > 0;
 
               const isDescOpen = openDescState[cIndex] ?? hasDesc;
               const isFormulaOpen = openFormulaState[cIndex] ?? hasFormulas;
               const isErdOpen = openErdState[cIndex] ?? hasErds;
+              const isChartOpen = openChartState[cIndex] ?? hasCharts;
 
               return (
                 <SortableChoiceItem
@@ -561,18 +658,22 @@ export function ProblemEditorChoices({
                   description={description}
                   formulasList={formulasList}
                   erdsList={erdsList}
+                  chartsList={chartsList}
                   hasDesc={hasDesc}
                   hasFormulas={hasFormulas}
                   hasErds={hasErds}
+                  hasCharts={hasCharts}
                   isDescOpen={isDescOpen}
                   isFormulaOpen={isFormulaOpen}
                   isErdOpen={isErdOpen}
+                  isChartOpen={isChartOpen}
                   showPreview={showPreview}
                   onChangeChoice={onChangeChoice}
                   onRemoveChoice={onRemoveChoice}
                   toggleDesc={toggleDesc}
                   toggleFormula={toggleFormula}
                   toggleErd={toggleErd}
+                  toggleChart={toggleChart}
                   onChangeChoiceDescription={onChangeChoiceDescription}
                   onAddChoiceFormula={onAddChoiceFormula}
                   onChangeChoiceFormula={onChangeChoiceFormula}
@@ -582,6 +683,10 @@ export function ProblemEditorChoices({
                   onChangeChoiceErd={onChangeChoiceErd}
                   onRemoveChoiceErd={onRemoveChoiceErd}
                   onInsertChoiceErdTemplate={onInsertChoiceErdTemplate}
+                  onAddChoiceChart={onAddChoiceChart}
+                  onChangeChoiceChart={onChangeChoiceChart}
+                  onRemoveChoiceChart={onRemoveChoiceChart}
+                  onInsertChoiceChartTemplate={onInsertChoiceChartTemplate}
                 />
               );
             })}

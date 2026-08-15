@@ -10,10 +10,15 @@ export interface Problem {
   erd?: string;
   explanationErds?: string[];
   explanationErd?: string;
+  charts?: string[];
+  chart?: string;
+  explanationCharts?: string[];
+  explanationChart?: string;
   choices: string[];
   choiceDescriptions?: string[];
   choiceFormulas?: string[][];
   choiceErds?: string[][];
+  choiceCharts?: string[][];
   answer: number;
   answers?: number[];
   isMultipleAnswer?: boolean;
@@ -23,6 +28,7 @@ export interface Problem {
   choiceExplanationDescriptions?: string[];
   choiceExplanationFormulas?: string[][];
   choiceExplanationErds?: string[][];
+  choiceExplanationCharts?: string[][];
 }
 
 export interface ProblemSetData {
@@ -43,10 +49,13 @@ export function createEmptyProblem(): Problem {
     explanationFormulas: [],
     erds: [],
     explanationErds: [],
+    charts: [],
+    explanationCharts: [],
     choices: ['', '', '', ''],
     choiceDescriptions: ['', '', '', ''],
     choiceFormulas: [[], [], [], []],
     choiceErds: [[], [], [], []],
+    choiceCharts: [[], [], [], []],
     answer: 0,
     answers: [],
     isMultipleAnswer: false,
@@ -56,5 +65,6 @@ export function createEmptyProblem(): Problem {
     choiceExplanationDescriptions: ['', '', '', ''],
     choiceExplanationFormulas: [[], [], [], []],
     choiceExplanationErds: [[], [], [], []],
+    choiceExplanationCharts: [[], [], [], []],
   };
 }

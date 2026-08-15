@@ -72,6 +72,13 @@ export function useProblemSetEditor({
                 ? [p.explanationErd]
                 : [];
 
+            const charts = Array.isArray(p.charts) ? p.charts : p.chart ? [p.chart] : [];
+            const explanationCharts = Array.isArray(p.explanationCharts)
+              ? p.explanationCharts
+              : p.explanationChart
+                ? [p.explanationChart]
+                : [];
+
             const choiceDescriptions = choices.map((_, i) =>
               Array.isArray(p.choiceDescriptions) ? p.choiceDescriptions[i] || '' : ''
             );
@@ -82,6 +89,11 @@ export function useProblemSetEditor({
             );
             const choiceErds = choices.map((_, i) =>
               Array.isArray(p.choiceErds) && Array.isArray(p.choiceErds[i]) ? p.choiceErds[i] : []
+            );
+            const choiceCharts = choices.map((_, i) =>
+              Array.isArray(p.choiceCharts) && Array.isArray(p.choiceCharts[i])
+                ? p.choiceCharts[i]
+                : []
             );
 
             const choiceExplanationDescriptions = choices.map((_, i) =>
@@ -100,6 +112,12 @@ export function useProblemSetEditor({
                 ? p.choiceExplanationErds[i]
                 : []
             );
+            const choiceExplanationCharts = choices.map((_, i) =>
+              Array.isArray(p.choiceExplanationCharts) &&
+              Array.isArray(p.choiceExplanationCharts[i])
+                ? p.choiceExplanationCharts[i]
+                : []
+            );
 
             return {
               ...createEmptyProblem(),
@@ -108,14 +126,18 @@ export function useProblemSetEditor({
               choiceDescriptions,
               choiceFormulas,
               choiceErds,
+              choiceCharts,
               choiceExplanations,
               choiceExplanationDescriptions,
               choiceExplanationFormulas,
               choiceExplanationErds,
+              choiceExplanationCharts,
               formulas: Array.isArray(p.formulas) ? p.formulas : p.formula ? [p.formula] : [],
               explanationFormulas,
               erds,
               explanationErds,
+              charts,
+              explanationCharts,
               isMultipleAnswer,
               answers: rawAnswers,
               showMultipleCount,
@@ -456,27 +478,107 @@ export function useProblemSetEditor({
     [data.problems, updateProblem]
   );
 
+  // Problem Chart Handlers
+  const handleAddChart = useCallback(
+    (problemIndex: number) => {
+      const currentCharts = data.problems[problemIndex].charts || [];
+      updateProblem(problemIndex, { charts: [...currentCharts, ''] });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeChart = useCallback(
+    (problemIndex: number, chartIndex: number, value: string) => {
+      const currentCharts = [...(data.problems[problemIndex].charts || [])];
+      currentCharts[chartIndex] = value;
+      updateProblem(problemIndex, { charts: currentCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveChart = useCallback(
+    (problemIndex: number, chartIndex: number) => {
+      const currentCharts = [...(data.problems[problemIndex].charts || [])];
+      const updated = currentCharts.filter((_, i) => i !== chartIndex);
+      updateProblem(problemIndex, { charts: updated });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertChartTemplate = useCallback(
+    (problemIndex: number, chartIndex: number, template: string) => {
+      const currentCharts = [...(data.problems[problemIndex].charts || [])];
+      const currentText = currentCharts[chartIndex] || '';
+      const updatedText = currentText ? `${currentText}\n${template}` : template;
+      currentCharts[chartIndex] = updatedText;
+      updateProblem(problemIndex, { charts: currentCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  // Explanation Chart Handlers
+  const handleAddExplanationChart = useCallback(
+    (problemIndex: number) => {
+      const current = data.problems[problemIndex].explanationCharts || [];
+      updateProblem(problemIndex, { explanationCharts: [...current, ''] });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeExplanationChart = useCallback(
+    (problemIndex: number, chartIndex: number, value: string) => {
+      const current = [...(data.problems[problemIndex].explanationCharts || [])];
+      current[chartIndex] = value;
+      updateProblem(problemIndex, { explanationCharts: current });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveExplanationChart = useCallback(
+    (problemIndex: number, chartIndex: number) => {
+      const current = [...(data.problems[problemIndex].explanationCharts || [])];
+      const updated = current.filter((_, i) => i !== chartIndex);
+      updateProblem(problemIndex, { explanationCharts: updated });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertExplanationChartTemplate = useCallback(
+    (problemIndex: number, chartIndex: number, template: string) => {
+      const current = [...(data.problems[problemIndex].explanationCharts || [])];
+      const currentText = current[chartIndex] || '';
+      const updatedText = currentText ? `${currentText}\n${template}` : template;
+      current[chartIndex] = updatedText;
+      updateProblem(problemIndex, { explanationCharts: current });
+    },
+    [data.problems, updateProblem]
+  );
+
   const handleAddChoice = useCallback(
     (problemIndex: number) => {
       const prob = data.problems[problemIndex];
       const currentChoices = prob.choices || [];
-      const currentExplanations = prob.choiceExplanations || [];
       const currentChoiceDescriptions = prob.choiceDescriptions || [];
       const currentChoiceFormulas = prob.choiceFormulas || [];
       const currentChoiceErds = prob.choiceErds || [];
+      const currentChoiceCharts = prob.choiceCharts || [];
+      const currentExplanations = prob.choiceExplanations || [];
       const currentChoiceExplanationDescriptions = prob.choiceExplanationDescriptions || [];
       const currentChoiceExplanationFormulas = prob.choiceExplanationFormulas || [];
       const currentChoiceExplanationErds = prob.choiceExplanationErds || [];
+      const currentChoiceExplanationCharts = prob.choiceExplanationCharts || [];
 
       updateProblem(problemIndex, {
         choices: [...currentChoices, ''],
         choiceDescriptions: [...currentChoiceDescriptions, ''],
         choiceFormulas: [...currentChoiceFormulas, []],
         choiceErds: [...currentChoiceErds, []],
+        choiceCharts: [...currentChoiceCharts, []],
         choiceExplanations: [...currentExplanations, ''],
         choiceExplanationDescriptions: [...currentChoiceExplanationDescriptions, ''],
         choiceExplanationFormulas: [...currentChoiceExplanationFormulas, []],
         choiceExplanationErds: [...currentChoiceExplanationErds, []],
+        choiceExplanationCharts: [...currentChoiceExplanationCharts, []],
       });
     },
     [data.problems, updateProblem]
@@ -505,6 +607,7 @@ export function useProblemSetEditor({
         choiceDescriptions: (prob.choiceDescriptions || []).filter((_, i) => i !== choiceIndex),
         choiceFormulas: (prob.choiceFormulas || []).filter((_, i) => i !== choiceIndex),
         choiceErds: (prob.choiceErds || []).filter((_, i) => i !== choiceIndex),
+        choiceCharts: (prob.choiceCharts || []).filter((_, i) => i !== choiceIndex),
         choiceExplanations: newExplanations,
         choiceExplanationDescriptions: (prob.choiceExplanationDescriptions || []).filter(
           (_, i) => i !== choiceIndex
@@ -513,6 +616,9 @@ export function useProblemSetEditor({
           (_, i) => i !== choiceIndex
         ),
         choiceExplanationErds: (prob.choiceExplanationErds || []).filter(
+          (_, i) => i !== choiceIndex
+        ),
+        choiceExplanationCharts: (prob.choiceExplanationCharts || []).filter(
           (_, i) => i !== choiceIndex
         ),
         answer: newAnswer,
@@ -539,10 +645,12 @@ export function useProblemSetEditor({
       const newChoiceDescriptions = reorderArray(prob.choiceDescriptions, '');
       const newChoiceFormulas = reorderArray(prob.choiceFormulas, []);
       const newChoiceErds = reorderArray(prob.choiceErds, []);
+      const newChoiceCharts = reorderArray(prob.choiceCharts, []);
       const newChoiceExplanations = reorderArray(prob.choiceExplanations, '');
       const newChoiceExplanationDescriptions = reorderArray(prob.choiceExplanationDescriptions, '');
       const newChoiceExplanationFormulas = reorderArray(prob.choiceExplanationFormulas, []);
       const newChoiceExplanationErds = reorderArray(prob.choiceExplanationErds, []);
+      const newChoiceExplanationCharts = reorderArray(prob.choiceExplanationCharts, []);
 
       const originalAnswerNumbers = prob.choices.map((_, i) => i + 1);
       const reorderedAnswerNumbers = arrayMove(originalAnswerNumbers, oldIndex, newIndex);
@@ -568,10 +676,12 @@ export function useProblemSetEditor({
         choiceDescriptions: newChoiceDescriptions,
         choiceFormulas: newChoiceFormulas,
         choiceErds: newChoiceErds,
+        choiceCharts: newChoiceCharts,
         choiceExplanations: newChoiceExplanations,
         choiceExplanationDescriptions: newChoiceExplanationDescriptions,
         choiceExplanationFormulas: newChoiceExplanationFormulas,
         choiceExplanationErds: newChoiceExplanationErds,
+        choiceExplanationCharts: newChoiceExplanationCharts,
         answer: newAnswer,
         answers: newAnswers,
       });
@@ -833,6 +943,116 @@ export function useProblemSetEditor({
     [data.problems, updateProblem]
   );
 
+  // Choice Chart Handlers
+  const handleAddChoiceChart = useCallback(
+    (problemIndex: number, choiceIndex: number) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      allCharts[choiceIndex] = [...(allCharts[choiceIndex] || []), ''];
+      updateProblem(problemIndex, { choiceCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeChoiceChart = useCallback(
+    (problemIndex: number, choiceIndex: number, chartIndex: number, value: string) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+      choiceChartsList[chartIndex] = value;
+      allCharts[choiceIndex] = choiceChartsList;
+      updateProblem(problemIndex, { choiceCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveChoiceChart = useCallback(
+    (problemIndex: number, choiceIndex: number, chartIndex: number) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      const choiceChartsList = (allCharts[choiceIndex] || []).filter((_, i) => i !== chartIndex);
+      allCharts[choiceIndex] = choiceChartsList;
+      updateProblem(problemIndex, { choiceCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertChoiceChartTemplate = useCallback(
+    (problemIndex: number, choiceIndex: number, chartIndex: number, template: string) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceCharts ? prob.choiceCharts.map((arr) => [...arr]) : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+      const currentText = choiceChartsList[chartIndex] || '';
+      choiceChartsList[chartIndex] = currentText ? `${currentText}\n${template}` : template;
+      allCharts[choiceIndex] = choiceChartsList;
+      updateProblem(problemIndex, { choiceCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  // Choice Explanation Chart Handlers
+  const handleAddChoiceExplanationChart = useCallback(
+    (problemIndex: number, choiceIndex: number) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceExplanationCharts
+        ? prob.choiceExplanationCharts.map((arr) => [...arr])
+        : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      allCharts[choiceIndex] = [...(allCharts[choiceIndex] || []), ''];
+      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleChangeChoiceExplanationChart = useCallback(
+    (problemIndex: number, choiceIndex: number, chartIndex: number, value: string) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceExplanationCharts
+        ? prob.choiceExplanationCharts.map((arr) => [...arr])
+        : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+      choiceChartsList[chartIndex] = value;
+      allCharts[choiceIndex] = choiceChartsList;
+      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleRemoveChoiceExplanationChart = useCallback(
+    (problemIndex: number, choiceIndex: number, chartIndex: number) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceExplanationCharts
+        ? prob.choiceExplanationCharts.map((arr) => [...arr])
+        : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      const choiceChartsList = (allCharts[choiceIndex] || []).filter((_, i) => i !== chartIndex);
+      allCharts[choiceIndex] = choiceChartsList;
+      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
+  const handleInsertChoiceExplanationChartTemplate = useCallback(
+    (problemIndex: number, choiceIndex: number, chartIndex: number, template: string) => {
+      const prob = data.problems[problemIndex];
+      const allCharts = prob.choiceExplanationCharts
+        ? prob.choiceExplanationCharts.map((arr) => [...arr])
+        : [];
+      while (allCharts.length <= choiceIndex) allCharts.push([]);
+      const choiceChartsList = [...(allCharts[choiceIndex] || [])];
+      const currentText = choiceChartsList[chartIndex] || '';
+      choiceChartsList[chartIndex] = currentText ? `${currentText}\n${template}` : template;
+      allCharts[choiceIndex] = choiceChartsList;
+      updateProblem(problemIndex, { choiceExplanationCharts: allCharts });
+    },
+    [data.problems, updateProblem]
+  );
+
   const activeProblemIndex = Math.min(currentIndex, Math.max(0, data.problems.length - 1));
   const activeProblem =
     data.problems[activeProblemIndex] || data.problems[0] || createEmptyProblem();
@@ -969,6 +1189,14 @@ export function useProblemSetEditor({
     handleChangeExplanationErd,
     handleRemoveExplanationErd,
     handleInsertExplanationErdTemplate,
+    handleAddChart,
+    handleChangeChart,
+    handleRemoveChart,
+    handleInsertChartTemplate,
+    handleAddExplanationChart,
+    handleChangeExplanationChart,
+    handleRemoveExplanationChart,
+    handleInsertExplanationChartTemplate,
     handleAddChoice,
     handleRemoveChoice,
     handleReorderChoices,
@@ -983,6 +1211,10 @@ export function useProblemSetEditor({
     handleChangeChoiceErd,
     handleRemoveChoiceErd,
     handleInsertChoiceErdTemplate,
+    handleAddChoiceChart,
+    handleChangeChoiceChart,
+    handleRemoveChoiceChart,
+    handleInsertChoiceChartTemplate,
     handleChangeChoiceExplanationDescription,
     handleAddChoiceExplanationFormula,
     handleChangeChoiceExplanationFormula,
@@ -992,6 +1224,10 @@ export function useProblemSetEditor({
     handleChangeChoiceExplanationErd,
     handleRemoveChoiceExplanationErd,
     handleInsertChoiceExplanationErdTemplate,
+    handleAddChoiceExplanationChart,
+    handleChangeChoiceExplanationChart,
+    handleRemoveChoiceExplanationChart,
+    handleInsertChoiceExplanationChartTemplate,
     handleOpenBulkDialog,
     handleApplyBulk,
     handleOpenProblemBulkDialog,

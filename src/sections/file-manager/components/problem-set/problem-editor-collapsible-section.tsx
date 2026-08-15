@@ -13,7 +13,7 @@ interface ProblemEditorCollapsibleSectionProps {
   icon?: React.ReactNode;
   count?: number;
   hasContent?: boolean;
-  color?: 'primary' | 'info' | 'secondary' | 'default';
+  color?: 'primary' | 'info' | 'success' | 'warning' | 'secondary' | 'default';
   expanded: boolean;
   onToggle: () => void;
   action?: React.ReactNode;
@@ -34,6 +34,15 @@ export function ProblemEditorCollapsibleSection({
   const displayCount = typeof count === 'number' ? count : 0;
   const isPopulated = hasContent || displayCount > 0;
 
+  const getColorPalette = (palette: any) => {
+    if (color === 'info') return palette.info.main;
+    if (color === 'success') return palette.success.main;
+    if (color === 'warning') return palette.warning.main;
+    if (color === 'secondary') return palette.secondary.main;
+    if (color === 'default') return palette.grey[500];
+    return palette.primary.main;
+  };
+
   return (
     <Box
       sx={{
@@ -43,8 +52,7 @@ export function ProblemEditorCollapsibleSection({
         overflow: 'hidden',
         transition: (t) => t.transitions.create(['border-color', 'box-shadow']),
         ...(expanded && {
-          borderColor: (t) =>
-            color === 'info' ? alpha(t.palette.info.main, 0.4) : alpha(t.palette.primary.main, 0.4),
+          borderColor: (t) => alpha(getColorPalette(t.palette), 0.4),
         }),
       }}
     >
@@ -60,18 +68,10 @@ export function ProblemEditorCollapsibleSection({
           cursor: 'pointer',
           userSelect: 'none',
           bgcolor: (t) =>
-            expanded
-              ? color === 'info'
-                ? alpha(t.palette.info.main, 0.04)
-                : alpha(t.palette.primary.main, 0.04)
-              : alpha(t.palette.grey[500], 0.03),
+            expanded ? alpha(getColorPalette(t.palette), 0.04) : alpha(t.palette.grey[500], 0.03),
           '&:hover': {
             bgcolor: (t) =>
-              expanded
-                ? color === 'info'
-                  ? alpha(t.palette.info.main, 0.08)
-                  : alpha(t.palette.primary.main, 0.08)
-                : alpha(t.palette.grey[500], 0.08),
+              expanded ? alpha(getColorPalette(t.palette), 0.08) : alpha(t.palette.grey[500], 0.08),
           },
           transition: (t) => t.transitions.create(['background-color']),
         }}

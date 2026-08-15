@@ -90,6 +90,14 @@ export function ProblemSetEditorView({
     handleChangeExplanationErd,
     handleRemoveExplanationErd,
     handleInsertExplanationErdTemplate,
+    handleAddChart,
+    handleChangeChart,
+    handleRemoveChart,
+    handleInsertChartTemplate,
+    handleAddExplanationChart,
+    handleChangeExplanationChart,
+    handleRemoveExplanationChart,
+    handleInsertExplanationChartTemplate,
     handleAddChoice,
     handleRemoveChoice,
     handleReorderChoices,
@@ -104,6 +112,10 @@ export function ProblemSetEditorView({
     handleChangeChoiceErd,
     handleRemoveChoiceErd,
     handleInsertChoiceErdTemplate,
+    handleAddChoiceChart,
+    handleChangeChoiceChart,
+    handleRemoveChoiceChart,
+    handleInsertChoiceChartTemplate,
     handleChangeChoiceExplanationDescription,
     handleAddChoiceExplanationFormula,
     handleChangeChoiceExplanationFormula,
@@ -113,6 +125,10 @@ export function ProblemSetEditorView({
     handleChangeChoiceExplanationErd,
     handleRemoveChoiceExplanationErd,
     handleInsertChoiceExplanationErdTemplate,
+    handleAddChoiceExplanationChart,
+    handleChangeChoiceExplanationChart,
+    handleRemoveChoiceExplanationChart,
+    handleInsertChoiceExplanationChartTemplate,
     handleOpenBulkDialog,
     handleApplyBulk,
     handleOpenProblemBulkDialog,
@@ -311,6 +327,22 @@ export function ProblemSetEditorView({
         onInsertExplanationErdTemplate={(erdIdx, tmpl) =>
           handleInsertExplanationErdTemplate(activeProblemIndex, erdIdx, tmpl)
         }
+        onAddChart={() => handleAddChart(activeProblemIndex)}
+        onChangeChart={(chartIdx, val) => handleChangeChart(activeProblemIndex, chartIdx, val)}
+        onRemoveChart={(chartIdx) => handleRemoveChart(activeProblemIndex, chartIdx)}
+        onInsertChartTemplate={(chartIdx, tmpl) =>
+          handleInsertChartTemplate(activeProblemIndex, chartIdx, tmpl)
+        }
+        onAddExplanationChart={() => handleAddExplanationChart(activeProblemIndex)}
+        onChangeExplanationChart={(chartIdx, val) =>
+          handleChangeExplanationChart(activeProblemIndex, chartIdx, val)
+        }
+        onRemoveExplanationChart={(chartIdx) =>
+          handleRemoveExplanationChart(activeProblemIndex, chartIdx)
+        }
+        onInsertExplanationChartTemplate={(chartIdx, tmpl) =>
+          handleInsertExplanationChartTemplate(activeProblemIndex, chartIdx, tmpl)
+        }
         onAddChoice={() => handleAddChoice(activeProblemIndex)}
         onRemoveChoice={(cIdx) => handleRemoveChoice(activeProblemIndex, cIdx)}
         onReorderChoice={(oldIdx, newIdx) =>
@@ -339,6 +371,16 @@ export function ProblemSetEditorView({
         }
         onInsertChoiceErdTemplate={(cIdx, erdIdx, tmpl) =>
           handleInsertChoiceErdTemplate(activeProblemIndex, cIdx, erdIdx, tmpl)
+        }
+        onAddChoiceChart={(cIdx) => handleAddChoiceChart(activeProblemIndex, cIdx)}
+        onChangeChoiceChart={(cIdx, chartIdx, val) =>
+          handleChangeChoiceChart(activeProblemIndex, cIdx, chartIdx, val)
+        }
+        onRemoveChoiceChart={(cIdx, chartIdx) =>
+          handleRemoveChoiceChart(activeProblemIndex, cIdx, chartIdx)
+        }
+        onInsertChoiceChartTemplate={(cIdx, chartIdx, tmpl) =>
+          handleInsertChoiceChartTemplate(activeProblemIndex, cIdx, chartIdx, tmpl)
         }
         onChangeChoiceExplanation={(cIdx, val) =>
           handleChangeChoiceExplanation(activeProblemIndex, cIdx, val)
@@ -369,6 +411,18 @@ export function ProblemSetEditorView({
         }
         onInsertChoiceExplanationErdTemplate={(cIdx, erdIdx, tmpl) =>
           handleInsertChoiceExplanationErdTemplate(activeProblemIndex, cIdx, erdIdx, tmpl)
+        }
+        onAddChoiceExplanationChart={(cIdx) =>
+          handleAddChoiceExplanationChart(activeProblemIndex, cIdx)
+        }
+        onChangeChoiceExplanationChart={(cIdx, chartIdx, val) =>
+          handleChangeChoiceExplanationChart(activeProblemIndex, cIdx, chartIdx, val)
+        }
+        onRemoveChoiceExplanationChart={(cIdx, chartIdx) =>
+          handleRemoveChoiceExplanationChart(activeProblemIndex, cIdx, chartIdx)
+        }
+        onInsertChoiceExplanationChartTemplate={(cIdx, chartIdx, tmpl) =>
+          handleInsertChoiceExplanationChartTemplate(activeProblemIndex, cIdx, chartIdx, tmpl)
         }
         onOpenBulkDialog={handleOpenBulkDialog}
         onOpenProblemBulkDialog={handleOpenProblemBulkDialog}

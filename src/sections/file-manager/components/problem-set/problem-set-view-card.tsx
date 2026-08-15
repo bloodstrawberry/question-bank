@@ -15,6 +15,7 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SchemaIcon from '@mui/icons-material/Schema';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import { alpha, useTheme } from '@mui/material/styles';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FunctionsIcon from '@mui/icons-material/Functions';
@@ -26,6 +27,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 
 import { KatexMath } from 'src/components/katex';
+import { ChartRenderer } from 'src/components/chart';
 import { MermaidDiagram } from 'src/components/mermaid';
 
 import { RichContentRenderer } from './rich-content-renderer';
@@ -74,6 +76,17 @@ export function ProblemSetViewCard({
     ? problem.explanationErds.filter((e: string) => e && e.trim())
     : problem.explanationErd && problem.explanationErd.trim()
       ? [problem.explanationErd.trim()]
+      : [];
+
+  const problemCharts = Array.isArray(problem.charts)
+    ? problem.charts.filter((c) => c && c.trim())
+    : problem.chart && problem.chart.trim()
+      ? [problem.chart.trim()]
+      : [];
+  const problemExplanationCharts = Array.isArray(problem.explanationCharts)
+    ? problem.explanationCharts.filter((c: string) => c && c.trim())
+    : problem.explanationChart && problem.explanationChart.trim()
+      ? [problem.explanationChart.trim()]
       : [];
 
   const correctAnswersList = isMultiple
@@ -361,6 +374,46 @@ export function ProblemSetViewCard({
           </Box>
         )}
 
+        {/* Problem Charts */}
+        {problemCharts.length > 0 && (
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: 1.5,
+              bgcolor: (t) => alpha(t.palette.success.main, 0.03),
+              border: (t) => `1px solid ${alpha(t.palette.success.main, 0.16)}`,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1.5,
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <BarChartIcon sx={{ color: 'success.main', fontSize: 20 }} />
+              <Typography
+                variant="caption"
+                sx={{
+                  fontWeight: 800,
+                  color: 'success.main',
+                  textTransform: 'uppercase',
+                  letterSpacing: 0.5,
+                }}
+              >
+                차트 (Plotly / Mermaid)
+              </Typography>
+            </Box>
+
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              {problemCharts.map((chartText, chartIdx) => (
+                <ChartRenderer
+                  key={chartIdx}
+                  chart={chartText}
+                  idPrefix={`view_problem_chart_${problemIndex}_${chartIdx}`}
+                />
+              ))}
+            </Box>
+          </Box>
+        )}
+
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         {/* Choices */}
@@ -529,6 +582,19 @@ export function ProblemSetViewCard({
                         key={erdIdx}
                         chart={erdText}
                         idPrefix={`view_choice_erd_${problemIndex}_${cIndex}_${erdIdx}`}
+                      />
+                    ))}
+                  </Box>
+                )}
+
+                {/* Choice Extra Charts */}
+                {problem.choiceCharts?.[cIndex] && problem.choiceCharts[cIndex].length > 0 && (
+                  <Box sx={{ pl: 4.5, pb: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    {problem.choiceCharts[cIndex].map((chartText, chartIdx) => (
+                      <ChartRenderer
+                        key={chartIdx}
+                        chart={chartText}
+                        idPrefix={`view_choice_chart_${problemIndex}_${cIndex}_${chartIdx}`}
                       />
                     ))}
                   </Box>
@@ -741,6 +807,46 @@ export function ProblemSetViewCard({
               </Box>
             )}
 
+            {/* Explanation Charts */}
+            {problemExplanationCharts.length > 0 && (
+              <Box
+                sx={{
+                  p: 2,
+                  borderRadius: 1.5,
+                  bgcolor: (t) => alpha(t.palette.success.main, 0.03),
+                  border: (t) => `1px solid ${alpha(t.palette.success.main, 0.16)}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 1.5,
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <BarChartIcon sx={{ color: 'success.main', fontSize: 20 }} />
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontWeight: 800,
+                      color: 'success.main',
+                      textTransform: 'uppercase',
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    해설 차트 (Plotly / Mermaid)
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                  {problemExplanationCharts.map((chartText: string, chartIdx: number) => (
+                    <ChartRenderer
+                      key={chartIdx}
+                      chart={chartText}
+                      idPrefix={`view_exp_chart_${problemIndex}_${chartIdx}`}
+                    />
+                  ))}
+                </Box>
+              </Box>
+            )}
+
             {/* Choice Explanations */}
             {problem.choiceExplanations.some((e) => e) && (
               <Box>
@@ -833,6 +939,22 @@ export function ProblemSetViewCard({
                                     idPrefix={`view_exp_erd_${problemIndex}_${cIndex}_${erdIdx}`}
                                   />
                                 ))}
+                              </Box>
+                            )}
+
+                          {/* Choice Explanation Extra Charts */}
+                          {problem.choiceExplanationCharts?.[cIndex] &&
+                            problem.choiceExplanationCharts[cIndex].length > 0 && (
+                              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                {problem.choiceExplanationCharts[cIndex].map(
+                                  (chartText, chartIdx) => (
+                                    <ChartRenderer
+                                      key={chartIdx}
+                                      chart={chartText}
+                                      idPrefix={`view_exp_chart_${problemIndex}_${cIndex}_${chartIdx}`}
+                                    />
+                                  )
+                                )}
                               </Box>
                             )}
                         </Box>

@@ -11,6 +11,7 @@ export * from './problem-editor-choices';
 export * from './problem-editor-hashtags';
 export * from './problem-editor-formulas';
 export * from './problem-editor-erds';
+export * from './problem-editor-charts';
 export * from './problem-editor-bulk-dialog';
 export * from './problem-editor-reorder-dialog';
 export * from './problem-editor-answer-select';

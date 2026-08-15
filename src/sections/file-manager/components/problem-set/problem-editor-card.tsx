@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SchemaIcon from '@mui/icons-material/Schema';
 import ArticleIcon from '@mui/icons-material/Article';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -24,6 +25,7 @@ import { MarkdownEditor } from 'src/components/markdown-editor';
 
 import { FastTextField } from './fast-text-field';
 import { ProblemEditorErds } from './problem-editor-erds';
+import { ProblemEditorCharts } from './problem-editor-charts';
 import { RichContentRenderer } from './rich-content-renderer';
 import { ProblemEditorChoices } from './problem-editor-choices';
 import { ProblemEditorHashtags } from './problem-editor-hashtags';
@@ -31,7 +33,14 @@ import { ProblemEditorFormulas } from './problem-editor-formulas';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
 import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
 
-type SectionKey = 'description' | 'formulas' | 'erds' | 'explanationFormulas' | 'explanationErds';
+type SectionKey =
+  | 'description'
+  | 'formulas'
+  | 'erds'
+  | 'charts'
+  | 'explanationFormulas'
+  | 'explanationErds'
+  | 'explanationCharts';
 
 const LOCAL_STORAGE_KEY = 'problem_editor_expanded_sections';
 
@@ -62,6 +71,14 @@ interface ProblemEditorCardProps {
   onChangeExplanationErd: (erdIndex: number, value: string) => void;
   onRemoveExplanationErd: (erdIndex: number) => void;
   onInsertExplanationErdTemplate: (erdIndex: number, template: string) => void;
+  onAddChart?: () => void;
+  onChangeChart?: (chartIndex: number, value: string) => void;
+  onRemoveChart?: (chartIndex: number) => void;
+  onInsertChartTemplate?: (chartIndex: number, template: string) => void;
+  onAddExplanationChart?: () => void;
+  onChangeExplanationChart?: (chartIndex: number, value: string) => void;
+  onRemoveExplanationChart?: (chartIndex: number) => void;
+  onInsertExplanationChartTemplate?: (chartIndex: number, template: string) => void;
   onAddChoice: () => void;
   onRemoveChoice: (choiceIndex: number) => void;
   onReorderChoice?: (oldIndex: number, newIndex: number) => void;
@@ -75,6 +92,10 @@ interface ProblemEditorCardProps {
   onChangeChoiceErd?: (choiceIndex: number, erdIndex: number, value: string) => void;
   onRemoveChoiceErd?: (choiceIndex: number, erdIndex: number) => void;
   onInsertChoiceErdTemplate?: (choiceIndex: number, erdIndex: number, template: string) => void;
+  onAddChoiceChart?: (choiceIndex: number) => void;
+  onChangeChoiceChart?: (choiceIndex: number, chartIndex: number, value: string) => void;
+  onRemoveChoiceChart?: (choiceIndex: number, chartIndex: number) => void;
+  onInsertChoiceChartTemplate?: (choiceIndex: number, chartIndex: number, template: string) => void;
   onChangeChoiceExplanation: (choiceIndex: number, value: string) => void;
   onChangeChoiceExplanationDescription?: (choiceIndex: number, value: string) => void;
   onAddChoiceExplanationFormula?: (choiceIndex: number) => void;
@@ -95,6 +116,14 @@ interface ProblemEditorCardProps {
   onInsertChoiceExplanationErdTemplate?: (
     choiceIndex: number,
     erdIndex: number,
+    template: string
+  ) => void;
+  onAddChoiceExplanationChart?: (choiceIndex: number) => void;
+  onChangeChoiceExplanationChart?: (choiceIndex: number, chartIndex: number, value: string) => void;
+  onRemoveChoiceExplanationChart?: (choiceIndex: number, chartIndex: number) => void;
+  onInsertChoiceExplanationChartTemplate?: (
+    choiceIndex: number,
+    chartIndex: number,
     template: string
   ) => void;
   onOpenBulkDialog: () => void;
@@ -128,6 +157,14 @@ export function ProblemEditorCard({
   onChangeExplanationErd,
   onRemoveExplanationErd,
   onInsertExplanationErdTemplate,
+  onAddChart,
+  onChangeChart,
+  onRemoveChart,
+  onInsertChartTemplate,
+  onAddExplanationChart,
+  onChangeExplanationChart,
+  onRemoveExplanationChart,
+  onInsertExplanationChartTemplate,
   onAddChoice,
   onRemoveChoice,
   onReorderChoice,
@@ -141,6 +178,10 @@ export function ProblemEditorCard({
   onChangeChoiceErd,
   onRemoveChoiceErd,
   onInsertChoiceErdTemplate,
+  onAddChoiceChart,
+  onChangeChoiceChart,
+  onRemoveChoiceChart,
+  onInsertChoiceChartTemplate,
   onChangeChoiceExplanation,
   onChangeChoiceExplanationDescription,
   onAddChoiceExplanationFormula,
@@ -151,6 +192,10 @@ export function ProblemEditorCard({
   onChangeChoiceExplanationErd,
   onRemoveChoiceExplanationErd,
   onInsertChoiceExplanationErdTemplate,
+  onAddChoiceExplanationChart,
+  onChangeChoiceExplanationChart,
+  onRemoveChoiceExplanationChart,
+  onInsertChoiceExplanationChartTemplate,
   onOpenBulkDialog,
   onOpenProblemBulkDialog,
 }: ProblemEditorCardProps) {
@@ -160,8 +205,10 @@ export function ProblemEditorCard({
     description: undefined,
     formulas: undefined,
     erds: undefined,
+    charts: undefined,
     explanationFormulas: undefined,
     explanationErds: undefined,
+    explanationCharts: undefined,
   });
   const [hasLoadedStorage, setHasLoadedStorage] = useState(false);
   const [showExpPreview, setShowExpPreview] = useState(false);
@@ -169,6 +216,7 @@ export function ProblemEditorCard({
   const [openExpDescState, setOpenExpDescState] = useState<Record<number, boolean>>({});
   const [openExpFormulaState, setOpenExpFormulaState] = useState<Record<number, boolean>>({});
   const [openExpErdState, setOpenExpErdState] = useState<Record<number, boolean>>({});
+  const [openExpChartState, setOpenExpChartState] = useState<Record<number, boolean>>({});
 
   const toggleExpDesc = (cIndex: number) => {
     setOpenExpDescState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
@@ -180,6 +228,10 @@ export function ProblemEditorCard({
 
   const toggleExpErd = (cIndex: number) => {
     setOpenExpErdState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
+  };
+
+  const toggleExpChart = (cIndex: number) => {
+    setOpenExpChartState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
   };
 
   useEffect(() => {
@@ -425,6 +477,44 @@ export function ProblemEditorCard({
           />
         </ProblemEditorCollapsibleSection>
 
+        {/* Problem Charts Section (Collapsible) */}
+        {onAddChart && onChangeChart && onRemoveChart && onInsertChartTemplate && (
+          <ProblemEditorCollapsibleSection
+            title="문제 차트 (Plotly / Mermaid)"
+            icon={<BarChartIcon color="success" sx={{ fontSize: 20 }} />}
+            count={problem.charts?.length || 0}
+            hasContent={(problem.charts?.length || 0) > 0}
+            color="success"
+            expanded={isSectionExpanded('charts', (problem.charts?.length || 0) > 0)}
+            onToggle={() => handleToggleSection('charts', (problem.charts?.length || 0) > 0)}
+            action={
+              <Button
+                size="small"
+                tabIndex={-1}
+                variant="outlined"
+                color="success"
+                startIcon={<AddIcon />}
+                onClick={() => handleExpandAndAdd('charts', onAddChart)}
+                sx={{ borderRadius: 1.5, fontWeight: 700 }}
+              >
+                차트 추가
+              </Button>
+            }
+          >
+            <ProblemEditorCharts
+              hideHeader
+              title="문제 차트 (Plotly / Mermaid)"
+              charts={problem.charts || []}
+              onAddChart={() => handleExpandAndAdd('charts', onAddChart)}
+              onChangeChart={onChangeChart}
+              onRemoveChart={onRemoveChart}
+              onInsertTemplate={onInsertChartTemplate}
+              emptyPlaceholderText="등록된 차트가 없습니다."
+              labelPrefix="차트"
+            />
+          </ProblemEditorCollapsibleSection>
+        )}
+
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         {/* Choices */}
@@ -433,6 +523,7 @@ export function ProblemEditorCard({
           choiceDescriptions={problem.choiceDescriptions}
           choiceFormulas={problem.choiceFormulas}
           choiceErds={problem.choiceErds}
+          choiceCharts={problem.choiceCharts}
           answers={problem.answers}
           answer={problem.answer}
           isMultipleAnswer={problem.isMultipleAnswer}
@@ -449,6 +540,10 @@ export function ProblemEditorCard({
           onChangeChoiceErd={onChangeChoiceErd}
           onRemoveChoiceErd={onRemoveChoiceErd}
           onInsertChoiceErdTemplate={onInsertChoiceErdTemplate}
+          onAddChoiceChart={onAddChoiceChart}
+          onChangeChoiceChart={onChangeChoiceChart}
+          onRemoveChoiceChart={onRemoveChoiceChart}
+          onInsertChoiceChartTemplate={onInsertChoiceChartTemplate}
           onOpenBulkDialog={onOpenBulkDialog}
         />
 
@@ -549,6 +644,55 @@ export function ProblemEditorCard({
           />
         </ProblemEditorCollapsibleSection>
 
+        {/* Explanation Charts Section (Collapsible) */}
+        {onAddExplanationChart &&
+          onChangeExplanationChart &&
+          onRemoveExplanationChart &&
+          onInsertExplanationChartTemplate && (
+            <ProblemEditorCollapsibleSection
+              title="해설 차트 (Plotly / Mermaid)"
+              icon={<BarChartIcon color="success" sx={{ fontSize: 20 }} />}
+              count={problem.explanationCharts?.length || 0}
+              hasContent={(problem.explanationCharts?.length || 0) > 0}
+              color="success"
+              expanded={isSectionExpanded(
+                'explanationCharts',
+                (problem.explanationCharts?.length || 0) > 0
+              )}
+              onToggle={() =>
+                handleToggleSection(
+                  'explanationCharts',
+                  (problem.explanationCharts?.length || 0) > 0
+                )
+              }
+              action={
+                <Button
+                  size="small"
+                  tabIndex={-1}
+                  variant="outlined"
+                  color="success"
+                  startIcon={<AddIcon />}
+                  onClick={() => handleExpandAndAdd('explanationCharts', onAddExplanationChart)}
+                  sx={{ borderRadius: 1.5, fontWeight: 700 }}
+                >
+                  해설 차트 추가
+                </Button>
+              }
+            >
+              <ProblemEditorCharts
+                hideHeader
+                title="해설 차트 (Plotly / Mermaid)"
+                charts={problem.explanationCharts || []}
+                onAddChart={() => handleExpandAndAdd('explanationCharts', onAddExplanationChart)}
+                onChangeChart={onChangeExplanationChart}
+                onRemoveChart={onRemoveExplanationChart}
+                onInsertTemplate={onInsertExplanationChartTemplate}
+                emptyPlaceholderText="등록된 해설 차트가 없습니다."
+                labelPrefix="해설 차트"
+              />
+            </ProblemEditorCollapsibleSection>
+          )}
+
         {/* Choice Explanations */}
         <Box>
           <Box
@@ -582,14 +726,17 @@ export function ProblemEditorCard({
               const expDesc = problem.choiceExplanationDescriptions?.[cIndex] || '';
               const expFormulasList = problem.choiceExplanationFormulas?.[cIndex] || [];
               const expErdsList = problem.choiceExplanationErds?.[cIndex] || [];
+              const expChartsList = problem.choiceExplanationCharts?.[cIndex] || [];
 
               const hasExpDesc = Boolean(expDesc && expDesc.trim().length > 0);
               const hasExpFormulas = expFormulasList.length > 0;
               const hasExpErds = expErdsList.length > 0;
+              const hasExpCharts = expChartsList.length > 0;
 
               const isExpDescOpen = openExpDescState[cIndex] ?? hasExpDesc;
               const isExpFormulaOpen = openExpFormulaState[cIndex] ?? hasExpFormulas;
               const isExpErdOpen = openExpErdState[cIndex] ?? hasExpErds;
+              const isExpChartOpen = openExpChartState[cIndex] ?? hasExpCharts;
 
               return (
                 <Box
@@ -675,6 +822,23 @@ export function ProblemEditorCard({
                           }}
                         >
                           <SchemaIcon fontSize="small" />
+                        </IconButton>
+                      </Tooltip>
+
+                      <Tooltip title={`${cIndex + 1}번 설명 추가 차트`}>
+                        <IconButton
+                          size="small"
+                          tabIndex={-1}
+                          color={isExpChartOpen || hasExpCharts ? 'success' : 'default'}
+                          onClick={() => toggleExpChart(cIndex)}
+                          sx={{
+                            bgcolor:
+                              isExpChartOpen || hasExpCharts
+                                ? (t) => alpha(t.palette.success.main, 0.08)
+                                : 'transparent',
+                          }}
+                        >
+                          <BarChartIcon fontSize="small" />
                         </IconButton>
                       </Tooltip>
                     </Box>
@@ -796,6 +960,54 @@ export function ProblemEditorCard({
                           }
                           emptyPlaceholderText={`${cIndex + 1}번 설명에 등록된 ERD가 없습니다.`}
                           labelPrefix={`${cIndex + 1}번 설명 ERD`}
+                        />
+                      </ProblemEditorCollapsibleSection>
+                    )}
+
+                  {/* Dedicated Sub-Section: N번 설명 추가 차트 */}
+                  {(isExpChartOpen || hasExpCharts) &&
+                    onAddChoiceExplanationChart &&
+                    onChangeChoiceExplanationChart &&
+                    onRemoveChoiceExplanationChart &&
+                    onInsertChoiceExplanationChartTemplate && (
+                      <ProblemEditorCollapsibleSection
+                        title={`${cIndex + 1}번 설명 추가 차트`}
+                        icon={<BarChartIcon color="success" sx={{ fontSize: 18 }} />}
+                        count={expChartsList.length}
+                        hasContent={hasExpCharts}
+                        color="success"
+                        expanded={isExpChartOpen}
+                        onToggle={() => toggleExpChart(cIndex)}
+                        action={
+                          <Button
+                            size="small"
+                            tabIndex={-1}
+                            variant="outlined"
+                            color="success"
+                            startIcon={<AddIcon />}
+                            onClick={() => onAddChoiceExplanationChart(cIndex)}
+                            sx={{ borderRadius: 1.5, fontWeight: 700 }}
+                          >
+                            해설 차트 추가
+                          </Button>
+                        }
+                      >
+                        <ProblemEditorCharts
+                          hideHeader
+                          title={`${cIndex + 1}번 설명 추가 차트`}
+                          charts={expChartsList}
+                          onAddChart={() => onAddChoiceExplanationChart(cIndex)}
+                          onChangeChart={(chartIdx, val) =>
+                            onChangeChoiceExplanationChart(cIndex, chartIdx, val)
+                          }
+                          onRemoveChart={(chartIdx) =>
+                            onRemoveChoiceExplanationChart(cIndex, chartIdx)
+                          }
+                          onInsertTemplate={(chartIdx, tmpl) =>
+                            onInsertChoiceExplanationChartTemplate(cIndex, chartIdx, tmpl)
+                          }
+                          emptyPlaceholderText={`${cIndex + 1}번 설명에 등록된 차트가 없습니다.`}
+                          labelPrefix={`${cIndex + 1}번 설명 차트`}
                         />
                       </ProblemEditorCollapsibleSection>
                     )}
