@@ -425,6 +425,7 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           action={
             <Button
               size="small"
+              tabIndex={-1}
               variant="outlined"
               color="primary"
               startIcon={<AddIcon />}
@@ -460,6 +461,7 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           action={
             <Button
               size="small"
+              tabIndex={-1}
               variant="outlined"
               color="info"
               startIcon={<AddIcon />}
@@ -587,6 +589,7 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           action={
             <Button
               size="small"
+              tabIndex={-1}
               variant="outlined"
               color="primary"
               startIcon={<AddIcon />}
@@ -627,6 +630,7 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           action={
             <Button
               size="small"
+              tabIndex={-1}
               variant="outlined"
               color="info"
               startIcon={<AddIcon />}
