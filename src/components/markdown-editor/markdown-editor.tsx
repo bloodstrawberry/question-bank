@@ -373,7 +373,7 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
             ?.run()
         }
         active={editor.isActive('table')}
-        icon="material-symbols:table-chart-outline"
+        icon="mdi:table-plus"
         title="표 삽입 (3x3)"
       />
 
@@ -381,43 +381,43 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
         <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).addColumnBefore?.()?.run()}
-            icon="material-symbols:add-column-left-outline"
+            icon="mdi:table-column-plus-before"
             title="왼쪽에 열 추가"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).addColumnAfter?.()?.run()}
-            icon="material-symbols:add-column-right-outline"
+            icon="mdi:table-column-plus-after"
             title="오른쪽에 열 추가"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).deleteColumn?.()?.run()}
-            icon="material-symbols:delete-column-outline"
+            icon="mdi:table-column-remove"
             title="현재 열 삭제"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).addRowBefore?.()?.run()}
-            icon="material-symbols:add-row-above-outline"
+            icon="mdi:table-row-plus-before"
             title="위에 행 추가"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).addRowAfter?.()?.run()}
-            icon="material-symbols:add-row-below-outline"
+            icon="mdi:table-row-plus-after"
             title="아래에 행 추가"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).deleteRow?.()?.run()}
-            icon="material-symbols:delete-row-outline"
+            icon="mdi:table-row-remove"
             title="현재 행 삭제"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).toggleHeaderRow?.()?.run()}
             active={editor.isActive('tableHeader')}
-            icon="material-symbols:table-rows-narrow-outline"
+            icon="mdi:table-headers-eye"
             title="헤더 행 설정/해제"
           />
           <ToolbarButton
             onClick={() => (editor.chain().focus() as any).deleteTable?.()?.run()}
-            icon="material-symbols:table-rows-delete-outline"
+            icon="mdi:table-remove"
             title="표 삭제"
           />
         </Box>
@@ -463,20 +463,20 @@ export const MarkdownEditor = memo(function MarkdownEditor({
   const onChangeRef = useRef(onChange);
   onChangeRef.current = onChange;
 
-  const isLocalChangeRef = useRef(false);
+  const lastLocalValueRef = useRef<string>(isRichTextEmpty(value) ? '' : value || '');
 
   const debouncedOnChange = useMemo(
     () =>
       debounce((val: string) => {
-        isLocalChangeRef.current = true;
+        lastLocalValueRef.current = val;
         onChangeRef.current(val);
-      }, 400),
+      }, 200),
     []
   );
 
   useEffect(() => {
     return () => {
-      debouncedOnChange.cancel();
+      debouncedOnChange.flush();
     };
   }, [debouncedOnChange]);
 
@@ -536,23 +536,17 @@ export const MarkdownEditor = memo(function MarkdownEditor({
     content: value || '',
     onUpdate: ({ editor: currentEditor }) => {
       if (currentEditor.isEmpty) {
+        lastLocalValueRef.current = '';
         debouncedOnChange('');
         return;
       }
-      const markdown = (currentEditor.storage as any).markdown.getMarkdown();
+      const markdown = (currentEditor.storage as any).markdown?.getMarkdown?.() ?? '';
       const finalVal = isRichTextEmpty(markdown) ? '' : markdown;
+      lastLocalValueRef.current = finalVal;
       debouncedOnChange(finalVal);
     },
-    onBlur: ({ editor: currentEditor }) => {
-      debouncedOnChange.cancel();
-      isLocalChangeRef.current = true;
-      if (currentEditor.isEmpty) {
-        onChangeRef.current('');
-        return;
-      }
-      const markdown = (currentEditor.storage as any).markdown.getMarkdown();
-      const finalVal = isRichTextEmpty(markdown) ? '' : markdown;
-      onChangeRef.current(finalVal);
+    onBlur: () => {
+      debouncedOnChange.flush();
     },
     editable: !readOnly,
     immediatelyRender: false,
@@ -564,17 +558,22 @@ export const MarkdownEditor = memo(function MarkdownEditor({
             return true;
           }
         }
+        if (event.ctrlKey && event.key.toLowerCase() === 's') {
+          debouncedOnChange.flush();
+        }
         return false;
       },
     },
   });
 
-  // Sync external changes (e.g. load, reset) back to editor
+  // Sync external changes (e.g. load, problem switch, reset) back to editor
   useEffect(() => {
     if (!editor || !isMounted || value === undefined) return;
 
-    if (isLocalChangeRef.current) {
-      isLocalChangeRef.current = false;
+    const valueNormalized = isRichTextEmpty(value) ? '' : value;
+
+    // If the value matches our latest local/emitted state, no need to overwrite editor
+    if (valueNormalized === lastLocalValueRef.current) {
       return;
     }
 
@@ -582,11 +581,11 @@ export const MarkdownEditor = memo(function MarkdownEditor({
       return;
     }
 
-    const currentMarkdown = (editor.storage as any).markdown.getMarkdown();
+    const currentMarkdown = (editor.storage as any).markdown?.getMarkdown?.() ?? '';
     const currentNormalized = isRichTextEmpty(currentMarkdown) ? '' : currentMarkdown;
-    const valueNormalized = isRichTextEmpty(value) ? '' : value;
     if (valueNormalized !== currentNormalized) {
       editor.commands.setContent(valueNormalized || '');
+      lastLocalValueRef.current = valueNormalized;
     }
   }, [value, editor, isMounted]);
 

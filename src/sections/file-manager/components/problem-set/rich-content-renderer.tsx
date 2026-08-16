@@ -1,6 +1,6 @@
 'use client';
 
-import type { Theme, SxProps } from '@mui/material/styles';
+import { alpha, type Theme, type SxProps } from '@mui/material/styles';
 
 import { memo, useMemo } from 'react';
 import rehypeRaw from 'rehype-raw';
@@ -102,24 +102,52 @@ export const RichContentRenderer = memo(function RichContentRenderer({
     return null;
   }
 
+  const hasTableOrBlock = content.includes('|') || content.includes('```') || content.includes('<table');
+  const isEffectivelyInline = inline && !hasTableOrBlock;
+
   return (
     <Box
-      component={inline ? 'span' : 'div'}
+      component={isEffectivelyInline ? 'span' : 'div'}
       sx={{
-        display: inline ? 'inline-flex' : 'flex',
-        flexDirection: inline ? 'row' : 'column',
-        alignItems: inline ? 'center' : 'stretch',
-        flexWrap: inline ? 'wrap' : 'nowrap',
+        display: isEffectivelyInline ? 'inline-flex' : 'flex',
+        flexDirection: isEffectivelyInline ? 'row' : 'column',
+        alignItems: isEffectivelyInline ? 'center' : 'stretch',
+        flexWrap: isEffectivelyInline ? 'wrap' : 'nowrap',
+        width: isEffectivelyInline ? 'auto' : '100%',
         gap: 0.5,
         '& p': {
           m: 0,
-          mb: 1.5,
-          display: inline ? 'inline-block' : 'block',
+          mb: 1,
+          display: isEffectivelyInline ? 'inline-block' : 'block',
           fontSize: 14,
           lineHeight: 1.6,
           whiteSpace: 'pre-wrap',
           minHeight: '1.2em',
           '&:last-child': { mb: 0 },
+        },
+        '& table': {
+          width: '100%',
+          borderCollapse: 'collapse',
+          my: 1,
+          '& th, & td': {
+            px: 1.5,
+            py: 0.75,
+            fontSize: 13,
+            border: (t) => `1px solid ${t.palette.divider}`,
+          },
+          '& th': {
+            fontWeight: 700,
+            bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+            textAlign: 'left',
+          },
+        },
+        '& strong': { fontWeight: 700 },
+        '& em': { fontStyle: 'italic' },
+        '& ul, & ol': {
+          pl: 2.5,
+          m: 0,
+          mb: 1,
+          '& li': { mb: 0.25 },
         },
         '& code': {
           px: 0.5,
@@ -129,6 +157,18 @@ export const RichContentRenderer = memo(function RichContentRenderer({
           fontFamily: 'monospace',
           bgcolor: (t) => t.palette.action.hover,
           color: 'error.main',
+        },
+        '& pre': {
+          p: 1.5,
+          borderRadius: 1,
+          bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+          overflow: 'auto',
+          '& code': {
+            bgcolor: 'transparent',
+            color: (t) => t.palette.text.primary,
+            px: 0,
+            py: 0,
+          },
         },
         '& blockquote': {
           m: 0,
@@ -141,7 +181,7 @@ export const RichContentRenderer = memo(function RichContentRenderer({
       {segments.map((seg, idx) => {
         if (seg.type === 'erd') {
           return (
-            <Box key={idx} sx={{ my: inline ? 0.5 : 1, width: '100%' }}>
+            <Box key={idx} sx={{ my: isEffectivelyInline ? 0.5 : 1, width: '100%' }}>
               <MermaidDiagram chart={seg.content} idPrefix={`${idPrefix}_erd_${idx}`} />
             </Box>
           );
@@ -152,11 +192,11 @@ export const RichContentRenderer = memo(function RichContentRenderer({
         }
 
         if (seg.type === 'displayMath') {
-          return <KatexMath key={idx} math={seg.content} inline={inline} />;
+          return <KatexMath key={idx} math={seg.content} inline={isEffectivelyInline} />;
         }
 
         return (
-          <Box key={idx} component={inline ? 'span' : 'div'}>
+          <Box key={idx} component={isEffectivelyInline ? 'span' : 'div'} sx={{ width: isEffectivelyInline ? 'auto' : '100%' }}>
             <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
               {seg.content}
             </ReactMarkdown>

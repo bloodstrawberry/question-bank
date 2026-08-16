@@ -1,8 +1,11 @@
 import { memo, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
+import Radio from '@mui/material/Radio';
+import Switch from '@mui/material/Switch';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import Checkbox from '@mui/material/Checkbox';
 import { alpha } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/material/Typography';
@@ -13,6 +16,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
@@ -37,6 +41,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 import { MarkdownEditor } from 'src/components/markdown-editor';
 
+import type { Problem } from './types';
 import { FastTextField } from './fast-text-field';
 import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorCharts } from './problem-editor-charts';
@@ -61,6 +66,8 @@ interface ProblemEditorChoicesProps {
   answers?: number[];
   answer: number;
   isMultipleAnswer?: boolean;
+  disableChoiceShuffle?: boolean;
+  onUpdateProblem?: (updates: Partial<Problem>) => void;
   onAddChoice: () => void;
   onRemoveChoice: (choiceIndex: number) => void;
   onReorderChoice?: (oldIndex: number, newIndex: number) => void;
@@ -87,6 +94,8 @@ interface SortableChoiceItemProps {
   choice: string;
   isThisChoiceCorrect: boolean;
   choicesCount: number;
+  isMultipleAnswer?: boolean;
+  onToggleAnswer?: (choiceNum: number) => void;
   description: string;
   formulasList: string[];
   erdsList: string[];
@@ -127,6 +136,8 @@ const SortableChoiceItem = memo(function SortableChoiceItem({
   choice,
   isThisChoiceCorrect,
   choicesCount,
+  isMultipleAnswer = false,
+  onToggleAnswer,
   description,
   formulasList,
   erdsList,
@@ -211,13 +222,65 @@ const SortableChoiceItem = memo(function SortableChoiceItem({
           <DragIndicatorIcon fontSize="small" />
         </IconButton>
 
+        {/* Answer Selection Checkbox / Radio Button */}
+        {onToggleAnswer && (
+          <Tooltip
+            title={
+              isMultipleAnswer
+                ? isThisChoiceCorrect
+                  ? `${cIndex + 1}번 정답 해제`
+                  : `${cIndex + 1}번 정답 체크`
+                : isThisChoiceCorrect
+                  ? `${cIndex + 1}번 정답 해제 (클릭 시 취소)`
+                  : `${cIndex + 1}번 정답으로 선택`
+            }
+          >
+            {isMultipleAnswer ? (
+              <Checkbox
+                size="small"
+                tabIndex={-1}
+                checked={isThisChoiceCorrect}
+                onChange={() => onToggleAnswer(cIndex + 1)}
+                color="success"
+                sx={{
+                  p: 0.5,
+                  ...(isThisChoiceCorrect && {
+                    color: 'success.main',
+                  }),
+                }}
+              />
+            ) : (
+              <Radio
+                size="small"
+                tabIndex={-1}
+                checked={isThisChoiceCorrect}
+                onClick={() => onToggleAnswer(cIndex + 1)}
+                color="success"
+                sx={{
+                  p: 0.5,
+                  ...(isThisChoiceCorrect && {
+                    color: 'success.main',
+                  }),
+                }}
+              />
+            )}
+          </Tooltip>
+        )}
+
         <FastTextField
           fullWidth
           size="small"
           label={`${cIndex + 1}번`}
           value={choice}
           onChange={(val) => onChangeChoice(cIndex, val)}
-          placeholder={`${cIndex + 1}번 선택지를 입력하세요`}
+          onKeyDown={(e) => {
+            if (e.ctrlKey && e.key === 'Enter') {
+              e.preventDefault();
+              e.stopPropagation();
+              onToggleAnswer?.(cIndex + 1);
+            }
+          }}
+          placeholder={`${cIndex + 1}번 선택지를 입력하세요 (Ctrl + Enter: 정답 체크)`}
           sx={{
             '& .MuiOutlinedInput-root': {
               ...(isThisChoiceCorrect && {
@@ -321,6 +384,21 @@ const SortableChoiceItem = memo(function SortableChoiceItem({
           color="primary"
           expanded={isDescOpen}
           onToggle={() => toggleDesc(cIndex)}
+          action={
+            <Button
+              size="small"
+              tabIndex={-1}
+              variant="outlined"
+              color="error"
+              startIcon={<DeleteIcon />}
+              onClick={() => {
+                onChangeChoiceDescription(cIndex, '');
+              }}
+              sx={{ borderRadius: 1.5, fontWeight: 700 }}
+            >
+              설명 삭제
+            </Button>
+          }
         >
           <MarkdownEditor
             hideHeader
@@ -491,6 +569,8 @@ export const ProblemEditorChoices = memo(function ProblemEditorChoices({
   answers = [],
   answer = 0,
   isMultipleAnswer = false,
+  disableChoiceShuffle = false,
+  onUpdateProblem,
   onAddChoice,
   onRemoveChoice,
   onReorderChoice,
@@ -530,6 +610,32 @@ export const ProblemEditorChoices = memo(function ProblemEditorChoices({
       return prevIds.slice(0, choices.length);
     });
   }, [choices.length]);
+
+  const handleToggleAnswer = useCallback(
+    (choiceNum: number) => {
+      if (!onUpdateProblem) return;
+
+      if (isMultipleAnswer) {
+        const currentAnswers = answers || [];
+        const exists = currentAnswers.includes(choiceNum);
+        const newAnswers = exists
+          ? currentAnswers.filter((n) => n !== choiceNum)
+          : [...currentAnswers, choiceNum].sort((a, b) => a - b);
+        onUpdateProblem({
+          answers: newAnswers,
+          answer: newAnswers[0] || 0,
+        });
+      } else {
+        const isCurrent = answer === choiceNum;
+        const newAnswer = isCurrent ? 0 : choiceNum;
+        onUpdateProblem({
+          answer: newAnswer,
+          answers: newAnswer > 0 ? [newAnswer] : [],
+        });
+      }
+    },
+    [isMultipleAnswer, answers, answer, onUpdateProblem]
+  );
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -580,6 +686,8 @@ export const ProblemEditorChoices = memo(function ProblemEditorChoices({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: 1,
           mb: 2,
         }}
       >
@@ -587,7 +695,35 @@ export const ProblemEditorChoices = memo(function ProblemEditorChoices({
           객관식 선택지 ({choices.length}개)
         </Typography>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
+          {/* Choice Shuffle Lock Toggle */}
+          <Tooltip title="선택지 랜덤 섞기 금지 (켜면 시험/문제 풀이 시 선택지 순서가 고정됩니다)">
+            <FormControlLabel
+              control={
+                <Switch
+                  size="small"
+                  checked={Boolean(disableChoiceShuffle)}
+                  inputProps={{ tabIndex: -1 }}
+                  onChange={(e) => onUpdateProblem?.({ disableChoiceShuffle: e.target.checked })}
+                  color="warning"
+                />
+              }
+              label={
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontWeight: 700,
+                    color: disableChoiceShuffle ? 'warning.main' : 'text.secondary',
+                    userSelect: 'none',
+                  }}
+                >
+                  선택지 섞기 금지
+                </Typography>
+              }
+              sx={{ m: 0, mr: 0.5 }}
+            />
+          </Tooltip>
+
           <Button
             size="small"
             tabIndex={-1}
@@ -658,6 +794,8 @@ export const ProblemEditorChoices = memo(function ProblemEditorChoices({
                   choice={choice}
                   isThisChoiceCorrect={isThisChoiceCorrect}
                   choicesCount={choices.length}
+                  isMultipleAnswer={isMultipleAnswer}
+                  onToggleAnswer={handleToggleAnswer}
                   description={description}
                   formulasList={formulasList}
                   erdsList={erdsList}

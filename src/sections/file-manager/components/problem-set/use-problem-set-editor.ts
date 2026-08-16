@@ -34,6 +34,7 @@ export function useProblemSetEditor({
   const [reorderDialogOpen, setReorderDialogOpen] = useState(false);
   const [noAnswerWarningOpen, setNoAnswerWarningOpen] = useState(false);
   const [unansweredProblems, setUnansweredProblems] = useState<number[]>([]);
+  const [deleteConfirmIndex, setDeleteConfirmIndex] = useState<number | null>(null);
 
   const initialDataRef = useRef<string>('');
   const dataRef = useRef(data);
@@ -62,6 +63,7 @@ export function useProblemSetEditor({
                 : [];
             const showMultipleCount =
               p.showMultipleCount !== undefined ? Boolean(p.showMultipleCount) : true;
+            const disableChoiceShuffle = Boolean(p.disableChoiceShuffle);
 
             const explanationFormulas = Array.isArray(p.explanationFormulas)
               ? p.explanationFormulas
@@ -145,6 +147,7 @@ export function useProblemSetEditor({
               isMultipleAnswer,
               answers: rawAnswers,
               showMultipleCount,
+              disableChoiceShuffle,
             };
           });
           const nextData = { problems: normalized };
@@ -262,11 +265,23 @@ export function useProblemSetEditor({
 
   const handleAddProblem = useCallback(() => {
     setData((prev) => {
-      const newProblems = [...prev.problems, createEmptyProblem()];
-      setCurrentIndex(newProblems.length - 1);
+      const currentProb = prev.problems[currentIndex] || prev.problems[prev.problems.length - 1];
+      const currentChoicesCount = currentProb?.choices?.length || 4;
+      const newProblems = [...prev.problems, createEmptyProblem(currentChoicesCount)];
+      const nextIndex = newProblems.length - 1;
+      setCurrentIndex(nextIndex);
+      setPageInput(String(nextIndex + 1));
       return { ...prev, problems: newProblems };
     });
-  }, []);
+
+    // 새 문제 생성 후 문제 입력 칸으로 자동 포커스
+    setTimeout(() => {
+      const el = document.getElementById('problem-editor-question-input');
+      if (el) {
+        el.focus();
+      }
+    }, 60);
+  }, [currentIndex]);
 
   const updateProblem = useCallback(
     (index: number, updates: Partial<Problem> | ((prev: Problem) => Partial<Problem>)) => {
@@ -335,15 +350,25 @@ export function useProblemSetEditor({
   }, []);
 
   const handleRemoveProblem = useCallback((index: number) => {
+    setDeleteConfirmIndex(index);
+  }, []);
+
+  const handleConfirmRemoveProblem = useCallback(() => {
+    if (deleteConfirmIndex === null) return;
+    const index = deleteConfirmIndex;
     setData((prev) => {
       if (prev.problems.length <= 1) return prev;
       const newProblems = prev.problems.filter((_, i) => i !== index);
-      setCurrentIndex((curr) => {
-        if (curr >= newProblems.length) return Math.max(0, newProblems.length - 1);
-        return curr;
-      });
+      const nextIndex = Math.min(currentIndex, newProblems.length - 1);
+      setCurrentIndex(nextIndex);
+      setPageInput(String(nextIndex + 1));
       return { ...prev, problems: newProblems };
     });
+    setDeleteConfirmIndex(null);
+  }, [deleteConfirmIndex, currentIndex]);
+
+  const handleCloseDeleteConfirm = useCallback(() => {
+    setDeleteConfirmIndex(null);
   }, []);
 
   const handleAddHashtag = useCallback(
@@ -1273,6 +1298,9 @@ export function useProblemSetEditor({
     updateProblem,
     handleDuplicateProblem,
     handleRemoveProblem,
+    deleteConfirmIndex,
+    handleConfirmRemoveProblem,
+    handleCloseDeleteConfirm,
     handleAddHashtag,
     handleRemoveHashtag,
     handleAddFormula,

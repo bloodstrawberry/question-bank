@@ -19,3 +19,4 @@ export * from './problem-editor-collapsible-section';
 export * from './rich-content-renderer';
 export * from './rich-insert-toolbar';
 export * from './problem-editor-no-answer-dialog';
+export * from './problem-editor-delete-dialog';

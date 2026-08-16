@@ -23,6 +23,7 @@ export interface Problem {
   answers?: number[];
   isMultipleAnswer?: boolean;
   showMultipleCount?: boolean;
+  disableChoiceShuffle?: boolean;
   explanation: string;
   choiceExplanations: string[];
   choiceExplanationDescriptions?: string[];
@@ -40,7 +41,8 @@ export interface CommonLatexSymbol {
   code: string;
 }
 
-export function createEmptyProblem(): Problem {
+export function createEmptyProblem(choicesCount: number = 4): Problem {
+  const count = Math.max(2, choicesCount);
   return {
     hashtags: [],
     question: '',
@@ -51,20 +53,21 @@ export function createEmptyProblem(): Problem {
     explanationErds: [],
     charts: [],
     explanationCharts: [],
-    choices: ['', '', '', ''],
-    choiceDescriptions: ['', '', '', ''],
-    choiceFormulas: [[], [], [], []],
-    choiceErds: [[], [], [], []],
-    choiceCharts: [[], [], [], []],
+    choices: Array(count).fill(''),
+    choiceDescriptions: Array(count).fill(''),
+    choiceFormulas: Array.from({ length: count }, () => []),
+    choiceErds: Array.from({ length: count }, () => []),
+    choiceCharts: Array.from({ length: count }, () => []),
     answer: 0,
     answers: [],
     isMultipleAnswer: false,
     showMultipleCount: true,
+    disableChoiceShuffle: false,
     explanation: '',
-    choiceExplanations: ['', '', '', ''],
-    choiceExplanationDescriptions: ['', '', '', ''],
-    choiceExplanationFormulas: [[], [], [], []],
-    choiceExplanationErds: [[], [], [], []],
-    choiceExplanationCharts: [[], [], [], []],
+    choiceExplanations: Array(count).fill(''),
+    choiceExplanationDescriptions: Array(count).fill(''),
+    choiceExplanationFormulas: Array.from({ length: count }, () => []),
+    choiceExplanationErds: Array.from({ length: count }, () => []),
+    choiceExplanationCharts: Array.from({ length: count }, () => []),
   };
 }

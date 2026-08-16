@@ -201,6 +201,16 @@ export function ProblemSetViewCard({
               sx={{ fontWeight: 700, height: 22, fontSize: 11 }}
             />
           )}
+
+          {problem.disableChoiceShuffle && (
+            <Chip
+              size="small"
+              color="default"
+              variant="soft"
+              label="선택지 고정"
+              sx={{ fontWeight: 600, height: 22, fontSize: 11, opacity: 0.8 }}
+            />
+          )}
         </Box>
 
         {/* Description */}
@@ -512,7 +522,7 @@ export function ProblemSetViewCard({
                       sx={{
                         display: 'flex',
                         alignItems: 'flex-start',
-                        gap: 0.5,
+                        gap: 1,
                         py: 0.25,
                         width: '100%',
                       }}
@@ -523,18 +533,20 @@ export function ProblemSetViewCard({
                         sx={{
                           fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
                           flexShrink: 0,
+                          mt: 0.2,
                         }}
                       >
                         {choiceNum}.
                       </Typography>
-                      <RichContentRenderer
-                        content={choice}
-                        inline
-                        idPrefix={`view_choice_${problemIndex}_${cIndex}`}
-                        sx={{
-                          fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
-                        }}
-                      />
+                      <Box sx={{ flexGrow: 1, width: '100%' }}>
+                        <RichContentRenderer
+                          content={choice}
+                          idPrefix={`view_choice_${problemIndex}_${cIndex}`}
+                          sx={{
+                            fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                          }}
+                        />
+                      </Box>
                     </Box>
                   }
                   sx={{
@@ -553,18 +565,12 @@ export function ProblemSetViewCard({
                       pb: 1,
                       color: 'text.secondary',
                       fontSize: 13,
-                      '& p': {
-                        m: 0,
-                        mb: 1.5,
-                        whiteSpace: 'pre-wrap',
-                        minHeight: '1.2em',
-                        '&:last-child': { mb: 0 },
-                      },
                     }}
                   >
-                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-                      {problem.choiceDescriptions?.[cIndex] || ''}
-                    </ReactMarkdown>
+                    <RichContentRenderer
+                      content={problem.choiceDescriptions?.[cIndex] || ''}
+                      idPrefix={`view_choice_desc_${problemIndex}_${cIndex}`}
+                    />
                   </Box>
                 )}
 
@@ -863,81 +869,115 @@ export function ProblemSetViewCard({
             )}
 
             {/* Choice Explanations */}
-            {problem.choiceExplanations.some((e) => e) && (
-              <Box>
-                <Typography
-                  variant="subtitle2"
-                  sx={{ fontWeight: 700, color: 'text.secondary', mb: 1.5 }}
-                >
-                  객관식별 설명
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  {problem.choiceExplanations.map((exp, cIndex) =>
-                    exp ? (
-                      <Box
-                        key={cIndex}
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          gap: 1,
-                          alignItems: 'flex-start',
-                        }}
-                      >
+            {(() => {
+              const hasAnyChoiceExplanation = (problem.choices || []).some((_, cIndex) => {
+                const exp = problem.choiceExplanations?.[cIndex];
+                const expDesc = problem.choiceExplanationDescriptions?.[cIndex];
+                const expFormulas = problem.choiceExplanationFormulas?.[cIndex];
+                const expErds = problem.choiceExplanationErds?.[cIndex];
+                const expCharts = problem.choiceExplanationCharts?.[cIndex];
+
+                return (
+                  !isRichTextEmpty(exp) ||
+                  !isRichTextEmpty(expDesc) ||
+                  (expFormulas && expFormulas.length > 0) ||
+                  (expErds && expErds.length > 0) ||
+                  (expCharts && expCharts.length > 0)
+                );
+              });
+
+              if (!hasAnyChoiceExplanation) return null;
+
+              return (
+                <Box>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ fontWeight: 700, color: 'text.secondary', mb: 1.5 }}
+                  >
+                    객관식별 설명
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                    {(problem.choices || []).map((_, cIndex) => {
+                      const exp = problem.choiceExplanations?.[cIndex] || '';
+                      const expDesc = problem.choiceExplanationDescriptions?.[cIndex] || '';
+                      const expFormulas = problem.choiceExplanationFormulas?.[cIndex] || [];
+                      const expErds = problem.choiceExplanationErds?.[cIndex] || [];
+                      const expCharts = problem.choiceExplanationCharts?.[cIndex] || [];
+
+                      const hasThisChoiceExp =
+                        !isRichTextEmpty(exp) ||
+                        !isRichTextEmpty(expDesc) ||
+                        expFormulas.length > 0 ||
+                        expErds.length > 0 ||
+                        expCharts.length > 0;
+
+                      if (!hasThisChoiceExp) return null;
+
+                      const isThisAnswer = isMultiple
+                        ? correctAnswersList.includes(cIndex + 1)
+                        : problem.answer === cIndex + 1;
+
+                      return (
                         <Box
+                          key={cIndex}
                           sx={{
-                            minWidth: 24,
-                            height: 24,
-                            borderRadius: '50%',
                             display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: 12,
-                            fontWeight: 800,
-                            bgcolor:
-                              problem.answer === cIndex + 1 ? 'success.main' : 'text.disabled',
-                            color: 'background.paper',
-                            flexShrink: 0,
-                            mt: 0.25,
+                            flexDirection: 'row',
+                            gap: 1.5,
+                            alignItems: 'flex-start',
+                            p: 1.5,
+                            borderRadius: 1.5,
+                            bgcolor: (t) => alpha(t.palette.grey[500], 0.03),
+                            border: (t) => `1px solid ${alpha(t.palette.grey[500], 0.12)}`,
                           }}
                         >
-                          {cIndex + 1}
-                        </Box>
-                        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
-                          <RichContentRenderer
-                            content={exp}
-                            idPrefix={`view_choice_exp_${problemIndex}_${cIndex}`}
-                            sx={{ lineHeight: 1.7 }}
-                          />
+                          <Box
+                            sx={{
+                              minWidth: 26,
+                              height: 26,
+                              borderRadius: '50%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: 12,
+                              fontWeight: 800,
+                              bgcolor: isThisAnswer ? 'success.main' : 'text.disabled',
+                              color: 'background.paper',
+                              flexShrink: 0,
+                              mt: 0.25,
+                            }}
+                          >
+                            {cIndex + 1}
+                          </Box>
+                          <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            {/* Choice basic explanation */}
+                            {!isRichTextEmpty(exp) && (
+                              <RichContentRenderer
+                                content={exp}
+                                idPrefix={`view_choice_exp_${problemIndex}_${cIndex}`}
+                                sx={{ lineHeight: 1.7 }}
+                              />
+                            )}
 
-                          {/* Choice Explanation Extra Description */}
-                          {!isRichTextEmpty(problem.choiceExplanationDescriptions?.[cIndex]) && (
-                            <Box
-                              sx={{
-                                color: 'text.secondary',
-                                fontSize: 13,
-                                '& p': {
-                                  m: 0,
-                                  mb: 1.5,
-                                  whiteSpace: 'pre-wrap',
-                                  minHeight: '1.2em',
-                                  '&:last-child': { mb: 0 },
-                                },
-                              }}
-                            >
-                              <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                rehypePlugins={[rehypeRaw]}
+                            {/* Choice Explanation Extra Description */}
+                            {!isRichTextEmpty(expDesc) && (
+                              <Box
+                                sx={{
+                                  color: 'text.secondary',
+                                  fontSize: 13,
+                                }}
                               >
-                                {problem.choiceExplanationDescriptions?.[cIndex] || ''}
-                              </ReactMarkdown>
-                            </Box>
-                          )}
+                                <RichContentRenderer
+                                  content={expDesc}
+                                  idPrefix={`view_choice_exp_desc_${problemIndex}_${cIndex}`}
+                                />
+                              </Box>
+                            )}
 
-                          {/* Choice Explanation Extra Formulas */}
-                          {problem.choiceExplanationFormulas?.[cIndex] &&
-                            problem.choiceExplanationFormulas[cIndex].length > 0 && (
+                            {/* Choice Explanation Extra Formulas */}
+                            {expFormulas.length > 0 && (
                               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                {problem.choiceExplanationFormulas[cIndex].map((fText, fIdx) => (
+                                {expFormulas.map((fText, fIdx) => (
                                   <Box
                                     key={fIdx}
                                     sx={{
@@ -954,11 +994,10 @@ export function ProblemSetViewCard({
                               </Box>
                             )}
 
-                          {/* Choice Explanation Extra ERDs */}
-                          {problem.choiceExplanationErds?.[cIndex] &&
-                            problem.choiceExplanationErds[cIndex].length > 0 && (
+                            {/* Choice Explanation Extra ERDs */}
+                            {expErds.length > 0 && (
                               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                {problem.choiceExplanationErds[cIndex].map((erdText, erdIdx) => (
+                                {expErds.map((erdText, erdIdx) => (
                                   <MermaidDiagram
                                     key={erdIdx}
                                     chart={erdText}
@@ -968,28 +1007,26 @@ export function ProblemSetViewCard({
                               </Box>
                             )}
 
-                          {/* Choice Explanation Extra Charts */}
-                          {problem.choiceExplanationCharts?.[cIndex] &&
-                            problem.choiceExplanationCharts[cIndex].length > 0 && (
+                            {/* Choice Explanation Extra Charts */}
+                            {expCharts.length > 0 && (
                               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                {problem.choiceExplanationCharts[cIndex].map(
-                                  (chartText, chartIdx) => (
-                                    <ChartRenderer
-                                      key={chartIdx}
-                                      chart={chartText}
-                                      idPrefix={`view_exp_chart_${problemIndex}_${cIndex}_${chartIdx}`}
-                                    />
-                                  )
-                                )}
+                                {expCharts.map((chartText, chartIdx) => (
+                                  <ChartRenderer
+                                    key={chartIdx}
+                                    chart={chartText}
+                                    idPrefix={`view_exp_chart_${problemIndex}_${cIndex}_${chartIdx}`}
+                                  />
+                                ))}
                               </Box>
                             )}
+                          </Box>
                         </Box>
-                      </Box>
-                    ) : null
-                  )}
+                      );
+                    })}
+                  </Box>
                 </Box>
-              </Box>
-            )}
+              );
+            })()}
           </Box>
         </Collapse>
       </Box>

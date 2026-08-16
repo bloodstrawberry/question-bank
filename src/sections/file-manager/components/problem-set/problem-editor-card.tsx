@@ -377,6 +377,7 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           </Box>
 
           <FastTextField
+            id="problem-editor-question-input"
             fullWidth
             multiline
             minRows={2}
@@ -543,6 +544,8 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           answers={problem.answers}
           answer={problem.answer}
           isMultipleAnswer={problem.isMultipleAnswer}
+          disableChoiceShuffle={problem.disableChoiceShuffle}
+          onUpdateProblem={onUpdateProblem}
           onAddChoice={onAddChoice}
           onRemoveChoice={onRemoveChoice}
           onReorderChoice={onReorderChoice}
@@ -880,6 +883,21 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
                       color="primary"
                       expanded={isExpDescOpen}
                       onToggle={() => toggleExpDesc(cIndex)}
+                      action={
+                        <Button
+                          size="small"
+                          tabIndex={-1}
+                          variant="outlined"
+                          color="error"
+                          startIcon={<DeleteIcon />}
+                          onClick={() => {
+                            onChangeChoiceExplanationDescription(cIndex, '');
+                          }}
+                          sx={{ borderRadius: 1.5, fontWeight: 700 }}
+                        >
+                          설명 삭제
+                        </Button>
+                      }
                     >
                       <MarkdownEditor
                         hideHeader

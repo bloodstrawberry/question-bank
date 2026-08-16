@@ -18,6 +18,8 @@ import DialogContent from '@mui/material/DialogContent';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
+import { saveFileScript } from 'src/api/indexDB';
+
 import {
   ProblemEditorCard,
   useProblemSetEditor,
@@ -25,6 +27,7 @@ import {
   ProblemEditorBulkDialog,
   ProblemEditorReorderDialog,
   ProblemEditorNoAnswerDialog,
+  ProblemEditorDeleteDialog,
 } from '../components/problem-set';
 
 // ----------------------------------------------------------------------
@@ -81,6 +84,9 @@ export function ProblemSetEditorView({
     updateProblem,
     handleDuplicateProblem,
     handleRemoveProblem,
+    deleteConfirmIndex,
+    handleConfirmRemoveProblem,
+    handleCloseDeleteConfirm,
     handleAddHashtag,
     handleRemoveHashtag,
     handleAddFormula,
@@ -184,6 +190,56 @@ export function ProblemSetEditorView({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleExitRequest, isAnyDialogOpen]);
+
+  // 브라우저 탭 닫기/새로고침 시 경고 및 긴급 저장
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (hasUnsavedChanges) {
+        e.preventDefault();
+        e.returnValue = '';
+        if (data && data.problems) {
+          saveFileScript(fileId, data).catch((err) =>
+            console.error('Emergency save on beforeunload failed', err)
+          );
+        }
+        return '';
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden' && hasUnsavedChanges) {
+        if (data && data.problems) {
+          saveFileScript(fileId, data).catch((err) =>
+            console.error('Emergency save on visibilitychange failed', err)
+          );
+        }
+      }
+    };
+
+    const handlePageHide = () => {
+      if (hasUnsavedChanges && data && data.problems) {
+        saveFileScript(fileId, data).catch((err) =>
+          console.error('Emergency save on pagehide failed', err)
+        );
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pagehide', handlePageHide);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pagehide', handlePageHide);
+      // 화면 컴포넌트 언마운트 시 변경사항이 남아있다면 즉시 백그라운드 저장
+      if (hasUnsavedChanges && data && data.problems) {
+        saveFileScript(fileId, data).catch((err) =>
+          console.error('Emergency save on unmount failed', err)
+        );
+      }
+    };
+  }, [hasUnsavedChanges, data, fileId]);
 
   if (loading) {
     return (
@@ -622,6 +678,14 @@ export function ProblemSetEditorView({
             onBack();
           }
         }}
+      />
+
+      {/* Delete Problem Confirmation Dialog */}
+      <ProblemEditorDeleteDialog
+        open={deleteConfirmIndex !== null}
+        onClose={handleCloseDeleteConfirm}
+        problemNumber={(deleteConfirmIndex ?? 0) + 1}
+        onConfirmDelete={handleConfirmRemoveProblem}
       />
     </Container>
   );
