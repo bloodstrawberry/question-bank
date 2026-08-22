@@ -1,68 +1,313 @@
 {
   "tree": [
     {
-      "id": "sql-folder-1",
-      "label": "SQL",
-      "type": "folder",
-      "isFavorited": false,
-      "createdAt": "2026-08-22T00:00:00.000Z",
-      "modifiedAt": "2026-08-22T00:00:00.000Z",
-      "children": [
-        {
-          "id": "sql-study-doc-1",
-          "label": "데이터 모델링의 이해",
-          "type": "file",
-          "isFavorited": true,
-          "createdAt": "2026-08-22T00:00:00.000Z",
-          "modifiedAt": "2026-08-22T00:00:00.000Z"
-        }
-      ]
+      "id": "1787389475718",
+      "label": "SQL 이론",
+      "type": "file",
+      "createdAt": "2026-08-22T09:04:35.718Z",
+      "modifiedAt": "2026-08-22T09:04:49.253Z"
     }
   ],
   "scripts": {
-    "sql-study-doc-1": {
+    "1787389475718": {
       "concepts": [
         {
-          "id": "concept-data-modeling-1",
-          "title": "데이터 모델링의 3단계 및 핵심 요소",
+          "id": "concept_1787389483674_bssrh2",
+          "title": "dummy",
+          "hashtags": [],
+          "blocks": [
+            {
+              "id": "block_1787389483674_5hrlpd",
+              "type": "markdown",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000000_datamod01",
+          "title": "데이터 모델의 이해",
           "hashtags": [
-            "SQL",
             "데이터모델링",
-            "개념적모델링",
-            "논리적모델링",
-            "물리적모델링",
-            "ERD"
+            "모델링특징",
+            "3단계스키마",
+            "데이터독립성",
+            "SQLD"
           ],
           "blocks": [
             {
-              "id": "block-dm-1",
+              "id": "block_1787390000000_dm01",
               "type": "markdown",
-              "content": "### 1. 데이터 모델링의 정의 및 특징\n\n데이터 모델링은 현실 세계의 업무 프로세스와 데이터를 컴퓨터 시스템의 데이터베이스 구조로 추상화, 단순화, 명확화하는 과정입니다.\n\n#### 데이터 모델링의 3대 요소\n- **대상(Things)**: 업무가 관여하는 어떤 것 (엔터티: Entity)\n- **속성(Attributes)**: 어떤 것이 가지는 성격 및 특성 (속성: Attribute)\n- **관계(Relationships)**: 대상 간에 존재하는 연관성 (관계: Relationship)\n\n#### 3단계 데이터 모델링 구조\n1. **개념적 데이터 모델링 (Conceptual Modeling)**: 핵심 엔터티 도출, 업무 중심적, 전사적 데이터 구조 정의 (ERD 작성)\n2. **논리적 데이터 모델링 (Logical Modeling)**: 정규화(Normalization) 수행, 키(PK/FK) 지정, 세부 속성 정의\n3. **물리적 데이터 모델링 (Physical Modeling)**: DBMS 결정, 테이블/칼럼 생성, 인덱스 및 역정규화(반정규화), 성능 최적화"
-            },
+              "content": "### 1. 데이터 모델링의 특징\n\n데이터 모델링은 현실 세계의 비즈니스 프로세스와 데이터를 단순화하고 체계화하여 데이터베이스로 표현하는 과정입니다.\n\n- **추상화 (Abstraction)**: 현실세계를 일정한 양식에 맞추어 간략하게 표현하는 것\n- **단순화 (Simplification)**: 복잡한 현실세계를 약속된 규약이나 제한된 표기법을 통해 누구나 쉽게 이해할 수 있도록 표현하는 것\n- **명확화 (Clarity)**: 대상에 대한 애매모호함을 제거하고 누구나 이해하기 쉽도록 정확하게 기술하는 것\n\n---\n\n### 2. 데이터 모델링의 세 가지 관점\n\n- **데이터 관점 (What)**: 어떤 데이터와 관련이 있는지, 데이터 간의 관계(Relationship)는 무엇인지 모델링\n- **프로세스 관점 (How)**: 업무가 실제로 처리하고 있는 일은 무엇인지, 앞으로 어떻게 처리해야 하는지 모델링\n- **데이터와 프로세스의 상관 관점 (Interaction)**: 업무 처리에 따라 데이터가 어떻게 영향을 받고 변화(CRUD: Create, Read, Update, Delete)하는지 모델링\n\n---\n\n### 3. 데이터 모델링의 세 가지 단계\n\n1. **개념적 데이터 모델링 (Conceptual Data Modeling)**\n   - 추상화 수준이 가장 높고 업무 중심적인 포괄적 수준의 모델링\n   - 전사적 관점의 핵심 엔터티(Entity) 도출 및 개괄적인 ERD 작성\n2. **논리적 데이터 모델링 (Logical Data Modeling)**\n   - 비즈니스 정보 구조와 업무 규칙을 구체적이고 명확하게 정의\n   - 식별자 확정, 세부 속성 정의, **정규화(Normalization)** 수행, M:N 관계 해소\n3. **물리적 데이터 모델링 (Physical Data Modeling)**\n   - 논리적 데이터 모델을 실제 대상 DBMS의 물리적 구조(테이블, 칼럼, 인덱스, 파티션, 데이터 타입 등)로 변환\n   - 성능, 용량, 보안 등을 고려한 **반정규화(역정규화)** 및 물리 스토리지 설계\n\n---\n\n### 4. ANSI-SPARC 3단계 스키마 구조\n\n사용자 관점, 조직 전체 관점, 물리적 저장 관점으로 데이터베이스를 분리하여 데이터 독립성을 보장합니다.\n\n- **외부 스키마 (External Schema / 사용자 관점)**: 각 사용자 또는 응용 프로그램 관점에서 바라보는 개별적인 데이터베이스 구조 (View 개념)\n- **개념 스키마 (Conceptual Schema / 통합적 관점)**: 조직 전체의 관점에서 모든 데이터, 관계, 제약조건, 보안 및 무결성 규칙을 정의한 논리적 구조\n- **내부 스키마 (Internal Schema / 물리적 관점)**: 물리적 저장 장치 관점에서 데이터가 실제로 저장되는 방식, 레코드 구조, 인덱스, 저장 경로 등을 정의\n\n---\n\n### 5. 3단계 스키마 구조가 보장하는 독립성\n\n- **논리적 독립성 (Logical Data Independence)**: **개념 스키마가 변경**되어도 **외부 스키마(응용 프로그램/사용자 뷰)는 영향을 받지 않음** (외부-개념 사상)\n- **물리적 독립성 (Physical Data Independence)**: **내부 스키마(저장 구조/인덱스 등)가 변경**되어도 **개념 스키마 및 외부 스키마에 영향을 주지 않음** (개념-내부 사상)"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000002_entity01",
+          "title": "엔터티",
+          "hashtags": [
+            "엔터티",
+            "엔터티특징",
+            "엔터티분류",
+            "유형개념사건",
+            "기본중심행위",
+            "SQLD"
+          ],
+          "blocks": [
             {
-              "id": "block-dm-2",
-              "type": "formula",
-              "content": "\\text{Entity Integrity}: \\forall t \\in R, \\ t[PK] \\neq \\text{NULL} \\quad \\wedge \\quad \\text{Referential Integrity}: \\forall t \\in R_1, \\ t[FK] \\in \\pi_{PK}(R_2) \\cup \\{\\text{NULL}\\}"
-            },
-            {
-              "id": "block-dm-3",
+              "id": "block_1787390000002_ent01",
               "type": "markdown",
-              "content": "### 2. 엔터티 간의 관계 모델링 (ERD)\n\n고객(CUSTOMER)과 주문(ORDER), 주문상세(ORDER_ITEM) 및 상품(PRODUCT) 간의 1:N, N:M 관계를 정의한 ER 다이어그램입니다."
+              "content": "### 1. 엔터티(Entity)의 개념\n\n엔터티는 업무에서 필요하고 유용한 정보를 저장하고 관리하기 위한 집합적인 대상(Thing)을 의미하며, 인스턴스(Instance)들의 집합입니다.\n\n---\n\n### 2. 엔터티의 핵심 특징\n\n| 특징 | 설명 |\n| :--- | :--- |\n| **업무에 쓰여야 함** | 해당 비즈니스 업무 프로세스에서 반드시 필요하고 관리하고자 하는 정보여야 함 |\n| **유니크한 식별자** | 엔터티 내의 각 인스턴스를 유일하게 구별할 수 있는 유일한 주식별자(Primary Identifier)가 존재해야 함 |\n| **2개 이상의 인스턴스** | 영속적으로 존재하는 2개 이상의 인스턴스 집합이어야 함 (인스턴스가 1개뿐이면 엔터티 성립 불가) |\n| **반드시 속성을 가짐** | 엔터티는 인스턴스가 가질 수 있는 구체적인 속성(Attribute)을 2개 이상 포함해야 함 (주식별자만 존재하고 일반 속성이 없으면 부적절) |\n| **다른 엔터티와 상관 관계** | 다른 엔터티와 최소 1개 이상의 관계(Relationship)를 맺어야 함 (*통계/코드/로그 엔터티 등 특수 목적 제외) |\n\n---\n\n### 3. 엔터티의 분류\n\n#### (1) 유무형(형태)에 따른 분류\n\n- **유형 엔터티 (Tangible Entity)**\n  - 물리적 형태가 있고 안정적이며 지속적으로 활용되는 엔터티\n  - *예시*: 사원, 물품, 강사, 고객, 학생 등\n- **개념 엔터티 (Conceptual Entity)**\n  - 물리적 형태는 없으나 개념적·관리적 차원에서 정의되는 정보 엔터티\n  - *예시*: 조직, 부서, 보험상품, 금융계좌 등\n- **사건 엔터티 (Event Entity)**\n  - 업무를 수행함에 따라 새롭게 발생하는 엔터티로, 데이터 발생량이 많고 통계/분석 자료로 자주 활용됨\n  - *예시*: 주문, 청구, 미납, 입고, 결제, 수강신청 등\n\n#### (2) 발생 시점에 따른 분류\n\n- **기본/키 엔터티 (Fundamental / Key Entity)**\n  - 업무에 원래부터 존재하는 독립적인 엔터티로, 타 엔터티의 부모 역할을 하며 고유한 주식별자를 가짐\n  - *예시*: 사원, 부서, 고객, 상품 등\n- **중심 엔터티 (Main Entity)**\n  - 기본 엔터티로부터 발생하며 업무의 핵심적인 역할을 담당하고, 많은 행위 엔터티를 생성함\n  - *예시*: 주문, 매출, 계약, 접수 등\n- **행위 엔터티 (Active / Action Entity)**\n  - 2개 이상의 부모 엔터티로부터 발생하며, 업무 진행 과정에서 지속적으로 생성되고 데이터가 빈번하게 추가/변경됨\n  - *예시*: 주문내역(주문상세), 입고이력, 배송로그 등"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000003_attr01",
+          "title": "속성",
+          "hashtags": [
+            "속성",
+            "속성분류",
+            "기본설계파생",
+            "PK_FK_일반속성",
+            "도메인",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000003_attr01",
+              "type": "markdown",
+              "content": "### 1. 속성(Attribute)의 개념 및 특징\n\n- **정의**: 업무에서 필요로 하는 인스턴스에서 관리하고자 하는 의미상 더 이상 분리되지 않는 **최소의 데이터 단위**\n- **엔터티, 인스턴스, 속성의 관계**:\n  - 한 개의 엔터티는 2개 이상의 인스턴스 집합이다.\n  - 한 개의 엔터티는 2개 이상의 속성을 갖는다.\n  - 한 개의 속성은 1개의 속성값만을 갖는다. (원자성)\n- **도메인 (Domain)**: 각 속성이 가질 수 있는 값의 범위 (데이터 타입, 크기, 제약조건 등)\n\n---\n\n### 2. 특성에 따른 속성의 분류\n\n| 분류 | 설명 | 예시 |\n| :--- | :--- | :--- |\n| **기본 속성**<br/>*(Basic Attribute)* | 업무로부터 원래 도출되는 가장 일반적이고 본래적인 속성 | 사원명, 주민번호, 입사일자, 상품명, 가격 |\n| **설계 속성**<br/>*(Designed Attribute)* | 업무상 존재하지는 않으나 데이터 모델링 및 시스템 설계 과정에서 편의상 새로 부여/정의한 속성 | 사원번호, 상품코드, 주문상태코드, 일련번호 |\n| **파생 속성**<br/>*(Derived Attribute)* | 다른 속성들의 계산이나 가공에 의해 유도되는 속성 (조회 성능 향상 목적, 데이터 정합성 주의 필요) | 총금액, 합계, 평균, 이자액, 주문건수 |\n\n---\n\n### 3. 구성방식(엔터티 식별자)에 따른 속성의 분류\n\n- **PK(주식별자) 속성 (Primary Key Attribute)**\n  - 엔터티의 각 인스턴스를 유일하게 구별할 수 있는 핵심 속성\n  - *예시*: `사원번호`, `고객ID`, `주문번호`, `상품코드`\n- **FK(외래식별자) 속성 (Foreign Key Attribute)**\n  - 다른 엔터티와의 연관 관계를 맺기 위해 가져온 타 엔터티의 주식별자 속성\n  - *예시*: 주문 엔터티의 `고객ID`, 사원 엔터티의 `부서코드`\n- **일반 속성 (General Attribute)**\n  - PK나 FK에 포함되지 않고 엔터티의 고유한 특성을 설명하는 일반적인 속성\n  - *예시*: `이름`, `연락처`, `주소`, `등록일시`, `단가`"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000004_ident01",
+          "title": "식별자",
+          "hashtags": [
+            "식별자",
+            "주식별자4대특징",
+            "식별자분류",
+            "원조대리식별자",
+            "식별자_비식별자",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000004_id_desc",
+              "type": "markdown",
+              "content": "### 1. 주식별자의 4대 특징\n\n주식별자(Primary Identifier)는 엔터티의 각 인스턴스를 유일하게 식별하고 대표하는 핵심 속성으로, 다음 4가지 요건을 반드시 만족해야 합니다.\n\n| 특징 | 영문명 | 설명 |\n| :--- | :--- | :--- |\n| **유일성** | Uniqueness | 주식별자에 의해 엔터티 내의 모든 인스턴스들을 유일하게 구분할 수 있어야 함 |\n| **최소성** | Minimality | 주식별자를 구성하는 속성의 수는 유일성을 만족하는 **최소의 속성 수**로 구성되어야 함 |\n| **불변성** | Immutability | 주식별자가 한 번 특정 인스턴스에 지정되면 **그 값이 변하지 않아야 함** |\n| **존재성** | Existence / Non-Null | 주식별자가 지정되면 반드시 데이터 값이 존재해야 함 (**NULL 불가**) |\n\n---\n\n### 2. 식별자의 4가지 분류 기준\n\n1. **대표성 여부**\n   - **주식별자 (Primary Identifier)**: 엔터티를 대표하며 각 인스턴스를 유일하게 식별하고 타 엔터티와 참조 관계를 형성하는 식별자\n   - **보조식별자 (Alternate Identifier)**: 인스턴스를 유일하게 식별할 수는 있으나 대표성을 띠지 못해 참조 관계로 상속되지 않는 식별자 (예: `사원번호`가 주식별자일 때 `주민등록번호`)\n2. **스스로 생성 여부**\n   - **내부식별자 (Internal Identifier)**: 타 엔터티의 참조 없이 엔터티 내부에서 스스로 만들어지는 식별자 (예: `고객ID`, `부서번호`)\n   - **외부식별자 (External Identifier / FK)**: 타 엔터티와의 관계를 통해 부모 엔터티로부터 상속받아 참조하는 식별자 (예: 주문의 `고객ID`, 사원의 `부서번호`)\n3. **속성의 수**\n   - **단일식별자 (Single Identifier)**: 하나의 속성만으로 구성된 식별자 (예: `사원번호`, `상품코드`)\n   - **복합식별자 (Composite Identifier)**: 2개 이상의 속성이 결합되어 주식별자 역할을 하는 식별자 (예: 주문상세의 `[주문번호 + 주문순번]`)\n4. **대체 여부**\n   - **본질/원조식별자 (Natural / Original Identifier)**: 업무 프로세스상 본래부터 자연스럽게 존재하는 식별자 (예: `주민등록번호`, `사업자번호`, `주문일자 + 고객ID + 일련번호`)\n   - **대리/인조식별자 (Surrogate / Artificial Identifier)**: 복합식별자가 너무 길거나 개발·보안 편의상 인위적으로 새로 생성한 일련번호 식별자 (예: `주문상세ID`, `회원일련번호`)"
             },
             {
-              "id": "block-dm-4",
+              "id": "block_1787390000004_id_erd",
               "type": "erd",
-              "content": "erDiagram\n    CUSTOMER ||--o{ ORDER : \"places (1:N)\"\n    ORDER ||--|{ ORDER_ITEM : \"contains (1:N)\"\n    PRODUCT ||--o{ ORDER_ITEM : \"ordered_in (1:N)\"\n\n    CUSTOMER {\n        string customer_id PK \"고객ID\"\n        string name \"고객명\"\n        string email \"이메일\"\n        string phone \"연락처\"\n    }\n    ORDER {\n        string order_id PK \"주문번호\"\n        string customer_id FK \"고객ID\"\n        date order_date \"주문일자\"\n        number total_amount \"총금액\"\n    }\n    ORDER_ITEM {\n        string order_id PK,FK \"주문번호\"\n        string product_id PK,FK \"상품ID\"\n        number quantity \"수량\"\n        number unit_price \"단가\"\n    }\n    PRODUCT {\n        string product_id PK \"상품ID\"\n        string product_name \"상품명\"\n        number price \"가격\"\n        number stock_qty \"재고수량\"\n    }"
+              "content": "erDiagram\n    DEPARTMENT ||--o{ EMPLOYEE : \"소속된다 (비식별자 관계)\"\n    EMPLOYEE ||--o{ ORDER : \"담당한다 (비식별자 관계)\"\n    ORDER ||--|{ ORDER_ITEM : \"포함한다 (식별자 관계)\"\n    PRODUCT ||--o{ ORDER_ITEM : \"참조된다 (비식별자 관계)\"\n\n    DEPARTMENT {\n        string dept_no PK \"부서번호 (내부/단일/원조)\"\n        string dept_name \"부서명\"\n    }\n    EMPLOYEE {\n        string emp_no PK \"사원번호 (주식별자/내부/단일)\"\n        string ssn UK \"주민번호 (보조식별자/원조)\"\n        string name \"사원명\"\n        string dept_no FK \"부서번호 (외부식별자)\"\n    }\n    ORDER {\n        string order_id PK \"주문번호 (대리식별자/주식별자)\"\n        date order_date \"주문일자\"\n        string emp_no FK \"담당사원번호 (외부식별자)\"\n    }\n    ORDER_ITEM {\n        string order_id PK,FK \"주문번호 (외부/복합/식별자상속)\"\n        number item_seq PK \"주문순번 (복합식별자 구성)\"\n        string product_id FK \"상품번호 (외부식별자)\"\n        number quantity \"수량\"\n        number unit_price \"단가\"\n    }\n    PRODUCT {\n        string product_id PK \"상품번호 (주식별자)\"\n        string product_name \"상품명\"\n        number price \"가격\"\n    }"
             },
             {
-              "id": "block-dm-5",
+              "id": "block_1787390000004_id_rel",
               "type": "markdown",
-              "content": "### 3. 데이터 모델링 단계별 설계 비중 비교\n\n개념적 $\\to$ 논리적 $\\to$ 물리적 모델링 단계로 진행될수록 구체화되며, 논리적 설계(정규화 및 관계 정의)가 품질을 결정하는 가장 핵심적인 단계입니다."
+              "content": "### 3. 식별자 관계 vs 비식별자 관계 비교\n\n부모 엔터티의 주식별자가 자식 엔터티로 상속될 때 주식별자(PK) 영역으로 내려가는지, 일반 속성(FK) 영역으로 내려가는지에 따라 구분됩니다.\n\n| 비교 항목 | 식별자 관계 (Identifying) | 비식별자 관계 (Non-Identifying) |\n| :--- | :--- | :--- |\n| **개념** | 부모의 주식별자가 자식의 **주식별자(PK)**로 상속 | 부모의 주식별자가 자식의 **일반 속성(FK)**으로 상속 |\n| **ERD 표기법** | **실선 (Solid Line)** | **점선 (Dashed Line)** |\n| **참조 무결성 / NULL** | 자식의 PK이므로 **NULL 허용 불가 (NOT NULL)** | 자식의 일반 속성이므로 **NULL 허용 가능 (선택적 관계 가능)** |\n| **엔터티 결합도** | **강한 결합도** (부모 없는 자식 인스턴스 존재 불가) | **약한 결합도** (부모와 무관하게 자식 독자적 관리 가능) |\n| **장점** | 조인(JOIN) 없이도 자식 테이블만으로 부모 식별자 참조 가능 | 자식 테이블의 PK 속성 수가 늘어나지 않아 구조 변경에 유연 |\n| **단점** | 상속 계층이 깊어질수록 자식의 PK 속성 수가 누적되어 SQL 복잡도 증가 | 부모 속성을 조회하기 위해 JOIN 연산이 필연적으로 발생 |"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000005_norm01",
+          "title": "정규화",
+          "hashtags": [
+            "정규화",
+            "이상현상",
+            "1NF_2NF_3NF",
+            "BCNF",
+            "함수적종속성",
+            "반정규화",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000005_norm_intro",
+              "type": "markdown",
+              "content": "### 1. 정규화(Normalization)의 개념 및 이상 현상 (Anomaly)\n\n정규화는 데이터의 중복을 최소화하고 데이터 무결성을 유지하기 위해, 테이블을 함수적 종속성 규칙에 따라 논리적으로 분해(무손실 분해)하는 과정입니다.\n\n#### 데이터 이상 현상 (Anomaly)\n\n정규화되지 않은 테이블에서는 다음과 같은 3가지 이상 현상이 발생합니다.\n\n| 이상 현상 | 설명 | 문제점 예시 |\n| :--- | :--- | :--- |\n| **삽입 이상**<br/>*(Insertion Anomaly)* | 새 데이터를 삽입할 때 원하지 않는 불필요한 데이터까지 억지로 함께 입력해야 하는 현상 | 신규 학생 등록 시 수강 과목 정보가 없어 NULL을 넣거나 등록이 불가능한 경우 |\n| **삭제 이상**<br/>*(Deletion Anomaly)* | 한 튜플을 삭제할 때 유지해야 하는 다른 중요한 유용한 정보까지 연쇄 삭제되는 현상 | 학생의 수강 취소 시 해당 과목의 담당 교수 정보까지 함께 삭제되는 경우 |\n| **갱신 이상**<br/>*(Update Anomaly)* | 중복 저장된 튜플 중 일부만 수정되어 데이터 불일치(Inconsistency)가 발생하는 현상 | 특정 부서의 위치가 바뀌었을 때 일부 사원 행만 수정되어 같은 부서의 위치가 다르게 조회되는 경우 |"
             },
             {
-              "id": "block-dm-6",
-              "type": "chart",
-              "content": "pie title 데이터 모델링 단계별 설계 중요도\n    \"개념적 모델링 (업무 요건 분석)\" : 25\n    \"논리적 모델링 (정규화/관계 정의)\" : 45\n    \"물리적 모델링 (성능/물리 구조)\" : 30"
+              "id": "block_1787390000005_norm_stages",
+              "type": "markdown",
+              "content": "### 2. 정규화 단계별 상세 분석 및 전/후 예시 (1NF ~ BCNF)\n\n#### 1) 제1정규화 (1NF: First Normal Form) - 원자값 확보\n- **정의**: 모든 속성의 도메인이 더 이상 분해되지 않는 **원자값(Atomic Value)**만으로 구성되도록 정규화 (다중값 / 반복 그룹 제거)\n- **문제점**: 한 컬럼에 여러 값(예: `수강과목목록: SQL, JAVA, Python`)이 들어가 있으면 특정 과목 검색, 인덱스 활용, 특정 과목만 삭제/수정하기가 매우 어렵고 비효율적임\n- **제거 방법**: 다중값을 개별 행(Row)으로 전개하여 각 컬럼이 단일 원자값을 갖도록 테이블 분해\n\n**[1NF 정규화 전 예시: 수강내역 테이블]** *(다중값 존재)*\n| 학생번호 (PK) | 이름 | 수강과목목록 (다중값) |\n| :--- | :--- | :--- |\n| 1001 | 김철수 | SQL, JAVA, Python |\n| 1002 | 이영희 | C++, JAVA |\n| 1003 | 박민수 | SQL |\n\n**[1NF 정규화 후 예시: 수강내역 테이블]** *(원자값 확보)*\n| 학생번호 (PK) | 수강과목코드 (PK) | 이름 |\n| :--- | :--- | :--- |\n| 1001 | SQL | 김철수 |\n| 1001 | JAVA | 김철수 |\n| 1001 | Python | 김철수 |\n| 1002 | C++ | 이영희 |\n| 1002 | JAVA | 이영희 |\n| 1003 | SQL | 박민수 |\n\n---\n\n#### 2) 제2정규화 (2NF: Second Normal Form) - 부분 함수 종속성 제거\n- **정의**: 복합 주식별자의 일부 컬럼에만 종속되는 **부분 함수 종속(Partial Functional Dependency)**을 제거하고, 모든 일반 속성이 주식별자 전체에 **완전 함수 종속(Full Functional Dependency)**하도록 분해\n- **문제점**: 복합키 `[학번 + 과목코드]` 테이블에서 `학생이름`, `학부`는 복합키 전체가 아닌 `학번`에만 종속됨. 학생 정보 변경 시 동일 학번의 모든 레코드를 수정해야 함 (갱신 이상)\n- **제거 방법**: 부분 함수 종속을 유발하는 속성들을 분리하여 별도 엔터티(`학생` 테이블)로 분해\n\n**[2NF 정규화 전 예시: 수강성적 테이블]** *(복합키: `[학번 + 과목코드]`, 부분 종속 존재)*\n| 학번 (PK) | 과목코드 (PK) | 학생이름 | 학부 | 성적 |\n| :--- | :--- | :--- |\n| 1001 | CS101 | 김철수 | 컴퓨터공학과 | A+ |\n| 1001 | MA201 | 김철수 | 컴퓨터공학과 | B+ |\n| 1002 | CS101 | 이영희 | 전자공학과 | A0 |\n\n**[2NF 정규화 후 예시]** *(완전 함수 종속으로 테이블 분해)*\n\n- **[학생 테이블]**\n| 학번 (PK) | 학생이름 | 학부 |\n| :--- | :--- | :--- |\n| 1001 | 김철수 | 컴퓨터공학과 |\n| 1002 | 이영희 | 전자공학과 |\n\n- **[수강성적 테이블]**\n| 학번 (PK, FK) | 과목코드 (PK) | 성적 |\n| :--- | :--- | :--- |\n| 1001 | CS101 | A+ |\n| 1001 | MA201 | B+ |\n| 1002 | CS101 | A0 |\n\n---\n\n#### 3) 제3정규화 (3NF: Third Normal Form) - 이행적 함수 종속성 제거\n- **정의**: 주식별자가 아닌 일반 속성 간에 종속 관계가 존재하는 **이행적 함수 종속(Transitive Functional Dependency, $X \\to Y \\to Z$)**을 제거\n- **문제점**: `사원번호(PK)` $\\to$ `부서코드` $\\to$ `부서명/부서위치` 구조에서, 부서 위치 이전 시 해당 부서 소속 모든 사원 행을 수정해야 하고(갱신 이상), 사원 없는 신규 부서 등록이 불가함(삽입 이상)\n- **제거 방법**: 이행 종속 관계를 갖는 일반 속성들을 독립적인 엔터티(`부서` 테이블)로 분해하고 외래키(FK)로 연결\n\n**[3NF 정규화 전 예시: 사원소속 테이블]** *($사원번호 \\to 부서코드 \\to 부서명$ 이행 종속)*\n| 사원번호 (PK) | 사원명 | 부서코드 | 부서명 | 부서위치 |\n| :--- | :--- | :--- |\n| E001 | 홍길동 | D100 | 기획부 | 서울 본사 10층 |\n| E002 | 김영수 | D100 | 기획부 | 서울 본사 10층 |\n| E003 | 이진희 | D200 | 개발부 | 판교 연구소 4층 |\n\n**[3NF 정규화 후 예시]** *(이행적 함수 종속 제거 및 부서 테이블 분리)*\n\n- **[사원 테이블]**\n| 사원번호 (PK) | 사원명 | 부서코드 (FK) |\n| :--- | :--- | :--- |\n| E001 | 홍길동 | D100 |\n| E002 | 김영수 | D100 |\n| E003 | 이진희 | D200 |\n\n- **[부서 테이블]**\n| 부서코드 (PK) | 부서명 | 부서위치 |\n| :--- | :--- | :--- |\n| D100 | 기획부 | 서울 본사 10층 |\n| D200 | 개발부 | 판교 연구소 4층 |\n\n---\n\n#### 4) 보이스-코드 정규화 (BCNF: Boyce-Codd Normal Form) - 후보키가 아닌 결정자 제거\n- **정의**: 모든 결정자가 반드시 **후보키(Candidate Key)**가 되도록 분해 (결정자이면서 후보키가 아닌 함수 종속 제거, 강한 제3정규형)\n- **문제점**: 복합키 `[학번 + 과목명]` 테이블에서 한 교수가 오직 한 과목만 강의하고 `[담당교수]`가 `과목명`을 결정할 때 ($담당교수 \\to 과목명$), `담당교수`는 후보키가 아니므로 수강 학생 없이 교수-과목 정보를 등록할 수 없고(삽입 이상), 학생 수강 취소 시 교수 정보까지 삭제됨(삭제 이상)\n- **제거 방법**: 결정자인 `담당교수`와 종속자인 `과목명`을 별도 테이블로 분리\n\n**[BCNF 정규화 전 예시: 특강신청 테이블]** *(복합키: `[학번 + 과목명]`, $담당교수 \\to 과목명$ 결정자 존재)*\n| 학번 (PK) | 과목명 (PK) | 담당교수 |\n| :--- | :--- | :--- |\n| S101 | 인공지능 | 김교수 |\n| S102 | 인공지능 | 김교수 |\n| S101 | 빅데이터 | 이교수 |\n| S103 | 알고리즘 | 박교수 |\n\n**[BCNF 정규화 후 예시]** *(결정자를 PK로 분해)*\n\n- **[교수과목 테이블]**\n| 담당교수 (PK) | 과목명 |\n| :--- | :--- |\n| 김교수 | 인공지능 |\n| 이교수 | 빅데이터 |\n| 박교수 | 알고리즘 |\n\n- **[학생수강신청 테이블]**\n| 학번 (PK) | 담당교수 (PK, FK) |\n| :--- | :--- |\n| S101 | 김교수 |\n| S102 | 김교수 |\n| S101 | 이교수 |\n| S103 | 박교수 |"
+            },
+            {
+              "id": "block_1787390000005_norm_summary",
+              "type": "markdown",
+              "content": "### 3. 정규화 단계 요약 및 반정규화(De-normalization)\n\n| 단계 | 분해 대상 | 제거하는 종속성 / 규칙 | 핵심 효과 |\n| :--- | :--- | :--- |\n| **1NF** | 비원자적 속성 | 다중값 및 반복 속성 제거 | 모든 속성이 단일 원자값을 가짐 |\n| **2NF** | 복합키 부분 종속 속성 | 부분 함수 종속성 제거 ($PK_{일부} \\to 속성$) | 완전 함수 종속 달성 |\n| **3NF** | 일반 속성 간 종속 | 이행적 함수 종속성 제거 ($PK \\to 일반속성A \\to 일반속성B$) | 주식별자에만 의존하도록 분해 |\n| **BCNF** | 후보키가 아닌 결정자 | 결정자이면서 후보키가 아닌 함수 종속 제거 | 모든 결정자가 후보키가 됨 |\n| **4NF** | 다치 종속 | 다치 종속성(MVD) 제거 | 독립적인 다대다 관계 분리 |\n| **5NF** | 조인 종속 | 조인 종속성(JD) 제거 | 무손실 조인 보장 |\n\n#### 💡 반정규화 (De-normalization / 역정규화)\n- **개념**: 정규화가 지나치게 진행되어 테이블 분할 수가 많아지면, 데이터 조회 시 **과도한 조인(JOIN)으로 인해 성능이 저하**될 수 있음\n- **해결책**: 데이터 무결성을 유지하는 범위 내에서 성능 향상을 위해 **의도적으로 테이블/속성을 중복, 통합, 분할**하는 설계 기법"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000006_denorm01",
+          "title": "반정규화",
+          "hashtags": [
+            "반정규화",
+            "테이블반정규화",
+            "테이블병합_분할_추가",
+            "컬럼반정규화",
+            "관계반정규화",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000006_denorm_tbl",
+              "type": "markdown",
+              "content": "### 1. 반정규화(De-normalization)의 개념\n\n반정규화(역정규화)는 정규화된 데이터 모델에서 **시스템의 성능 향상, 개발 및 운영의 단순화**를 위해 데이터 무결성을 일부 희생하고 **의도적으로 테이블, 컬럼, 관계를 중복·통합·분할**하는 데이터 모델링 기법입니다.\n\n- **수행 고려 대상**: 잦은 다중 테이블 JOIN 연산, 대량 데이터 범위 처리, 잦은 집계/통계 조회 등으로 디스크 I/O 부하가 심한 경우\n\n---\n\n### 2. 테이블 반정규화 (병합, 분할, 추가)\n\n#### (1) 테이블 병합 (Merge)\n\n| 병합 유형 | 설명 | 예시 |\n| :--- | :--- | :--- |\n| **1:1 관계 테이블 병합** | 1:1 관계의 두 테이블을 하나로 합쳐 JOIN을 제거 | `고객기본(고객ID, 이름)` + `고객상세(고객ID, 주소, 상세정보)` $\\to$ `통합고객(고객ID, 이름, 주소, 상세정보)` |\n| **1:M 관계 테이블 병합** | 1:M 관계의 부모-자식 엔터티를 하나의 테이블로 통합하여 1회 조회로 처리 (부모 데이터 중복 발생 감수) | `주문` 테이블과 `주문상세` 테이블을 하나의 테이블로 통합하여 주문 조회 시 JOIN 제거 |\n| **슈퍼/서브 타입 테이블 병합** | 슈퍼/서브타입 관계 모델을 성능 특성에 맞게 통합 또는 분리 변환 | 아래 3가지 모델로 변환 |\n\n##### 💡 슈퍼/서브 타입 변환 3대 모델\n1. **One-to-One (개별 테이블 / Roll-down)**: 슈퍼타입과 각 서브타입을 각각 독립된 1:1 테이블로 생성 (확장성 우수, 개별 접근 시 유리)\n2. **Plus Type (슈퍼+서브 타입)**: 슈퍼타입 테이블 1개와 각 서브타입별 독립 테이블 유지\n3. **Single Table (단일 통합 테이블 / Roll-up)**: 슈퍼타입과 모든 서브타입 속성을 **단 1개의 통합 테이블**로 병합 (JOIN 완전 제거, 불필요한 NULL 컬럼 발생 감수)\n\n---\n\n#### (2) 테이블 분할 (Partitioning / Split)\n\n- **수평 분할 (Horizontal Partitioning / 파티셔닝)**\n  - 특정 컬럼(년도, 날짜, 지역 코드 등)을 기준으로 **행(Row) 단위로 분할**하여 데이터 접근 범위를 좁힘\n  - *예시*: 수억 건의 `주문` 테이블을 `주문_2023`, `주문_2024`, `주문_2025`로 연도별 Range 파티셔닝\n- **수직 분할 (Vertical Partitioning)**\n  - 컬럼(Column) 수가 너무 많거나 대용량 텍스트/BLOB 컬럼이 포함된 경우 **컬럼 단위로 분할**하여 디스크 I/O 절감\n  - *예시*: 자주 조회되는 `사원기본정보(사원번호, 이름, 부서코드)`와 크기가 크고 접근 빈도가 낮은 `사원상세정보(사원번호, 자기소개서, 프로필사진)`로 분할\n\n---\n\n#### (3) 테이블 추가 (Addition)\n\n- **중복 테이블 추가 (Duplicate Table)**: 원격 DB나 분산 서버 환경에서 네트워크 조인 비용을 줄이기 위해 동일 테이블을 복제/추가\n  - *예시*: 본사 DB의 `상품마스터` 테이블을 지사 DB에 동일하게 복제하여 로컬에서 즉시 조회\n- **통계 테이블 추가 (Summary Table)**: 실시간 집계 연산 부하를 줄이기 위해 일/월/분기별 집계 데이터를 미리 계산해 저장\n  - *예시*: 수백만 건의 주문을 매번 GROUP BY 하지 않고 `일자별_지점_매출통계(일자, 지점코드, 총매출액, 주문건수)` 테이블을 별도로 관리\n- **이력 테이블 추가 (History Table)**: 시계열 상태 변경 내역을 누적 보관하여 감사 및 추적 수행\n  - *예시*: `고객등급_변경이력(이력번호, 고객ID, 이전등급, 변경등급, 변경일시)` 테이블\n- **부분 테이블 추가 (Partial Table)**: 대용량 테이블에서 자주 쓰이는 특정 컬럼/조건의 레코드만 모아 별도 작은 테이블로 구성\n  - *예시*: 전체 수천만 건의 상품 중 `베스트셀러_TOP100_상품` 테이블을 별도로 추출하여 메인 화면에 초고속 서비스"
+            },
+            {
+              "id": "block_1787390000006_denorm_col_rel",
+              "type": "markdown",
+              "content": "### 3. 컬럼 반정규화\n\n| 분류 | 설명 | 예시 |\n| :--- | :--- | :--- |\n| **중복 컬럼 추가**<br/>*(Duplicate Column)* | JOIN 연산을 줄이기 위해 자주 함께 조회되는 타 테이블의 컬럼을 본 테이블에 중복으로 추가 | `주문` 테이블에 `고객명`, `연락처` 컬럼을 중복 추가하여 주문 목록 조회 시 `고객` 테이블과의 JOIN 방지 |\n| **파생 컬럼 추가**<br/>*(Derived Column)* | 조회 시점의 실시간 연산/집계 비용을 줄이기 위해 계산된 결과값을 미리 컬럼으로 저장 | `주문` 테이블에 `총결제금액(= sum(단가*수량) - 할인금액)`, `총주문수량`, `결제포인트` 컬럼 추가 |\n| **이력 테이블 컬럼 추가**<br/>*(History Column)* | 시계열 이력 관리 시 최신값 조회 성능 향상 및 관리를 위한 기능성 컬럼 추가 | `고객등급이력` 테이블에 `최신여부(현재등급여부: Y/N)`, `시작일자`, `종료일자(9999-12-31)` 컬럼을 추가하여 최신 등급을 `WHERE 최신여부 = 'Y'`로 즉시 조회 |\n\n---\n\n### 4. 관계 반정규화\n\n- **중복 관계 추가 (Redundant Relationship)**\n  - 여러 엔터티를 거쳐 다단계로 JOIN해야 하는 긴 관계 경로가 있을 때, 중간 테이블 조인을 건너뛸 수 있도록 **직접적인 참조 관계(외래키)를 추가**하는 기법\n  - 데이터 무결성 유지를 위한 추가 관리가 필요하지만, 조회 시 조인 단계를 대폭 단축하여 성능을 극대화함\n  - *예시*: $고객 \\to 주문 \\to 주문상세 \\to 상품$ 구조에서 특정 고객이 구매한 상품 목록을 조회할 때, `주문상세` 테이블에 `고객ID(FK)`를 직접 연결하여 `주문` 테이블을 거치지 않고 바로 조인 수행"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000007_strfunc01",
+          "title": "문자함수",
+          "hashtags": [
+            "문자함수",
+            "단일행함수",
+            "CHR",
+            "LOWER_UPPER",
+            "TRIM_LTRIM_RTRIM",
+            "SUBSTR",
+            "LENGTH",
+            "REPLACE",
+            "문자열_MAX_MIN",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000007_str_summary",
+              "type": "markdown",
+              "content": "### 1. SQL 문자함수 종합 요약\n\n문자함수는 문자열 데이터를 입력받아 가공한 뒤 **문자열이나 숫자 값**을 반환하는 단일 행(Single-Row) 함수입니다.\n\n| 함수명 | 기본 문법 | 설명 | 예시 쿼리 | 반환 결과 |\n| :--- | :--- | :--- | :--- | :--- |\n| **CHR**<br/>*(CHAR)* | `CHR(N)` | 지정한 ASCII/유니코드 번호에 해당하는 문자 반환 | `SELECT CHR(65) FROM DUAL;` | `'A'` |\n| **LOWER** | `LOWER(str)` | 문자열의 모든 영문자를 **소문자**로 변환 | `SELECT LOWER('SQL Expert') FROM DUAL;` | `'sql expert'` |\n| **UPPER** | `UPPER(str)` | 문자열의 모든 영문자를 **대문자**로 변환 | `SELECT UPPER('sql expert') FROM DUAL;` | `'SQL EXPERT'` |\n| **LTRIM** | `LTRIM(str [, set])` | 문자열의 **왼쪽(앞부분)** 공백 또는 지정 문자 집합 제거 | `SELECT LTRIM('  SQL') FROM DUAL;` | `'SQL'` |\n| **RTRIM** | `RTRIM(str [, set])` | 문자열의 **오른쪽(뒷부분)** 공백 또는 지정 문자 집합 제거 | `SELECT RTRIM('SQL  ') FROM DUAL;` | `'SQL'` |\n| **TRIM** | `TRIM([방향] [문자 FROM] str)` | 문자열의 **양쪽/앞/뒤** 공백 또는 단일 지정 문자 제거 | `SELECT TRIM('  SQL  ') FROM DUAL;` | `'SQL'` |\n| **SUBSTR**<br/>*(SUBSTRING)* | `SUBSTR(str, pos [, len])` | 문자열의 `pos` 위치부터 `len` 길이만큼 추출 | `SELECT SUBSTR('DATABASE', 5, 4) FROM DUAL;` | `'BASE'` |\n| **LENGTH**<br/>*(LEN)* | `LENGTH(str)` | 문자열의 **글자 수(길이)** 반환 | `SELECT LENGTH('SQLD') FROM DUAL;` | `4` |\n| **REPLACE** | `REPLACE(str, src [, dst])` | 문자열 내의 `src`를 찾아 `dst`로 치환 (생략 시 삭제) | `SELECT REPLACE('Oracle SQL', 'Oracle', 'PG') FROM DUAL;` | `'PG SQL'` |"
+            },
+            {
+              "id": "block_1787390000007_str_detail",
+              "type": "markdown",
+              "content": "### 2. 주요 문자함수 상세 옵션 및 예시\n\n#### (1) CHR(N) / ASCII(char)\n- `CHR(65)` $\\to$ `'A'`, `CHR(97)` $\\to$ `'a'`, `CHR(48)` $\\to$ `'0'`\n- `CHR(10)`: 줄바꿈(LF, Line Feed), `CHR(13)`: 캐리지 리턴(CR), `CHR(32)`: 공백\n```sql\n-- 성과 이름을 줄바꿈 문자로 연결하여 출력\nSELECT first_name || CHR(10) || last_name FROM employees;\n```\n\n---\n\n#### (2) LOWER(str) & UPPER(str)\n- 대소문자를 구분하지 않고 검색 조건을 비교할 때 사용됩니다.\n```sql\n-- 대소문자 무관하게 'smith' 사원 조회\nSELECT ename, job \nFROM emp \nWHERE UPPER(ename) = UPPER('smith');\n```\n\n---\n\n#### (3) LTRIM, RTRIM, TRIM (옵션 및 차이점)\n\n1. **LTRIM / RTRIM의 문자셋(Set) 옵션**\n   - 두 번째 인자로 전달된 **문자열에 포함된 모든 문자(문자 집합)**를 왼쪽/오른쪽에서부터 일치하지 않는 문자가 나올 때까지 반복 제거합니다.\n```sql\n-- '0'부터 '9'까지의 숫자가 아닌 문자가 나올 때까지 왼쪽에서 제거\nSELECT LTRIM('12345SQL6789', '0123456789') FROM DUAL; -- 'SQL6789'\n\n-- 오른쪽에서 'x', 'y', 'z' 문자들을 제거\nSELECT RTRIM('DATABASExyzzyx', 'xyz') FROM DUAL;       -- 'DATABASE'\n```\n\n2. **TRIM의 방향 옵션 (`LEADING`, `TRAILING`, `BOTH`)**\n   - ⚠️ `TRIM`은 **오직 단 1개의 문자(단일 문자)**만 지정 가능합니다.\n```sql\nSELECT \n  TRIM('  SQL  ')                           AS t1, -- 'SQL' (기본: 양쪽 공백 제거)\n  TRIM(LEADING '0' FROM '00012300')        AS t2, -- '12300' (왼쪽 앞 '0' 제거)\n  TRIM(TRAILING '0' FROM '00012300')       AS t3, -- '000123' (오른쪽 뒤 '0' 제거)\n  TRIM(BOTH 'x' FROM 'xxxORACLExxx')       AS t4  -- 'ORACLE' (양쪽 'x' 제거)\nFROM DUAL;\n```\n\n---\n\n#### (4) SUBSTR(str, pos [, len]) (인덱스 옵션)\n- **1-based Index**: 시작 위치는 1부터 시작 (0을 주어도 1로 자동 처리)\n- **음수 위치(`pos < 0`)**: 뒤에서부터 역방향으로 위치 지정\n- **길이(`len`) 생략**: 시작 위치부터 문자열의 끝까지 반환\n```sql\nSELECT \n  SUBSTR('KOREA_SQL', 1, 5)   AS s1, -- 'KOREA' (1번째부터 5글자)\n  SUBSTR('KOREA_SQL', 7)      AS s2, -- 'SQL'   (7번째부터 끝까지)\n  SUBSTR('KOREA_SQL', -3)     AS s3, -- 'SQL'   (뒤에서 3번째부터 끝까지)\n  SUBSTR('KOREA_SQL', -3, 2)  AS s4, -- 'SQ'    (뒤에서 3번째부터 2글자)\n  SUBSTR('ABC', 2, 100)       AS s5  -- 'BC'    (남은 길이까지만 반환)\nFROM DUAL;\n```\n\n---\n\n#### (5) LENGTH(str) vs LENGTHB(str)\n- **LENGTH**: 문자열의 **글자 수**\n- **LENGTHB**: 문자열이 차지하는 **바이트(Byte) 수**\n```sql\nSELECT \n  LENGTH('SQL')     AS len1,   -- 3\n  LENGTH('홍길동')   AS len2,   -- 3\n  LENGTHB('SQL')    AS byte1,  -- 3\n  LENGTHB('홍길동')  AS byte2   -- 9 (UTF-8 기준 한글 글자당 3byte)\nFROM DUAL;\n```\n\n---\n\n#### (6) REPLACE(str, target [, replacement])\n- `replacement` 생략 시 대상 문자를 완전히 **삭제**합니다.\n```sql\nSELECT \n  REPLACE('2026-08-22', '-', '/')     AS r1, -- '2026/08/22' (치환)\n  REPLACE('010-1234-5678', '-')       AS r2, -- '01012345678' (하이픈 제거)\n  REPLACE('JACK and JUE', 'J', 'BL')  AS r3  -- 'BLACK and BLUE'\nFROM DUAL;\n```"
+            },
+            {
+              "id": "block_1787390000007_str_max_min",
+              "type": "markdown",
+              "content": "### 3. 문자열에 MAX / MIN 함수를 사용하면 어떻게 될까?\n\n`MAX()`, `MIN()` 함수는 숫자뿐만 아니라 **문자열(VARCHAR2, CHAR 등) 컬럼에도 사용 가능**하며, 이때는 **사전순(Dictionary / ASCII·유니코드 코드값 순서)**으로 크기를 비교합니다.\n\n---\n\n#### (1) 문자열 크기 비교 순서 (ASCII 기준)\n\n$$\\text{공백(' ')} < \\text{숫자('0'~'9')} < \\text{대문자('A'~'Z')} < \\text{소문자('a'~'z')} < \\text{한글('가'~'힣')}$$\n\n- 첫 번째 글자부터 한 글자씩 ASCII 코드값을 비교합니다.\n- 첫 글자가 동일하면 두 번째 글자를 비교하며, 더 큰 코드값을 가진 문자열이 큰 값으로 판정됩니다.\n\n```sql\n-- 영문/한글 문자열 MAX/MIN 예시\nSELECT \n  MIN(name) AS min_name, -- 'Apple' ('A'가 가장 앞)\n  MAX(name) AS max_name  -- '포도'  (한글 'ㅍ'이 가장 뒤)\nFROM (SELECT 'Apple' AS name FROM DUAL UNION ALL\n      SELECT 'Banana' FROM DUAL UNION ALL\n      SELECT 'Cat' FROM DUAL UNION ALL\n      SELECT '사과' FROM DUAL UNION ALL\n      SELECT '포도' FROM DUAL);\n```\n\n---\n\n#### (2) ⚠️ SQL 시험 & 실무 주의: 문자열 숫자 비교 함정\n\n숫자가 `VARCHAR` 타입으로 저장되어 있는 경우, 산술 크기가 아닌 **첫 자리 문자부터 비교**하므로 예상과 다른 결과가 발생합니다!\n\n| 데이터 | 숫자 타입 비교 ($10 > 9$) | 문자열 타입 비교 (`'9'` > `'10'`) |\n| :--- | :--- | :--- |\n| `10`, `9`, `2`, `100` | **`MAX` = `100`**<br/>**`MIN` = `2`** | **`MAX` = `'9'`** (첫 글자 `'9'`(57) > `'1'`(49))<br/>**`MIN` = `'10'`** (첫 글자 `'1'`이고 길이가 짧음) |\n\n```sql\n-- [주의] 문자열 컬럼의 MAX / MIN\nSELECT \n  MAX(val) AS max_str, -- '9'\n  MIN(val) AS min_str  -- '10'\nFROM (SELECT '10' AS val FROM DUAL UNION ALL\n      SELECT '9' FROM DUAL UNION ALL\n      SELECT '2' FROM DUAL UNION ALL\n      SELECT '100' FROM DUAL);\n\n-- [해결] 숫자 크기 비교를 원할 경우 형변환(CAST/TO_NUMBER) 필수!\nSELECT \n  MAX(TO_NUMBER(val)) AS true_max, -- 100\n  MIN(TO_NUMBER(val)) AS true_min  -- 2\nFROM (SELECT '10' AS val FROM DUAL UNION ALL\n      SELECT '9' FROM DUAL UNION ALL\n      SELECT '2' FROM DUAL UNION ALL\n      SELECT '100' FROM DUAL);\n```\n\n---\n\n#### (3) 날짜 형식 문자열에서의 활용\n- `'YYYY-MM-DD'` 또는 `'YYYYMMDD'` 형식의 문자열은 사전순과 시간순이 완벽히 일치합니다.\n- 따라서 날짜 문자열에 `MAX()`를 쓰면 **가장 최근(최신) 날짜**, `MIN()`을 쓰면 **가장 오래된(과거) 날짜**가 올바르게 반환됩니다.\n\n```sql\nSELECT \n  MAX('2026-08-22') AS latest_date,  -- '2026-08-22' (최신 날짜)\n  MIN('2024-01-01') AS oldest_date   -- '2024-01-01' (과거 날짜)\nFROM DUAL;\n```"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000008_numfunc01",
+          "title": "숫자 함수",
+          "hashtags": [
+            "숫자함수",
+            "단일행함수",
+            "ABS_SIGN",
+            "ROUND_TRUNC",
+            "CEIL_FLOOR",
+            "MOD",
+            "WIDTH_BUCKET",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000008_num_summary",
+              "type": "markdown",
+              "content": "### 1. SQL 숫자 함수 종합 요약\n\n숫자 함수는 숫자 데이터를 입력받아 수학적 연산을 수행하고 그 결과를 반환하는 단일 행(Single-Row) 함수입니다.\n\n| 함수명 | 기본 문법 | 설명 | 예시 쿼리 | 반환 결과 |\n| :--- | :--- | :--- | :--- | :--- |\n| **ABS** | `ABS(n)` | 숫자의 **절대값** 반환 | `SELECT ABS(-15) FROM DUAL;` | `15` |\n| **SIGN** | `SIGN(n)` | 숫자의 **부호** 판정 (양수 `1`, `0`, 음수 `-1`) | `SELECT SIGN(-25), SIGN(0), SIGN(50) FROM DUAL;` | `-1, 0, 1` |\n| **ROUND** | `ROUND(n [, m])` | 소수점 `m`자리로 **반올림** (`m` 생략 시 0) | `SELECT ROUND(38.567, 2), ROUND(38.567, -1) FROM DUAL;` | `38.57, 40` |\n| **TRUNC**<br/>*(TRUNCATE)* | `TRUNC(n [, m])` | 소수점 `m`자리로 **버림(절사)** (`m` 생략 시 0) | `SELECT TRUNC(38.567, 2), TRUNC(38.567, -1) FROM DUAL;` | `38.56, 30` |\n| **CEIL**<br/>*(CEILING)* | `CEIL(n)` | 숫자보다 **크거나 같은 최소의 정수** (올림) | `SELECT CEIL(3.14), CEIL(-3.14) FROM DUAL;` | `4, -3` |\n| **FLOOR** | `FLOOR(n)` | 숫자보다 **작거나 같은 최대의 정수** (내림) | `SELECT FLOOR(3.84), FLOOR(-3.84) FROM DUAL;` | `3, -4` |\n| **MOD** | `MOD(m, n)` | `m`을 `n`으로 나눈 **나머지** ($m \\% n$) | `SELECT MOD(10, 3), MOD(-10, 3) FROM DUAL;` | `1, -1` |"
+            },
+            {
+              "id": "block_1787390000008_num_detail",
+              "type": "markdown",
+              "content": "### 2. 핵심 7대 숫자 함수 상세 사용법\n\n#### (1) ABS(n) & SIGN(n)\n- **ABS(n)**: 음수를 양수로 변환하여 절대값 계산\n- **SIGN(n)**: 숫자의 양수/0/음수 여부를 `1`, `0`, `-1`로 변환하여 조건 분기(`CASE`나 `DECODE`)에 매우 유용\n```sql\n-- 급여 차이의 절대값 및 부호 확인\nSELECT \n  ABS(sal - 3000)   AS diff_abs,\n  SIGN(sal - 3000)  AS sign_val -- 3000 초과: 1, 동일: 0, 미만: -1\nFROM emp;\n```\n\n---\n\n#### (2) ROUND(n, m) vs TRUNC(n, m) (자릿수 옵션 완전 정복)\n\n| 자릿수 `m` | 설명 | `ROUND(567.894, m)` | `TRUNC(567.894, m)` |\n| :--- | :--- | :--- | :--- |\n| `m = 2` | 소수점 **둘째 자리까지** 표시 (셋째 자리에서 반올림/버림) | `567.89` | `567.89` |\n| `m = 1` | 소수점 **첫째 자리까지** 표시 (둘째 자리에서 반올림/버림) | `567.9` | `567.8` |\n| `m = 0` (생략) | 소수점 첫째 자리에서 반올림/버림하여 **정수** 반환 | `568` | `567` |\n| `m = -1` | **1의 자리**에서 반올림/버림하여 10의 자리까지 반환 | `570` | `560` |\n| `m = -2` | **10의 자리**에서 반올림/버림하여 100의 자리까지 반환 | `600` | `500` |\n\n---\n\n#### (3) CEIL(n) vs FLOOR(n) (⚠️ 음수 방향 주의!)\n- **CEIL**: 수직선 상에서 **오른쪽(더 큰 쪽)**에 있는 가장 가까운 정수\n- **FLOOR**: 수직선 상에서 **왼쪽(더 작은 쪽)**에 있는 가장 가까운 정수\n\n```sql\nSELECT \n  CEIL(3.14)   AS c1, --  4\n  CEIL(-3.14)  AS c2, -- -3  (★ -3.14보다 큰 정수는 -3)\n  FLOOR(3.84)  AS f1, --  3\n  FLOOR(-3.84) AS f2  -- -4  (★ -3.84보다 작은 정수는 -4)\nFROM DUAL;\n```\n\n---\n\n#### (4) MOD(m, n) (나머지 연산 및 부호 규칙)\n- $MOD(m, n) = m - n \\times \\text{TRUNC}(m / n)$\n- Oracle에서 나머지의 부호는 **피제수($m$)의 부호**를 따릅니다.\n```sql\nSELECT \n  MOD(10, 3)   AS m1, --  1  ( 10 - 3 * 3 = 1)\n  MOD(-10, 3)  AS m2, -- -1  (-10 - 3 * (-3) = -1)\n  MOD(10, -3)  AS m3, --  1  ( 10 - (-3) * (-3) = 1)\n  MOD(-10, -3) AS m4  -- -1  (-10 - (-3) * 3 = -1)\nFROM DUAL;\n```"
+            },
+            {
+              "id": "block_1787390000008_num_extra",
+              "type": "markdown",
+              "content": "### 3. 시험 & 실무에 자주 나오는 기타 숫자 함수\n\n| 함수명 | 구문 | 설명 | 예시 | 반환 결과 |\n| :--- | :--- | :--- | :--- | :--- |\n| **WIDTH_BUCKET** | `WIDTH_BUCKET(expr, min, max, buckets)` | 구간을 균등 분할하여 값이 속하는 **버킷 번호** 반환 | `WIDTH_BUCKET(60, 0, 100, 4)` | `3` |\n| **POWER** | `POWER(m, n)` | $m$의 $n$제곱 ($m^n$) 반환 | `POWER(2, 4)` | `16` |\n| **SQRT** | `SQRT(n)` | 숫자의 **제곱근** ($\\\\sqrt{n}$) 반환 | `SQRT(25)` | `5` |\n| **EXP** | `EXP(n)` | $e^n$ (자연상수 거듭제곱) 반환 | `EXP(1)` | `2.71828...` |\n| **LN** | `LN(n)` | 밑이 $e$인 **자연로그** $\\ln(n)$ 반환 | `LN(EXP(2))` | `2` |\n| **LOG** | `LOG(base, n)` | 밑이 `base`인 로그 반환 | `LOG(10, 1000)` | `3` |\n| **GREATEST** | `GREATEST(n1, n2, ...)` | 전달된 인자들 중 **가장 큰 값** 반환 | `GREATEST(10, 50, 30)` | `50` |\n| **LEAST** | `LEAST(n1, n2, ...)` | 전달된 인자들 중 **가장 작은 값** 반환 | `LEAST(10, 50, 30)` | `10` |\n\n---\n\n#### 💡 ⭐ SQLD 단골 출제: WIDTH_BUCKET 상세 원리\n\n`WIDTH_BUCKET(score, 0, 100, 4)`는 0부터 100까지의 점수를 **4개의 동일한 구간(25점 폭)**으로 나눕니다.\n\n- **버킷 0**: $score < 0$ (최솟값 미만)\n- **버킷 1**: $0 \\le score < 25$\n- **버킷 2**: $25 \\le score < 50$\n- **버킷 3**: $50 \\le score < 75$\n- **버킷 4**: $75 \\le score < 100$\n- **버킷 5**: $score \\ge 100$ (최댓값 이상)\n\n```sql\nSELECT \n  WIDTH_BUCKET(-10, 0, 100, 4) AS b0, -- 0 (최솟값 미만)\n  WIDTH_BUCKET(20,  0, 100, 4) AS b1, -- 1\n  WIDTH_BUCKET(60,  0, 100, 4) AS b3, -- 3 (50 이상 75 미만)\n  WIDTH_BUCKET(100, 0, 100, 4) AS b5  -- 5 (최댓값 이상)\nFROM DUAL;\n```"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000009_datefunc01",
+          "title": "날짜 함수",
+          "hashtags": [
+            "날짜함수",
+            "단일행함수",
+            "SYSDATE",
+            "EXTRACT",
+            "ADD_MONTHS",
+            "MONTHS_BETWEEN",
+            "NEXT_DAY_LAST_DAY",
+            "날짜연산",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000009_date_summary",
+              "type": "markdown",
+              "content": "### 1. SQL 날짜 함수 종합 요약\n\n날짜 함수는 `DATE` 또는 `TIMESTAMP` 타입의 데이터를 연산하고 가공하는 단일 행(Single-Row) 함수입니다.\n\n| 함수명 | 기본 문법 | 설명 | 예시 쿼리 | 반환 결과 (기준일시: 2026-08-22 18:30:00) |\n| :--- | :--- | :--- | :--- | :--- |\n| **SYSDATE** | `SYSDATE` | 현재 시스템의 **날짜 및 시/분/초** 반환 (Oracle) | `SELECT SYSDATE FROM DUAL;` | `2026-08-22 18:30:00` |\n| **CURRENT_TIMESTAMP** | `CURRENT_TIMESTAMP` | 현재 타임존을 포함한 정밀한 일시 반환 | `SELECT CURRENT_TIMESTAMP FROM DUAL;` | `2026-08-22 18:30:00.123 +09:00` |\n| **EXTRACT** | `EXTRACT(필드 FROM 날짜)` | 날짜에서 특정 필드(`YEAR`, `MONTH`, `DAY` 등)를 **숫자**로 추출 | `SELECT EXTRACT(YEAR FROM SYSDATE) FROM DUAL;` | `2026` |\n| **ADD_MONTHS** | `ADD_MONTHS(date, n)` | 지정 날짜에 `n`개월을 더하거나 뺀 날짜 반환 | `SELECT ADD_MONTHS(SYSDATE, 3) FROM DUAL;` | `2026-11-22 18:30:00` |\n| **MONTHS_BETWEEN** | `MONTHS_BETWEEN(d1, d2)` | 두 날짜 사이의 **개월 수 차이** ($d1 - d2$) | `SELECT MONTHS_BETWEEN(SYSDATE, '2026-05-22') FROM DUAL;` | `3` |\n| **NEXT_DAY** | `NEXT_DAY(date, '요일')` | 지정 날짜 이후 돌아오는 **첫 번째 해당 요일**의 날짜 | `SELECT NEXT_DAY(SYSDATE, '월요일') FROM DUAL;` | `2026-08-24 18:30:00` (다음 월요일) |\n| **LAST_DAY** | `LAST_DAY(date)` | 지정 날짜가 속한 달의 **마지막 일자** 반환 | `SELECT LAST_DAY(SYSDATE) FROM DUAL;` | `2026-08-31 18:30:00` |\n| **TRUNC (날짜)** | `TRUNC(date [, '단위'])` | 지정 단위(`'YEAR'`, `'MONTH'`, `'DD'`)로 날짜 절사 | `SELECT TRUNC(SYSDATE, 'MONTH') FROM DUAL;` | `2026-08-01 00:00:00` |\n| **ROUND (날짜)** | `ROUND(date [, '단위'])` | 지정 단위 기준으로 날짜 반올림 | `SELECT ROUND(SYSDATE, 'MONTH') FROM DUAL;` | `2026-09-01 00:00:00` (16일 이후이므로 올림) |\n\n---\n\n### 2. SQL 날짜 산술 연산 규칙 (Date Arithmetic)\n\nDBMS에서 날짜 데이터에 숫자를 더하거나 빼면 기본적으로 **'일(Day)' 단위**로 계산됩니다.\n\n| 연산 식 | 연산 결과 | 설명 및 예시 |\n| :--- | :--- | :--- |\n| `날짜 + 숫자` | **날짜** | 지정한 숫자만큼 **$N$일 후**의 날짜 (`SYSDATE + 7` $\\to$ 7일 뒤) |\n| `날짜 - 숫자` | **날짜** | 지정한 숫자만큼 **$N$일 전**의 날짜 (`SYSDATE - 30` $\\to$ 30일 전) |\n| `날짜 - 날짜` | **숫자 (일수)** | 두 날짜 사이의 **일수(Day) 차이** (`SYSDATE - hire_date` $\\to$ 근무일수) |\n| `날짜 + 1/24` | **날짜** | **1시간 후** ($1\\text{일} = 24\\text{시간}$) |\n| `날짜 + 1/(24*60)` | **날짜** | **1분 후** ($1\\text{일} = 1440\\text{분}$) |\n| `날짜 + 1/(24*60*60)` | **날짜** | **1초 후** ($1\\text{일} = 86400\\text{초}$) |\n| `날짜 + 날짜` | ❌ **오류** | 날짜끼리의 덧셈 연산은 문법적으로 불가능 |"
+            },
+            {
+              "id": "block_1787390000009_date_detail",
+              "type": "markdown",
+              "content": "### 3. 주요 날짜 함수 상세 사용법 & 시험 단골 함정\n\n#### (1) EXTRACT(단위 FROM 날짜/타임스탬프)\n- 날짜 데이터로부터 연도, 월, 일, 시, 분, 초를 정수형 숫자로 분리 추출합니다.\n- ⚠️ **주의**: Oracle에서 `DATE` 타입에는 `YEAR`, `MONTH`, `DAY`만 추출 가능하며, `HOUR`, `MINUTE`, `SECOND`는 `TIMESTAMP` 타입에서만 추출 가능합니다.\n```sql\nSELECT \n  EXTRACT(YEAR  FROM SYSDATE) AS cur_year,  -- 2026\n  EXTRACT(MONTH FROM SYSDATE) AS cur_month, -- 8\n  EXTRACT(DAY   FROM SYSDATE) AS cur_day,   -- 22\n  EXTRACT(HOUR  FROM CURRENT_TIMESTAMP) AS cur_hour -- 18 (TIMESTAMP 필요)\nFROM DUAL;\n```\n\n---\n\n#### (2) ADD_MONTHS(date, n)\n- 지정한 일자에 `n`개월을 더하거나 뺍니다.\n- **월말일(Last Day) 특성**: 월말 일자(예: 1월 31일)에 1개월을 더하면 다음 달의 말일(2월 28일/29일)로 자동 보정됩니다.\n```sql\nSELECT \n  ADD_MONTHS(TO_DATE('2026-01-31', 'YYYY-MM-DD'), 1)  AS feb_end, -- 2026-02-28\n  ADD_MONTHS(SYSDATE, -6)                             AS six_m_ago -- 6개월 전\nFROM DUAL;\n```\n\n---\n\n#### (3) MONTHS_BETWEEN(d1, d2)\n- $d1 > d2$이면 **양수**, $d1 < d2$이면 **음수**를 반환합니다.\n- 두 일자의 '일(Day)'이 같거나 둘 다 각 월의 '마지막 날'인 경우 **정수**를 반환하고, 그렇지 않으면 소수점이 포함된 실수값을 반환합니다.\n```sql\n-- 입사 후 근무 개월 수 및 근속 연수 계산\nSELECT \n  ename,\n  MONTHS_BETWEEN(SYSDATE, hiredate)               AS worked_months,\n  TRUNC(MONTHS_BETWEEN(SYSDATE, hiredate) / 12)  AS worked_years\nFROM emp;\n```\n\n---\n\n#### (4) NEXT_DAY & LAST_DAY\n- **NEXT_DAY(date, 요일)**: 요일은 문자(`'월요일'`, `'월'`, `'MON'`) 또는 숫자(`1`: 일요일, `2`: 월요일, ..., `7`: 토요일)로 지정 가능\n- **LAST_DAY(date)**: 해당 월의 마지막 일자를 반환하므로, 당월의 총 일수를 구할 때 `EXTRACT(DAY FROM LAST_DAY(date))` 형태로 자주 응용됨\n```sql\nSELECT \n  NEXT_DAY(SYSDATE, 1)                      AS next_sunday, -- 돌아오는 일요일\n  LAST_DAY(SYSDATE)                         AS month_end,   -- 2026-08-31\n  EXTRACT(DAY FROM LAST_DAY(SYSDATE))       AS days_in_mon  -- 31 (당월 총 일수)\nFROM DUAL;\n```\n\n---\n\n#### (5) ROUND(date, format) & TRUNC(date, format)\n- **TRUNC(date, 'DD')** 또는 **TRUNC(date)**: 시/분/초를 `00:00:00`으로 절사\n  - 💡 **실무 핵심 팁**: `DATE` 컬럼에 시간 정보가 포함되어 있을 때 당일 데이터 검색은 `WHERE TRUNC(order_date) = TRUNC(SYSDATE)` 또는 `WHERE order_date >= TRUNC(SYSDATE) AND order_date < TRUNC(SYSDATE) + 1` 패턴을 사용합니다.\n- **ROUND/TRUNC 포맷별 반올림/절사 기준**:\n  - `'YEAR'`: 7월 1일 기준 (1~6월은 당해 1월 1일, 7~12월은 내년 1월 1일)\n  - `'MONTH'`: 16일 기준 (1~15일은 당월 1일, 16일~말일은 익월 1일)\n\n```sql\nSELECT \n  TRUNC(TO_DATE('2026-08-22 18:30:00', 'YYYY-MM-DD HH24:MI:SS'))         AS t_day,   -- 2026-08-22 00:00:00\n  TRUNC(TO_DATE('2026-08-22', 'YYYY-MM-DD'), 'MONTH')                      AS t_mon,   -- 2026-08-01\n  ROUND(TO_DATE('2026-08-22', 'YYYY-MM-DD'), 'MONTH')                      AS r_mon,   -- 2026-09-01 (16일 이후)\n  ROUND(TO_DATE('2026-08-22', 'YYYY-MM-DD'), 'YEAR')                       AS r_year   -- 2027-01-01 (7월 이후)\nFROM DUAL;\n```"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000010_typeconv01",
+          "title": "명시적 형변환과 묵시적 형변환",
+          "hashtags": [
+            "형변환",
+            "명시적형변환",
+            "묵시적형변환",
+            "TO_NUMBER",
+            "TO_CHAR",
+            "TO_DATE",
+            "CAST",
+            "인덱스변형",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000010_conv_intro",
+              "type": "markdown",
+              "content": "### 1. 명시적 형변환 vs 묵시적 형변환 비교\n\n형변환(Type Conversion)은 연산이나 비교를 수행하기 위해 데이터의 데이터 타입을 다른 타입으로 변경하는 것을 의미합니다.\n\n| 구분 | 명시적 형변환 (Explicit Conversion) | 묵시적 형변환 (Implicit Conversion / 암시적) |\n| :--- | :--- | :--- |\n| **개념** | 개발자가 **변환 함수를 코드에 직접 명시**하여 타입을 변환 | DBMS가 연산 및 비교 시 **자동으로 데이터 타입을 변환** |\n| **변환 방식** | `TO_NUMBER()`, `TO_CHAR()`, `TO_DATE()`, `CAST()` 등 함수 호출 | 연산식이나 조건절에서 데이터 타입이 다를 때 엔진이 자동 처리 |\n| **예시** | `WHERE emp_id = TO_NUMBER('100')`<br/>`WHERE hire_date = TO_DATE('2026-01-01', 'YYYY-MM-DD')` | `WHERE emp_id = '100'` *(문자가 숫자로 자동 변환)*<br/>`WHERE '100' + 50 = 150` |\n| **인덱스 활용** | 인덱스 컬럼을 변형하지 않으므로 **인덱스를 정상 사용** | 조건절의 좌변 인덱스 컬럼이 형변환되면 **인덱스 미사용(Full Scan)** 발생 |\n| **안정성 / 성능** | 성능 예측이 가능하고 버그 및 에러 방지 (**Best Practice**) | 숫자로 변환 불가한 문자 유입 시 **런타임 에러(`ORA-01722`)** 발생 위험 |\n\n---\n\n### 2. ⚠️ 묵시적 형변환의 우선순위 및 인덱스 억제(Suppression) 함정\n\n#### (1) DBMS의 기본 묵시적 형변환 우선순위\n\n$$\\text{문자형 (CHAR, VARCHAR2)} \\longrightarrow \\text{숫자형 (NUMBER)} \\longrightarrow \\text{날짜형 (DATE)}$$\n\n- `문자`와 `숫자`를 비교하면 **문자가 숫자로 자동 형변환**됩니다.\n- `문자`와 `날짜`를 비교하면 **문자가 날짜로 자동 형변환**됩니다.\n\n#### (2) 인덱스 컬럼 변형에 따른 성능 참사\n\n```sql\n-- [상황 1] emp_no 컬럼이 NUMBER 타입이고 인덱스가 걸려 있는 경우\nSELECT * FROM emp WHERE emp_no = '7788';\n-- DBMS 내부 변환: WHERE emp_no = TO_NUMBER('7788') \n-- 💡 결과: 우변(상수)이 변환되므로 emp_no 인덱스 정상 사용 가능 (OK)\n\n-- [상황 2] phone_no 컬럼이 VARCHAR2 타입이고 인덱스가 걸려 있는 경우 (★ 위험!)\nSELECT * FROM member WHERE phone_no = 01012345678;\n-- DBMS 내부 변환: WHERE TO_NUMBER(phone_no) = 01012345678\n-- 🚨 결과: 좌변(컬럼)이 형변환되어 인덱스가 파괴되고 전체 테이블 스캔(Full Table Scan) 발생!\n\n-- [해결] 항상 명시적 형변환을 적용하는 것이 안전합니다.\nSELECT * FROM member WHERE phone_no = '01012345678';\n```"
+            },
+            {
+              "id": "block_1787390000010_conv_funcs",
+              "type": "markdown",
+              "content": "### 3. 주요 명시적 변환 함수 (TO_NUMBER, TO_CHAR, TO_DATE, CAST)\n\n| 함수명 | 기본 문법 | 설명 | 예시 쿼리 | 반환 결과 |\n| :--- | :--- | :--- | :--- | :--- |\n| **TO_NUMBER** | `TO_NUMBER(str [, format])` | 문자열을 **숫자형**으로 변환 | `SELECT TO_NUMBER('$1,234.5', '$9,999.9') FROM DUAL;` | `1234.5` |\n| **TO_CHAR**<br/>*(날짜 $\\to$ 문자)* | `TO_CHAR(date [, format])` | 날짜를 지정한 형식의 **문자열**로 변환 | `SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD') FROM DUAL;` | `'2026/08/22'` |\n| **TO_CHAR**<br/>*(숫자 $\\to$ 문자)* | `TO_CHAR(num [, format])` | 숫자를 콤마/통화 기호가 붙은 **문자열**로 변환 | `SELECT TO_CHAR(1250000, 'L999,999,999') FROM DUAL;` | `'￦1,250,000'` |\n| **TO_DATE** | `TO_DATE(str [, format])` | 문자열을 **날짜형(DATE)**으로 변환 | `SELECT TO_DATE('2026-08-22', 'YYYY-MM-DD') FROM DUAL;` | `2026-08-22` (DATE) |\n| **CAST** | `CAST(expr AS type)` | ANSI 표준 형변환 함수 | `SELECT CAST('100' AS INT) + 50 FROM DUAL;` | `150` |\n\n---\n\n### 4. 시험에 자주 나오는 날짜/숫자 포맷 모델 (Format Elements)\n\n#### (1) 날짜 포맷 모델\n\n- `YYYY` (4자리 연도), `YY` (당해 세기 기준 2자리), `RR` (50년 기준 2자리 연도)\n- `MM` (월 01~12), `MON` (월 약어 'AUG'), `MONTH` (월 전체 'AUGUST')\n- `DD` (일 01~31), `DAY` ('토요일'), `DY` ('토')\n- `HH24` (24시간제 00~23), `HH` / `HH12` (12시간제 01~12)\n- `MI` (분 00~59 - *⚠️ MM(월)과 혼동 주의!*), `SS` (초 00~59), `AM` / `PM` (오전/오후)\n\n##### 💡 ⭐ SQLD 단골 문제: YY vs RR 연도 판별 기준\n\n현재 연도가 2026년일 때, 2자리 연도 입력값 해석 비교:\n\n| 입력 연도 | `YY` 형식 해석 (현재 세기 고정) | `RR` 형식 해석 (50년 기준 분기) |\n| :--- | :--- | :--- |\n| `'80'` | **2080년** (현재 2000년대 고정) | **1980년** (50 이상이므로 이전 세기 1900년대로 판별) |\n| `'25'` | **2025년** (현재 2000년대 고정) | **2025년** (50 미만이므로 현재 세기 2000년대 고정) |\n\n---\n\n#### (2) 숫자 포맷 모델\n\n- `9`: 숫자가 있는 경우 출력, 없으면 공백 채움 (자릿수 가변)\n- `0`: 숫자가 없는 빈 자리에 **`0`을 채움** (고정 자릿수 표시)\n- `,`: 천 단위 구분 콤마 기호\n- `.`: 소수점 기호\n- `L`: 로컬 통화 기호 (한국 세팅 시 `￦`, 미국 세팅 시 `$`), `$` (달러 기호 강제 출력)\n\n```sql\nSELECT \n  TO_CHAR(12345, '999,999')   AS f1, -- '  12,345' (앞 공백)\n  TO_CHAR(12345, '000,000')   AS f2, -- ' 012,345' (0으로 채움)\n  TO_CHAR(12345.6, '99,999.00') AS f3, -- ' 12,345.60'\n  TO_CHAR(12345, 'L999,999')  AS f4  -- ' ￦12,345'\nFROM DUAL;\n```"
+            }
+          ]
+        },
+        {
+          "id": "concept_1787390000011_null01",
+          "title": "NULL",
+          "hashtags": [
+            "NULL",
+            "NVL_NVL2",
+            "NULLIF",
+            "COALESCE",
+            "CASE_DECODE",
+            "NULL연산",
+            "NOT_IN_함정",
+            "SQLD"
+          ],
+          "blocks": [
+            {
+              "id": "block_1787390000011_null_intro",
+              "type": "markdown",
+              "content": "### 1. NULL의 기본 개념 및 특성\n\n- **정의**: 데이터베이스에서 **아직 정해지지 않은 값(Unknown)**, **부재(Absence)** 또는 **해당 없음**을 의미하는 특수한 상태값입니다.\n- **0 및 공백과의 구별**:\n  - `0`: 숫자 `0`이라는 명확한 수치 값\n  - `' '` (공백/스페이스): 문자 길이가 1인 공백 문자 데이터\n  - `NULL`: 값이 아예 존재하지 않는 상태\n- **산술 연산 특성**: NULL과 어떤 숫자를 연산해도 **결과는 무조건 NULL** ($10 + \\text{NULL} = \\text{NULL}$, $100 \\times \\text{NULL} = \\text{NULL}$)\n- **비교 연산 특성**: NULL은 값이 아니므로 `= NULL` 또는 `<> NULL`로 비교할 수 없으며 (결과는 항상 `UNKNOWN`), 반드시 **`IS NULL`** 또는 **`IS NOT NULL`**을 사용해야 합니다.\n\n---\n\n### 2. 3치 논리 (Three-Valued Logic: TRUE, FALSE, UNKNOWN)\n\n조건절(WHERE)에 NULL 비교가 포함되면 참(TRUE), 거짓(FALSE) 외에 **알 수 없음(UNKNOWN)** 상태가 발생합니다.\n\n| 연산식 | 결과 |\n| :--- | :--- |\n| `TRUE AND UNKNOWN` | **`UNKNOWN`** |\n| `FALSE AND UNKNOWN` | **`FALSE`** (한쪽이 거짓이므로 전체 거짓 확정) |\n| `TRUE OR UNKNOWN` | **`TRUE`** (한쪽이 참이므로 전체 참 확정) |\n| `FALSE OR UNKNOWN` | **`UNKNOWN`** |\n| `NOT(UNKNOWN)` | **`UNKNOWN`** |\n\n> 💡 **중요**: WHERE 절은 평가 결과가 **오직 `TRUE`인 행만 반환**합니다. (`UNKNOWN`이나 `FALSE`는 조회 대상에서 제외됨)"
+            },
+            {
+              "id": "block_1787390000011_null_funcs",
+              "type": "markdown",
+              "content": "### 3. NULL 관련 핵심 함수 및 조건 분기 (NVL, NULLIF, COALESCE, CASE, DECODE)\n\n| 함수 / 구문 | 기본 문법 | 설명 | 예시 | 반환 결과 |\n| :--- | :--- | :--- | :--- | :--- |\n| **NVL**<br/>*(ISNULL/IFNULL)* | `NVL(expr1, expr2)` | `expr1`이 NULL이면 `expr2` 반환 | `NVL(comm, 0)` | comm이 NULL이면 `0` |\n| **NVL2** | `NVL2(expr1, expr2, expr3)` | `expr1`이 NOT NULL이면 `expr2`,<br/>NULL이면 `expr3` 반환 | `NVL2(comm, '보너스있음', '없음')` | `'보너스있음'` or `'없음'` |\n| **NULLIF** | `NULLIF(expr1, expr2)` | 두 값이 **같으면 NULL**, **다르면 `expr1`** 반환 | `NULLIF(100, 100)`<br/>`NULLIF(100, 200)` | `NULL`<br/>`100` |\n| **COALESCE** | `COALESCE(e1, e2, e3, ...)` | 나열된 인자들 중 **첫 번째로 NULL이 아닌 값** 반환 | `COALESCE(NULL, NULL, 30, 40)` | `30` |\n| **CASE** | `CASE WHEN 조건 THEN 결과 ... END` | ANSI 표준 다중 조건 분기문 | 아래 예시 참조 | 조건별 분기값 |\n| **DECODE** | `DECODE(col, v1, r1, v2, r2, def)` | 동등 비교(`=`) 기반 조건 분기 (Oracle 전용) | 아래 예시 참조 | 조건별 분기값 |\n\n---\n\n#### 💡 CASE vs DECODE 비교\n\n```sql\n-- 1) 검색형 CASE 문 (범위, NULL 비교 등 자유로운 조건)\nSELECT ename, sal,\n  CASE \n    WHEN sal >= 3000 THEN 'HIGH'\n    WHEN sal >= 1500 THEN 'MID'\n    ELSE 'LOW'\n  END AS sal_grade\nFROM emp;\n\n-- 2) DECODE 문 (Oracle 전용, 동등 비교)\n-- ★ DECODE에서는 세 번째 인자에 NULL을 지정해도 내부적으로 IS NULL 처럼 인식하여 동작함!\nSELECT ename, comm,\n  DECODE(comm, NULL, '미지급', 0, '0원', '지급완료') AS comm_status\nFROM emp;\n```"
+            },
+            {
+              "id": "block_1787390000011_null_traps",
+              "type": "markdown",
+              "content": "### 4. ⚠️ 시험 단골! NULL 관련 헷갈리는 연산 & 함정 예시\n\n#### 함정 1: NOT IN 서브쿼리와 NULL (0건 반환 참사 ⭐⭐⭐)\n\n`IN` 연산자에 NULL이 포함되면 정상 동작하지만, **`NOT IN` 연산자에 NULL이 포함되면 결과가 0건(공집합)**이 됩니다!\n\n```sql\n-- [정상] IN 연산: deptno = 10 OR deptno = 20 OR deptno = NULL\n-- deptno가 10이나 20인 행은 TRUE가 되어 정상 출력됨 (OK)\nSELECT * FROM emp WHERE deptno IN (10, 20, NULL);\n\n-- [치명적 함정] NOT IN 연산: deptno <> 10 AND deptno <> 20 AND deptno <> NULL\n-- 'deptno <> NULL'이 항상 UNKNOWN이 되므로, AND 연산 전체가 절대 TRUE가 될 수 없음!\nSELECT * FROM emp WHERE deptno NOT IN (10, 20, NULL); -- 🚨 0건 반환!\n\n-- [해결책] 서브쿼리 작성 시 반드시 NOT NULL 조건을 추가하거나 NOT EXISTS 사용!\nSELECT * FROM emp \nWHERE deptno NOT IN (SELECT deptno FROM dept WHERE deptno IS NOT NULL);\n```\n\n---\n\n#### 함정 2: 집계 함수(Aggregate Functions)의 NULL 무시 & AVG 함정\n\n- `SUM()`, `AVG()`, `MAX()`, `MIN()` 등 그룹 집계 함수는 **NULL 값을 가진 행을 완전히 제외**하고 계산합니다.\n- `COUNT(*)`는 NULL을 포함한 전체 행 수를 세지만, `COUNT(컬럼)`은 **NULL이 아닌 행 수만** 셉니다.\n\n| 사원명 | 급여(sal) | 보너스(comm) |\n| :--- | :--- | :--- |\n| 김철수 | 1000 | 100 |\n| 이영희 | 2000 | 200 |\n| 박민수 | 3000 | NULL |\n\n```sql\nSELECT \n  AVG(comm)              AS avg1, -- (100 + 200) / 2 = 150  (★ NULL 행 제외)\n  AVG(NVL(comm, 0))      AS avg2, -- (100 + 200 + 0) / 3 = 100 (★ 전체 3명 기준)\n  COUNT(comm)            AS cnt1, -- 2 (NULL 제외)\n  COUNT(*)               AS cnt2, -- 3 (전체 행)\n  SUM(sal + comm)        AS sum1, -- 1100 + 2200 + NULL(무시) = 3300\n  SUM(sal) + SUM(comm)   AS sum2  -- 6000 + 300 = 6300 (★ 결과가 다름!)\nFROM emp;\n```\n\n---\n\n#### 함정 3: ORDER BY에서의 NULL 정렬 순서\n\n- **Oracle**: NULL을 **가장 큰 값**으로 간주 $\\to$ `ASC` 시 맨 뒤(`NULLS LAST`), `DESC` 시 맨 앞(`NULLS FIRST`)\n- **SQL Server / MySQL**: NULL을 **가장 작은 값**으로 간주 $\\to$ `ASC` 시 맨 앞\n- 정렬 위치를 명시적으로 제어하려면 `NULLS FIRST` / `NULLS LAST` 옵션을 사용합니다.\n\n```sql\n-- Oracle 기준\nSELECT ename, comm FROM emp ORDER BY comm ASC;              -- NULL이 맨 뒤에 위치\nSELECT ename, comm FROM emp ORDER BY comm ASC NULLS FIRST;  -- NULL을 맨 앞에 강제 배치\n```"
             }
           ]
         }
