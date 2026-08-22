@@ -200,7 +200,7 @@ export const StudyConceptViewCard = memo(function StudyConceptViewCard({
                           letterSpacing: -0.2,
                         }}
                       >
-                        ⚠️ 시험 단골 함정 & 주의 포인트 (Trap Alert)
+                        시험 단골 함정 & 주의 포인트 (Trap Alert)
                       </Typography>
                     </Box>
                     <Chip
