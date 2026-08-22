@@ -1,7 +1,15 @@
+export interface ConceptLink {
+  id: string;
+  title: string;
+  fileId?: string;
+  fileName?: string;
+}
+
 export interface Problem {
   hashtags: string[];
   question: string;
   description: string;
+  conceptLinks?: ConceptLink[];
   formulas?: string[];
   formula?: string;
   explanationFormulas?: string[];
@@ -47,6 +55,7 @@ export function createEmptyProblem(choicesCount: number = 4): Problem {
     hashtags: [],
     question: '',
     description: '',
+    conceptLinks: [],
     formulas: [],
     explanationFormulas: [],
     erds: [],

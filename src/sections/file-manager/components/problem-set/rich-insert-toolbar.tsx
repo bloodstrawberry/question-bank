@@ -27,6 +27,7 @@ const MARKDOWN_OPTIONS = [
   { label: '기울임 (Italic)', code: '*기울임*' },
   { label: '코드 (Inline Code)', code: '`코드`' },
   { label: '취소선 (Strikethrough)', code: '~~취소선~~' },
+  { label: '오답 교정 (취소선+정답)', code: '<ruby><s>오답</s><rt>정답</rt></ruby>' },
   { label: '링크 (Link)', code: '[제목](https://)' },
   { label: '표 (Table)', code: '\n| 항목 | 내용 |\n| --- | --- |\n| 값1 | 값2 |\n' },
 ];

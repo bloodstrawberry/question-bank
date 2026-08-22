@@ -7,13 +7,14 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import FolderRoundedIcon from '@mui/icons-material/FolderRounded';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import HeadphonesRoundedIcon from '@mui/icons-material/HeadphonesRounded';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
 const ICONS = {
+  home: <HomeRoundedIcon fontSize="small" />,
+  study: <MenuBookRoundedIcon fontSize="small" />,
   folder: <FolderRoundedIcon fontSize="small" />,
   practice: <AssignmentRoundedIcon fontSize="small" />,
   listening: <HeadphonesRoundedIcon fontSize="small" />,
-
-  home: <HomeRoundedIcon fontSize="small" />,
 };
 
 // ----------------------------------------------------------------------
@@ -41,6 +42,7 @@ export const navData: NavSectionProps['data'] = [
     subheader: 'Overview',
     items: [
       { title: 'Home', path: paths.home, icon: ICONS.home },
+      { title: 'Study', path: paths.study, icon: ICONS.study },
       { title: 'Drive', path: paths.fileManager, icon: ICONS.folder },
       {
         title: 'Practice',
@@ -68,6 +70,11 @@ export const navData: NavSectionProps['data'] = [
 
 export const mainNavData: NavMainProps['data'] = [
   { title: 'Home', path: '/', icon: <HomeRoundedIcon sx={{ width: 22, height: 22 }} /> },
+  {
+    title: 'Study',
+    path: paths.study,
+    icon: <MenuBookRoundedIcon sx={{ width: 22, height: 22 }} />,
+  },
   {
     title: 'Drive',
     path: paths.fileManager,

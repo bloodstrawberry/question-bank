@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Problem } from './types';
 
 import rehypeRaw from 'rehype-raw';
@@ -25,10 +26,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
 import { KatexMath } from 'src/components/katex';
 import { ChartRenderer } from 'src/components/chart';
 import { MermaidDiagram } from 'src/components/mermaid';
+import { StudyConceptModal } from 'src/sections/study/components/study-concept-modal';
 
 import { RichContentRenderer, isRichTextEmpty } from './rich-content-renderer';
 
@@ -54,6 +57,9 @@ export function ProblemSetViewCard({
   onRevealAnswer,
 }: ProblemSetViewCardProps) {
   const theme = useTheme();
+
+  const [previewConceptId, setPreviewConceptId] = useState<string | null>(null);
+  const [previewConceptModalOpen, setPreviewConceptModalOpen] = useState(false);
 
   const isMultiple = Boolean(problem.isMultipleAnswer);
   const problemFormulas = Array.isArray(problem.formulas)
@@ -275,6 +281,30 @@ export function ProblemSetViewCard({
                 fontStyle: 'italic',
               },
               '& strong': { fontWeight: 700 },
+              '& ruby': {
+                display: 'inline-flex',
+                flexDirection: 'column-reverse',
+                alignItems: 'center',
+                verticalAlign: 'baseline',
+                mx: 0.35,
+                position: 'relative',
+                bottom: '-0.15em',
+              },
+              '& rt': {
+                fontSize: '0.75em',
+                fontWeight: 700,
+                color: (t) => t.palette.primary.main,
+                lineHeight: 1.1,
+                mb: '1px',
+                display: 'block',
+                userSelect: 'text',
+              },
+              '& s, & del': {
+                color: 'text.secondary',
+                textDecoration: 'line-through',
+                textDecorationColor: (t) => t.palette.error.main,
+                textDecorationThickness: '1.5px',
+              },
               '& table': {
                 width: '100%',
                 borderCollapse: 'collapse',
@@ -543,7 +573,8 @@ export function ProblemSetViewCard({
                           content={choice}
                           idPrefix={`view_choice_${problemIndex}_${cIndex}`}
                           sx={{
-                            fontWeight: isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
+                            fontWeight:
+                              isThisSelected || (isSubmitted && isThisCorrect) ? 700 : 400,
                           }}
                         />
                       </Box>
@@ -712,6 +743,30 @@ export function ProblemSetViewCard({
                     fontStyle: 'italic',
                   },
                   '& strong': { fontWeight: 700 },
+                  '& ruby': {
+                    display: 'inline-flex',
+                    flexDirection: 'column-reverse',
+                    alignItems: 'center',
+                    verticalAlign: 'baseline',
+                    mx: 0.35,
+                    position: 'relative',
+                    bottom: '-0.15em',
+                  },
+                  '& rt': {
+                    fontSize: '0.75em',
+                    fontWeight: 700,
+                    color: (t) => t.palette.primary.main,
+                    lineHeight: 1.1,
+                    mb: '1px',
+                    display: 'block',
+                    userSelect: 'text',
+                  },
+                  '& s, & del': {
+                    color: 'text.secondary',
+                    textDecoration: 'line-through',
+                    textDecorationColor: (t) => t.palette.error.main,
+                    textDecorationThickness: '1.5px',
+                  },
                   '& table': {
                     borderCollapse: 'collapse',
                     width: '100%',
@@ -949,7 +1004,9 @@ export function ProblemSetViewCard({
                           >
                             {cIndex + 1}
                           </Box>
-                          <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                          <Box
+                            sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}
+                          >
                             {/* Choice basic explanation */}
                             {!isRichTextEmpty(exp) && (
                               <RichContentRenderer
@@ -1027,9 +1084,87 @@ export function ProblemSetViewCard({
                 </Box>
               );
             })()}
+
+            {/* Related Study Concepts */}
+            {problem.conceptLinks && problem.conceptLinks.length > 0 && (
+              <Box
+                sx={{
+                  p: 2,
+                  borderRadius: 1.5,
+                  bgcolor: (t) => alpha(t.palette.primary.main, 0.04),
+                  border: (t) => `1px solid ${alpha(t.palette.primary.main, 0.2)}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 1.5,
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <MenuBookRoundedIcon color="primary" sx={{ fontSize: 20 }} />
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontWeight: 800,
+                      color: 'primary.main',
+                      textTransform: 'uppercase',
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    관련 개념 (Study Note)
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                  {problem.conceptLinks.map((link, lIdx) => (
+                    <Chip
+                      key={link.id || lIdx}
+                      icon={<MenuBookRoundedIcon fontSize="small" />}
+                      label={
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                          <Typography variant="body2" sx={{ fontWeight: 700, fontSize: 13 }}>
+                            {link.title}
+                          </Typography>
+                          {link.fileName && (
+                            <Typography variant="caption" sx={{ opacity: 0.8, fontSize: 11 }}>
+                              ({link.fileName})
+                            </Typography>
+                          )}
+                        </Box>
+                      }
+                      clickable
+                      color="primary"
+                      onClick={() => {
+                        setPreviewConceptId(link.id);
+                        setPreviewConceptModalOpen(true);
+                      }}
+                      sx={{
+                        py: 2.2,
+                        px: 1,
+                        fontWeight: 700,
+                        borderRadius: 1.5,
+                        cursor: 'pointer',
+                        bgcolor: (t) => alpha(t.palette.primary.main, 0.08),
+                        '&:hover': {
+                          bgcolor: (t) => alpha(t.palette.primary.main, 0.16),
+                        },
+                      }}
+                    />
+                  ))}
+                </Box>
+              </Box>
+            )}
           </Box>
         </Collapse>
       </Box>
+
+      {/* Study Concept Details Modal */}
+      <StudyConceptModal
+        open={previewConceptModalOpen}
+        onClose={() => {
+          setPreviewConceptModalOpen(false);
+          setPreviewConceptId(null);
+        }}
+        conceptId={previewConceptId}
+      />
     </Card>
   );
 }

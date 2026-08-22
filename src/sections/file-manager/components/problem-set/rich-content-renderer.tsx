@@ -102,7 +102,8 @@ export const RichContentRenderer = memo(function RichContentRenderer({
     return null;
   }
 
-  const hasTableOrBlock = content.includes('|') || content.includes('```') || content.includes('<table');
+  const hasTableOrBlock =
+    content.includes('|') || content.includes('```') || content.includes('<table');
   const isEffectivelyInline = inline && !hasTableOrBlock;
 
   return (
@@ -175,6 +176,30 @@ export const RichContentRenderer = memo(function RichContentRenderer({
           pl: 1.5,
           borderLeft: (t) => `3px solid ${t.palette.primary.main}`,
         },
+        '& ruby': {
+          display: 'inline-flex',
+          flexDirection: 'column-reverse',
+          alignItems: 'center',
+          verticalAlign: 'baseline',
+          mx: 0.35,
+          position: 'relative',
+          bottom: '-0.15em',
+        },
+        '& rt': {
+          fontSize: '0.75em',
+          fontWeight: 700,
+          color: (t) => t.palette.primary.main,
+          lineHeight: 1.1,
+          mb: '1px',
+          display: 'block',
+          userSelect: 'text',
+        },
+        '& s, & del': {
+          color: 'text.secondary',
+          textDecoration: 'line-through',
+          textDecorationColor: (t) => t.palette.error.main,
+          textDecorationThickness: '1.5px',
+        },
         ...sx,
       }}
     >
@@ -196,7 +221,11 @@ export const RichContentRenderer = memo(function RichContentRenderer({
         }
 
         return (
-          <Box key={idx} component={isEffectivelyInline ? 'span' : 'div'} sx={{ width: isEffectivelyInline ? 'auto' : '100%' }}>
+          <Box
+            key={idx}
+            component={isEffectivelyInline ? 'span' : 'div'}
+            sx={{ width: isEffectivelyInline ? 'auto' : '100%' }}
+          >
             <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
               {seg.content}
             </ReactMarkdown>

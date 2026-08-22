@@ -26,6 +26,7 @@ import { debounce } from 'es-toolkit';
 
 import { focusNextInput } from 'src/sections/file-manager/components/problem-set/focus-utils';
 import { isRichTextEmpty } from 'src/sections/file-manager/components/problem-set/rich-content-renderer';
+import { ProblemEditorCorrectionDialog } from 'src/sections/file-manager/components/problem-set/problem-editor-correction-dialog';
 
 const CustomParagraph = Paragraph.extend({
   addStorage() {
@@ -128,6 +129,23 @@ interface ToolbarProps {
 }
 
 function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
+  const [correctionDialogOpen, setCorrectionDialogOpen] = useState(false);
+  const [initialWrongText, setInitialWrongText] = useState('');
+
+  const handleOpenCorrection = () => {
+    const { from, to } = editor.state.selection;
+    let selected = '';
+    if (from !== to) {
+      selected = editor.state.doc.textBetween(from, to, ' ');
+    }
+    setInitialWrongText(selected.trim());
+    setCorrectionDialogOpen(true);
+  };
+
+  const handleApplyCorrection = (resultText: string) => {
+    editor.chain().focus().insertContent(resultText).run();
+  };
+
   const addLink = () => {
     const previousUrl = editor.getAttributes('link').href;
     const url = window.prompt('URL을 입력하세요', previousUrl || 'https://');
@@ -139,296 +157,312 @@ function Toolbar({ editor, colorInputRef, highlightInputRef }: ToolbarProps) {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        gap: 0.5,
-        p: 1,
-        borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        bgcolor: (t) => alpha(t.palette.grey[500], 0.04),
-        position: 'sticky',
-        top: 0,
-        zIndex: 10,
-      }}
-    >
-      {/* Heading Selector */}
-      <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
-        <select
-          tabIndex={-1}
-          value={
-            editor.isActive('heading', { level: 1 })
-              ? '1'
-              : editor.isActive('heading', { level: 2 })
-                ? '2'
-                : editor.isActive('heading', { level: 3 })
-                  ? '3'
-                  : editor.isActive('heading', { level: 4 })
-                    ? '4'
-                    : editor.isActive('heading', { level: 5 })
-                      ? '5'
-                      : editor.isActive('heading', { level: 6 })
-                        ? '6'
-                        : 'p'
-          }
-          onChange={(e) => {
-            const value = e.target.value;
-            if (value === 'p') {
-              editor.chain().focus().setParagraph().run();
-            } else {
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: 0.5,
+          p: 1,
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+          bgcolor: (t) => alpha(t.palette.grey[500], 0.04),
+          position: 'sticky',
+          top: 0,
+          zIndex: 10,
+        }}
+      >
+        {/* Heading Selector */}
+        <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+          <select
+            tabIndex={-1}
+            value={
+              editor.isActive('heading', { level: 1 })
+                ? '1'
+                : editor.isActive('heading', { level: 2 })
+                  ? '2'
+                  : editor.isActive('heading', { level: 3 })
+                    ? '3'
+                    : editor.isActive('heading', { level: 4 })
+                      ? '4'
+                      : editor.isActive('heading', { level: 5 })
+                        ? '5'
+                        : editor.isActive('heading', { level: 6 })
+                          ? '6'
+                          : 'p'
+            }
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === 'p') {
+                editor.chain().focus().setParagraph().run();
+              } else {
+                editor
+                  .chain()
+                  .focus()
+                  .toggleHeading({ level: parseInt(value, 10) as any })
+                  .run();
+              }
+            }}
+            style={{
+              background: 'transparent',
+              color: 'inherit',
+              fontSize: '13px',
+              fontWeight: 600,
+              padding: '4px 8px',
+              borderRadius: '4px',
+              border: '1px solid currentColor',
+              borderColor: 'rgba(0,0,0,0.15)',
+              outline: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            <option value="p">본문</option>
+            <option value="1">H1</option>
+            <option value="2">H2</option>
+            <option value="3">H3</option>
+            <option value="4">H4</option>
+            <option value="5">H5</option>
+            <option value="6">H6</option>
+          </select>
+        </Box>
+
+        <ToolbarDivider />
+
+        {/* Basic Styles */}
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleBold().run()}
+          active={editor.isActive('bold')}
+          icon="material-symbols:format-bold"
+          title="Bold"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleItalic().run()}
+          active={editor.isActive('italic')}
+          icon="material-symbols:format-italic"
+          title="Italic"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleUnderline().run()}
+          active={editor.isActive('underline')}
+          icon="material-symbols:format-underlined"
+          title="Underline"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleStrike().run()}
+          active={editor.isActive('strike')}
+          icon="material-symbols:strikethrough-s"
+          title="Strikethrough"
+        />
+        <ToolbarButton
+          onClick={handleOpenCorrection}
+          icon="mdi:format-strikethrough-variant"
+          title="오답 교정 (취소선 + 올바른 말)"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleCode().run()}
+          active={editor.isActive('code')}
+          icon="material-symbols:code"
+          title="Code Inline"
+        />
+
+        <ToolbarDivider />
+
+        {/* Text Colors */}
+        <Box sx={{ display: 'flex', gap: 0.5, position: 'relative' }}>
+          <ToolbarButton
+            onClick={() => colorInputRef.current?.click()}
+            active={editor.isActive('textStyle', {
+              color: editor.getAttributes('textStyle').color,
+            })}
+            icon="material-symbols:format-color-text"
+            title="Text Color"
+          />
+          <input
+            ref={colorInputRef}
+            type="color"
+            tabIndex={-1}
+            style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}
+            onInput={(e) => {
               editor
                 .chain()
                 .focus()
-                .toggleHeading({ level: parseInt(value, 10) as any })
+                .setColor((e.target as HTMLInputElement).value)
                 .run();
-            }
-          }}
-          style={{
-            background: 'transparent',
-            color: 'inherit',
-            fontSize: '13px',
-            fontWeight: 600,
-            padding: '4px 8px',
-            borderRadius: '4px',
-            border: '1px solid currentColor',
-            borderColor: 'rgba(0,0,0,0.15)',
-            outline: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          <option value="p">본문</option>
-          <option value="1">H1</option>
-          <option value="2">H2</option>
-          <option value="3">H3</option>
-          <option value="4">H4</option>
-          <option value="5">H5</option>
-          <option value="6">H6</option>
-        </select>
-      </Box>
-
-      <ToolbarDivider />
-
-      {/* Basic Styles */}
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        active={editor.isActive('bold')}
-        icon="material-symbols:format-bold"
-        title="Bold"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        active={editor.isActive('italic')}
-        icon="material-symbols:format-italic"
-        title="Italic"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleUnderline().run()}
-        active={editor.isActive('underline')}
-        icon="material-symbols:format-underlined"
-        title="Underline"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        active={editor.isActive('strike')}
-        icon="material-symbols:strikethrough-s"
-        title="Strikethrough"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        active={editor.isActive('code')}
-        icon="material-symbols:code"
-        title="Code Inline"
-      />
-
-      <ToolbarDivider />
-
-      {/* Text Colors */}
-      <Box sx={{ display: 'flex', gap: 0.5, position: 'relative' }}>
-        <ToolbarButton
-          onClick={() => colorInputRef.current?.click()}
-          active={editor.isActive('textStyle', { color: editor.getAttributes('textStyle').color })}
-          icon="material-symbols:format-color-text"
-          title="Text Color"
-        />
-        <input
-          ref={colorInputRef}
-          type="color"
-          tabIndex={-1}
-          style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}
-          onInput={(e) => {
-            editor
-              .chain()
-              .focus()
-              .setColor((e.target as HTMLInputElement).value)
-              .run();
-          }}
-        />
-
-        <ToolbarButton
-          onClick={() => highlightInputRef.current?.click()}
-          active={editor.isActive('highlight')}
-          icon="material-symbols:format-ink-highlighter"
-          title="Highlight"
-        />
-        <input
-          ref={highlightInputRef}
-          type="color"
-          tabIndex={-1}
-          style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}
-          onInput={(e) => {
-            editor
-              .chain()
-              .focus()
-              .toggleHighlight({ color: (e.target as HTMLInputElement).value })
-              .run();
-          }}
-        />
-
-        <ToolbarButton
-          onClick={() => editor.chain().focus().unsetColor().unsetHighlight().run()}
-          icon="material-symbols:format-color-reset"
-          title="Reset Color"
-        />
-      </Box>
-
-      <ToolbarDivider />
-
-      {/* Lists */}
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        active={editor.isActive('bulletList')}
-        icon="material-symbols:format-list-bulleted"
-        title="Bullet List"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        active={editor.isActive('orderedList')}
-        icon="material-symbols:format-list-numbered"
-        title="Ordered List"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleTaskList().run()}
-        active={editor.isActive('taskList')}
-        icon="material-symbols:checklist"
-        title="Task List"
-      />
-
-      <ToolbarDivider />
-
-      {/* Alignments */}
-      <ToolbarButton
-        onClick={() => editor.chain().focus().setTextAlign('left').run()}
-        active={editor.isActive({ textAlign: 'left' })}
-        icon="material-symbols:format-align-left"
-        title="Align Left"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().setTextAlign('center').run()}
-        active={editor.isActive({ textAlign: 'center' })}
-        icon="material-symbols:format-align-center"
-        title="Align Center"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().setTextAlign('right').run()}
-        active={editor.isActive({ textAlign: 'right' })}
-        icon="material-symbols:format-align-right"
-        title="Align Right"
-      />
-
-      <ToolbarDivider />
-
-      {/* Formatting & Insertions */}
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        active={editor.isActive('blockquote')}
-        icon="material-symbols:format-quote"
-        title="Blockquote"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        active={editor.isActive('codeBlock')}
-        icon="material-symbols:terminal"
-        title="Code Block"
-      />
-      <ToolbarButton
-        onClick={() => editor.chain().focus().setHorizontalRule().run()}
-        icon="material-symbols:horizontal-rule"
-        title="Horizontal Rule"
-      />
-      <ToolbarButton
-        onClick={addLink}
-        active={editor.isActive('link')}
-        icon="material-symbols:link"
-        title="Insert Link"
-      />
-
-      <ToolbarDivider />
-
-      {/* Table Actions */}
-      <ToolbarButton
-        onClick={() =>
-          (editor.chain().focus() as any)
-            .insertTable?.({ rows: 3, cols: 3, withHeaderRow: true })
-            ?.run()
-        }
-        active={editor.isActive('table')}
-        icon="mdi:table-plus"
-        title="표 삽입 (3x3)"
-      />
-
-      {editor.isActive('table') && (
-        <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
-          <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).addColumnBefore?.()?.run()}
-            icon="mdi:table-column-plus-before"
-            title="왼쪽에 열 추가"
+            }}
           />
+
           <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).addColumnAfter?.()?.run()}
-            icon="mdi:table-column-plus-after"
-            title="오른쪽에 열 추가"
+            onClick={() => highlightInputRef.current?.click()}
+            active={editor.isActive('highlight')}
+            icon="material-symbols:format-ink-highlighter"
+            title="Highlight"
           />
-          <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).deleteColumn?.()?.run()}
-            icon="mdi:table-column-remove"
-            title="현재 열 삭제"
+          <input
+            ref={highlightInputRef}
+            type="color"
+            tabIndex={-1}
+            style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}
+            onInput={(e) => {
+              editor
+                .chain()
+                .focus()
+                .toggleHighlight({ color: (e.target as HTMLInputElement).value })
+                .run();
+            }}
           />
+
           <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).addRowBefore?.()?.run()}
-            icon="mdi:table-row-plus-before"
-            title="위에 행 추가"
-          />
-          <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).addRowAfter?.()?.run()}
-            icon="mdi:table-row-plus-after"
-            title="아래에 행 추가"
-          />
-          <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).deleteRow?.()?.run()}
-            icon="mdi:table-row-remove"
-            title="현재 행 삭제"
-          />
-          <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).toggleHeaderRow?.()?.run()}
-            active={editor.isActive('tableHeader')}
-            icon="mdi:table-headers-eye"
-            title="헤더 행 설정/해제"
-          />
-          <ToolbarButton
-            onClick={() => (editor.chain().focus() as any).deleteTable?.()?.run()}
-            icon="mdi:table-remove"
-            title="표 삭제"
+            onClick={() => editor.chain().focus().unsetColor().unsetHighlight().run()}
+            icon="material-symbols:format-color-reset"
+            title="Reset Color"
           />
         </Box>
-      )}
 
-      <ToolbarButton
-        onClick={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}
-        icon="material-symbols:format-clear"
-        title="Clear Formatting"
+        <ToolbarDivider />
+
+        {/* Lists */}
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleBulletList().run()}
+          active={editor.isActive('bulletList')}
+          icon="material-symbols:format-list-bulleted"
+          title="Bullet List"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleOrderedList().run()}
+          active={editor.isActive('orderedList')}
+          icon="material-symbols:format-list-numbered"
+          title="Ordered List"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleTaskList().run()}
+          active={editor.isActive('taskList')}
+          icon="material-symbols:checklist"
+          title="Task List"
+        />
+
+        <ToolbarDivider />
+
+        {/* Alignments */}
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('left').run()}
+          active={editor.isActive({ textAlign: 'left' })}
+          icon="material-symbols:format-align-left"
+          title="Align Left"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('center').run()}
+          active={editor.isActive({ textAlign: 'center' })}
+          icon="material-symbols:format-align-center"
+          title="Align Center"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('right').run()}
+          active={editor.isActive({ textAlign: 'right' })}
+          icon="material-symbols:format-align-right"
+          title="Align Right"
+        />
+
+        <ToolbarDivider />
+
+        {/* Formatting & Insertions */}
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleBlockquote().run()}
+          active={editor.isActive('blockquote')}
+          icon="material-symbols:format-quote"
+          title="Blockquote"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+          active={editor.isActive('codeBlock')}
+          icon="material-symbols:terminal"
+          title="Code Block"
+        />
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          icon="material-symbols:horizontal-rule"
+          title="Horizontal Rule"
+        />
+        <ToolbarButton
+          onClick={addLink}
+          active={editor.isActive('link')}
+          icon="material-symbols:link"
+          title="Insert Link"
+        />
+
+        <ToolbarDivider />
+
+        {/* Table Actions */}
+        <ToolbarButton
+          onClick={() =>
+            (editor.chain().focus() as any)
+              .insertTable?.({ rows: 3, cols: 3, withHeaderRow: true })
+              ?.run()
+          }
+          active={editor.isActive('table')}
+          icon="mdi:table-plus"
+          title="표 삽입 (3x3)"
+        />
+
+        {editor.isActive('table') && (
+          <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).addColumnBefore?.()?.run()}
+              icon="mdi:table-column-plus-before"
+              title="왼쪽에 열 추가"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).addColumnAfter?.()?.run()}
+              icon="mdi:table-column-plus-after"
+              title="오른쪽에 열 추가"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).deleteColumn?.()?.run()}
+              icon="mdi:table-column-remove"
+              title="현재 열 삭제"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).addRowBefore?.()?.run()}
+              icon="mdi:table-row-plus-before"
+              title="위에 행 추가"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).addRowAfter?.()?.run()}
+              icon="mdi:table-row-plus-after"
+              title="아래에 행 추가"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).deleteRow?.()?.run()}
+              icon="mdi:table-row-remove"
+              title="현재 행 삭제"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).toggleHeaderRow?.()?.run()}
+              active={editor.isActive('tableHeader')}
+              icon="mdi:table-headers-eye"
+              title="헤더 행 설정/해제"
+            />
+            <ToolbarButton
+              onClick={() => (editor.chain().focus() as any).deleteTable?.()?.run()}
+              icon="mdi:table-remove"
+              title="표 삭제"
+            />
+          </Box>
+        )}
+
+        <ToolbarButton
+          onClick={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}
+          icon="material-symbols:format-clear"
+          title="Clear Formatting"
+        />
+      </Box>
+
+      <ProblemEditorCorrectionDialog
+        open={correctionDialogOpen}
+        onClose={() => setCorrectionDialogOpen(false)}
+        onApply={handleApplyCorrection}
+        initialWrongText={initialWrongText}
       />
-    </Box>
+    </>
   );
 }
 
@@ -749,6 +783,30 @@ export const MarkdownEditor = memo(function MarkdownEditor({
               borderLeft: `3px solid ${theme.palette.primary.main}`,
               color: 'text.secondary',
               fontStyle: 'italic',
+            },
+            '& ruby': {
+              display: 'inline-flex',
+              flexDirection: 'column-reverse',
+              alignItems: 'center',
+              verticalAlign: 'baseline',
+              mx: 0.35,
+              position: 'relative',
+              bottom: '-0.15em',
+            },
+            '& rt': {
+              fontSize: '0.75em',
+              fontWeight: 700,
+              color: theme.palette.primary.main,
+              lineHeight: 1.1,
+              mb: '1px',
+              display: 'block',
+              userSelect: 'text',
+            },
+            '& s, & del': {
+              color: 'text.secondary',
+              textDecoration: 'line-through',
+              textDecorationColor: theme.palette.error.main,
+              textDecorationThickness: '1.5px',
             },
             '& strong': { fontWeight: 700 },
             '& em': { fontStyle: 'italic' },

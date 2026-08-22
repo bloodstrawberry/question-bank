@@ -20,6 +20,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
 import { MarkdownEditor } from 'src/components/markdown-editor';
 
@@ -32,6 +33,8 @@ import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
 import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
+import { ProblemEditorCorrectionDialog } from './problem-editor-correction-dialog';
+import { ProblemEditorConceptLinks } from './problem-editor-concept-links';
 
 type SectionKey =
   | 'description'
@@ -212,6 +215,7 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
   });
   const [hasLoadedStorage, setHasLoadedStorage] = useState(false);
   const [showExpPreview, setShowExpPreview] = useState(false);
+  const [correctionDialogIndex, setCorrectionDialogIndex] = useState<number | null>(null);
 
   const [openExpDescState, setOpenExpDescState] = useState<Record<number, boolean>>({});
   const [openExpFormulaState, setOpenExpFormulaState] = useState<Record<number, boolean>>({});
@@ -571,6 +575,21 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
+        {/* Related Study Concepts Linking */}
+        <ProblemEditorConceptLinks
+          conceptLinks={problem.conceptLinks || []}
+          onAddConceptLink={(link) => {
+            const current = problem.conceptLinks || [];
+            onUpdateProblem({ conceptLinks: [...current, link] });
+          }}
+          onRemoveConceptLink={(index) => {
+            const current = problem.conceptLinks || [];
+            onUpdateProblem({ conceptLinks: current.filter((_, i) => i !== index) });
+          }}
+        />
+
+        <Divider sx={{ borderStyle: 'dashed' }} />
+
         {/* Explanation */}
         <MarkdownEditor
           label="해설"
@@ -795,6 +814,36 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
 
                     {/* Section Toggle Buttons for Choice Explanation */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                      <Tooltip title="선택지 내용을 설명으로 복사">
+                        <span>
+                          <IconButton
+                            size="small"
+                            tabIndex={-1}
+                            onClick={() => onChangeChoiceExplanation(cIndex, choiceText)}
+                            disabled={!choiceText}
+                          >
+                            <ContentCopyIcon fontSize="small" />
+                          </IconButton>
+                        </span>
+                      </Tooltip>
+
+                      <Tooltip title={`${cIndex + 1}번 오답 교정 (취소선 + 올바른 말) 작성`}>
+                        <IconButton
+                          size="small"
+                          tabIndex={-1}
+                          color="warning"
+                          onClick={() => setCorrectionDialogIndex(cIndex)}
+                          sx={{
+                            bgcolor: (t) => alpha(t.palette.warning.main, 0.08),
+                            '&:hover': {
+                              bgcolor: (t) => alpha(t.palette.warning.main, 0.16),
+                            },
+                          }}
+                        >
+                          <AutoFixHighIcon fontSize="small" />
+                        </IconButton>
+                      </Tooltip>
+
                       <Tooltip title={`${cIndex + 1}번 설명 추가 설명`}>
                         <IconButton
                           size="small"
@@ -1073,6 +1122,25 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           </Box>
         </Box>
       </Box>
+
+      {/* Choice Explanation Correction Dialog */}
+      <ProblemEditorCorrectionDialog
+        open={correctionDialogIndex !== null}
+        onClose={() => setCorrectionDialogIndex(null)}
+        initialSentence={
+          correctionDialogIndex !== null
+            ? problem.choiceExplanations?.[correctionDialogIndex] ||
+              problem.choices?.[correctionDialogIndex] ||
+              ''
+            : ''
+        }
+        title={`${(correctionDialogIndex ?? 0) + 1}번 오답 교정 (취소선 + 올바른 말)`}
+        onApply={(resultText) => {
+          if (correctionDialogIndex !== null) {
+            onChangeChoiceExplanation(correctionDialogIndex, resultText);
+          }
+        }}
+      />
     </Card>
   );
 });

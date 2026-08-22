@@ -7,6 +7,7 @@ export const paths = {
   page404: '/error/404',
   page500: '/error/500',
   home: '/home',
+  study: '/study',
   fileManager: `/question-drive`,
   practice: {
     root: `/practice`,
