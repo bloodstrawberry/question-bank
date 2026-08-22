@@ -5,7 +5,7 @@
       "label": "테스트용",
       "type": "file",
       "createdAt": "2026-07-14T14:09:49.246Z",
-      "modifiedAt": "2026-08-15T13:20:49.798Z",
+      "modifiedAt": "2026-08-22T06:42:55.798Z",
       "isFavorited": false
     },
     {
@@ -41,22 +41,40 @@
     "1784038189246": {
       "problems": [
         {
-          "hashtags": ["#zzzzz"],
+          "hashtags": [
+            "#zzzzz"
+          ],
           "question": "asdf",
-          "description": "<table style=\"min-width: 75px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><th colspan=\"1\" rowspan=\"1\"><p></p><p></p><p>ㅋㅋㅋ</p></th><th colspan=\"1\" rowspan=\"1\"><p>ㅋㅋ</p></th><th colspan=\"1\" rowspan=\"1\"><p></p></th></tr><tr><td colspan=\"1\" rowspan=\"1\"><p></p></td><td colspan=\"1\" rowspan=\"1\"><p>ㅋㅋ</p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p></p></td><td colspan=\"1\" rowspan=\"1\"><p>ㅋㅋㅋ</p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr></tbody>\n</table>\n\n**~~asdf~~**\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n<span style=\"color: rgb(210, 30, 30);\">**asdf**</span>\n\n&nbsp;\n\n&nbsp;",
+          "description": "<table style=\"min-width: 75px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><th colspan=\"1\" rowspan=\"1\"><p></p><p></p><p>ㅋㅋㅋ</p></th><th colspan=\"1\" rowspan=\"1\"><p>ㅋㅋ</p></th><th colspan=\"1\" rowspan=\"1\"><p></p></th></tr><tr><td colspan=\"1\" rowspan=\"1\"><p></p></td><td colspan=\"1\" rowspan=\"1\"><p>ㅋㅋ</p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p></p></td><td colspan=\"1\" rowspan=\"1\"><p>ㅋㅋㅋ</p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr></tbody>\n</table>\n\n**~~asdf~~**\n\n \n\n \n\n \n\n<span style=\"color: rgb(210, 30, 30);\">**asdf**</span>\n\n \n\n ",
+          "conceptLinks": [
+            {
+              "id": "concept-data-modeling-1",
+              "title": "데이터 모델링의 3단계 및 핵심 요소",
+              "fileId": "sql-study-doc-1",
+              "fileName": "데이터 모델링의 이해"
+            }
+          ],
           "formulas": [
             "-\\frac{\\hbar^2}{2\\mu} \\left[ \\frac{1}{r^2} \\frac{\\partial}{\\partial r} \\left( r^2 \\frac{\\partial \\psi}{\\partial r} \\right) + \\frac{1}{r^2 \\sin \\theta} \\frac{\\partial}{\\partial \\theta} \\left( \\sin \\theta \\frac{\\partial \\psi}{\\partial \\theta} \\right) + \\frac{1}{r^2 \\sin^2 \\theta} \\frac{\\partial^2 \\psi}{\\partial \\phi^2} \\right] - \\frac{e^2}{4\\pi\\epsilon_0 r} \\psi = E\\psi"
           ],
           "explanationFormulas": [
             "-\\frac{\\hbar^2}{2\\mu} \\left[ \\frac{1}{r^2} \\frac{\\partial}{\\partial r} \\left( r^2 \\frac{\\partial \\psi}{\\partial r} \\right) + \\frac{1}{r^2 \\sin \\theta} \\frac{\\partial}{\\partial \\theta} \\left( \\sin \\theta \\frac{\\partial \\psi}{\\partial \\theta} \\right) + \\frac{1}{r^2 \\sin^2 \\theta} \\frac{\\partial^2 \\psi}{\\partial \\phi^2} \\right] - \\frac{e^2}{4\\pi\\epsilon_0 r} \\psi = E\\psi"
           ],
-          "erds": ["CUSTOMER ||--o{ ORDER : places\nORDER ||--|{ LINE-ITEM : contains"],
+          "erds": [
+            "CUSTOMER ||--o{ ORDER : places\nORDER ||--|{ LINE-ITEM : contains"
+          ],
           "explanationErds": [],
           "charts": [
             "{\n  \"data\": [\n    {\n      \"x\": [\"항목 A\", \"항목 B\", \"항목 C\", \"항목 D\"],\n      \"y\": [25, 40, 15, 60],\n      \"type\": \"bar\",\n      \"marker\": { \"color\": \"#1877F2\" }\n    }\n  ],\n  \"layout\": { \"title\": \"항목별 데이터 비교\", \"height\": 300 }\n}"
           ],
           "explanationCharts": [],
-          "choices": ["ㅋㅋㅋㅋㅋㅋ", "", "d", "ㅁㄴㅇㄹ", "ㅁㄴㅇㅁㄴㅇㄻㄴㅇ"],
+          "choices": [
+            "ㅋㅋㅋㅋㅋㅋ",
+            "",
+            "d",
+            "ㅁㄴㅇㄹ",
+            "ㅁㄴㅇㅁㄴㅇㄻㄴㅇ"
+          ],
           "choiceDescriptions": [
             "|  |  |  |\n| --- | --- | --- |\n| ㅇㅇ | ㅇ | ㅋㅋ |\n|  |  | ㅋㅋ |\n",
             "",
@@ -74,7 +92,9 @@
             []
           ],
           "choiceErds": [
-            ["CUSTOMER ||--o{ ORDER : places\nORDER ||--|{ LINE-ITEM : contains"],
+            [
+              "CUSTOMER ||--o{ ORDER : places\nORDER ||--|{ LINE-ITEM : contains"
+            ],
             [],
             [],
             [],
@@ -90,46 +110,142 @@
             ]
           ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
+          "disableChoiceShuffle": false,
           "explanation": "<span style=\"color: rgb(235, 0, 0);\">*ASDFASD*</span>\n\n**~~asdf~~**",
-          "choiceExplanations": ["", "", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], [], []],
-          "choiceExplanationErds": [[], [], [], [], []],
-          "choiceExplanationCharts": [[], [], [], [], []]
+          "choiceExplanations": [
+            "<ruby><s>ㅋㅋ</s><rt>ㄴㄴㄴㄴ</rt></ruby>ㅋㅋㅋㅋ",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
           "question": "d",
           "description": "",
+          "conceptLinks": [],
           "formulas": [],
           "explanationFormulas": [],
           "erds": [],
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["", "", "", "", ""],
-          "choiceDescriptions": ["", "", "", "", ""],
-          "choiceFormulas": [[], [], [], [], []],
-          "choiceErds": [[], [], [], [], []],
-          "choiceCharts": [[], [], [], [], []],
+          "choices": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 0,
           "answers": [],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
+          "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], [], []],
-          "choiceExplanationErds": [[], [], [], [], []],
-          "choiceExplanationCharts": [[], [], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
           "question": "ASDF",
           "description": "",
+          "conceptLinks": [],
           "formulas": [],
           "explanationFormulas": [],
           "erds": [],
@@ -142,20 +258,69 @@
             "현실 세계를 반영한 모델을 단순화하여 표현한 것이다.",
             "관리가 필요 없는 모델이라 하더라도 정의하는 것이 좋다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1, 2],
+          "answers": [
+            1,
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
+          "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         }
       ]
     },
@@ -177,21 +342,68 @@
             "현실 세계를 반영한 모델을 단순화하여 표현해야 한다.",
             "관리가 필요 없는 모델이라 하더라도 정의하면 좋다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "&nbsp;",
-          "choiceExplanations": ["현실 세계를 반영해야 함", "단순해야 함", "", "불필요"],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "현실 세계를 반영해야 함",
+            "단순해야 함",
+            "",
+            "불필요"
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -203,22 +415,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["단순화", "추상화", "명확화", "상세화"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "단순화",
+            "추상화",
+            "명확화",
+            "상세화"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "추상화 - 현실 세계를 일정한 형식, 간략하게 표현\n\n단순화 - 복잡한 현실 세계를 정해진 표기법으로 쉽게 표현\n\n명확화 - 불분명함을 제거하고 명확하게 해석해서 기술",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -236,21 +500,68 @@
             "데이터와 프로세스의 상관 관점",
             "데이터 관점"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "데이퍼, 프로세스, 데이터 + 프로세스",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -268,21 +579,68 @@
             "(A) 논리적(B) 물리적 (C) 개념적",
             "(A) 개념적 (B) 물리적(C) 논리적"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -300,21 +658,68 @@
             "외부 스키마는 DB의 각 사용자나 응용 프로그래머가 접근하는 DB의 정의다.",
             "내부 스키마는 View 단계로 여러 개의 사용자 관점으로 구성된다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "외부 스키마 - 사용자 관점, Multiple User's View, 사용자가 보는 DB 스키마 정의\n\n개념 스키마 - Community View, 모든 사용자가 보는 DB의 스키마를 통합, 데이터들을 표현하고 관계를 나타낸다.\n\n내부 스키마 - 물리적인 관점, 물리적인 저장 구조, 실질적인 데이터의 저장 구조나 컬럼 정의, 인덱스",
-          "choiceExplanations": ["개념 스키마", "내부 스키마", "", "외부 스키마"],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "개념 스키마",
+            "내부 스키마",
+            "",
+            "외부 스키마"
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -326,22 +731,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["통합적", "개념적", "물리적", "논리적"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "통합적",
+            "개념적",
+            "물리적",
+            "논리적"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "물리적 독립성 - 내부 스키마가 변경되어도 외부/개념 스키마는 영향받지 않는다.\n\n논리적 독립성 - 개념 스키마가 변경되어도 외부 스키마는 영향받지 않는다.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -359,21 +816,68 @@
             "시스템을 구축하는 비구조화된 틀을 제공한다.",
             "시스템 구조와 행동을 명세화 한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "구조화된 틀을 제공함.", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "구조화된 틀을 제공함.",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -391,21 +895,68 @@
             "배송진행상황",
             "주문 횟수 및 금액에 따른 회원 등급"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["모호한 기준", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "모호한 기준",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -423,21 +974,68 @@
             "1개 이상의 인스턴스를 가져야 한다.",
             "유니크함을 보장할 식별자가 있어야 한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "2개 이상을 가져야 함.", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "2개 이상을 가져야 함.",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -455,21 +1053,68 @@
             "(A) 개념 엔터티 (B) 기본 엔터티 (C) 행위 엔터티",
             "(A) 중심 엔터티 (B) 개념 엔터티 (C) 사건 엔터티"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "기본 - 독립적 생성, 자신만의 주식별자, 부모 역할\n\n중심 - 기본에서 파생, 많은 데이터를 가지며 행위 생성\n\n행위 - 두 개 이상의 부모 엔터티로부터 파생, 설계 초기 단계보다는 상세 설계단에서 도출",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -481,13 +1126,40 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["집계", "월매출내역들", "회원탈퇴", "주문한 회원"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "집계",
+            "월매출내역들",
+            "회원탈퇴",
+            "주문한 회원"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -498,10 +1170,30 @@
             "",
             "띄어쓰기 하지 않기"
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -519,21 +1211,68 @@
             "강사 엔터티 - 강사번호",
             "수강 엔터티 - 수강신청일자"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "속성이 아닌 별도 엔터티로 정의해야 한다. ", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "속성이 아닌 별도 엔터티로 정의해야 한다. ",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -551,12 +1290,34 @@
             "속성을 의미상으로 쪼개는 것을 정규화라고 한다.",
             "엔터티에 대한 구체적이고 명확한 정보를 나타낸다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -567,10 +1328,30 @@
             "속성은 더 이상 쪼개지지 않아야 한다.",
             ""
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -588,21 +1369,68 @@
             "파생속성 - 이벤트응모수",
             "기본속성 - 상품가격"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "설계속성 - 모델링을 위해 인위적으로 만들어진 속성 (일련번호, 유니크한 식별자)",
-          "choiceExplanations": ["", "원래 존재하는 속성이므로 기본속성", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "원래 존재하는 속성이므로 기본속성",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -620,21 +1448,68 @@
             "PK속성 - FK속성 - 일반속성",
             "PK속성 - FK속성 - 기본속성"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "구성 방식 - PK, FK, 일반\n\n특성 - 기본, 설계, 파생",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -646,22 +1521,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["FK속성", "설계속성", "파생속성", "일반속성"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "FK속성",
+            "설계속성",
+            "파생속성",
+            "일반속성"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -679,21 +1606,68 @@
             "(A) 파생속성 (B) 구성방식",
             "(A) 파생속성 (B) 특성"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -705,22 +1679,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["도메인", "속성사전", "시스템 카탈로그", "용어사전"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "도메인",
+            "속성사전",
+            "시스템 카탈로그",
+            "용어사전"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -732,28 +1758,82 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["도메인", "속성사전", "용어사전", "시스템 카탈로그"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "도메인",
+            "속성사전",
+            "용어사전",
+            "시스템 카탈로그"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
           "question": "관계에 대한 설명으로 옳지 않은 것은?",
           "description": "",
-          "formulas": [""],
+          "formulas": [
+            ""
+          ],
           "explanationFormulas": [],
           "erds": [],
           "explanationErds": [],
@@ -765,21 +1845,68 @@
             "회원과 주문 엔터티 간에는 \"주문한다\"라는 행위적 관계가 성립",
             "학생과 학과 엔터티 간에는 \"소속된다\"라는 존재적 관계가 성립"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["\"응모한다\"라는 행위적 관계가 성립", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "\"응모한다\"라는 행위적 관계가 성립",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -791,22 +1918,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["관계명", "관계차수", "관계타입", "관계선택사양"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "관계명",
+            "관계차수",
+            "관계타입",
+            "관계선택사양"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "관계명(이름), 관계차수(참여하는 수), 관계선택사양(필수, 선택 여부)",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -826,12 +2005,34 @@
             "주문상품이 없는 주문이 있을 수 있다.",
             "회원은 선호하는 상품을 등록할 수 있다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -842,10 +2043,30 @@
             "반드시 있어야 함 ",
             "관련 내용 없음"
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -857,22 +2078,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["회원번호", "학번", "상품코드", "강의명"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "회원번호",
+            "학번",
+            "상품코드",
+            "강의명"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", "겹칠 수 있으므로 식별자로 불가"],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            "겹칠 수 있으므로 식별자로 불가"
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -890,21 +2163,68 @@
             "주식별자는 반드시 속성값이 존재해야 한다.",
             "주식별자는 변하지 않는 값으로 정하는 것이 좋다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "유일성 - 유니크함을 부여하여 식별이 가능하도록 한다.\n\n최소성 - 최소 개수로 유일성을 보장\n\n불변성 - 변하지 않아야 함.\n\n존재성 - NULL 불가",
-          "choiceExplanations": ["그럴리가 없다.", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "그럴리가 없다.",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -918,13 +2238,40 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["복합식별자", "주식별자", "외부식별자", "대리식별자"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "복합식별자",
+            "주식별자",
+            "외부식별자",
+            "대리식별자"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -935,10 +2282,30 @@
             "",
             "주식별자의 속성이 두 개 이상인 경우, 그 속성들을 하나로 묶어서 사용하는 식별자"
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -956,21 +2323,68 @@
             "부모 엔터티와 자식 엔터티는 1:1이나 M:1 관계가 형성된다.",
             "자식 엔터티는 단일식별자를 갖거나 복합식별자를 가질 수 있다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "식별자 관계 (게시글 - 댓글), 부모 엔터티가 있어야 생성 가능, 1:1, 1:M 관계 결정\n\n비식별자 관계 (주문번호 - 상품), 부모 엔터티가 없는 자식 엔터티가 생성이 가능. 자식 엔터티가 존재하는 상태에서 부모 삭제 가능",
-          "choiceExplanations": ["", "", "1:1 또는 1:M 관계", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "1:1 또는 1:M 관계",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -988,12 +2402,34 @@
             "같은 데이터가 여러 군데 중복되어 저장되지 않도록 한다.",
             "어플리케이션과 데이터 간의 연계성을 높여 데이터에 대한 정의가 명확해지도록  한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -1004,10 +2440,30 @@
             "",
             "APP <-> 데이터 간의 연계성이 높으면 APP이 변경될 때 마다 데이터 모델도 변경되어야 한다 -> 비유연성을 가지게 된다."
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1019,22 +2475,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["기본 엔터티", "중심 엔터티", "개념 엔터티", "행위 엔터티"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "기본 엔터티",
+            "중심 엔터티",
+            "개념 엔터티",
+            "행위 엔터티"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "유, 무형 - 유형, 개념, 사건 엔터티",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1052,21 +2560,68 @@
             "존재에 의한 관계와 행위에 의한 관계를 구분해서 표현한다.",
             "관계 차수로는 1:1, 1:M, N:M이 있다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "ERD에서는 존재, 행위에 의한 관계를 구분하지 않는다.\n\n클래스 다이어그램에서는 구분하여 연관, 의존 관계로 표현한다.",
-          "choiceExplanations": ["", "", "비일관성에 대한 설명", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "비일관성에 대한 설명",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1078,22 +2633,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["중복", "비유연성", "중복배제", "비일관성"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "중복",
+            "비유연성",
+            "중복배제",
+            "비일관성"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1105,22 +2712,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["상품", "프랜차이즈", "카페", "상품명"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "상품",
+            "프랜차이즈",
+            "카페",
+            "상품명"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "상품들에 대한 속성 관리가 필요 -&gt; 카테고리, 상품명, 가격 속성을 가짐.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1138,21 +2797,68 @@
             "식별자 관계는 비식별자에 비해 약한 관계다.",
             "식별자 관계는 실선으로 표시하고, 비식별자 관계는 점선으로 표시한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1172,21 +2878,68 @@
             "하나의 배송지는 여러 회원에게 속할 수 있다.",
             "배송지는 삭제 가능하다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "1:M 관계, 필수 관계이므로 반드시 하나 이상의 배송지를 가져야 한다.",
-          "choiceExplanations": ["", "", "", "삭제에 대한 컬럼은 없으므로 삭제 여부는 알 수 없다."],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            "삭제에 대한 컬럼은 없으므로 삭제 여부는 알 수 없다."
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1206,21 +2959,68 @@
             "주문이 없는 상품은` 존재할 수 없으므로 식별자 관계다.",
             "주문이 없는 상품은 존재할 수 있으므로 식별자 관계다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1238,21 +3038,68 @@
             "A - D - B - C - F - E",
             "A - D - B - C - E - F"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "A. 엔티티를 그린다.\n\nD. 엔터티를 적절하게 배치한다.\n\nB. 엔터티 간의 관계를 나타낸다.\n\nC. 관계명을 정의한다.\n\nE. 관계의 참여도를 나타낸다.\n\nF. 관계의 필수 여부를 나타낸다.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1270,21 +3117,68 @@
             "해시 마크 (|)는 1개를 의미한다.",
             "점선은 비식별자 관계를 의미한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["2개 이상을 의미", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "2개 이상을 의미",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1296,22 +3190,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["기본 엔터티", "중심 엔터티", "개념 엔터티", "행위 엔터티"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "기본 엔터티",
+            "중심 엔터티",
+            "개념 엔터티",
+            "행위 엔터티"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "기본 - 업무에 원래 존재 하는 정보, 독립적인 생성, 자식 엔터티를 가질 수 있음. (상품, 회원, 사원, 부서)\n\n중심 - 기본 엔터티로부터 파생, 행위 엔터티 생성, 업무에 있어서 중심적인 역할을 하며 데이터의 양이 많아짐. (주문, 계약, 매출)\n\n행위 - 2개 이상의 엔터티에서 파생, 데이터가 자주 변경되거나 증가 (주문 내역, 응모 이력)",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1323,22 +3269,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["엔터티", "인스턴스", "속성", "트랜잭션"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "엔터티",
+            "인스턴스",
+            "속성",
+            "트랜잭션"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1352,22 +3350,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["회원 - 주문", "주문 - 주문상품", "주문상품 - 상품", "상품 - 회원"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "회원 - 주문",
+            "주문 - 주문상품",
+            "주문상품 - 상품",
+            "상품 - 회원"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "비식별자는 점선으로 표현",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1379,22 +3429,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["관계명", "관계차수", "관계선택사양", "관계정의"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "관계명",
+            "관계차수",
+            "관계선택사양",
+            "관계정의"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1412,21 +3514,68 @@
             "두 엔터티 사이에 조합되는 정보가 존재해야 한다.",
             "두 엔터티 사이에 영향력 있는 관계가 존재해야 한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1440,22 +3589,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["주식별자", "내부식별자", "보조식별자", "단일식별자"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "주식별자",
+            "내부식별자",
+            "보조식별자",
+            "단일식별자"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "보조식별자 - 인스턴스 식별이 가능하지만 대표 식별자가 아닌 식별자. 다른 엔터티와 참조 관계로 연결되지 않는다. (회원 엔터티의 아이디 속성)",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1473,21 +3674,68 @@
             "주문 엔터티의 주문번호",
             "사원 엔터티의 사원번호"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["동명이인이 존재할 수 있음.", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "동명이인이 존재할 수 있음.",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1499,13 +3747,40 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["복합식별자", "대리식별자", "보조식별자", "외부식별자"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "복합식별자",
+            "대리식별자",
+            "보조식별자",
+            "외부식별자"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -1516,10 +3791,30 @@
             "인스턴스 식별 가능, 대표 식별자는 아님, 다른 엔티티와 관계 X",
             "다른 엔터티에서 온 식별자. 연결고리"
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         }
       ]
     },
@@ -1541,21 +3836,68 @@
             "데이터 입력, 수정, 삭제 성능 향상",
             "데이터 조회 성능 향상"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", "엔터티가 계속 증가하기 때문에 조회 성능은 하락"],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            "엔터티가 계속 증가하기 때문에 조회 성능은 하락"
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1575,21 +3917,68 @@
             "회원엔터티는 3차 정규화 대상이다.",
             "회원엔터티는 4차 정규화 대상이다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": true,
           "explanation": "동일한 성격의 속성(컬럼)이 가로로 반복되고 있으므로 1차 정규화 대상",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1609,21 +3998,68 @@
             "주문 엔터티는 3차 정규화 대상",
             "주문 엔터티는 4차 정규화 대상"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": true,
           "explanation": "제2정규형의 핵심은 \"기본키가 복합키(여러 컬럼의 조합)일 때, 일반 속성이 그중 일부에만 종속(부분 종속)되면 안 된다.\"\n\n`주문상품명`**,** `주문상품가격`**:** 이 두 가지 정보는 주문이 언제 일어났는지(`주문번호`)와는 상관없이, 오직 `상품코드` **하나에만** 의존해서 결정\n\n \n\n아래와 같이 정규화가 필요하다.\n\n \n\n**1. 주문 테이블 (주문번호에 종속된 애들만 모음)**\n\n<table style=\"min-width: 100px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>주문번호 (PK)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>회원번호</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>결제수단</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>배송지 번호</strong></p></td></tr></tbody>\n</table>\n\n**2. 상품 테이블 (상품코드에 종속된 애들만 모음)**\n\n<table style=\"min-width: 75px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>상품코드 (PK)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>주문상품명</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>주문상품가격</strong></p></td></tr></tbody>\n</table>\n\n**3. 주문상세 테이블 (원래 목적이었던 '어떤 주문에 어떤 상품이 있는지' 연결)**\n\n<table style=\"min-width: 50px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>주문번호 (PK, FK)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>상품코드 (PK, FK)</strong></p></td></tr></tbody>\n</table>\n\n ",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1643,21 +4079,68 @@
             "특정 카테고리에 해당하는 상품을 조회하는 경우에 대비하여 1차 정규화를 통해 카테고리 속성을 분류해야 한다.",
             "유사한 속성이 반복되는 반복그룹이 있으므로 2차 정규화를 해야 한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "유사한 속성이 반복되는 카테고리 그룹이 있으므로 1차 정규화 대상이다.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1675,21 +4158,68 @@
             "반정규화를 하면 데이터 무결성이 저해된다.",
             "정규화를 하면 입력, 수정, 삭제 성능이 향상된다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["정규화를 마친 후, 반정규화를 고려한다.", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "정규화를 마친 후, 반정규화를 고려한다.",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1707,21 +4237,68 @@
             "1:M 관계에서의 테이블 병합은 많은 중복 데이터를 발생시킨다.",
             "테이블 병합은 1:1 관계만 가능하다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", "1:1, 1:M 모두 가능"],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            "1:1, 1:M 모두 가능"
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1739,21 +4316,68 @@
             "테이블의 관계가 강결합이어서 같이 조회되는 경우가 대부분이면 비정규화를 실행한다.",
             "지나친 JOIN으로 성능이 저하되면 수행한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["비교적 판단하기 수월하고 부작용이 적음.", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "비교적 판단하기 수월하고 부작용이 적음.",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1771,21 +4395,68 @@
             "1:1 관계 내지는 1:M 관계가 형성될 수 있다.",
             "속성의 사용 빈도나 속성값의 NULL 여부를 기준으로 분할한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "1:1 관계의 테이블이 2개 생긴다.", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "1:1 관계의 테이블이 2개 생긴다.",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1803,21 +4474,68 @@
             "관계가 없는 다수의 테이블이 생긴다.",
             "분할 기준은 기간이다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", "기간 외에도 다른 속성도 가능하다."],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            "기간 외에도 다른 속성도 가능하다."
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1835,21 +4553,68 @@
             "이력 테이블 추가",
             "부분 테이블 추가"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "통계, 이력, 부분, 중복 테이블 추가",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1867,21 +4632,68 @@
             "정규화로 인한 성능 감소가 많을 때",
             "미리 계산된 값을 저장해서 성능을 향상 시킬 때"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["정합성에 위배", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "정합성에 위배",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1893,22 +4705,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["중복 칼럼 추가", "파생 칼럼 추가", "종속 관계 추가", "중복 관계 추가"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "중복 칼럼 추가",
+            "파생 칼럼 추가",
+            "종속 관계 추가",
+            "중복 관계 추가"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "컬럼 반정규화 - 중복 컬럼 추가, 파생 컬럼 추가, 이력 테이블 컬럼 추가\n\n관계 반정규화 - 중복 관계 추가",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1926,21 +4790,68 @@
             "런타임에 컬럼 계산으로 인한 속도 저하 방지를 위해 정규화를 수행",
             "데이터 무결성을 보장하기 위해 정규화를 수행"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "1, 2, 3은 모두 반정규화",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1958,12 +4869,34 @@
             "테이블 병합은 정규화 기법이다.",
             "조회 성능의 저하를 막기 위해 정규화보다는 반정규화를 수행한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -1974,10 +4907,30 @@
             "반정규화 기법",
             "정규화가 항상 조회 성능을 저하시키지는 않는다. 반정규화로 인해 조회 성능이 확실히 좋아지면 수행하면 된다.ㅣ"
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -1995,21 +4948,68 @@
             "수평 분할",
             "슈퍼/서브타입 테이블 분리"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2029,21 +5029,68 @@
             "3차 정규화 - 정규화 테이블 [주문번호(PK), 상품코드(PK), 상품명]",
             "3차 정규화 - 정규화 테이블 [상품코드(PK), 상품명]"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "주식별자가 `주문번호`+`상품코드` 두 개로 이루어진 복합키인데, 일반 속성인 `상품명`이 `상품코드` 하나에만 종속하고 있는 상태입니다.\n\n이것을 **부분 함수 종속**이라고 부르며, 이 같은 컬럼을 제거하는 것이 바로 2차 정규화(2NF)입니다.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2061,21 +5108,68 @@
             "정규화 기법인 테이블 수직 분할을 수행한다.",
             "자주 쓰는 컬럼만 분리하여 데이터 조회 성능을 향상시킬 수 있다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["항상 유리하지는 않다.", "", "반정규화 기법", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "항상 유리하지는 않다.",
+            "",
+            "반정규화 기법",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2093,21 +5187,68 @@
             "테이블 분할 - 함수 종속성을 고려하여 이상 현상이 생기지 않도록 테이블을 분할",
             "중복 관게 추가 - 업무 상 JOIN이 필요한 경우가 많아서 중복 관계를 추가하는 것이 유리한 경우 수행"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "반정규화 테이블 분할\n\n- 수직 분할 - 테이블의 일부 속성을 분리\n- 수평 분할 - 특정 인스턴스를 별도의 테이블로 분리 (기간 분리 등)\n\n ",
-          "choiceExplanations": ["", "", "정규화 기법", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "정규화 기법",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2125,12 +5266,34 @@
             "물리적인 업무 단위이다.",
             "데이터는 트랜잭션 범위와는 무관하다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -2141,10 +5304,30 @@
             "논리적인 단위",
             "데이터는 트랜잭션 범위로 묶인다."
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2164,12 +5347,34 @@
             "상품 엔터티의 최근 상품가격 속성은 파생 컬럼에 해당된다.",
             "상품과 상품가격 엔터티는 인스턴스 생성 시 하나의 트랜잭션으로 묶인다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -2180,10 +5385,30 @@
             "\"최근 상품가격\" 속성은 성능 향상을 위한 중복 컬럼이라고 볼 수 있다. 파생 컬럼은 연산, 집계, 가공(SUM, AVG, COUNT 등)을 거쳐 만들어진 새로운 결괏값을 의미한다.",
             ""
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2197,22 +5422,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["제 1 정규화", "제 2 정규화", "제 3 정규화", "제 4 정규화"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "제 1 정규화",
+            "제 2 정규화",
+            "제 3 정규화",
+            "제 4 정규화"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": true,
           "explanation": "일반속성인 회원명이 일반속성인 회원번호에 종속 (제 3 정규화 필요)",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2230,21 +5507,68 @@
             "부분 함수 종속성 제거",
             "다중값 종속성 제거"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["1차 정규화", "2차 정규화", "", "4차 정규화"],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "1차 정규화",
+            "2차 정규화",
+            "",
+            "4차 정규화"
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2264,12 +5588,34 @@
             "배송 엔터티에 주문번호를 추가하면 1번의 조인으로 핸드폰 번호와 배송상태를 함께 조회할 수 있다.",
             "배송 엔터티에 회원번호를 추가하면 조인하지 않아도 핸드폰 번호와 배송상태를 함께 조회할 수 있다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
@@ -2280,10 +5626,30 @@
             "2번 조인해야 하며, 배송과 주문은 M:N 관계라 사실상 추가가 어렵다.",
             "한 번의 조인으로 가능하다."
           ],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2301,21 +5667,68 @@
             "이력 테이블에 컬럼을 추가한다.",
             "통계 테이블을 추가한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "이력 테이블 조회 시 속도 저하 대비로 조회 기준이 될 것으로 판단 되는 \"최신 가격 여부\" 컬럼을 미리 추가할 수 있다.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2333,21 +5746,68 @@
             "기술직 사원과 관리직 사원이 개별적으로 사용하는 속성을 없앤다.",
             "개별 속성과 공통 속성을 분리하여 슈퍼-서브 타입으로 설계한다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         }
       ]
     },
@@ -2369,21 +5829,68 @@
             "데이터를 저장한다.",
             "데이터베이스는 일반적으로 여러 개의 테이블로 구성된다."
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 1,
-          "answers": [1],
+          "answers": [
+            1
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "",
-          "choiceExplanations": ["로우와 컬럼의 설명이 바뀜.", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "로우와 컬럼의 설명이 바뀜.",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2401,21 +5908,68 @@
             "SELECT TAB.COL FROM TAB WHERE COL = 'A';",
             "SELECT COL FROM TAB T WHERE T.COL = 'A';"
           ],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "SQL 문법의 핵심 규칙 중 하나는 \"FROM 절에서 테이블에 별칭(Alias)을 부여했다면, 해당 쿼리 안에서는 절대로 원본 테이블명을 사용할 수 없다\"는 것입니다.\n\n위 문장을 살펴보면 `FROM TAB T`라고 `TAB` 테이블에 `T`라는 별칭을 선언했습니다. 그런데 데이터를 골라내는 `SELECT` 절에서는 엉뚱하게 원래 이름인 `TAB.COL`을 불렀기 때문에, 데이터베이스 시스템이 \"TAB이라는 테이블은 없는데?\"라며 **식별자 부적합 에러**를 발생하게 됩니다.\n\n올바르게 고치려면 원본 테이블명 대신 별칭을 사용하여 `SELECT T.COL FROM TAB T WHERE COL = 'A';`로 작성해야 합니다.",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2427,22 +5981,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["2023-02-31", "2023-02-28", "2022-03-01", "ERROR"],
-          "choiceDescriptions": ["", "", "", ""],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choices": [
+            "2023-02-31",
+            "2023-02-28",
+            "2022-03-01",
+            "ERROR"
+          ],
+          "choiceDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 2,
-          "answers": [2],
+          "answers": [
+            2
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "ADD_MONTHS는 기준 날짜의 일자가 존재하지 않으면 해당 월의 마지막 일자를 반환",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2454,32 +6060,74 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["", "", "", ""],
+          "choices": [
+            "",
+            "",
+            "",
+            ""
+          ],
           "choiceDescriptions": [
             "```\nSELECT STUDENT_NO,\n       AVG(MATH_SCORE) AS AVG\nFROM STUDENT_SCORE\nWHERE YEAR = '2021'\n  AND SEMESTER = '1'\n  AND AVG >= 90;\n```\n\n ",
             "```\nSELECT STUDENT_NO,\n       AVG(MATH_SCORE) AS AVG\nFROM STUDENT_SCORE\nGROUP BY STUDENT_NO\nWHERE YEAR = '2021'\n  AND SEMESTER = '1'\n  AND AVG >= 90;\n```\n\n ",
             "```\nSELECT STUDENT_NO,\n       AVG(MATH_SCORE) AS AVG\nFROM STUDENT_SCORE\nWHERE YEAR = '2021'\n  AND SEMESTER = '1'\nGROUP BY STUDENT_NO\nHAVING AVG(MATH_SCORE) >= 90;\n```\n\n ",
             "```\nSELECT STUDENT_NO,\n       AVG(MATH_SCORE) AS AVG\nFROM STUDENT_SCORE\nWHERE YEAR = '2021'\n  AND SEMESTER = '1'\nGROUP BY STUDENT_NO\nHAVING AVG >= 90;\n```\n\n "
           ],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 3,
-          "answers": [3],
+          "answers": [
+            3
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "SQL 쿼리가 실제로 데이터베이스 내부에서 어떻게 동작하는지, 실행 순서(FROM ➔ WHERE ➔ GROUP BY ➔ HAVING ➔ SELECT)에 따라 데이터가 변해가는 과정을 표로 한눈에 보여드리겠습니다.\n\n이해를 돕기 위해 시험을 여러 번 친 학생들, 다른 연도나 학기에 시험을 친 학생들의 데이터가 섞여 있는 가상의 테이블을 준비했습니다.\n\n### 1단계: 원본 데이터 준비 (FROM 절)\n\n먼저 데이터베이스가 조회할 대상인 `STUDENT_SCORE` 원본 테이블의 전체 모습입니다.\n\n**\\[ STUDENT_SCORE 테이블 \\]**\n\n<table style=\"min-width: 125px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>STUDENT_NO (학번)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>YEAR (연도)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>SEMESTER (학기)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>MATH_SCORE (수학점수)</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>비고</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1001</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>2021</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>1</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>95</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1001</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>2021</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>1</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>90</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1001</p></td><td colspan=\"1\" rowspan=\"1\"><p>2021</p></td><td colspan=\"1\" rowspan=\"1\"><p>2</p></td><td colspan=\"1\" rowspan=\"1\"><p>100</p></td><td colspan=\"1\" rowspan=\"1\"><p>2학기 데이터</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1002</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>2021</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>1</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>80</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1002</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>2021</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>1</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>90</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1003</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>2021</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>1</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>100</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1004</p></td><td colspan=\"1\" rowspan=\"1\"><p>2020</p></td><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\"><p>95</p></td><td colspan=\"1\" rowspan=\"1\"><p>2020년 데이터</p></td></tr></tbody>\n</table>\n\n### 2단계: 기본 조건 필터링 (WHERE 절)\n\n> `WHERE YEAR = '2021' AND SEMESTER = '1'`\n\n가장 먼저 `WHERE` 절이 실행되어 쓸데없는 데이터를 쳐냅니다. 2021년 1학기가 아닌 데이터(1001번의 2학기 점수, 1004번의 2020년 점수)는 여기서 가차 없이 탈락합니다.\n\n**\\[ 필터링 된 임시 데이터 \\]**\n\n<table style=\"min-width: 100px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>STUDENT_NO</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>YEAR</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>SEMESTER</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>MATH_SCORE</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1001</p></td><td colspan=\"1\" rowspan=\"1\"><p>2021</p></td><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\"><p>95</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1001</p></td><td colspan=\"1\" rowspan=\"1\"><p>2021</p></td><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\"><p>90</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1002</p></td><td colspan=\"1\" rowspan=\"1\"><p>2021</p></td><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\"><p>80</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1002</p></td><td colspan=\"1\" rowspan=\"1\"><p>2021</p></td><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\"><p>90</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1003</p></td><td colspan=\"1\" rowspan=\"1\"><p>2021</p></td><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\"><p>100</p></td></tr></tbody>\n</table>\n\n### 3단계: 데이터 묶기 및 집계 (GROUP BY 절)\n\n> `GROUP BY STUDENT_NO`\n\n살아남은 데이터들을 '학번(STUDENT_NO)'을 기준으로 같은 그룹끼리 묶습니다. 이때 평균(`AVG`)을 계산할 준비를 마칩니다.\n\n**\\[ 그룹화 및 계산 과정 (내부 동작) \\]**\n\n<table style=\"min-width: 75px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>STUDENT_NO</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>묶인 수학 점수들</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>내부 계산된 평균(AVG)</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1001</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p>95, 90</p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>92.5</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1002</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p>80, 90</p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>85</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>1003</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p>100</p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>100</strong></p></td></tr></tbody>\n</table>\n\n### 4단계: 그룹 조건 필터링 (HAVING 절)\n\n> `HAVING AVG(MATH_SCORE) >= 90`\n\n방금 묶어서 계산해 낸 그룹별 평균 점수 중, **90점 미만인 그룹을 버립니다.**\n\n1002번 학생은 2021년 1학기에 두 번의 시험을 쳐서 평균이 85점이므로 여기서 탈락하게 됩니다.\n\n**\\[ HAVING 필터링 통과 데이터 \\]**\n\n<table style=\"min-width: 50px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>STUDENT_NO</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>AVG(MATH_SCORE)</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1001</p></td><td colspan=\"1\" rowspan=\"1\"><p>92.5</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1003</p></td><td colspan=\"1\" rowspan=\"1\"><p>100</p></td></tr></tbody>\n</table>\n\n### 5단계: 최종 화면 출력 (SELECT 절)\n\n> `SELECT STUDENT_NO, AVG(MATH_SCORE) AS AVG`\n\n모든 필터링과 계산이 끝났습니다. 마지막으로 사용자에게 보여줄 컬럼만 선택하고, `AS AVG`를 통해 머리글을 예쁘게 포장하여 화면에 출력합니다.\n\n**\\[ 최종 조회 결과 \\]**\n\n<table style=\"min-width: 50px;\">\n<colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p><strong>STUDENT_NO</strong></p></td><td colspan=\"1\" rowspan=\"1\"><p><strong>AVG</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1001</p></td><td colspan=\"1\" rowspan=\"1\"><p>92.5</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1003</p></td><td colspan=\"1\" rowspan=\"1\"><p>100</p></td></tr></tbody>\n</table>\n\n ",
-          "choiceExplanations": ["", "", "", ""],
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
           "choiceExplanationDescriptions": [
             "학생별로 평균을 구하려면 반드시 `GROUP BY STUDENT_NO`가 있어야 하는데 누락되었습니다.\n\n집계 함수(AVG, SUM 등)의 결과는 `WHERE` 절에서 조건으로 사용할 수 없습니다. 집계된 결과에 대한 조건은 반드시 `HAVING` 절에 작성해야 합니다.\n\n ",
             "SQL의 작성 순서가 틀렸습니다. `WHERE` 절은 항상 `GROUP BY` 절보다 **앞에** 와야 합니다.\n\n마찬가지로 집계 결과를 `WHERE` 절에서 조건으로 사용(`AVG >= 90`)하려고 했기 때문에 에러가 발생합니다.\n\n ",
             "`WHERE YEAR = '2021' AND SEMESTER = '1'`: 2021년 1학기라는 기본 조건으로 데이터를 먼저 잘 걸러냈습니다.\n\n`GROUP BY STUDENT_NO`: 학생별로 그룹을 잘 묶었습니다.\n\n`HAVING AVG(MATH_SCORE) >= 90`: 그룹화된 결과에 대한 조건이므로 `HAVING` 절을 알맞게 사용했고, Oracle 규칙에 맞게 SELECT 절의 별칭(AVG) 대신 원래의 집계 함수 형태인 `AVG(MATH_SCORE)`를 그대로 사용하여 문법적으로 완벽합니다.\n\n ",
             "절의 순서도 맞고, HAVING 절을 사용한 것도 맞습니다. 하지만 **Oracle의 실행 순서** 때문에 에러가 발생합니다.\n\nSQL은 작성한 순서대로 실행되지 않고, 내부적으로 `FROM ➔ WHERE ➔ GROUP BY ➔ HAVING ➔ SELECT ➔ ORDER BY` 순서로 실행됩니다.\n\n별칭(Alias)인 `AVG`는 `SELECT` 절에서 만들어지는데, `HAVING` 절은 `SELECT`보다 **먼저 실행**됩니다.\n\n즉, `HAVING` 절이 실행될 시점에는 데이터베이스가 `AVG`라는 별칭이 뭔지 아직 모르기 때문에 `HAVING AVG >= 90`이라고 쓰면 에러가 납니다.\n\n "
           ],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         },
         {
           "hashtags": [],
@@ -2491,29 +6139,86 @@
           "explanationErds": [],
           "charts": [],
           "explanationCharts": [],
-          "choices": ["", "", "", ""],
+          "choices": [
+            "",
+            "",
+            "",
+            ""
+          ],
           "choiceDescriptions": [
             "```\nSELECT STUDENT_NO AS S_NO,\n       SCORE AS SCR\nFROM STUDENT_SCORE\nORDER BY SCORE;\n```\n\n ",
             "```\nSELECT STUDENT_NO AS S_NO,\n       SCORE AS SCR\nFROM STUDENT_SCORE\nORDER BY SCR DESC;\n```\n\n ",
             "```\nSELECT STUDENT_NO AS S_NO,\n       SCORE AS SCR\nFROM STUDENT_SCORE\nORDER BY SCORE DESC;\n```\n\n ",
             "```\nSELECT STUDENT_NO AS S_NO,\n       SCORE AS SCR\nFROM STUDENT_SCORE\nORDER BY S_NO, SCR ASC DESC;\n```\n\n "
           ],
-          "choiceFormulas": [[], [], [], []],
-          "choiceErds": [[], [], [], []],
-          "choiceCharts": [[], [], [], []],
+          "choiceFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceCharts": [
+            [],
+            [],
+            [],
+            []
+          ],
           "answer": 4,
-          "answers": [4],
+          "answers": [
+            4
+          ],
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
           "explanation": "### 오류 발생 원인 (④번)\n\n- `ORDER BY S_NO, SCR ASC DESC;` 부분에서 문법 오류(Syntax Error)가 발생합니다.\n\n- 정렬 순서를 지정하는 키워드인 `ASC` (오름차순)와 `DESC` (내림차순)는 하나의 컬럼에 둘 중 하나만 선택해서 써야 합니다.\n\n- 두 키워드를 동시에 나란히 적는 문법(`ASC DESC`)은 지원하지 않으므로 에러가 발생합니다.\n\n \n\n### 나머지 보기들이 정상 작동하는 이유\n\n- **①번, ③번 (**`ORDER BY SCORE / SCORE DESC`**)**\n\n  - `SELECT` 절에서 별칭(`SCR`)을 주었더라도, `ORDER BY` 절에서는 원본 컬럼명(`SCORE`)을 그대로 사용해도 전혀 문제없이 정상 작동합니다.\n\n- **②번 (**`ORDER BY SCR DESC`**)**\n\n  - SQL의 실행 순서는 `FROM ➔ SELECT ➔ ORDER BY` 순서로 진행됩니다.\n\n  - 따라서 `ORDER BY` 절이 실행될 때는 이미 `SELECT` 절에서 정의한 별칭(`SCR`)이 인식된 상태이므로, **별칭(Alias)을 정렬 기준으로 사용하는 것이 완벽하게 가능**합니다.\n\n ",
-          "choiceExplanations": ["", "", "", ""],
-          "choiceExplanationDescriptions": ["", "", "", ""],
-          "choiceExplanationFormulas": [[], [], [], []],
-          "choiceExplanationErds": [[], [], [], []],
-          "choiceExplanationCharts": [[], [], [], []]
+          "choiceExplanations": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationDescriptions": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "choiceExplanationFormulas": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationErds": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "choiceExplanationCharts": [
+            [],
+            [],
+            [],
+            []
+          ]
         }
       ]
+    }
+  },
+  "sections": {
+    "listening": {
+      "tree": [],
+      "scripts": {}
+    },
+    "study": {
+      "tree": [],
+      "scripts": {}
     }
   }
 }
