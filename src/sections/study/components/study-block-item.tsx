@@ -16,6 +16,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 
 import { MarkdownEditor } from 'src/components/markdown-editor';
 import { MermaidDiagram } from 'src/components/mermaid';
@@ -23,11 +24,13 @@ import { ChartRenderer } from 'src/components/chart';
 
 import { FastTextField } from 'src/sections/file-manager/components/problem-set/fast-text-field';
 import { FormulaPreviewCard } from 'src/sections/file-manager/components/problem-set/formula-preview-card';
+import { RichContentRenderer } from 'src/sections/file-manager/components/problem-set/rich-content-renderer';
 import {
   COMMON_LATEX_SYMBOLS,
   COMMON_ERD_TEMPLATES,
   COMMON_CHART_TEMPLATES,
 } from 'src/sections/file-manager/components/problem-set/constants';
+import { COMMON_TRAP_TEMPLATES } from '../constants';
 
 import type { StudyBlock } from '../types';
 
@@ -49,6 +52,12 @@ const BLOCK_CONFIG = {
     color: 'primary.main',
     chipColor: 'primary' as const,
     icon: <ArticleIcon fontSize="small" />,
+  },
+  trap: {
+    label: '시험 단골 함정 (Trap / 주의)',
+    color: 'warning.main',
+    chipColor: 'warning' as const,
+    icon: <WarningAmberRoundedIcon fontSize="small" />,
   },
   formula: {
     label: '수식 (KaTeX)',
@@ -83,6 +92,10 @@ export const StudyBlockItem = memo(function StudyBlockItem({
 
   const handleInsertSymbol = (symbol: string) => {
     onChangeContent((block.content || '') + symbol);
+  };
+
+  const handleInsertTrapTemplate = (template: string) => {
+    onChangeContent(template);
   };
 
   const handleInsertErdTemplate = (code: string) => {
@@ -167,6 +180,87 @@ export const StudyBlockItem = memo(function StudyBlockItem({
             minRows={5}
             hideHeader
           />
+        </Box>
+      )}
+
+      {block.type === 'trap' && (
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {/* Quick Trap Templates Toolbar */}
+          <Box>
+            <Typography
+              variant="caption"
+              sx={{ fontWeight: 700, color: 'warning.main', display: 'block', mb: 0.75 }}
+            >
+              자주 쓰는 함정 템플릿 클릭 삽입:
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+              {COMMON_TRAP_TEMPLATES.map((tmpl) => (
+                <Tooltip key={tmpl.label} title={tmpl.description} arrow>
+                  <Chip
+                    tabIndex={-1}
+                    label={tmpl.label}
+                    size="small"
+                    clickable
+                    variant="outlined"
+                    color="warning"
+                    onClick={() => handleInsertTrapTemplate(tmpl.template)}
+                    sx={{
+                      fontSize: 12,
+                      fontWeight: 700,
+                      borderRadius: 1,
+                      bgcolor: (t) => alpha(t.palette.warning.main, 0.04),
+                      borderColor: (t) => alpha(t.palette.warning.main, 0.3),
+                      '&:hover': {
+                        bgcolor: (t) => alpha(t.palette.warning.main, 0.12),
+                        borderColor: 'warning.main',
+                      },
+                    }}
+                  />
+                </Tooltip>
+              ))}
+            </Box>
+          </Box>
+
+          {/* Markdown Editor for Trap */}
+          <MarkdownEditor
+            value={block.content}
+            onChange={onChangeContent}
+            placeholder="⚠️ 시험 단골 오답 함정, 혼동하기 쉬운 예외 규칙, 착각 vs 정답 비교표 등을 작성하세요."
+            minRows={6}
+            hideHeader
+          />
+
+          {/* Real-time Preview */}
+          {block.content && block.content.trim() && (
+            <Card
+              variant="outlined"
+              sx={{
+                p: 2,
+                borderRadius: 1.5,
+                bgcolor: (t) => alpha(t.palette.warning.main, 0.04),
+                borderColor: (t) => alpha(t.palette.warning.main, 0.3),
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+                <WarningAmberRoundedIcon color="warning" sx={{ fontSize: 20 }} />
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontWeight: 800,
+                    color: 'warning.main',
+                    textTransform: 'uppercase',
+                    letterSpacing: 0.5,
+                  }}
+                >
+                  함정 블록 미리보기 (Live Preview)
+                </Typography>
+              </Box>
+              <RichContentRenderer
+                content={block.content}
+                idPrefix={`study_trap_preview_${index}`}
+              />
+            </Card>
+          )}
         </Box>
       )}
 

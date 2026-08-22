@@ -12,6 +12,7 @@ import SchemaIcon from '@mui/icons-material/Schema';
 import ArticleIcon from '@mui/icons-material/Article';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 
 import { KatexMath } from 'src/components/katex';
 import { MermaidDiagram } from 'src/components/mermaid';
@@ -158,6 +159,64 @@ export const StudyConceptViewCard = memo(function StudyConceptViewCard({
                     idPrefix={`study_view_${conceptIndex}_${bIndex}`}
                   />
                 </Box>
+              );
+            }
+
+            if (block.type === 'trap') {
+              if (isRichTextEmpty(block.content)) return null;
+
+              return (
+                <Card
+                  key={block.id || bIndex}
+                  variant="outlined"
+                  sx={{
+                    p: { xs: 2.5, md: 3 },
+                    borderRadius: 2,
+                    bgcolor: (t) => alpha(t.palette.warning.main, 0.04),
+                    borderColor: (t) => alpha(t.palette.warning.main, 0.28),
+                    borderLeft: (t) => `4px solid ${t.palette.warning.main}`,
+                    boxShadow: (t) => `0 2px 12px ${alpha(t.palette.warning.main, 0.06)}`,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      flexWrap: 'wrap',
+                      gap: 1,
+                      mb: 2,
+                      pb: 1.5,
+                      borderBottom: (t) => `1px dashed ${alpha(t.palette.warning.main, 0.2)}`,
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <WarningAmberRoundedIcon color="warning" sx={{ fontSize: 22 }} />
+                      <Typography
+                        variant="subtitle2"
+                        sx={{
+                          fontWeight: 800,
+                          color: 'warning.dark',
+                          letterSpacing: -0.2,
+                        }}
+                      >
+                        ⚠️ 시험 단골 함정 & 주의 포인트 (Trap Alert)
+                      </Typography>
+                    </Box>
+                    <Chip
+                      label="자주 틀리는 함정"
+                      size="small"
+                      color="warning"
+                      variant="soft"
+                      sx={{ fontWeight: 800, fontSize: 11, height: 22 }}
+                    />
+                  </Box>
+
+                  <RichContentRenderer
+                    content={block.content}
+                    idPrefix={`study_view_trap_${conceptIndex}_${bIndex}`}
+                  />
+                </Card>
               );
             }
 

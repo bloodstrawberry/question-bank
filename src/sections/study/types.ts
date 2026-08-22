@@ -1,4 +1,4 @@
-export type StudyBlockType = 'markdown' | 'formula' | 'erd' | 'chart';
+export type StudyBlockType = 'markdown' | 'formula' | 'erd' | 'chart' | 'trap';
 
 export interface StudyBlock {
   id: string;

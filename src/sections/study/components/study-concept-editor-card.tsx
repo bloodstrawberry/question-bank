@@ -16,6 +16,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 
 import { FastTextField } from 'src/sections/file-manager/components/problem-set/fast-text-field';
 import { ProblemEditorHashtags } from 'src/sections/file-manager/components/problem-set/problem-editor-hashtags';
@@ -253,6 +254,20 @@ export const StudyConceptEditorCard = memo(function StudyConceptEditorCard({
                 sx={{ fontWeight: 700, borderRadius: 1.5 }}
               >
                 개념 설명 (Markdown)
+              </Button>
+
+              <Button
+                variant="contained"
+                color="warning"
+                startIcon={<WarningAmberRoundedIcon />}
+                onClick={() => onAddBlock('trap')}
+                sx={{
+                  fontWeight: 700,
+                  borderRadius: 1.5,
+                  boxShadow: (t) => t.customShadows?.warning,
+                }}
+              >
+                시험 단골 함정 (Trap)
               </Button>
 
               <Button
