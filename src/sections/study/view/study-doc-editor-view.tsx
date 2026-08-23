@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -21,11 +21,11 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { saveStudyFileScript } from 'src/api/indexDB';
 
 import {
-  StudyConceptEditorCard,
   StudyPagination,
-  StudyConceptReorderDialog,
-  StudyConceptDeleteDialog,
   useStudyDocEditor,
+  StudyConceptEditorCard,
+  StudyConceptDeleteDialog,
+  StudyConceptReorderDialog,
 } from '../components';
 
 // ----------------------------------------------------------------------
@@ -66,7 +66,6 @@ export function StudyDocEditorView({
     handlePageInputBlur,
     handlePageInputKeyDown,
     handleAddConcept,
-    updateConcept,
     handleDuplicateConcept,
     handleRemoveConcept,
     handleConfirmRemoveConcept,
@@ -132,6 +131,7 @@ export function StudyDocEditorView({
         }
         return '';
       }
+      return undefined;
     };
 
     const handleVisibilityChange = () => {

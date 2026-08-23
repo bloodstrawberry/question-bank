@@ -1,9 +1,10 @@
 'use client';
 
+import type { StudyDocData } from '../types';
+
 import { useState, useEffect, useCallback } from 'react';
 
 import { getStudyFileScript } from 'src/api/indexDB';
-import type { StudyDocData } from '../types';
 
 // ----------------------------------------------------------------------
 

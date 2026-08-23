@@ -1,5 +1,7 @@
 'use client';
 
+import type { StudyConcept } from '../types';
+
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -8,18 +10,18 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import CloseIcon from '@mui/icons-material/Close';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
-import { getStudyConceptById } from 'src/api/indexDB';
 import { paths } from 'src/routes/paths';
 
+import { getStudyConceptById } from 'src/api/indexDB';
+
 import { StudyConceptViewCard } from './study-concept-view-card';
-import type { StudyConcept } from '../types';
 
 // ----------------------------------------------------------------------
 

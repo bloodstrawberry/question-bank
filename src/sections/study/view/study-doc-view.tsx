@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
-import { useStudyDocView, StudyConceptViewCard, StudyPagination } from '../components';
+import { useStudyDocView, StudyPagination, StudyConceptViewCard } from '../components';
 
 // ----------------------------------------------------------------------
 

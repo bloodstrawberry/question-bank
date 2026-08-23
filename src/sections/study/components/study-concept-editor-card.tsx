@@ -1,5 +1,7 @@
 'use client';
 
+import type { StudyConcept, StudyBlockType } from '../types';
+
 import { memo } from 'react';
 
 import Box from '@mui/material/Box';
@@ -22,7 +24,6 @@ import { FastTextField } from 'src/sections/file-manager/components/problem-set/
 import { ProblemEditorHashtags } from 'src/sections/file-manager/components/problem-set/problem-editor-hashtags';
 
 import { StudyBlockItem } from './study-block-item';
-import type { StudyConcept, StudyBlockType } from '../types';
 
 // ----------------------------------------------------------------------
 

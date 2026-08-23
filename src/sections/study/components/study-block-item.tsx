@@ -1,5 +1,7 @@
 'use client';
 
+import type { StudyBlock } from '../types';
+
 import { memo } from 'react';
 
 import Box from '@mui/material/Box';
@@ -18,9 +20,9 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 
-import { MarkdownEditor } from 'src/components/markdown-editor';
-import { MermaidDiagram } from 'src/components/mermaid';
 import { ChartRenderer } from 'src/components/chart';
+import { MermaidDiagram } from 'src/components/mermaid';
+import { MarkdownEditor } from 'src/components/markdown-editor';
 
 import { FastTextField } from 'src/sections/file-manager/components/problem-set/fast-text-field';
 import { FormulaPreviewCard } from 'src/sections/file-manager/components/problem-set/formula-preview-card';
@@ -30,9 +32,8 @@ import {
   COMMON_ERD_TEMPLATES,
   COMMON_CHART_TEMPLATES,
 } from 'src/sections/file-manager/components/problem-set/constants';
-import { COMMON_TRAP_TEMPLATES } from '../constants';
 
-import type { StudyBlock } from '../types';
+import { COMMON_TRAP_TEMPLATES } from '../constants';
 
 // ----------------------------------------------------------------------
 

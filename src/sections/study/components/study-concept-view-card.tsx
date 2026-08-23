@@ -1,5 +1,7 @@
 'use client';
 
+import type { StudyConcept } from '../types';
+
 import { memo } from 'react';
 
 import Box from '@mui/material/Box';
@@ -15,14 +17,13 @@ import FunctionsIcon from '@mui/icons-material/Functions';
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 
 import { KatexMath } from 'src/components/katex';
-import { MermaidDiagram } from 'src/components/mermaid';
 import { ChartRenderer } from 'src/components/chart';
-import {
-  RichContentRenderer,
-  isRichTextEmpty,
-} from 'src/sections/file-manager/components/problem-set/rich-content-renderer';
+import { MermaidDiagram } from 'src/components/mermaid';
 
-import type { StudyConcept } from '../types';
+import {
+  isRichTextEmpty,
+  RichContentRenderer,
+} from 'src/sections/file-manager/components/problem-set/rich-content-renderer';
 
 // ----------------------------------------------------------------------
 

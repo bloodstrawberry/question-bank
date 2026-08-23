@@ -1,16 +1,17 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
-import { toast } from 'src/components/snackbar';
 import { getStudyFileScript, saveStudyFileScript } from 'src/api/indexDB';
 
+import { toast } from 'src/components/snackbar';
+
 import {
+  createEmptyBlock,
   type StudyDocData,
   type StudyConcept,
-  type StudyBlockType,
   createEmptyConcept,
-  createEmptyBlock,
+  type StudyBlockType,
   createDefaultStudyDoc,
 } from '../types';
 

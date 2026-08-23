@@ -1,47 +1,48 @@
 'use client';
 
+import type { DragEndEvent } from '@dnd-kit/core';
 import type { IFile, IFileFilters } from 'src/types/file';
 
-import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { useRef, useMemo, useState, useEffect, useCallback } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useBoolean, useSetState, useLocalStorage } from 'minimal-shared/hooks';
 import {
-  DndContext,
-  PointerSensor,
   useSensor,
+  DndContext,
   useSensors,
   useDroppable,
-  DragEndEvent,
+  PointerSensor,
   pointerWithin,
 } from '@dnd-kit/core';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
 import { fIsBetween } from 'src/utils/format-time';
+
 import { DashboardContent } from 'src/layouts/dashboard';
+import {
+  resetStudyData,
+  getStudyTreeData,
+  getStudyFullData,
+  saveStudyTreeData,
+  saveStudyFullData,
+  deleteStudyTreeItems,
+} from 'src/api/indexDB';
+
 import { toast } from 'src/components/snackbar';
 import { fileFormat } from 'src/components/file-thumbnail';
 import { ConfirmDialog } from 'src/components/custom-dialog';
-import { useTable, rowInPage, getComparator } from 'src/components/table';
 import { LoadingScreen } from 'src/components/loading-screen';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-
-import {
-  getStudyTreeData,
-  saveStudyTreeData,
-  getStudyFullData,
-  saveStudyFullData,
-  resetStudyData,
-  deleteStudyTreeItems,
-} from 'src/api/indexDB';
+import { useTable, getComparator } from 'src/components/table';
 
 import { FileManagerFilters } from 'src/sections/file-manager/file-manager-filters';
 import { FileManagerSidebar } from 'src/sections/file-manager/file-manager-sidebar';
@@ -49,8 +50,8 @@ import { FileManagerGridView } from 'src/sections/file-manager/file-manager-grid
 import { FileManagerFiltersResult } from 'src/sections/file-manager/file-manager-filters-result';
 import { FileManagerCreateFolderDialog } from 'src/sections/file-manager/file-manager-create-folder-dialog';
 
-import { StudyDocEditorView } from './study-doc-editor-view';
 import { StudyDocView } from './study-doc-view';
+import { StudyDocEditorView } from './study-doc-editor-view';
 
 // ----------------------------------------------------------------------
 
