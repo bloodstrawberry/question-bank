@@ -1,0 +1,3848 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#1번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지적공 부의보존및보관방법등에관한설명으로틀린것 은?(단, 정보처리시스템을통하여기록ㆍ저장한지적 공부는제외함)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "지적소관청은해당청사에지적서고를설치하고그곳 에지적공부를영구히보존하여야한다.",
+        "국토교통부장관의승인을받은경우지적공부를해당 청사밖으로반출할수있다.",
+        "지적서고는지적사무를처리하는사무실과연접(連接) 하여설치하여야한다.",
+        "지적도면은 지번부여지역별로 도면번호순으로 보관하 되, 각장별로보호대에넣어야한다.",
+        "카드로 된 토지대장ㆍ임야대장ㆍ공유지연명부ㆍ대지권 등록부 및 경계점좌표등록부는 100장 단위로 바인더 (binder)에넣어보관하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#2번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지적공 부와등록사항의연결이옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "토지대장- 경계와면적",
+        "임야대장- 건축물및구조물등의위치",
+        "공유지연명부- 소유권지분과토지의이동사유",
+        "대지권등록부- 대지권비율과지목",
+        "토지대장ㆍ임야대장ㆍ공유지연명부ㆍ대지권등록부- 토 지소유자가변경된날과그원인"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#3번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지목을 잡종지로정할수있는것으로만나열한것은?(단, 원상회복을조건으로돌을캐내는곳또는흙을파 내는곳으로허가된토지는제외함)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "변전소, 송신소, 수신소및지하에서석유류등이용출 되는용출구(湧出口)와그유지(維持)에사용되는부지",
+        "여객자동차터미널, 자동차운전학원및폐차장등자동 차와관련된독립적인시설물을갖춘부지",
+        "갈대밭, 실외에물건을쌓아두는곳, 산림및원야(原 野)를이루고있는암석지ㆍ자갈땅ㆍ모래땅ㆍ황무지등 의토지",
+        "공항ㆍ항만시설부지및물건등을보관하거나저장하 기위하여독립적으로설치된보관시설물의부지",
+        "도축장, 쓰레기처리장, 오물처리장및일반공중의위락ㆍ 휴양등에적합한시설물을종합적으로갖춘야영장ㆍ식 물원등의토지"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#4번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지적소 관청이축척변경 시행공고를할때공고하여야 할 사항으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "축척변경의목적, 시행지역및시행기간",
+        "축척변경의시행에관한세부계획",
+        "축척변경의시행자선정및평가방법",
+        "축척변경의시행에따른청산방법",
+        "축척변경의시행에따른토지소유자등의협조에관한사항"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#5번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지적공부 의복구및복구절차등에관한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "지적소관청(정보처리시스템을통하여기록ㆍ저장한지 적공부의경우에는시ㆍ도지사, 시장ㆍ군수또는구청 장)은지적공부의전부또는일부가멸실되거나훼손된 경우에는지체없이이를복구하여야한다.",
+        "지적공부를복구할때에는멸실ㆍ훼손당시의지적공부 와가장부합된다고인정되는관계자료에따라토지의 표시에관한사항을복구하여야한다. 다만, 소유자에 관한사항은부동산등기부나법원의확정판결에따라 복구하여야한다.",
+        "지적공부의등본, 개별공시지가자료, 측량신청서및측 량준비도, 법원의확정판결서정본또는사본은지적 공부의복구자료이다.",
+        "지적소관청은조사된복구자료중토지대장ㆍ임야대장및 공유지연명부의등록내용을증명하는서류등에따라지적 복구자료조사서를작성하고, 지적도면의등록내용을증명 하는서류등에따라복구자료도를작성하여야한다.",
+        "복구자료도에따라측정한면적과지적복구자료조사서 의조사된면적의증감이오차의허용범위를초과하거 나복구자료도를작성할복구자료가없는경우에는복 구측량을하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#6번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상등록전 환을할 때임야대장의면적과등록전환될면적의 차이가오차의허용범위를초과하는경우처리방법 으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "지적소관청이임야대장의면적또는임야도의경계를 직권으로정정하여야한다.",
+        "지적소관청이시ㆍ도지사의승인을받아허용범위를초 과하는면적을등록전환면적으로결정하여야한다.",
+        "지적측량수행자가지적소관청의승인을받아허용범위를 초과하는면적을등록전환면적으로결정하여야한다.",
+        "지적측량수행자가토지소유자와합의한면적을등록전 환면적으로결정하여야한다.",
+        "지적측량수행자가임야대장의면적또는임야도의경계 를직권으로정정하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#7번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지목을 도로로정할수없는것은?(단, 아파트ㆍ공장등단일 용도의일정한단지안에설치된통로등은제외함)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "일반공중(公衆)의교통운수를위하여보행이나차량운행 에필요한일정한설비또는형태를갖추어이용되는토지",
+        "도로법 등관계법령에따라도로로개설된토지",
+        "고속도로의휴게소부지",
+        "2필지이상에진입하는통로로이용되는토지",
+        "교통운수를위하여일정한궤도등의설비와형태를 갖추어이용되는토지"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#8번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상중앙지 적위원회의심의ㆍ의결사항으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "측량기술자중지적기술자의양성에관한사항",
+        "지적측량기술의연구ㆍ개발및보급에관한사항",
+        "지적재조사기본계획의수립및변경에관한사항",
+        "지적관련정책개발및업무개선등에관한사항",
+        "지적기술자의업무정지처분및징계요구에관한사항"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#9번"
+      ],
+      "question": "다음은공간정보의구축및관리등에관한법령상 도시개발사업등시행지역의토지이동신청특례에 관한설명이다. ( )에들어갈내용으로옳은것은?",
+      "description": "○ 도시개발법에 따른 도시개발사업, 농어촌정비\n법에따른농어촌정비사업등의사업시행자는그\n사업의착수ㆍ변경및완료사실을( ㄱ)에(게)\n신고하여야한다.\n○도시개발사업등의착수ㆍ변경또는완료사실\n의신고는그사유가발생한날부터( ㄴ) 이\n내에하여야한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ: 시ㆍ도지사, ㄴ: 15일",
+        "ㄱ: 시ㆍ도지사, ㄴ: 30일",
+        "ㄱ: 시ㆍ도지사, ㄴ: 60일",
+        "ㄱ: 지적소관청, ㄴ: 15일",
+        "ㄱ: 지적소관청, ㄴ: 30일"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#10번"
+      ],
+      "question": "다음은공간정보의구축및관리등에관한법령상 등록사항정정대상토지에 대한 대장의열람또는 등본의발급에관한설명이다. ( )에들어갈내용 으로옳은것은? 지적소관청은 등록사항 정정 대상토지에 대한 대장을열람하게하거나등본을발급하는때에 는( ㄱ) 라고적은부분을흑백의반전(反轉)으 로표시하거나( ㄴ) (으)로적어야한다.",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ: 지적불부합지, ㄴ: 붉은색",
+        "ㄱ: 지적불부합지, ㄴ: 굵은고딕체",
+        "ㄱ: 지적불부합지, ㄴ: 담당자의자필(自筆)",
+        "ㄱ: 등록사항정정대상토지, ㄴ: 붉은색",
+        "ㄱ: 등록사항정정대상토지, ㄴ: 굵은고딕체"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#11번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지적소 관청이지체없이축척변경의확정공고를하여야하 는때로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "청산금의납부및지급이완료되었을때",
+        "축척변경을위한측량이완료되었을때",
+        "축척변경에관한측량에따라필지별증감면적의산정 이완료되었을때",
+        "축척변경에관한측량에따라변동사항을표시한축척 변경지번별조서작성이완료되었을때",
+        "축척변경에따라확정된사항이지적공부에등록되었을때"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#12번"
+      ],
+      "question": "공간정보의구축및관리등에관한법령상지적기 준점성과와지적기준점성과의열람및등본발급신 청기관의연결이옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "지적삼각점성과- 시ㆍ도지사또는지적소관청",
+        "지적삼각보조점성과- 시ㆍ도지사또는지적소관청",
+        "지적삼각보조점성과- 지적소관청또는한국국토정보공사",
+        "지적도근점성과- 시ㆍ도지사또는한국국토정보공사",
+        "지적도근점성과- 지적소관청또는한국국토정보공사"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#13번"
+      ],
+      "question": "채권자甲이채권자대위권에의하여채무자乙을대 위하여등기신청하는경우에관한설명으로옳은것 을모두고른것은?",
+      "description": "ㄱ. 乙에게등기신청권이없으면甲은대위등기를\n신청할수없다.\nㄴ. 대위등기신청에서는乙이등기신청인이다.\nㄷ. 대위등기를신청할때대위원인을증명하는\n정보를첨부하여야한다.\nㄹ. 대위신청에따른등기를한경우, 등기관은乙\n에게등기완료의통지를하여야한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄹ",
+        "ㄱ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#14번"
+      ],
+      "question": "부동산등기에관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "저당권부채권에대한질권의설정등기는할수없다.",
+        "등기기록중다른구(區)에서한등기상호간에는등기 한권리의순위는순위번호에따른다.",
+        "대표자가있는법인아닌재단에속하는부동산의등기에 관하여는그대표자를등기권리자또는등기의무자로한다.",
+        "甲이그소유부동산을乙에게매도하고사망한경우, 甲의 단독상속인丙은등기의무자로서甲과乙의매매를원인으 로하여甲으로부터乙로의이전등기를신청할수있다.",
+        "구분건물로서그대지권의변경이있는경우에는구분 건물의소유권의등기명의인은1동의건물에속하는다 른구분건물의소유권의등기명의인을대위하여그변 경등기를신청할수없다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#15번"
+      ],
+      "question": "부동산등기에관한설명으로옳은것을모두고른것은?",
+      "description": "ㄱ. 국가및지방자치단체에해당하지않는등기권리\n자는재결수용으로인한소유권이전등기를단독\n으로신청할수있다.\nㄴ. 등기관은재결수용으로인한소유권이전등기를하\n는경우에그부동산을위하여존재하는지역권\n의등기를직권으로말소하여야한다.\nㄷ. 관공서가공매처분을한경우에등기권리자의청\n구를받으면지체없이공매처분으로인한권리\n이전의등기를등기소에촉탁하여야한다.\nㄹ. 등기후등기사항에변경이생겨등기와실체관계가\n일치하지않을때는경정등기를신청하여야한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ, ㄷ",
+        "ㄱ, ㄹ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄹ",
+        "ㄴ, ㄷ, ㄹ"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#16번"
+      ],
+      "question": "절차법상 등기권리자와 등기의무자를 옳게 설명한 것을모두고른것은?",
+      "description": "ㄱ. 甲소유로등기된토지에설정된乙명의의\n근저당권을丙에게이전하는등기를신청하는\n경우, 등기의무자는乙이다.\nㄴ. 甲에서乙로, 乙에서丙으로순차로소유권이전\n등기가이루어졌으나乙명의의등기가원인무\n효임을이유로甲이丙을상대로丙명의의등\n기말소를명하는확정판결을얻은경우, 그판\n결에따른등기에있어서등기권리자는甲이다.\nㄷ. 채무자甲에서乙로소유권이전등기가이루어\n졌으나甲의채권자丙이등기원인이사해행위\n임을이유로그소유권이전등기의말소판결을\n받은경우, 그판결에따른등기에있어서등\n기권리자는甲이다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄴ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#17번"
+      ],
+      "question": "소유권에관한등기의설명으로옳은것을모두고른것은?",
+      "description": "ㄱ. 등기관이소유권보존등기를할때에는등기원인의\n연월일을기록한다.\nㄴ. 등기관이미등기부동산에대하여법원의촉탁에따\n라소유권의처분제한의등기를할때에는직권으로\n소유권보존등기를한다.\nㄷ. 등기관이소유권의일부에관한이전등기를할때에\n는이전되는지분을기록하여야하고, 그등기원인\n에분할금지약정이있을때에는그약정에관한사\n항도기록하여야한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄱ, ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#18번"
+      ],
+      "question": "용익권에관한등기에대한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "시효완성을이유로통행지역권을취득하기위해서는그 등기가되어야한다.",
+        "승역지에지역권설정등기를한경우, 요역지의등기기 록에는그승역지를기록할필요가없다.",
+        "임대차차임지급시기에관한약정이있는경우, 임차권 등기에이를기록하지않더라도임차권등기는유효하다.",
+        "1필토지의일부에대해지상권설정등기를신청하는경 우, 그일부를표시한지적도를첨부정보로서등기소에 제공하여야한다.",
+        "전세금반환채권의일부양도를원인으로하는전세권 일부이전등기의신청은전세권소멸의증명이없는한, 전세권존속기간만료전에는할수없다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#19번"
+      ],
+      "question": "권리에관한등기의설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "등기부표제부의등기사항인표시번호는등기부갑구 (甲區), 을구(乙區)의필수적등기사항이아니다.",
+        "등기부갑구(甲區)의등기사항중권리자가2인이상인 경우에는권리자별지분을기록하여야하고, 등기할권 리가합유인경우에는그뜻을기록하여야한다.",
+        "권리의변경등기는등기상이해관계가있는제3자의승 낙이없는경우에도부기로등기할수있다.",
+        "등기의무자의소재불명으로공동신청할수없을때등 기권리자는민사소송법에따라공시최고를신청할수 있고, 이에따라제권판결이있으면등기권리자는그 사실을증명하여단독으로등기말소를신청할수있다.",
+        "등기관이토지소유권의등기명의인표시변경등기를하였을 때에는지체없이그사실을지적소관청에알려야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#20번"
+      ],
+      "question": "부동산등기에관한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "규약에따라공용부분으로등기된후그규약이폐지된경우, 그공용부분취득자는소유권이전등기를신청하여야한다.",
+        "등기할건물이구분건물인경우에등기관은1동건물의 등기기록의표제부에는소재와지번, 건물명칭및번호 를기록하고, 전유부분의등기기록의표제부에는건물 번호를기록하여야한다.",
+        "존재하지아니하는건물에대한등기가있을때그소 유권의등기명의인은지체없이그건물의멸실등기를 신청하여야한다.",
+        "같은지번위에1개의건물만있는경우에는건물의등 기기록의표제부에건물번호를기록하지않는다.",
+        "부동산환매특약은등기능력이인정된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#21번"
+      ],
+      "question": "등기관의결정또는처분에대한이의에관한설명 으로틀린것을모두고른것은?",
+      "description": "ㄱ. 이의에는집행정지의효력이있다.\nㄴ. 이의신청자는새로운사실을근거로이의신청\n을할수있다.\nㄷ. 등기관의결정에이의가있는자는관할지방\n법원에이의신청을할수있다.\nㄹ. 등기관은이의가이유없다고인정하면이의신\n청일로부터3일이내에의견을붙여이의신청\n서를이의신청자에게보내야한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ, ㄷ",
+        "ㄴ, ㄹ",
+        "ㄱ, ㄴ, ㄹ",
+        "ㄱ, ㄷ, ㄹ",
+        "ㄴ, ㄷ, ㄹ"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#22번"
+      ],
+      "question": "가등기에관한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "가등기권리자는가등기의무자의승낙이있는경우에단 독으로가등기를신청할수있다.",
+        "가등기명의인은단독으로가등기의말소를신청할수있다.",
+        "가등기의무자는가등기명의인의승낙을받아단독으로 가등기의말소를신청할수있다.",
+        "부동산소유권이전의청구권이정지조건부인경우에그 청구권을보전하기위해가등기를할수있다.",
+        "가등기를명하는가처분명령은가등기권리자의주소지 를관할하는지방법원이할수있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#23번"
+      ],
+      "question": "근저당권등기에관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "근저당권의약정된존속기간은등기사항이아니다.",
+        "피담보채권의변제기는등기사항이아니다.",
+        "지연배상액은등기하였을경우에한하여근저당권에의 해담보된다.",
+        "1번근저당권의채권자가여러명인경우, 그근저당권설 정등기의채권최고액은각채권자별로구분하여기재한다.",
+        "채권자가등기절차에협력하지아니한채무자를피고로 하여등기절차의이행을명하는확정판결을받은경우, 채권자는채무자와공동으로근저당권설정등기를신청 하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#24번"
+      ],
+      "question": "신탁법에따른신탁의등기에관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "수익자는수탁자를대위하여신탁등기를신청할수없다.",
+        "신탁등기의말소등기는수탁자가단독으로신청할수없다.",
+        "하나의부동산에대해수탁자가여러명인경우, 등기 관은그신탁부동산이합유인뜻을기록하여야한다.",
+        "신탁재산에속한권리가이전됨에따라신탁재산에속 하지아니하게된경우, 신탁등기의말소신청은신탁된 권리의이전등기가마쳐진후에별도로하여야한다.",
+        "위탁자와수익자가합의로적법하게수탁자를해임함에따 라수탁자의임무가종료된경우, 신수탁자는단독으로신 탁재산인부동산에관한권리이전등기를신청할수없다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#25번"
+      ],
+      "question": "지방세법상재산세의과세표준과세율에관한설명 으로옳은것을모두고른것은?(단, 법령에따른재 산세의경감은고려하지않음)",
+      "description": "ㄱ. 지방자치단체의장은조례로정하는바에따\n라표준세율의100분의50의범위에서가감할\n수있으며, 가감한세율은해당연도부터3년\n간적용한다.\nㄴ. 법령이정한고급오락장용토지의표준세율은\n1천분의40이다.\nㄷ. 주택의과세표준은법령에따른시가표준액에\n공정시장가액비율(시가표준액의 100분의 60)\n을곱하여산정한가액으로한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ㄱ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#26번"
+      ],
+      "question": "지방세법상재산세의과세대상및납세의무자에관한 설명으로옳은것은?(단, 비과세는고려하지않음)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "신탁법에따른신탁재산에속하는종합합산과세대상토지는 수탁자의고유재산에속하는토지와합산하지아니한다.",
+        "토지와주택에대한재산세과세대상은종합합산과세대 상, 별도합산과세대상및분리과세대상으로구분한다.",
+        "국가가선수금을받아조성하는매매용토지로서사실상 조성이완료된토지의사용권을무상으로받은자는재 산세를납부할의무가없다.",
+        "주택부속토지의경계가명백하지아니한경우그주택 의바닥면적의20배에해당하는토지를주택의부속토 지로한다.",
+        "재산세과세대상인건축물의범위에는주택을포함한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#27번"
+      ],
+      "question": "지방세법상재산세의부과ㆍ징수에관한설명으로옳 은것은모두몇개인가?(단, 비과세는고려하지않음)",
+      "description": "○재산세의과세기준일은매년6월1일로한다.\n○토지의재산세납기는매년7월16일부터7월\n31일까지이다.\n○지방자치단체의장은재산세의납부할세액이\n500만원이하인경우250만원을초과하는금액\n은납부기한이지난날부터2개월이내분할납\n부하게할수있다.\n○재산세는관할지방자치단체의장이세액을산정\n하여특별징수의방법으로부과ㆍ징수한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "0개",
+        "1개",
+        "2개",
+        "3개",
+        "4개"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#28번"
+      ],
+      "question": "소득세법상 거주자의 국내자산 양도소득세 계산에 관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "부동산에관한권리의양도로발생한양도차손은토지 의양도에서발생한양도소득금액에서공제할수없다.",
+        "양도일부터소급하여5년이내에그배우자로부터증여 받은토지의양도차익을계산할때그증여받은토지에 대하여납부한증여세는양도가액에서공제할필요경비 에산입하지아니한다.",
+        "취득원가에현재가치할인차금이포함된양도자산의보 유기간중사업소득금액계산시필요경비로산입한현 재가치할인차금상각액은양도차익을계산할때양도가 액에서공제할필요경비로본다.",
+        "특수관계인에게증여한자산에대해증여자인거주자에 게양도소득세가과세되는경우수증자가부담한증여 세상당액은양도가액에서공제할필요경비에산입한다.",
+        "거주자가특수관계인과의거래(시가와거래가액의차액 이5억원임)에있어서토지를시가에미달하게양도함으 로써조세의부담을부당히감소시킨것으로인정되는 때에는그양도가액을시가에의하여계산한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#29번"
+      ],
+      "question": "소득세법상거주자의양도소득과관련된다음자료 에의한양도소득세감면액은?(단, 조세특례제한법은 고려하지않음)",
+      "description": "○양도소득과세표준 20,000,000원\n○감면대상양도소득금액 7,500,000원\n○양도소득기본공제 2,500,000원\n○양도소득산출세액 10,000,000원\n○감면율 50%",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "1,250,000원",
+        "1,750,000원",
+        "2,500,000원",
+        "3,750,000원",
+        "5,000,000원"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 0,
+      "answers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "isMultipleAnswer": true,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#30번"
+      ],
+      "question": "소득세법상거주자의국내토지에대한양도소득과세표 준및세액의신고ㆍ납부에관한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "법령에따른부담부증여의채무액에해당하는부분으로 서양도로보는경우그양도일이속하는달의말일부터 3개월이내에양도소득과세표준을납세지관할세무서장 에게신고하여야한다.",
+        "예정신고납부를하는경우예정신고산출세액에서감면 세액을빼고수시부과세액이있을때에는이를공제하지 아니한세액을납부한다.",
+        "예정신고납부할세액이2천만원을초과하는때에는그 세액의100분의50 이하의금액을납부기한이지난후 2개월이내에분할납부할수있다.",
+        "당해연도에누진세율의적용대상자산에대한예정신고 를2회이상한자가법령에따라이미신고한양도소 득금액과합산하여신고하지아니한경우에는양도소득 과세표준의확정신고를하여야한다.",
+        "양도차익이없거나양도차손이발생한경우에도양도소 득과세표준의예정신고를하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#31번"
+      ],
+      "question": "지방세기본법및지방세법상용어의정의에관한설 명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "“보통징수”란지방세를징수할때편의상징수할여건이 좋은자로하여금징수하게하고그징수한세금을납부 하게하는것을말한다.",
+        "취득세에서사용하는용어중“부동산”이란토지및건 축물을말한다.",
+        "“세무공무원”이란지방자치단체의장또는지방세의부 과ㆍ징수등에관한사무를위임받은공무원을말한다.",
+        "“납세자”란납세의무자(연대납세의무자와제2차납세의 무자및보증인포함)와특별징수의무자를말한다.",
+        "“지방자치단체의징수금”이란지방세와가산금및체납 처분비를말한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#32번"
+      ],
+      "question": "소득세법상거주자(해당국외자산 양도일까지계속 5년이상국내에주소를두고있음)가2020년에양 도한국외자산의양도소득세에관한설명으로틀린 것은?(단, 국외외화차입에의한취득은없음)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "국외에있는부동산에관한권리로서미등기양도자산의 양도로발생하는소득은양도소득의범위에포함된다.",
+        "국외토지의양도에대한양도소득세를계산하는경우에 는장기보유특별공제액은공제하지아니한다.",
+        "양도당시의실지거래가액이확인되더라도외국정부의평 가가액을양도가액으로먼저적용한다.",
+        "해당과세기간에다른자산의양도가없을경우국외토지 의양도에대한양도소득이있는거주자에대해서는해당 과세기간의양도소득금액에서연250만원을공제한다.",
+        "국외토지의양도소득에대하여해당외국에서과세를 하는경우로서법령이정한그국외자산양도소득세액 을납부하였거나납부할것이있을때에는외국납부세 액의세액공제방법과필요경비산입방법중하나를선 택하여적용할수있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#33번"
+      ],
+      "question": "지방세법상2020년납세의무가성립하는지역자원시 설세에관한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "오물처리시설에충당하는지역자원시설세는토지및건 축물의전부또는일부에대한가액을과세표준으로하 여부과하되, 그표준세율은토지또는건축물가액의1 만분의2.3으로한다.",
+        "지역자원시설세의 과세대상인 특정부동산은 소방시설, 오물처리시설, 수리시설, 그밖의공공시설로인하여이 익을받는자의건축물, 선박및토지이다.",
+        "주거용이아닌4층이상10층이하의건축물등법령으로 정하는화재위험건축물에대해서는법령에따른표준세 율에따라산출한금액의100분의200을세액으로한다.",
+        "지방세법에따라재산세가비과세되는건축물에대하여 도지역자원시설세는부과된다.",
+        "지하자원이과세대상인경우납세지는광업권이등록된 토지의소재지이다. 다만, 광업권이등록된토지가둘이 상의지방자치단체에걸쳐있는경우에는광업권이등록 된토지의면적에따라안분한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#34번"
+      ],
+      "question": "소득세법상거주자의국내소재1세대1주택인고가 주택과그양도소득세에관한설명으로틀린것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "거주자가2019년취득후계속거주한법령에따른고 가주택을2020년5월에양도하는경우장기보유특별공 제의대상이되지않는다.",
+        "“고가주택”이란기준시가9억원을초과하는주택을말한다.",
+        "법령에따른고가주택에해당하는자산의장기보유특별 공제액은소득세법제95조제2항에따른장기보유특별공 제액에“양도가액에서9억원을차감한금액이양도가액 에서차지하는비율”을곱하여산출한다.",
+        "법령에따른고가주택에해당하는자산의양도차익은소 득세법제95조제1항에따른양도차익에“양도가액에서 9억원을차감한금액이양도가액에서차지하는비율”을 곱하여산출한다.",
+        "건축법시행령[별표1]에의한다가구주택을구획된부분 별로양도하지아니하고하나의매매단위로양도하여단독 주택으로보는다가구주택의경우에는그전체를하나의 주택으로보아법령에따른고가주택여부를판단한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#35번"
+      ],
+      "question": "지방세법상부동산등기에대한등록면허세의표준 세율로서틀린것은?(단, 부동산등기에대한표준세 율을적용하여산출한세액이그밖의등기또는등 록세율보다크다고가정하며, 중과세및비과세와지 방세특례제한법은고려하지않음)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "소유권보존: 부동산가액의1천분의8",
+        "가처분: 부동산가액의1천분의2",
+        "지역권설정: 요역지가액의1천분의2",
+        "전세권이전: 전세금액의1천분의2",
+        "상속으로인한소유권이전: 부동산가액의1천분의8"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#36번"
+      ],
+      "question": "지방세법상취득세에관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "국가및외국정부의취득에대해서는취득세를부과한다.",
+        "토지의지목변경에따른취득은토지의지목이사실상 변경된날을취득일로본다.",
+        "국가가취득세과세물건을매각하면매각일부터60일 이내에지방자치단체의장에게신고하여야한다.",
+        "법인이아닌자가건축물을건축하여취득하는경우취 득가격중100분의80 이상이법인장부에따라입증되 는경우그취득가격을과세표준으로한다.",
+        "토지를취득한자가그취득한날부터1년이내에그에 인접한토지를취득한경우그전후의취득에관한토 지의취득을1건의토지취득으로보아취득세에대한 면세점을적용한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#37번"
+      ],
+      "question": "지방세법상등록면허세에관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "지방자치단체의장은등록면허세의세율을표준세율의 100분의60의범위에서가감할수있다.",
+        "등록당시에감가상각의사유로가액이달라진경우그 가액에대한증명여부에관계없이변경전가액을과세 표준으로한다.",
+        "부동산등록에대한신고가없는경우취득당시시가 표준액의100분의110을과세표준으로한다.",
+        "지목이묘지인토지의등록에대하여등록면허세를부과한다.",
+        "부동산등기에대한등록면허세의납세지는부동산소 재지로하며, 납세지가분명하지아니한경우에는등록 관청소재지로한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#38번"
+      ],
+      "question": "소득세법상 거주자의 부동산과 관련된 사업소득에 관한설명으로옳은것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "국외에소재하는주택의임대소득은주택수에관계없 이과세하지아니한다.",
+        "공익사업을위한토지등의취득및보상에관한법률 에따른공익사업과관련하여지역권을대여함으로써 발생하는소득은부동산업에서발생하는소득으로한다.",
+        "부동산임대업에서발생하는사업소득의납세지는부동 산소재지로한다.",
+        "국내에소재하는논ㆍ밭을작물생산에이용하게함으 로써발생하는사업소득은소득세를과세하지아니한다.",
+        "주거용건물임대업에서발생한결손금은종합소득과 세표준을계산할때공제하지아니한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#39번"
+      ],
+      "question": "종합부동산세법상종합부동산세에관한설명으로틀 린것은?(단, 감면및비과세와지방세특례제한법또 는조세특례제한법은고려하지않음)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "종합부동산세의과세기준일은매년6월1일로한다.",
+        "종합부동산세의납세의무자가비거주자인개인으로서국 내사업장이없고국내원천소득이발생하지아니하는1주 택을소유한경우그주택소재지를납세지로정한다.",
+        "과세기준일현재토지분재산세의납세의무자로서국내 에소재하는종합합산과세대상토지의공시가격을합한 금액이5억원을초과하는자는해당토지에대한종합 부동산세를납부할의무가있다.",
+        "종합합산과세대상토지의재산세로부과된세액이세부담 상한을적용받는경우그상한을적용받기전의세액을 종합합산과세대상토지분종합부동산세액에서공제한다.",
+        "관할세무서장은종합부동산세를징수하고자하는때에는 납세고지서에주택및토지로구분한과세표준과세액을 기재하여납부기간개시5일전까지발부하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#공인중개사",
+        "#2020년_31회",
+        "#2차_2교시",
+        "#부동산 공시에 관한 법령 및 부동산 관련 세법",
+        "#40번"
+      ],
+      "question": "지방세법상취득세또는등록면허세의신고ㆍ납부에 관한설명으로옳은것은?(단, 비과세및지방세특례 제한법은고려하지않음)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "상속으로취득세과세물건을취득한자는상속개시일로 부터6개월이내에과세표준과세액을신고ㆍ납부하여 야한다.",
+        "취득세과세물건을취득한후중과세대상이되었을때 에는표준세율을적용하여산출한세액에서이미납부 한세액(가산세포함)을공제한금액을세액으로하여 신고ㆍ납부하여야한다.",
+        "지목변경으로인한취득세납세의무자가신고를하지 아니하고매각하는경우산출세액에100분의80을가산 한금액을세액으로하여징수한다.",
+        "등록을하려는자가등록면허세신고의무를다하지않 고산출세액을등록전까지납부한경우지방세기본법 에따른무신고가산세를부과한다.",
+        "등기ㆍ등록관서의장은등기또는등록후에등록면허 세가납부되지아니하였거나납부부족액을발견한경우 에는다음달10일까지납세지를관할하는시장ㆍ군수 ㆍ구청장에게통보하여야한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 5,
+      "answers": [
+        5
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}
