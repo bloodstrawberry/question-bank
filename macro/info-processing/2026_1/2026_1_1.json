@@ -1,0 +1,1704 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#1번"
+      ],
+      "question": "소프트웨어 공학의 기본 원칙이라고 볼 수 없는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "품질 높은 소프트웨어 상품 개발",
+        "지속적인 검증 시행",
+        "결과에 대한 명확한 기록 유지",
+        "최대한 많은 인력 투입"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#2번"
+      ],
+      "question": "다음 중 CASE의 장점이 아닌 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "자동화된 기법을 통해 소프트웨어 품질이 향상된다.",
+        "소프트웨어의 유지 보수를 간편하게 수행할 수 있다.",
+        "소프트웨어의 생산성이 향상된다.",
+        "소프트웨어 모듈의 재사용성이 줄어든다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#3번"
+      ],
+      "question": "객체에게 어떤 행위를 하도록 지시하는 명령은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Class",
+        "Package",
+        "Object",
+        "Message"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#4번"
+      ],
+      "question": "분산 시스템에서의 미들웨어(Middleware)와 관련한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "분산 시스템에서 다양한 부분을 관리하고 통신하며 데이터를 교환하게해 주는 소프트웨어로 볼 수 있다.",
+        "위치 투명성(Location Transparency)을 제공한다.",
+        "분산 시스템의 여러 컴포넌트가 요구하는 재사용 가능한 서비 스의 구현을 제공한다.",
+        "애플리케이션과 사용자 사이에서만 분산 서비스를 제공한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#5번"
+      ],
+      "question": "기본 유스케이스 수행 시 특별한 조건을 만족할 때 수행하는 유스케이스는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "연관",
+        "확장",
+        "선택",
+        "특화"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#6번"
+      ],
+      "question": "다음 중 소프트웨어 요구 사항 분석을 위해 대상이 되는 목표 집단에 속한 사용자 유형의 대표가 되는 가상 인물에 대한 표현으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "페르소나",
+        "진첩도",
+        "번업 차트",
+        "스토리 맵"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#7번"
+      ],
+      "question": "파이프 필터 형태의 소프트웨어 아키텍처에 대한 설명으로 옳은 것은?",
+      "description": "① 노드와 간선으로 구성된다. ② 서브 시스템이 입력 데이터를 받아 처리하고 결과를 다음 서브 시스템으로 넘겨주는 과정을 반복한다. 년 1회 정보 처리 기사 필기",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#8번"
+      ],
+      "question": "분산 시스템을 위한 마스터슬레이브- (Master-Slave) 아키텍처에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "일반적으로 실시간 시스템에서 사용된다.",
+        "마스터 프로세스는 일반적으로 연산 통신 조정을, 책임진다.",
+        "슬레이브 프로세스는 데이터 수집 기능을 수행할 수 없다.",
+        "마스터 프로세스는 슬레이브 프로세스들을 제어할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#9번"
+      ],
+      "question": "소프트웨어 아키텍처 모델 중 MVC(Model-View-Controller)와 관련한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "MVC 모델은 사용자 인터페이스를 담당하는 계층의 응집도를 높일 수 있고 여러, 개의 다른 UI를 만들어 그 사이에 결합도를 낮출 수 있다.",
+        "모델(Model)은 뷰(View)와 제어(Controller) 사이에서 전달자 역할을 하며 뷰마다, 모델 서브 시스템이 각각 하나씩 연결된다.",
+        "뷰(View)는 모델(Model)에 있는 데이터를 사용자 인터페이스에 보이는 역할을 담당한다.",
+        "제어(Controller)는 모델(Model)에 명령을 보냄으로써 모델의 상태를 변경할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#10번"
+      ],
+      "question": "다음 내용이 설명하는 디자인 패턴은?",
+      "description": "ㆍ하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없\n다.\nㆍ클래스 내에서 인스턴스가 하나뿐임을 보장하며, 불필 요한 메모리 낭비를 최소화할 수 있다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Singleton",
+        "Adapter",
+        "Prototype",
+        "Decorator"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#11번"
+      ],
+      "question": "명백한 역할을 가지고 독립적으로 존재할 수 있는 시스템의 부분으로 넓은 의미에서는 재사용되는 모든 단위라고 볼 수 있으며 인터 페이, 스를 통해서만 접근할 수 있는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Model",
+        "Sheet",
+        "Component",
+        "Cell"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#12번"
+      ],
+      "question": "아키텍처 설계 과정이 올바른 순서로 나열된 것은?",
+      "description": "㉮ 설계 목표 설정 ㉯ 시스템 타입 결정 ㉰ 스타일 적용 및 커스터마이즈\n㉱ 서브시스템의 기능인터페이스,      동작 작성\n㉲ 아키텍처 설계 검토",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "㉮ → ㉯ → ㉰ → ㉱ → ㉲",
+        "㉲ → ㉮ → ㉯ → ㉱ → ㉰",
+        "㉮ → ㉲ → ㉯ → ㉱ → ㉰",
+        "㉮ → ㉯ → ㉰ → ㉲ → ㉱"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#13번"
+      ],
+      "question": "순차 다이어그램(Sequence Diagram)과 관련한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "객체들의 상호 작용을 나타내기 위해 사용한다.",
+        "시간의 흐름에 따라 객체들이 주고 받는 메시지의 전달 과정을 강조한다.",
+        "동적 다이어그램보다는 정적 다이어그램에 가깝다.",
+        "교류 다이어그램(Interaction Diagram)의 한 종류로 볼 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#14번"
+      ],
+      "question": "다음 설명에 해당하는 시스템으로 옳은 것은?",
+      "description": "시스템 인터페이스를 구성하는 시스템으로, 연계할 데이 터를 데이터베이스와 애플리케이션으로부터 연계 테이블 또는 파일 형태로 생성하며 송신하는 시스템이다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "연계 서버",
+        "중계 서버",
+        "송신 시스템",
+        "수신 시스템"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#15번"
+      ],
+      "question": "통신을 위한 프로그램을 생성하여 포트를 할당하고 클라이언트의, 통신 요청 시 클라이언트와 연결하는 내외 부· 송· 수신 연계 기술은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "DB링크 기술",
+        "소켓 기술",
+        "스크럼 기술",
+        "프로토타입 기술"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#16번"
+      ],
+      "question": "입력되는 데이터를 컴퓨터의 프로세서가 처리하기 전에 미리 처리하여 프로세서가 처리하는 시간을 줄여 주는 프로그램이나 하드웨어를 말하는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "EAI",
+        "FEP",
+        "GPL",
+        "Duplexing"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#17번"
+      ],
+      "question": "다음 중 비기능 요구 사항에 대한 설명으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "은행의 조회 입금 출금 이체, 등이 어떻게 수행되는지 여부는 비기능 요구 사항에 해당한다.",
+        "처리 속도 및 시간 처리 량, 등의 성능에 대한 요구 사항은 비기 능 요구 사항에 해당하지 않는다.",
+        "보안 및 접근 통제를 위한 요구 사항은 비기능 요구 사항에 해당하지 않는다.",
+        "“차량 대여 시스템에서 제공하는 모든 화면은 3초 안에 사용자에게 보여야한다는” 것은 비기능 요구 사항에 해당한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#18번"
+      ],
+      "question": "CASE에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "소프트웨어 모듈의 재사용성이 향상된다.",
+        "자동화된 기법을 통해 소프트웨어 품질이 향상된다.",
+        "소프트웨어 사용자들이 소프트웨어 사용 방법을 신속히 숙지할 수 있도록 개발된 자동화 패키지이다.",
+        "소프트웨어 유지 보수를 간편하게 수행할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#19번"
+      ],
+      "question": "GoF(Gangs of Four) 디자인 패턴 분류에 해당하지 않는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "생성 패턴",
+        "객체 패턴",
+        "행위 패턴",
+        "구조 패턴"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2026년_1회",
+        "#1과목_소프트웨어설계",
+        "#20번"
+      ],
+      "question": "캡슐화된 객체 내부의 자료 구조 또는 함수 이용이 외부에 영향을 받지 않기 위해 부작용을 최소화한 객체 지향 개념은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Finding",
+        "Inheritance",
+        "Information Hiding",
+        "Polymorphism"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}

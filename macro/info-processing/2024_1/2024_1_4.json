@@ -1,0 +1,1704 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#61번"
+      ],
+      "question": "C 언어에서 문자열 처리 함수의 서식과 그 기능의 연결로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "strlen(s) - s의 길이를 구한다.",
+        "strcpy(s1, s2) - s2를 s1으로 복사한다.",
+        "strcmp(s1, s2) - s1과 s2를 연결한다.",
+        "strrev(s)－s를 거꾸로 변환한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#62번"
+      ],
+      "question": "다음 C 언어 프로그램의 결과로 옳은 것은?",
+      "description": "#include <stdio.h>\nmain( ) {\nint a[10];\na[0] = 0;\na[1] = 1;\nfor (int  i = 0;  i < 8; i++)\na[i + 2] = a[i + 1] + a[i];\nprintf(\"%d\", a[9]);\n}",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "8",
+        "13",
+        "21",
+        "34"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#63번"
+      ],
+      "question": "IPv6에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "128비트의 주소 공간을 제공한다.",
+        "인증 및 보안 기능을 포함하고 있다.",
+        "패킷 크기가 64Kbyte로 고정되어 있다.",
+        "IPv6 확장 헤더를 통해 네트워크 기능 확장이 용이하다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#64번"
+      ],
+      "question": "파이썬의 변수 작성 규칙 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "첫 자리에 숫자를 사용할 수 없다.",
+        "영문 대문자/ 소문자, 숫자, 밑줄(_)의 사용이 가능하다.",
+        "변수 이름의 중간에 공백을 사용할 수 있다.",
+        "이미 사용되고 있는 예약어는 사용할 수 없다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#65번"
+      ],
+      "question": "스레드(Thread)에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "한 개의 프로세스는 여러 개의 스레드를 가질 수 없다.",
+        "커널 스레드의 경우 운영 체제에 의해 스레드를 운용한다.",
+        "사용자 스레드의 경우 사용자가 만든 라이브러리를 사용하여 스레드를 운용한다.",
+        "스레드를 사용함으로써 하드웨어, 운영 체제의 성능과 응용 프 로 그램의 처리율을 향상시킬 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#66번"
+      ],
+      "question": "HRN 방식으로 스케줄링 할 경우, 입력된 작업이 다음과 같을 때 처리되는 작업 순서로 옳은 것은?",
+      "description": "작업    대기 시간     서비스(실행)시간\nA           5               20\nB           40               20\nC           15               45\nD           20               2",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "A → B → C → D",
+        "A → C → B → D",
+        "D → B → C → A",
+        "D → A → B → C"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#67번"
+      ],
+      "question": "다음 자바 코드를 실행한 결과는?",
+      "description": "int x=1, y=6;\nwhile (y--) {\nx++;\n}\nSystem.out.println(\"x=\" x+\"y=\" y);",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "x＝7 y＝0",
+        "x＝6 y＝",
+        "x＝7 y＝",
+        "Unresolved compilation problem 오류 발생"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#68번"
+      ],
+      "question": "C 언어에서 산술 연산 자가 아닌 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "%",
+        "*",
+        "/",
+        "="
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#69번"
+      ],
+      "question": "다음 JAVA 프로그램이 실행되었을 때의 결과는?",
+      "description": "public class Operator {\npublic static void main(String[] args) {\nint x=5, y=0, z=0;\ny = x++;\nz = --x;\nSystem.out.print(x + \", \" + y +\", \" +z);\n}\n}",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "5, 5, 5",
+        "5, 6, 5",
+        "6, 5, 5",
+        "5, 6, 4"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#70번"
+      ],
+      "question": "C Class에 속하는 IP address는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "200.168.30.1",
+        "10.3.2.1 4",
+        "225.2.4.1",
+        "172.16.98.3"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#71번"
+      ],
+      "question": "빈 기억 공간의 크기가 20KB, 16KB, 8KB, 40KB 일 때 기억 장치 배치 전략으로 “Best Fit”을 사용하여 17KB의 프로그램을 적재할 경우 내부 단편화의 크기는 얼마인가?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "3KB",
+        "23KB",
+        "64KB",
+        "67KB"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#72번"
+      ],
+      "question": "다음의 페이지 참조 열(Page reference)에 대해 페이지 교체 기법 으로 선 입 선출 알고리즘을 사용할 경우 페이지 부재(Page Fault) 횟수는? (단, 할당된 페이지 프레임 수는 3 이고, 처음에는 모든 프레임이 비어 있다.)",
+      "description": "<페이지 참조 열> 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "13",
+        "14",
+        "15",
+        "20"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#73번"
+      ],
+      "question": "UNIX에서 새로운 프로세스를 생성하는 명령어는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ls",
+        "cat",
+        "fork",
+        "chmod"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#74번"
+      ],
+      "question": "페이징 기법에서 페이지 크기가 작아질수록 발생하는 현상이 아닌 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "기억 장소 이용 효율이 증가한다.",
+        "입· 출력 시간이 늘어난다.",
+        "내부 단편화가 감소한다.",
+        "페이지 맵 테이블의 크기가 감소한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#75번"
+      ],
+      "question": "C 언어에서 두 개의 논리 값 중 하나라도 참이면 1을, 모두 거짓이면 0을 반환하는 연산자는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "∥",
+        "&&",
+        "**",
+        "!="
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#76번"
+      ],
+      "question": "IPv6의 주소 체계로 거리가 먼 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Unicast",
+        "Anycast",
+        "Broadcast",
+        "Multicast"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#77번"
+      ],
+      "question": "어떤 모듈이 다른 모듈의 내부 논리 조직을 제어하기 위한 목적으로 제어 신호를 이용하여 통신하는 경우이며, 하위 모듈에서 상위 모듈로 제어 신호가 이동하여 상위 모듈에게 처리 명령을 부여하는 권리 전도 현상이 발생하게 되는 결합도는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Data Coupling",
+        "Stamp Coupling",
+        "Control Coupling",
+        "Common Coupling"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#78번"
+      ],
+      "question": "TCP/IP에서 사용되는 논리 주소를 물리 주소로 변환시켜 주는 프로 토 콜은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "TCP",
+        "ARP",
+        "FTP",
+        "IP"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#79번"
+      ],
+      "question": "운영 체제의 가상 기억 장치 관리에서 프로세스가 일정 시간 동안 자주 참조하는 페이지들의 집합을 의미하는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Locality",
+        "Deadlock",
+        "Thrashing",
+        "Working Set"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2024년_1회",
+        "#4과목_프로그래밍언어활용",
+        "#80번"
+      ],
+      "question": "다음 설명에 해당하는 방식은?",
+      "description": "ㆍ무선 랜에서 데이터 전송 시, 매체가 비어 있음을 확인한 뒤 충돌을 회피하기 위해 임의 시간을 기다린 후 데 이터를 전송하는 방법이다.\nㆍ네트워크에 데이터의 전송이 없는 경우라도 동시 전송에 의한 충돌에 대비하여 확인 신호를 전송한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "STA",
+        "Collision Domain",
+        "CSMA/CA",
+        "CSMA/CD"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}

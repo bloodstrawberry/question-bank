@@ -1,0 +1,1704 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#21번"
+      ],
+      "question": "반 정규화(Denormalization) 유형 중 중복 테이블을 추가하는 방법에 해당하지 않는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "빌 드 테이블의 추가",
+        "집계 테이블의 추가",
+        "진행 테이블의 추가",
+        "특정 부분만을 포함하는 테이블 추가"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#22번"
+      ],
+      "question": "알고리즘 시간 복잡 도 O(1)이 의미하는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "컴퓨터 처리가 불가",
+        "알고리즘 입력 데이터 수가 한 개",
+        "알고리즘 수행 시간이 입력 데이터 수와 관계없이 일정",
+        "알고리즘 길이가 입력 데이터보다 작음"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#23번"
+      ],
+      "question": "디지털 저작권 관리( )의 기술 요소가 아닌 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "크랙 방지 기술",
+        "정책 관리 기술",
+        "암호화 기술",
+        "방화벽 기술"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#24번"
+      ],
+      "question": "다음 트리를 Preorder 운행 법으로 운행할 경우 가장 먼저 탐색되는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "A",
+        "B",
+        "D",
+        "G"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#25번"
+      ],
+      "question": "인터페이스 보안을 위해 네트워크 영역에 적용될 수 있는 솔루션과 거리가 먼 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "IPSec",
+        "SSL",
+        "SMTP",
+        "S-HTTP"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#26번"
+      ],
+      "question": "저작권 관리 구성 요소에 대한 설명이 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "콘텐츠 제공자(Contents Provider) : 콘텐츠를 제공하는 저작권자",
+        "콘텐츠 분배자(Contents Distributor) : 콘텐츠를 메타 데이터와 함께 배포 가능한 단위로 묶는 기능",
+        "클리어 링 하우스(Clearing House) : 키 관리 및 라이선스 발급 관리",
+        "DRM 컨트롤러 : 배포된 콘텐츠의 이용 권한을 통제"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#27번"
+      ],
+      "question": "소프트웨어 패키징 도구 활용 시 고려 사항으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "반드시 내부 콘텐츠에 대한 암호화 및 보안을 고려한다.",
+        "보안을 위하여 이 기종 연동을 고려하지 않아도 된다.",
+        "사용자 편의성을 위한 복잡성 및 비효율성 문제를 고려한다.",
+        "제품 소프트웨어 종류에 적합한 암호화 알고리즘을 적용한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#28번"
+      ],
+      "question": "자료 구조에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "큐는 비선형 구조에 해당한다.",
+        "큐는 First In – First Out 처리를 수행한다.",
+        "스택은 Last In – First Out 처리를 수행한다.",
+        "스택은 서브루틴 호출인터럽트, 처리수 식, 계산 및 수식 표기 법에 응용된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#29번"
+      ],
+      "question": "순서가 A, B, C, D로 정해진 입력 자료를 스택에 입력한 후 출력한 결과로 불가능한 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "D, C, B, A",
+        "B, C, D, A",
+        "C, B, A, D",
+        "D, B, C, A"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#30번"
+      ],
+      "question": "다음 중 단위 테스트를 통해 발견할 수 있는 오류가 아닌 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "알고리즘 오류에 따른 원치 않는 결과",
+        "탈출구가 없는 반복 문의 사용",
+        "모듈 간의 비정상적 상호 작용으로 인한 원치 않는 결과",
+        "틀린 계산 수식에 의한 잘못된 결과"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#31번"
+      ],
+      "question": "다음 자료를 버블 정렬을 이용하여 오름 차 순으로 정렬할 경우 Pass 2의 결과는?",
+      "description": "9, 6, 7, 3, 5",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "3, 5, 6, 7, 9",
+        "6, 7, 3, 5, 9",
+        "3, 5, 9, 6, 7",
+        "6, 3, 5, 7, 9"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#32번"
+      ],
+      "question": "케이스 자동 생성 도구를 이용하여 테스트 데이터를 찾아내는 방법이 아닌 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "스터브(Stub)와 드라이버(Driver)",
+        "입력 도메인 분석",
+        "랜덤(Random) 테스트",
+        "자료 흐름도"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#33번"
+      ],
+      "question": "형상 관리의 개념과 절차에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "형상 식별은 형상 관리 계획을 근거로 형상 관리의 대상이 무엇 인지 식별하는 과정이다.",
+        "형상 관리를 통해 가시성과 추적성을 보장함으로써 소프트웨어의 생산성과 품질을 높일 수 있다.",
+        "형상 통제 과정에서는 형상 목록의 변경 요구를 즉시 수용 및 반영해야한다.",
+        "형상 감사는 형상 관리 계획대로 형상 관리가 진행되고 있는지, 형상 항목의 변경이 요구 사항에 맞도록 제대로 이뤄졌는지 등을 살펴보는 활동이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#34번"
+      ],
+      "question": "프로젝트에 내재된 위험 요소를 인식하고 그 영향을 분석하여 이를 관리하는 활동으로서 프로젝트를, 성공시키기 위하여 위험 요소를 사전에 예측 대비하는, 모든 기술과 활동을 포함하는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Critical Path Method",
+        "Risk Analysis",
+        "Work Breakdown Structure",
+        "Waterfall Model"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#35번"
+      ],
+      "question": "분할 정복(Divide and Conquer)에 기반한 알고리즘으로 피봇(pivot)을 사용하며 최악의 경우 회의 비교를 수행해야하는  정렬(Sort)은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Selection Sort",
+        "Bubble Sort",
+        "Insert Sort",
+        "Quick Sort"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#36번"
+      ],
+      "question": "클린 코드(Clean Code)를 작성하기 위한 원칙으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "추상화 : 하위 클래스 메소드 함수를/ / 통해 애플리케이션의 특성을 간략하게 나타내고 상세, 내용은 상위 클래스 메소드 함수/ /에서 구현한다.",
+        "의존성 : 다른 모듈에 미치는 영향을 최소화하도록 작성한다.",
+        "가독성 : 누구든지 읽기 쉽게 코드를 작성한다.",
+        "중복성 : 중복을 최소화할 수 있는 코드를 작성한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#37번"
+      ],
+      "question": "순서가 있는 리스트에서 데이터의 삽입(Push), 삭제(Pop)가 한 쪽 끝에서 일어나며 LIFO(Last _In-First-Out)의 특징을 가지는 자료 구조는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "Tree",
+        "Graph",
+        "Stack",
+        "Queue"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#38번"
+      ],
+      "question": "화이트박스 테스트와 관련한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "화이트박스 테스트의 이해를 위해 논리 흐름도(Logic-Flow Diagram)를 이용할 수 있다.",
+        "테스트 데이터를 이용해 실제 프로그램을 실행함으로써 오류를 찾는 동적 테스트(Dynamic Test)에 해당한다.",
+        "프로그램의 구조를 고려하지 않기 때문에 테스트 케이스는 프 로 그램 또는 모듈의 요구나 명세를 기초로 결정한다.",
+        "테스트 데이터를 선택하기 위하여 검증 기준(Test Coverage)을 정한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#39번"
+      ],
+      "question": "다음과 같이 레코드가 구성되어 있을 때 이 진, 검색 방법으로 14를 찾을 경우 비교되는 횟수는?",
+      "description": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#정보처리기사",
+        "#2023년_3회",
+        "#2과목_소프트웨어개발",
+        "#40번"
+      ],
+      "question": "DBMS의 필수 기능 중 모든 응용 프로그램들이 요구하는 데이터 구조를 지원하기 위해 데이터베이스에 저장될 데이터 타입과 구조에 대한 정의 이용, 방식 제약, 조건 등을 명시하는 기능은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "정의 기능",
+        "조작 기능",
+        "제어 기능",
+        "절차 기능"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}
