@@ -59,7 +59,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 공간정보관리법상 토지이동에 따른 지적정리 절차",
       "choiceExplanations": [
         "",
         "",
@@ -155,7 +155,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 지목의 설정원칙(1필1목, 주지목추종, 영속성)",
       "choiceExplanations": [
         "",
         "",
@@ -251,7 +251,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 지상경계점등록부 등록사항(소재, 지번, 경계점좌표, 경계점위치설명도)",
       "choiceExplanations": [
         "",
         "",
@@ -297,7 +297,7 @@
         "#4번"
       ],
       "question": "공간정보의 구축 및 관리 등에 관한 법령상 등록전환에 따른 지번 부여 시 그 지번 부여 지역의 최종 본 번의 다음 순번부터 본 번으로 하여 순차적으로 지번을 부여할 수 있는 경우에 해당하는 것을 모두 고른 것은?",
-      "description": "ㄱ. 대상 토지가 여러 필지로 되어 있는 경우\nㄴ. 대상 토지가 그 지번 부여 지역의 최종 지번의 토\n지에 인접하여 있는 경우\nㄷ. 대상 토지가 이미 등록된 토지와 멀리 떨어져\n있어서 등록된 토지의 본 번에 부 번을 부여하\n는 것이 불합리한 경우",
+      "description": "ㄱ. 대상 토지가 여러 필지로 되어 있는 경우\nㄴ. 대상 토지가 그 지번 부여 지역의 최종 지번의 토 지에 인접하여 있는 경우\nㄷ. 대상 토지가 이미 등록된 토지와 멀리 떨어져 있어서 등록된 토지의 본 번에 부 번을 부여하는 것이 불합리한 경우",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -347,7 +347,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 등록전환 시 지번부여 방법(인접토지 본번에 부번 부여)",
       "choiceExplanations": [
         "",
         "",
@@ -393,7 +393,7 @@
         "#5번"
       ],
       "question": "공간정보의 구축 및 관리 등에 관한 법령상 경계점좌표등록부가 있는 지역의 토지분할을 위하여 면적을 정할 때의 기준에 대한 내용이다. ()에 들어갈 내용으로 옳은 것은?(단, 다른 조건은 고려하지 아니함)",
-      "description": "○분할 후 각 필지의 면적 합계가 분할 전면적 보\n다 많은 경우에는 구하려는(ㄱ)부터 순차적\n으로버려서정하되, 분할 전면적에 증감이 없\n도록할 것\n○분할 후 각 필지의 면적 합계가 분할 전면적 보\n다 적은 경우에는 구하려는(ㄴ)부터 순차적\n으로 올려서 정하되, 분할 전면적에 증감이 없\n도록할 것",
+      "description": "○분할 후 각 필지의 면적 합계가 분할 전면적 보 다 많은 경우에는 구하려는(ㄱ)부터 순차적으로버려서정하되, 분할 전면적에 증감이 없 도록할 것\n○분할 후 각 필지의 면적 합계가 분할 전면적 보 다 적은 경우에는 구하려는(ㄴ)부터 순차적으로 올려서 정하되, 분할 전면적에 증감이 없 도록할 것",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -443,7 +443,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 경계점좌표등록부 시행지역 토지분할 면적결정(0.1㎡ 단위)",
       "choiceExplanations": [
         "",
         "",
@@ -539,7 +539,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 합병이 불가능한 사유(소유자, 지번부여지역, 지목, 축척 상이, 등기원인 상이 저당권)",
       "choiceExplanations": [
         "",
         "",
@@ -635,7 +635,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 지적소관청의 직권 등록사항 정정사유",
       "choiceExplanations": [
         "",
         "",
@@ -731,7 +731,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 잡종지 지목 판정기준(갈대밭, 실외체육시설, 쓰레기처리장 부지 등)",
       "choiceExplanations": [
         "",
         "",
@@ -827,7 +827,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 지적도·임야도 공통 축척(1/3000, 1/6000)",
       "choiceExplanations": [
         "",
         "",
@@ -923,7 +923,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 지적공부별 등록사항 연결(토지대장: 면적, 소유자 / 지적도: 지번, 지목, 경계)",
       "choiceExplanations": [
         "",
         "",
@@ -969,7 +969,7 @@
         "#11번"
       ],
       "question": "공간정보의 구축 및 관리 등에 관한 법령상 지적공부의 복구에 관한 관계 자료에 해당하는 것을 모두 고른 것은?",
-      "description": "ㄱ. 측량 결과도\nㄴ. 법원의 확정 판결 서정 본 또는 사본\nㄷ. 토지(건물)등기 사항 증명서 등 등기 사실을 증명\n하는 서류\nㄹ. 지적소관청이 작성하거나 발행한 지적공부의\n등록 내용을 증명하는 서류",
+      "description": "ㄱ. 측량 결과도\nㄴ. 법원의 확정 판결 서정 본 또는 사본\nㄷ. 토지(건물)등기 사항 증명서 등 등기 사실을 증명 하는 서류\nㄹ. 지적소관청이 작성하거나 발행한 지적공부의 등록 내용을 증명하는 서류",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -1019,7 +1019,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 지적공부 복구자료(등기부등본, 판결서 정본, 지적소관청 작성 서류)",
       "choiceExplanations": [
         "",
         "",
@@ -1115,7 +1115,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 축척변경위원회 심의·의결사항 및 청산금 산정",
       "choiceExplanations": [
         "",
         "",
@@ -1211,7 +1211,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 부동산등기법상 등기할 수 없는 사항(물권법정주의 위반 약정)",
       "choiceExplanations": [
         "",
         "",
@@ -1307,7 +1307,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 공동신청 대상 등기(저당권설정, 소유권이전, 지상권설정 등)",
       "choiceExplanations": [
         "",
         "",
@@ -1403,7 +1403,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 등기신청정보 및 인감증명서 첨부의무",
       "choiceExplanations": [
         "",
         "",
@@ -1449,7 +1449,7 @@
         "#16번"
       ],
       "question": "등기 신청의 각하 사유로서 ‘사건이 등기할 것이 아닌 경우’를 모두 고른 것은?",
-      "description": "ㄱ. 구분 건물의 전유부분과 대지사용권의 분리 처\n분 금지에 위반한 등기를 신청한 경우\nㄴ. 농지를 전세권 설정의 목적으로 하는 등기를\n신청한 경우\nㄷ. 공동 상속인 중 일부가 자신의 상속 지분만에\n대한 상속 등기를 신청한 경우\nㄹ. 소유권 외의 권리 가등기되어 있는 일반 건물\n에 대해 멸실등기를 신청한 경우",
+      "description": "ㄱ. 구분 건물의 전유부분과 대지사용권의 분리 처 분 금지에 위반한 등기를 신청한 경우\nㄴ. 농지를 전세권 설정의 목적으로 하는 등기를 신청한 경우\nㄷ. 공동 상속인 중 일부가 자신의 상속 지분만에 대한 상속 등기를 신청한 경우\nㄹ. 소유권 외의 권리 가등기되어 있는 일반 건물에 대해 멸실등기를 신청한 경우",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -1499,7 +1499,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 제29조 제2호 사건이 등기할 것이 아닌 경우(각하사유)",
       "choiceExplanations": [
         "",
         "",
@@ -1545,7 +1545,7 @@
         "#17번"
       ],
       "question": "진정 명의 회복을 위한 소유권이전등기에 관한 설명으로 옳은 것을 모두 고른 것은?",
-      "description": "ㄱ. 진정 명의 회복을 원인으로 하는 소유권 이전 등\n기를 신청하는 경우, 그 신청 정보에 등기원인\n일자는 기재하지 않는다.\nㄴ. 토지거래허가의 대상이 되는 토지에 관하여\n진정 명의 회복을 원인으로 하는 소유권 이전 등\n기를 신청하는 경우에는 토지거래허가증을 첨\n부해야한다.\nㄷ. 진정 명의 회복을 위한 소유권이전등기 청구 소송\n에서 승소 확정 판결을 받은 자는 그 판결을 등\n기 원인으로 하여 현재 등기 명의인의 소유권이\n전 등기에 대하여 말소등기를 신청할 수는 없다.",
+      "description": "ㄱ. 진정 명의 회복을 원인으로 하는 소유권 이전 등 기를 신청하는 경우, 그 신청 정보에 등기원인 일자는 기재하지 않는다.\nㄴ. 토지거래허가의 대상이 되는 토지에 관하여 진정 명의 회복을 원인으로 하는 소유권 이전 등 기를 신청하는 경우에는 토지거래허가증을 첨 부해야한다.\nㄷ. 진정 명의 회복을 위한 소유권이전등기 청구 소송에서 승소 확정 판결을 받은 자는 그 판결을 등 기 원인으로 하여 현재 등기 명의인의 소유권이 전 등기에 대하여 말소등기를 신청할 수는 없다.",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -1595,7 +1595,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 진정명의회복을 위한 소유권이전등기 절차 및 특징",
       "choiceExplanations": [
         "",
         "",
@@ -1691,7 +1691,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 등기의 효력(물권변동, 순위확정, 대항력, 추정력)",
       "choiceExplanations": [
         "",
         "",
@@ -1787,7 +1787,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 환매특약등기(매매등기와 동시 신청, 부기등기)",
       "choiceExplanations": [
         "",
         "",
@@ -1833,7 +1833,7 @@
         "#20번"
       ],
       "question": "임차권 등기에 관한 설명으로 옳은 것을 모두 고른 것은?",
-      "description": "ㄱ. 임차권설정등기가 마쳐진 후 임대차기간 중\n임대인의 동의를 얻어 임차 물을 전대하는 경\n우, 그 전대 등기는 부기 등기의 방법으로 한다.\nㄴ. 임차권등기명령에 의한 주택 임차권 등기가마\n쳐진 경우, 그 등기에 기초한 임차권 이전 등기\n를 할 수 있다.\nㄷ. 미등기 주택에 대하여 임차권등기명령에 의한 등\n기 촉탁이 있는 경우, 등기 관은 직권으로 소유권보존등기를 한 후 주택 임차권 등기를 해야한다.",
+      "description": "ㄱ. 임차권설정등기가 마쳐진 후 임대차기간 중 임대인의 동의를 얻어 임차 물을 전대하는 경 우, 그 전대 등기는 부기 등기의 방법으로 한다.\nㄴ. 임차권등기명령에 의한 주택 임차권 등기가마 쳐진 경우, 그 등기에 기초한 임차권 이전 등기를 할 수 있다.\nㄷ. 미등기 주택에 대하여 임차권등기명령에 의한 등 기 촉탁이 있는 경우, 등기 관은 직권으로 소유권보존등기를 한 후 주택 임차권 등기를 해야한다.",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -1883,7 +1883,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 주택임차권등기명령에 의한 등기의 촉탁 및 효력",
       "choiceExplanations": [
         "",
         "",
@@ -1929,7 +1929,7 @@
         "#21번"
       ],
       "question": "부동산 공동저당의 등기에 관한 설명으로 옳은 것을 모두 고른 것은?",
-      "description": "ㄱ. 공동저당의 설정 등기를 신청하는 경우, 각 부\n동산에 관한 권리의 표시를 신청 정보의 내용\n으로 등기소에 제공해야한다.\nㄴ. 등기 관이 공동저당의 설정 등기를 하는 경우,\n각 부동산의 등기 기록 중 해당 등기의 끝 부분\n에 공동 담보라는 뜻의 기록을 해야한다.\nㄷ. 등기 관이 공동저당의 설정 등기를 하는 경우,\n공동저당의 목적이 된 부동산이 3개일 때에는\n등 기관은 공동 담보 목록을 전자적으로 작성해\n야 한다.",
+      "description": "ㄱ. 공동저당의 설정 등기를 신청하는 경우, 각 부 동산에 관한 권리의 표시를 신청 정보의 내용으로 등기소에 제공해야한다.\nㄴ. 등기 관이 공동저당의 설정 등기를 하는 경우, 각 부동산의 등기 기록 중 해당 등기의 끝 부분에 공동 담보라는 뜻의 기록을 해야한다.\nㄷ. 등기 관이 공동저당의 설정 등기를 하는 경우, 공동저당의 목적이 된 부동산이 3개일 때에는 등 기관은 공동 담보 목록을 전자적으로 작성해 야 한다.",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -1979,7 +1979,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 공동저당등기 및 공동담보목록 작성(부동산 5개 이상)",
       "choiceExplanations": [
         "",
         "",
@@ -2025,7 +2025,7 @@
         "#22번"
       ],
       "question": "X 토지에 관하여 A 등기 청구권 보전을 위한 가등기 이후, B - C의 순서로 각 등기가 적법하게 마쳐졌다. B 등기가 직권 말소의 대상인 것은?(A, B, C 등기는 X",
-      "description": "를 목적으로 함)\nA B C",
+      "description": "를 목적으로 함) A B C",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -2075,7 +2075,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 가등기 후 본등기 시 중간처분등기의 직권말소",
       "choiceExplanations": [
         "",
         "",
@@ -2171,7 +2171,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 관공서의 등기촉탁 절차 및 예외",
       "choiceExplanations": [
         "",
         "",
@@ -2267,7 +2267,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 가등기상 권리의 이전등기(부기등기) 및 가등기 가처분명령",
       "choiceExplanations": [
         "",
         "",
@@ -2363,7 +2363,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 조세채권 우선권 및 피담보채권과의 우선순위(당해세 우선)",
       "choiceExplanations": [
         "",
         "",
@@ -2459,7 +2459,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 국세·지방세 징수권 소멸시효(5억원 이상 10년, 5억원 미만 5년)",
       "choiceExplanations": [
         "",
         "",
@@ -2555,7 +2555,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 종합부동산세 주택분 과세표준 및 1세대 1주택자 기본공제(12억원)",
       "choiceExplanations": [
         "",
         "",
@@ -2651,7 +2651,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ⑤\n[해설] 종합부동산세 토지분(종합합산 5억 초과, 별도합산 80억 초과)",
       "choiceExplanations": [
         "",
         "",
@@ -2747,7 +2747,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 취득세 과세표준(사실상 취득가격 원칙 적용)",
       "choiceExplanations": [
         "",
         "",
@@ -2843,7 +2843,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 취득세 중과세율(과밀억제권역, 사치성재산, 다주택자 중과)",
       "choiceExplanations": [
         "",
         "",
@@ -2939,7 +2939,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 취득세 표준세율(유상취득 주택 1~3%, 농지 3%, 일반 4%)",
       "choiceExplanations": [
         "",
         "",
@@ -3035,7 +3035,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 부동산임대업 사업소득(주거용 건물 임대소득 비과세 및 분리과세)",
       "choiceExplanations": [
         "",
         "",
@@ -3131,7 +3131,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ①\n[해설] 재산세 과세기준일(6월 1일) 현재 사실상 소유자의 납세의무",
       "choiceExplanations": [
         "",
         "",
@@ -3177,7 +3177,7 @@
         "#34번"
       ],
       "question": "지방세법 령상 재산세의 물 납에 관한 설명으로 옳은 것을 모두 고른 것은?",
-      "description": "ㄱ. 지방 자치 단체의 장은 재산세의 납부 세액이 1천만원을 초과하는 경우에는 납세의무자의 신\n청을 받아 해당 지방 자치 단체의 관할 구역에\n있는 부동산에 대하여만 대통령령으로 정하는\n바에 따라 물 납을 허가할 수 있다.\nㄴ. 시장ㆍ군수ㆍ구청장은 법령에 따라 불허가 통\n지를 받은 납세의무자가 그 통지를 받은 날부\n터 10일 이내에 해당 시ㆍ군ㆍ구의 관할 구역\n에 있는 부동산으로서 관리ㆍ처분이 가능한\n다른 부동산으로 변경 신청하는 경우에는 변\n경하여 허가할 수 있다.\nㄷ. 물 납을 허가하는 부동산의 가액은 물 납 허가\n일 현재의 시가로 한다.",
+      "description": "ㄱ. 지방 자치 단체의 장은 재산세의 납부 세액이 1천만원을 초과하는 경우에는 납세의무자의 신 청을 받아 해당 지방 자치 단체의 관할 구역에 있는 부동산에 대하여만 대통령령으로 정하는 바에 따라 물 납을 허가할 수 있다.\nㄴ. 시장ㆍ군수ㆍ구청장은 법령에 따라 불허가 통 지를 받은 납세의무자가 그 통지를 받은 날부 터 10일 이내에 해당 시ㆍ군ㆍ구의 관할 구역에 있는 부동산으로서 관리ㆍ처분이 가능한 다른 부동산으로 변경 신청하는 경우에는 변 경하여 허가할 수 있다.\nㄷ. 물 납을 허가하는 부동산의 가액은 물 납 허가 일 현재의 시가로 한다.",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -3227,7 +3227,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 재산세 물납 요건(납부세액 1천만원 초과, 관할구역 내 부동산)",
       "choiceExplanations": [
         "",
         "",
@@ -3323,7 +3323,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 재산세 분납 요건(납부세액 250만원 초과 시 2개월 이내 분납)",
       "choiceExplanations": [
         "",
         "",
@@ -3369,7 +3369,7 @@
         "#36번"
       ],
       "question": "다음 자료를 기초로 할 때 소득세법령상 국내 토지 A에 대한 양도소득세에 관한 설명으로 옳은 것은?(단,",
-      "description": "甲, 乙, 丙은 모두 거주자임)\n○甲은2018.6.20. 토지 A를 3억원에 취득하였으\n며, 2020.5.15. 토지 A에 대한 자본적 지출로 5천만원을 지출하였다.\n○乙은2022.7.1. 직계 존속인 甲으로부터 토지 A\n를 증여받아2022.7.25. 소유권이전등기를 마쳤\n다(토지 A의 증여 당시 시가는 6억원임).\n○乙은2024.10.20. 토지 A를 甲 또는 乙과 특수\n관계가 없는 丙에게 10억원에 양도하였다.\n○토지 A는 법령상 협의 매수 또는 수용된 적이\n없으며, 소득세법 제97조의 2 양도 소득의 필요\n경비 계산 특례(이월과세)를 적용하여 계산한\n양도 소득 결정 세액이 이를 적용하지 않고 계\n산 한 양도 소득 결정 세액보다 크다고 가정한다.",
+      "description": "甲, 乙, 丙은 모두 거주자임)\n○甲은2018.6.20. 토지 A를 3억원에 취득하였으며, 2020.5.15. 토지 A에 대한 자본적 지출로 5천만원을 지출하였다.\n○乙은2022.7.1. 직계 존속인 甲으로부터 토지 A를 증여받아2022.7.25. 소유권이전등기를 마쳤 다(토지 A의 증여 당시 시가는 6억원임).\n○乙은2024.10.20. 토지 A를 甲 또는 乙과 특수 관계가 없는 丙에게 10억원에 양도하였다.\n○토지 A는 법령상 협의 매수 또는 수용된 적이 없으며, 소득세법 제97조의 2 양도 소득의 필요 경비 계산 특례(이월과세)를 적용하여 계산한 양도 소득 결정 세액이 이를 적용하지 않고 계 산 한 양도 소득 결정 세액보다 크다고 가정한다.",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -3419,7 +3419,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 양도소득세 과세표준 계산 흐름(양도가액 - 취득가액 - 장특공제 - 기본공제)",
       "choiceExplanations": [
         "",
         "",
@@ -3465,7 +3465,7 @@
         "#37번"
       ],
       "question": "소득세법령상 다음의 국내 자산 중 양도소득세 과세대상에 해당하는 것을 모두 고른 것은?(단, 비과세와",
-      "description": "감면은 고려하지 않음)\nㄱ. 토지 및 건물과 함께 양도하는 ｢개발 제한 구역의 지정 및 관리에 관한 특별조치법｣에 따른 이 축\n권(해당 이 축권 가액을 대통령령으로 정하는 방\n법에 따라 별도로 평가하여 신고하지 않음)\nㄴ. 조합원 입주권\nㄷ. 지역권\nㄹ. 부동산 매매계약을 체결한 자가 계약금만 지급\n한 상태에서 양도하는 권리",
+      "description": "감면은 고려하지 않음)\nㄱ. 토지 및 건물과 함께 양도하는 ｢개발 제한 구역의 지정 및 관리에 관한 특별조치법｣에 따른이 축 권(해당이 축권 가액을 대통령령으로 정하는 방 법에 따라 별도로 평가하여 신고하지 않음)\nㄴ. 조합원 입주권\nㄷ. 지역권\nㄹ. 부동산 매매계약을 체결한 자가 계약금만 지급 한 상태에서 양도하는 권리",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -3515,7 +3515,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ③\n[해설] 양도소득세 과세대상물(토지·건물, 분양권, 영업권, 특정주식 등)",
       "choiceExplanations": [
         "",
         "",
@@ -3611,7 +3611,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 양도소득세 세율(보유기간별 차등세율, 다주택자 중과)",
       "choiceExplanations": [
         "",
         "",
@@ -3657,7 +3657,7 @@
         "#39번"
       ],
       "question": "소득세법령상 거주자가 2024년에 양도한 국외 자산의 양도소득세에 관한 설명으로 틀린 것은?(단, 거주자는",
-      "description": "해당 국외 자산 양도 일까지 계속 5년 이상 국내에 주소\n를 두고 있으며, 국외 외화 차입에 의한 취득은 없음)",
+      "description": "해당 국외 자산 양도 일까지 계속 5년 이상 국내에 주소를 두고 있으며, 국외 외화 차입에 의한 취득은 없음)",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -3707,7 +3707,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ②\n[해설] 국외자산 양도에 대한 양도소득세(5년 이상 국내 거주자 납세의무)",
       "choiceExplanations": [
         "",
         "",
@@ -3753,7 +3753,7 @@
         "#40번"
       ],
       "question": "다음 자료를 기초로 할 때 소득세법령상 거주자 甲 이 확정 신고 시 신고할 건물과 토지 B의 양도 소득 과세표준을 각각 계산하면?(단, 아래 자산 외의 양도 자산",
-      "description": "은 없고, 양도 소득 과세표준 예정 신고는 모두 하지 않\n았으며, 감면 소득 금액은 없다고 가정함)\n건물\n구분 토지 A 토지 B\n(주택 아님)\n양도 차익\n15,000,000원(20,000,000원) 25,000,000원\n(차손)\n양도 일자 2024.3.10.2024.5.20.2024.6.25.\n보유기간 1년 8개월 4년 3개월 3년 5개월\n* 위 자산은 모두 국내에 있으며 등기됨\n* 토지 A, 토지 B는 비사업용 토지 아님\n* 장기보유특별공제율은 6%로 가정함\n건물 토지 B",
+      "description": "은 없고, 양도 소득 과세표준 예정 신고는 모두 하지 않 았으며, 감면 소득 금액은 없다고 가정함) 건물 구분 토지 A 토지 B (주택 아님) 양도 차익 15,000,000원(20,000,000원) 25,000,000원 (차손) 양도 일자 2024.3.10.2024.5.20.2024.6.25.\n보유기간 1년 8개월 4년 3개월 3년 5개월\n* 위 자산은 모두 국내에 있으며 등기됨\n* 토지 A, 토지 B는 비사업용 토지 아님\n* 장기보유특별공제율은 6%로 가정함 건물 토지 B",
       "conceptLinks": [],
       "formulas": [],
       "explanationFormulas": [],
@@ -3803,7 +3803,7 @@
       "isMultipleAnswer": false,
       "showMultipleCount": true,
       "disableChoiceShuffle": false,
-      "explanation": "",
+      "explanation": "정답 ④\n[해설] 양도소득세 확정신고(다음 해 5월 1일~5월 31일)",
       "choiceExplanations": [
         "",
         "",
