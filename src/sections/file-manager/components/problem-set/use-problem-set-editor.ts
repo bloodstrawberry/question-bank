@@ -40,6 +40,21 @@ export function useProblemSetEditor({
   const dataRef = useRef(data);
   dataRef.current = data;
 
+  const handleCopyProblem = useCallback(() => {
+    if (!dataRef.current?.problems?.[currentIndex]) return;
+    const currentProb = dataRef.current.problems[currentIndex];
+    
+    // 백슬래시(\) 제거 함수
+    const cleanText = (text: string) => text.replace(/\\/g, '');
+
+    const { question, description, choices } = currentProb;
+    const choiceText = choices.map((c, i) => `${i + 1}) ${cleanText(c)}`).join('\n');
+    const textToCopy = `${cleanText(question)}${description ? `\n\n${cleanText(description)}` : ''}\n\n${choiceText}`;
+    
+    navigator.clipboard.writeText(textToCopy);
+    toast.success('복사되었습니다!');
+  }, [currentIndex]);
+
   useEffect(() => {
     const loadScript = async () => {
       setLoading(true);
@@ -299,6 +314,12 @@ export function useProblemSetEditor({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key.toLowerCase() === 'b') {
+        event.preventDefault();
+        handleCopyProblem();
+        return;
+      }
+
       if (event.ctrlKey && event.key.toLowerCase() === 's') {
         event.preventDefault();
         handleSave();
@@ -1362,5 +1383,6 @@ export function useProblemSetEditor({
     handleApplyBulk,
     handleOpenProblemBulkDialog,
     handleApplyProblemBulk,
+    handleCopyProblem,
   };
 }

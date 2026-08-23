@@ -1,0 +1,1704 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#41번"
+      ],
+      "question": "다음 중 사원 테이블 사원 번호 이름 직급 연봉 호봉에서(, ) 호봉이 6 인 사원의 연봉을 3 %씩 인상하는 SQL 문이 다 빈. 괄호에 알맞은 명령어는?",
+      "description": "Update 사원\n(     ) 연봉 = 연봉 * 1.03\n(     ) 호봉 = 6;",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "From, Where",
+        "Set, From",
+        "Set, Where",
+        "From, Set"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#42번"
+      ],
+      "question": "회원 회원 코드 성명 전화번호 비고 테이블에서(, ) 비고 필드에 회원 사진을 저장하려고할 때 가장 적합한 데이터 형식은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "긴 텍스트",
+        "하이퍼링크",
+        "일련 번호",
+        "첨부 파일"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#43번"
+      ],
+      "question": "다음 중 보고서의 각 구역에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "보고서 바닥글 영역에는 로고 보고서, 제목 날짜, 등을 삽입하며 보고서의, 모든 페이지에 출력된다.",
+        "페이지 머리 글 영역에는 열 제목 등을 삽입하며 모든, 페이지의 맨 위에 출력된다.",
+        "그룹 머리 글 바닥글/ 영역에는 일반적으로 그룹별 이름 요약, 정보 등을 삽입한다.",
+        "본문 영역은 실제 데이터가 레코드 단위로 반복 출력되는 부분 이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#44번"
+      ],
+      "question": "다음 중 폼에서의 탭 순서(Tab Order) 지정에 관한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "폼 보기에서 ‘탭키나’ ‘엔터 키를’ 눌렀을 때 포커스(Focus)의 이동 순서를 지정하는 것이다.",
+        "키보드를 이용하여 컨트롤 간 이동을 신속하게 할 수 있는 기능이다.",
+        "레이블 컨트롤을 포함한 모든 컨트롤에 탭 순서를 지정할 수 있다.",
+        "해당 컨트롤의 ‘탭 정지 속성을’ ‘아니오로’ 지정하면 탭 순서에서 제외된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#45번"
+      ],
+      "question": "다음 중 [홈] → 레코드 → Σ 요약에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "‘Σ 요약 기능이’ 설정된 상태에서 ‘텍스트 데이터’ 형식의 필드에는 ‘개수집계’ 함수만 지정할 수 있다.",
+        "‘Σ 요약 기능은’ 데이터시트 형식으로 표시되는 테이블 폼, 쿼리 보고서, 등에서 사용할 수 있다.",
+        "‘Σ 요약 기능을’ 실행했을 때 생기는 요약 행을 통해 집계 함수를 좀 더 쉽고 빠르게 사용할 수 있다.",
+        "‘Σ 요약 기능이’ 설정된 상태에서 ‘Yes/No’ 데이터 형식의 필드에 ‘개수집계’ 함수를 지정하면 체크된 레코드의 총 개수가 표시된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#46번"
+      ],
+      "question": "다음 중 분할 표시 폼에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "분할 표시 폼은 데이터시트 보기와 폼 보기를 동시에 표시하기 기능이며 이, 두 보기는 같은 데이터 원본에 연결되어 있어 항상 상호 동기화된다.",
+        "분할 표시 폼은 폼 보기나 데이터시트 보기 상태 모두 데이터의 변경이 가능하다.",
+        "일 대 다 관계가 설정된 두 테이블의 데이터를 한 화면에 표시할 수 있다.",
+        "분할 표시 폼은 [만들기탭의] [폼그룹에서] [기타 폼] → [폼 분할을] 클릭하여 만들 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#47번"
+      ],
+      "question": "다음 중 폼에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "폼은 테이블이나 질의쿼리를( ) 원본으로 하여 데이터의 입력, 수정 삭제 조회, 등의 작업을 편리하게 수행할 수 있도록 환경을 제공하는 개체이다.",
+        "디자인 보기 상태에서 ‘필드 목록 창을’ 이용하여 여러 개의 필드는 추가할 수 없으므로 필드를, 하나씩 더블 클릭하여 추 가한다.",
+        "컨트롤과 여러 도구 모음을 이용하여 시각적으로 다양한 작업 화면을 작성할 수 있다.",
+        "폼에 레이블이나 명령 단추만을 추가하여 언바운드 폼을 만들어 사용할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#48번"
+      ],
+      "question": "다음 중 데이터베이스의 3 단계 구조 중 하나로 데이터베이스 전체의 논리적인 구조를 보여 주는 스키마는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "외부 스키마",
+        "서브 스키마",
+        "개념 스키마",
+        "내부 스키마"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#49번"
+      ],
+      "question": "아래와 같이 조회할 고객의 최소 나이를 입력받아 검색하는 매개 변수 쿼리를 작성하려고한다 다음. 중 ‘Age’ 필드의 조건식으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        ">= {조회할 최소 나이 입력}",
+        ">=“조회할 최소 나이 입력”",
+        ">=[조회할 최소 나이 입력]",
+        ">=(조회할 최소 나이 입력)"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#50번"
+      ],
+      "question": "다음 중 직원 사원 번호 부서 명 이름 나이 근무 년수 급여 테이블(, )에서 ‘근무 년수가’ 3 이상인 직원들을 나이가 많은 순서대로 조회하되 같은, 나이일 경우 급여의 오름 차 순으로 모든 필드를 표시하는 SQL 문은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "select * from 직원 where 근무 년수 >= 3 order by 나이, 급여",
+        "select * from 직원 order by 나이급여, where 근무 년수 >= 3",
+        "select * from 직원 order by 나이 desc, 급여 asc where 근무 년수 >= 3",
+        "select * from 직원 where 근무 년수 >= 3 order by 나이 desc, 급여 asc"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#51번"
+      ],
+      "question": "다음 중 아래 두 개의 테이블 사이에서 외래 키(Foreign Key)에 해당하는 필드는? (단 밑줄은, 각 테이블의 기본 키를 표시함) 직원(사 번 성명부 서명 주소 전화 이메일, ) 부서(부서 명 팀장 팀원 수, )",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "직원 테이블의 사 번",
+        "부서 테이블의 팀원 수",
+        "부서 테이블의 팀장",
+        "직원 테이블의 부서 명"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#52번"
+      ],
+      "question": "다음 중 <학생> 테이블에서 ‘학년 필드가’ 1인 레코드의 개수를 계산하고자할 때의 수식으로 옳은 것은? (단, <학생> 테이블의 기본 키는 ‘학번 필드이다’ .)",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "=DLookup(“*”, “학생”, “학년=1”)",
+        "=DLookup(*, 학생학년, =1)",
+        "=DCount(학번학생학년, =1)",
+        "=DCount(“*”, “학생”, “학년=1”)"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#53번"
+      ],
+      "question": "다음 중 하위 쿼리(Sub Query)의 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "하위 폼이나 하위 보고서는 반드시 하위 쿼리를 사용해야한다.",
+        "주 쿼리에서 IN 조건부를 사용하여 하위 쿼리의 일부 레코드에 동일한 값이 있는 레코드만 검색할 수 있다.",
+        "SELECT 문의 필드 목록이나 WHERE 또는 HAVING 절에서 식 대신에 하위 쿼리를 사용할 수 있다.",
+        "주 쿼리에서 ALL 조건부를 사용하여 하위 쿼리에서 검색된 모든 레코드와 비교를 만족시키는 레코드만 검색할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#54번"
+      ],
+      "question": "다음 중 주어진 <Customer> 테이블을 참조하여 아래의 SQL 문을 실행한 결과로 옳은 것은?",
+      "description": "SELECT Count(*)\nFROM (SELECT Distinct City From Customer);",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "9"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#55번"
+      ],
+      "question": "탭 컨트롤에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "탭 형식의 대화 상자를 작성하는 컨트롤로 다른, 컨트롤을 탭 컨트롤로 복사하거나 추가할 수 있다.",
+        "탭 컨트롤의 바로 가기 메뉴에서 [페이지 삽입], [페이지 삭 제를] 선택하여 페이지를 추가하거나 삭제할 수 있다.",
+        "탭 컨트롤의 바로 가기 메뉴에서 [탭 순서를] 선택하여 탭 컨트롤 내의 페이지 표시 순서를 설정할 수 있다.",
+        "폼 디자인 도구의 컨트롤에서 탭 컨트롤 도구를 선택한 후 드래그하여 탭 컨트롤을 추가할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#56번"
+      ],
+      "question": "다음 중 폼 영역에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "연속 폼으로 설정하면 폼의 모든 영역이 반복되어 표시된다.",
+        "폼에는 기본적으로 세부 구역 본문이( ) 표시되며폼, 머리글바/ 닥글페이지, 머리글 바닥글/ 구역을 표시하거나 숨길 수 있다.",
+        "페이지 머리 글과 바닥글은 인쇄를 위해 사용된다.",
+        "폼은 기본적으로 본문 폼, 머리글 바닥글 페이지/, 머리 글 바닥/ 글 구역으로 구분된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#57번"
+      ],
+      "question": "다음과 같이 ‘제품 테이블의’ 레코드는 모두 표시되고 구매 테이블, ‘ ’에서는 ‘제품 번호 필드가’ 일치하는 레코드만 표시하는 조인 형식은 무엇인가?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "내부 조인(Inner Join)",
+        "왼쪽 외부 조인(Left Join)",
+        "오른쪽 외부 조인(Right Join)",
+        "카테션 곱(Cartesian Projuct Join)"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#58번"
+      ],
+      "question": "다음 화면에서 설정되어 있는 폼의 속성 값으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "캡션 : 주문 현황",
+        "탐색 단추 : 예",
+        "보기 형식 : 단일 폼",
+        "레코드 선택기 : 예"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#59번"
+      ],
+      "question": "다음 중 아래와 같이 표시된 폼의 탐색 단추에 대한 설명으로 옳지 않은 것은?",
+      "description": "㉠ ㉡    ㉢㉣",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "㉠ 첫 레코드로 이동한다.",
+        "㉡ 이전 레코드로 이동한다.",
+        "㉢ 마지막 레코드로 이동한다.",
+        "㉣ 이동할 레코드 번호를 입력하여 이동한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2024년_상시3회",
+        "#3과목_데이터베이스일반",
+        "#60번"
+      ],
+      "question": "다음 중 액세스의 매크로에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "반복적으로 수행되는 작업을 자동화하여 간단히 처리할 수 있도록하는 기능이다.",
+        "매크로 함수 또는 매크로 함수 집합으로 구성되며 각, 매크로 함수의 수행 방식을 제어하는 인수를 추가할 수 있다.",
+        "매크로를 이용하여 폼을 열고 닫거나 메시지 박스를 표시할 수도 있다.",
+        "매크로는 주로 컨트롤의 이벤트에 연결하여 사용하며 폼, 개체 내에서만 사용할 수 있다. 정답 1. ① 2. ③ 3. ① 4. ③ 5. ③ 11. ③ 12. ③ 13. ① 14. ③ 15. ③ 21. ② 22. ② 23. ② 24. ④ 25. ① 31. ① 32. ④ 33. ② 34. ③ 35. ② 41. ③ 42. ④ 43. ① 44. ③ 45. ② 51. ④ 52. ④ 53. ① 54. ② 55. ③ 6. ④ 7. ② 8. ① 9. ③ 10. ② 16. ① 17. ② 18. ④ 19. ④ 20. ③ 26. ① 27. ② 28. ④ 29. ① 30. ④ 36. ② 37. ④ 38. ③ 39. ③ 40. ① 46. ③ 47. ② 48. ③ 49. ③ 50. ④ 56. ① 57. ② 58. ③ 59. ④ 60. ④"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}

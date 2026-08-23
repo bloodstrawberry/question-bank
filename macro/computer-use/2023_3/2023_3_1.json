@@ -1,0 +1,1704 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#1번"
+      ],
+      "question": "다음 중 Windows 10의 바로 가기 키에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[Alt]+[Esc]는 ‘시작을’ 클릭한 것처럼 시작 메뉴를 표시한 다.",
+        "[Shift]+[F10]은 선택한 항목의 바로 가기 메뉴를 표시한다.",
+        "바로 가기 아이콘의 ‘속성 창에서’ 바로 가기 키를 지정할 수 있다.",
+        "[Alt]+[Enter]는 선택한 항목의 속성 대화 상자를 호출한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#2번"
+      ],
+      "question": "다음 중 한글 Windows 10에서 마우스의 끌어 놓기(Drag & Drop) 기능을 이용하여 할 수 있는 작업으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "파일을 마우스로 선택한 후 동일한 드라이브의 다른 폴더로 끌어서 놓으면 이동이 된다.",
+        "파일을 마우스로 선택한 후 다른 드라이브의 임의의 폴더로 끌어서 놓으면 복사가 된다.",
+        "파일을 마우스로 선택한 후 [Ctrl]을 누른 채 동일한 드라이브의 다른 폴더로 끌어서 놓으면 복사가 된다.",
+        "USB에 저장되어 있는 파일을 C 드라이브로 끌어서 놓으면 이동이 된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#3번"
+      ],
+      "question": "다음 중 Windows 10의 [메모장에] 관한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "텍스트 파일이나 웹 페이지를 편집하는 간단한 도구로 사용할 수 있다.",
+        "[이동 명령으로] 원하는 줄 번호를 입력하여 문서의 특정 줄로 이동할 수 있으며 자동, 줄 바꿈이 설정된 경우에도 이동 명령을 사용할 수 있다.",
+        "특정 문자나 단어를 찾아서 바꾸거나 창, 크기에 맞추어 텍스 트 줄을 바꾸어 문서의 내용을 표시할 수 있다.",
+        "머리 글과 바닥글을 설정하여 문서의 위쪽과 아래 쪽 여백에 원하는 텍스트를 표시하여 인쇄할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#4번"
+      ],
+      "question": "다음 중 한글 Windows 10에서의 프린터 설치에 관한 설명으로 옳지 않은 것은?",
+      "description": "① 프린터를 설치하려면 [설정] → [장치] → [프린터 및 스캐너]에서 ‘프린터 또는 스캐너 추가를’ 선택한다. ② 새로운 프린터를 설치하는 과정에서 네트워크 프린터를 기본 프린터로 설정하려면 반드시 스풀링의 설정이 필요하다. ③ 로컬 프린터 설치 시 프린터가 USB(범용 직렬 버스 모델인) 경우에는 프린터를 컴퓨터에 연결하면 Windows에서 자동 으로 검색하고 설치한다. 퓨터 활용 능력 1 급 상시 03",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[1번 그림/표]",
+        "[2번 그림/표]",
+        "[3번 그림/표]",
+        "[4번 그림/표]"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#5번"
+      ],
+      "question": "다음 중 [드라이브 조각 모음 및 최적화를] 수행할 수 있는 대상으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "외장 하드 디스크 드라이브",
+        "네트워크 드라이브",
+        "CD-ROM 드라이브",
+        "Windows가 지원하지 않는 형식의 압축 프로그램"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#6번"
+      ],
+      "question": "다음 중 Windows 10의 [설정] → [네트워크 및 인터넷에] 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "현재 네트워크 상태를 확인할 수 있다.",
+        "앱별 데이터 사용량을 확인할 수 있다.",
+        "사용 가능한 네트워크를 표시할 수 있다.",
+        "Windows 자동 업데이트 사용을 설정할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#7번"
+      ],
+      "question": "다음 중 아날로그 컴퓨터와 비교하여 디지털 컴퓨터의 특징으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "온도 전압 진동, 등과 같이 연속적으로 변하는 데이터를 효율적으로 처리할 수 있다.",
+        "산술 및 논리 연산을 처리하는 회로에 기반을 둔 범용 컴퓨터로 사용된다.",
+        "데이터의 각 자리마다 0 혹은 1의 비트로 표현한 이산적인 데이터를 처리한다.",
+        "데이터 처리를 위한 명령어들로 구성된 프로그램에 의해 동작 된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#8번"
+      ],
+      "question": "다음 중 자료 구성 단위에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "워드(Word)는 문자를 표현하는 최소 단위이다.",
+        "니 블(Nibble)은 4개의 비트(Bit)가 모여 구성한 것으로, 16 진 수 1 자리를 표현한다.",
+        "레코드(Record)는 하나 이상의 관련된 필드(Field)가 모여서 구성되는 자료 처리 단위이다.",
+        "필드(Field)는 파일 구성의 최소 단위이며 여러, 개의 필드가 모여 레코드(Record)가 된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#9번"
+      ],
+      "question": "다음 중 컴퓨터에서 사용하는 유니코드(Unicode)에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "세계 각국의 언어를 통일된 방법으로 표현할 수 있게 제안된 국제적인 코드 규약의 이름이다.",
+        "데이터의 원활한 교환을 위해 1개의 문자를 8비트로 통일하였다.",
+        "한글은 조합형 완성형 옛 글자, 모두를 표현할 수 있다.",
+        "최대 65, 536 자의 글자를 코드화할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#10번"
+      ],
+      "question": "다음 중 RAM(Random Access Memory)에 대한 설명으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "전원이 꺼져도 기억된 내용이 사라지지 않는 비휘발성 메모리로 읽기만 가능하다.",
+        "주로 펌웨어(Firmware)를 저장한다.",
+        "주기적으로 재충전(Refresh)이 필요한 DRAM은 주기억장치로 사용된다.",
+        "컴퓨터의 기본적인 입출력 프로그램 자가 진단, 프로그램 등이 저장되어 있어 부팅 시 실행된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#11번"
+      ],
+      "question": "다음 중 프린터에서 출력할 파일의 해상도를 조절하거나 스캐너를 이용해 스캔한 파일의 해상도를 조절하기 위해 쓰는 단위는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "PPM(Paper Per Minute)",
+        "DPI(Dots Per Inch)",
+        "CPS(Character Per Second)",
+        "BPS(Bits Per Second)"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#12번"
+      ],
+      "question": "다음 중 CMOS 셋 업 프로그램에서 설정할 수 없는 항목은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "시스템 암호 설정",
+        "하드 디스크의 타입",
+        "멀티 부팅 시 사용하려는 BIOS의 종류",
+        "하드 디스크나 USB 등의 부팅 순서"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#13번"
+      ],
+      "question": "다음 중 소프트웨어의 사용권에 따른 분류에 대한 설명으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "애드웨어 : 정식으로 대가를 지불하고 사용하는 소프트웨어이다.",
+        "데모 : 정식 프로그램의 기능을 홍보하기 위해 사용 기간이나 기능을 제한하여 배포하는 프로그램이다.",
+        "벤치마크 : 정식 버전을 출시하기 전에 테스트 목적으로 일반인에게 공개하는 프로그램이다.",
+        "셰어웨어 : 베타 테스트를 하기 전에 제작 회사 내에서 테스트할 목적으로 제작된 프로그램이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#14번"
+      ],
+      "question": "다음 중 컴퓨터 운영체제의 운영 방식에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "일괄 처리는 컴퓨터에 입력하는 데이터를 일정량 또는 일정시 간 동안 모았다가 한꺼번에 처리하는 방식이다.",
+        "실시간 처리는 오프라인에서 처리할 데이터가 입력될 때마다 즉시 처리하는 방식이다.",
+        "시분할 시스템은 한 대의 시스템을 여러 사용자가 동시에 사용하는 방식이다.",
+        "분산 처리 시스템은 여러 대의 컴퓨터들에 의해 작업한 결과를 통신망을 이용하여 상호 교환할 수 있도록 연결되어 있는 방식 이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#15번"
+      ],
+      "question": "다음 중 컴퓨터 프로그래밍 언어인 JAVA 언어에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "네트워크 환경에서 분산 작업이 가능하다.",
+        "멀티스레드 기능을 제공하므로 여러 작업을 동시에 처리할 수 있다.",
+        "운영체제에 관계 없이 독립적으로 실행할 수 있는 프로그램을 작성할 수 있다.",
+        "수식 처리를 비롯하여 기호 처리 분야에 사용되고 있으며 특히 인공 지능 분야에 널리 사용되고 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#16번"
+      ],
+      "question": "다음 중 네트워크의 구성(Topology)에서 망형(Mesh)에 관한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "단말 장치의 추가 제거/ 및 기밀 보호가 어렵다.",
+        "모든 지점의 컴퓨터와 단말 장치를 서로 연결한 형태이다.",
+        "응답 시간이 빠르고 노드의 연결성이 높다.",
+        "통신 회선 장애 시 다른 경로를 통하여 데이터 전송이 가능하다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#17번"
+      ],
+      "question": "다음 중 컴퓨터 통신에서 사용하는 프로토콜 기능에 관한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "통신망에 전송되는 패킷의 흐름을 제어해서 시스템 전체의 안전성을 유지한다.",
+        "정보를 전송하기 위해 송수신기· 사이에 같은 상태를 유지하도 록 동기화 기능을 수행한다.",
+        "데이터 전송 도중에 발생하는 오류를 검출한다.",
+        "네트워크에 접속된 다양한 단말 장치를 자동으로 인식하여 호 환성을 제공한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#18번"
+      ],
+      "question": "다음 중 한글 Windows에서 전자우편(E-mail) 사용에 관한 설명 으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "전자우편 주소는 ‘사용자 ID @호스트 주소의’ 형식으로 이루어진다.",
+        "전자우편에 사용하는 프로토콜은 SMTP, POP3, MIME 등이 있다.",
+        "전자우편은 메일 서버에 사용자 계정이 있어야 사용할 수 있다.",
+        "전자우편은 기본적으로 16 진 수 EBCDIC 코드를 사용한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#19번"
+      ],
+      "question": "다음 중 사물 인터넷에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "IoT(Internet of Things)라고도 하며 개인 맞춤형 스마트 서 비스를 지향한다.",
+        "사람을 제외한 사물과 공간 데이터, 등을 이더넷으로 서로 연 결시켜 주는 무선 통신 기술을 의미한다.",
+        "스마트 센 싱 기술과 무선 통신 기술을 융합하여 실시간으로 데이터를 주고받는 기술이다.",
+        "사물 인터넷 기반 서비스는 개방형 아키텍처를 필요로 하기 때문에 정보 공유에 대한 부작용을 최소화하기 위한 정보 보안 기술의 적용이 중요하다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2023년_상시3회",
+        "#1과목_컴퓨터일반",
+        "#20번"
+      ],
+      "question": "정보 시스템을 통하여 전자 문서를 전송하기 위해서는 정보 보호를 위하여 보안 서비스가 필요하다 다음. 중 보안 서비스에 해당하지 않는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "부인방지",
+        "기밀성",
+        "무결성",
+        "확장성"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}

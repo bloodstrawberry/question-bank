@@ -3,6 +3,7 @@ import type { ProblemSetData } from './types';
 import { useState, useEffect, useCallback } from 'react';
 
 import { getFileScript } from 'src/api/indexDB';
+import { toast } from 'src/components/snackbar';
 
 interface UseProblemSetViewOptions {
   fileId: string;
@@ -22,6 +23,21 @@ export function useProblemSetView({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number[]>>({});
   const [submittedAnswers, setSubmittedAnswers] = useState<Record<number, boolean>>({});
   const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
+
+  const handleCopyProblem = useCallback(() => {
+    if (!data?.problems?.[currentIndex]) return;
+    const currentProb = data.problems[currentIndex];
+    
+    // 백슬래시(\) 제거 함수
+    const cleanText = (text: string) => text.replace(/\\/g, '');
+
+    const { question, description, choices } = currentProb;
+    const choiceText = choices.map((c, i) => `${i + 1}) ${cleanText(c)}`).join('\n');
+    const textToCopy = `${cleanText(question)}${description ? `\n\n${cleanText(description)}` : ''}\n\n${choiceText}`;
+    
+    navigator.clipboard.writeText(textToCopy);
+    toast.success('복사되었습니다!');
+  }, [currentIndex, data]);
 
   useEffect(() => {
     const loadScript = async () => {
@@ -102,6 +118,12 @@ export function useProblemSetView({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key.toLowerCase() === 'b') {
+        event.preventDefault();
+        handleCopyProblem();
+        return;
+      }
+
       if (event.ctrlKey && event.key.toLowerCase() === 'e') {
         event.preventDefault();
         onEdit(currentIndex);
@@ -178,5 +200,6 @@ export function useProblemSetView({
     handleSelectAnswer,
     handleSubmitAnswer,
     handleRevealAnswer,
+    handleCopyProblem,
   };
 }

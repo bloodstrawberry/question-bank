@@ -1,0 +1,1704 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#21번"
+      ],
+      "question": "다음 중 아래 그림과 같이 기간과 이율의 변화에 따른 월 불입액을 계산하려고한다 이때. 적용한 데이터 표의 내용으로 옳은 것은?",
+      "description": "(월 불입액 계산 수식은 ‘=PMT(B3/12, B2 *12, -B4)’임)",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "입력 값 : [행 입력 셀] : $B $2",
+        "입력 값 : [열 입력 셀] : $A $2",
+        "입력 값 : [행 입력 셀] : $B $2 [열 입력 셀] : $B $3",
+        "입력 값 : [행 입력 셀] : $B $3 [열 입력 셀] : $B $2"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#22번"
+      ],
+      "question": "다음 중 부분합에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "그룹화할 항목으로 선택된 필드는 자동으로 오름차순 정렬 하 여 부분합이 계산된다.",
+        "부분합에서는 합계 평균 개수, 등의 함수 이외에도 다양한 함수를 선택할 수 있다.",
+        "부분합에서 데이터 아래에 요약을 표시할 수 있다.",
+        "부분합에서 그룹 사이에 페이지를 나눌 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#23번"
+      ],
+      "question": "다음 중 [페이지 설정 대화 상자에] 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "용지 방향 용지, 크기 인쇄, 품질을 설정할 수 있다.",
+        "‘머리글 바닥글 탭의/ ’ ‘머리 글 영역에서’ 행 열/ 머리 글의 인쇄 여부를 설정한다.",
+        "여백은 사용자가 직접 값을 입력할 수 있다.",
+        "워크시트에서 차트를 마우스로 선택한 후 [페이지 설정 메뉴]를 선택하면, ‘시트탭이’ ‘차트탭으로’ 바뀐다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#24번"
+      ],
+      "question": "아래 워크시트에서 자격증 응시자에 대한 과목별 점수의 합계를 배열 수식으로 구하였다 다음. 중 [C10] 셀에 입력된 배열 수식으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "{=SUM(IF($B$2:$B$7=B10, $C$2:$C$7))}",
+        "{=SUM(IF(MOD(ROW($C$2:$C$7), 2)=1, $C$2:$C$7))}",
+        "{=SUM(IF(C2:C7, B2:B7=B10))}",
+        "{=SUM(IF(MOD(ROWS(C2:C7), 2)=0, C2:C7))}"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#25번"
+      ],
+      "question": "다음 중 엑셀의 틀 고정에 대한 기능 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "틀 고정은 특정 행 또는 열을 고정할 때 사용하는 기능으로 주로 표의 제목 행 또는 제목 열을 고정한 후 작업할 때 유용하다.",
+        "선택된 셀의 왼쪽 열과 바로 위의 행이 고정된다.",
+        "틀 고정 구분 선을 마우스로 잡아 끌어 틀고 정 구분 선을 이동 시 킬 수 있다.",
+        "틀 고정 방법으로 첫 행 고정을 실행하면 선택된 셀의 위치와 상관없이 첫 행이 고정된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#26번"
+      ],
+      "question": "다음 중 VBA에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[Alt]+[F11]을 누르면 VBA가 실행된다.",
+        "VBA에서 [F5]를 눌러 매크로를 실행할 수 있다.",
+        "매크로를 단계별로 실행할 수는 없으나 중간에 중단할 수 있다.",
+        "기록된 매크로의 내용을 수정할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#27번"
+      ],
+      "question": "다음 중 [머리 글 바닥글 기능에/ ] 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[보기탭] [통합 문서 보기 그룹의] ‘페이지 나누기 미리 보기’를 클릭하면 머리 글 및 바닥글을 쉽게 삽입할 수 있다.",
+        "머리 글이나 바닥글의 텍스트에 앰퍼 샌드(&) 문자 한 개를 포 함시키려면 앰퍼 샌드(&) 문자를 두 번 입력한다.",
+        "여러 워크시트에 동일한 [머리 글 바닥글을/ ] 한 번에 추가하려면 여러 워크시트를 선택하여 그룹화한 후 설정한다.",
+        "차트 시트인 경우 [페이지 설정 대화 상자의] [머리 글 바닥글/ ] 탭에서 머리 글 바닥글을/ 추가할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#28번"
+      ],
+      "question": "다음 중 매크로를 작성하고 사용하는 방법에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "매크로를 기록하는 경우 기본적으로 셀은 절대 참조로 기록되며 상대, 참조로 기록하고자할 경우 ‘상대 참조로 기록을’ 선 택한 다음 매크로 기록을 실행한다.",
+        "매크로에 지정된 바로 가기 키가 엑셀 고유의 바로 가기 키와 중복될 경우 엑셀 고유의 바로 가기 키가 우선한다.",
+        "매크로를 기록하는 경우 실행하려는 작업을 완료하는 데 필요한 모든 단계가 매크로 레코더에 기록되며 리본, 메뉴에서의 탐색은 기록된 단계에 포함되지 않는다.",
+        "개인용 매크로 통합 문서에 저장한 매크로는 엑셀을 시작할 때마다 자동으로 로드되므로 다른 통합 문서에서도 실행할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#29번"
+      ],
+      "question": "다음 중 데이터 입력에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "고정 소수점이 포함된 숫자를 입력하려면 [Excel 옵션의] [고 급 편집] 옵션에서 ‘소수점 자동 삽입 확인 란을’ 선택하고 소 수 점 위치를 설정한다.",
+        "셀에 입력하는 글자 중 처음 몇 자가 해당 열의 기존 내용과 일치하면 나머지 글자가 자동으로 입력되며 텍스트나, 텍스트 / 숫자 조합 날짜가, 입력되는 경우에만 자동으로 입력된다.",
+        "두 개 이상의 셀을 선택하고 채우기 핸들을 끌 때 [Ctrl]을 누르고 있으면 자동 채우기 기능을 해제할 수 있다.",
+        "시간을 12시간제로 입력하려면 ‘9:00 pm’과 같이 시간 뒤에 공백을 입력하고 am 또는 pm을 입력한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#30번"
+      ],
+      "question": "다음 중 사용자 지정 표시 형식에 대한 설명으로 틀린 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "소수점 오른쪽의 자리 표시자보다 더 긴 숫자가 소수점 이하의 숫자로 셀에 입력될 경우 자리 표시자 만큼 소수 자릿수로 내림 된다.",
+        "양수 음 수, 0, 텍스트 순으로 한 번에 네 가지의 표시 형식을 지정할 수 있다.",
+        "각 섹션에 대한 색은 섹션의 맨 앞에 8개의 색 중 하나를 대괄 호로 묶어 입력해야한다.",
+        "두 개의 섹션을 지정하면 첫 번째 섹션은 양수 또는 0, 두 번째 섹션은 음수에 대한 표시 형식이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#31번"
+      ],
+      "question": "아래 그림과 같이 설정한 상태에서 [매크로 기록대화상자의] [확인 단추를] 누른다. [A2:A6] 범위를 선택한 후 글 꼴 스타일을 ‘굵게로’ 지정하고 [기록 중지를] 눌러 ‘서식 매크로의’ 작성을 완료하였다 다음. 중 매크로 작성 후 [C1] 셀을 선택하고 ‘서식’ 매크로를 실행한 결과로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[A2:A6] 영역의 글 꼴 스타일이 굵게 지정된다.",
+        "[A1] 셀만 글 꼴 스타일이 굵게 지정된다.",
+        "[C2:C6] 영역의 글 꼴 스타일이 굵게 지정된다.",
+        "[C1] 셀만 글 꼴 스타일이 굵게 지정된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#32번"
+      ],
+      "question": "아래의 시트에서 횟수에 따른 택배 비를 계산하려고한다 횟수가. 5 이하면 2000, 5 초과 9 이하면 3000, 9 초과면 무료로 표시하기 위해 [C2] 셀에 입력해야할 수식으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "=IF(B2<=5, 2000, IF(B2<=9, 3000, “무료”))",
+        "=IF(B2>9, “무료”, IF(B2>5, 3000, 2000))",
+        "=IF(B2<=5, 2000, IF(OR(B2>5, B2<=9), 3000, “무료”))",
+        "=IF(B2<=5, 2000, IF(AND(B2>5, B2<=9), 3000, “무료”))"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#33번"
+      ],
+      "question": "다음 중 아래의 VBA 코드에 대한 설명으로 옳지 않은 것은?",
+      "description": "Private Sub Worksheet_Change(ByVal Target As Range)\nIf Target.Address = Range(“A1”).Address Then Target.Font.ColorIndex = 5 MsgBox Range(“A1”).Value & “입니다.“ End If End Sub",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[A1] 셀이 변경되면 [A1] 셀의 글 꼴 색이 ColorIndex가 5인 색으로 변경된다.",
+        "[A1] 셀을 선택하면 [A1] 셀의 값이 메시지 박스에 표시된다.",
+        "VBA 코드가 작성된 워크시트에서만 동작한다.",
+        "일반 모듈이 아닌 워크시트 이벤트를 사용한 코드이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#34번"
+      ],
+      "question": "다음 중 아래 시트에 대한 수식의 결과로 옳은 것은?",
+      "description": "=SUM(B2:C5 C2:D5 B3:D4)",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "30",
+        "#N/A",
+        "5",
+        "0"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#35번"
+      ],
+      "question": "다음 중 [인쇄 미리 보기 및 인쇄에] 관한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "[인쇄 미리 보기 및 인쇄 화면에서] ‘여백 표시를’ 선택한 경우 마우스로 여백을 변경할 수 있다.",
+        "[인쇄 미리 보기 및 인쇄 화면을] 표시하는 바로 가기 키는 [Ctrl]+[F2]이다.",
+        "[인쇄 미리 보기 및 인쇄 화면에서] 인쇄 영역을 다시 설정할 수 있다.",
+        "인쇄될 내용이 없는 상태에서 [인쇄 미리 보기 및 인쇄 화면]을 실행하면 인쇄할 내용이 없다는 메시지가 표시된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#36번"
+      ],
+      "question": "다음 중 데이터가 입력된 셀에서 채우기 핸들을 드래그하여 데이터를 채우는 경우에 대한 설명으로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "일반적인 문자 데이터나 날짜 데이터는 그대로 복사되어 채워진다.",
+        "1개의 숫자와 문자가 조합된 텍스트 데이터는 숫자만 1씩 증 가하고 문자는 그대로 복사되어 채워진다.",
+        "숫자 데이터는 1씩 증가하면서 채워진다.",
+        "숫자가 입력된 두 셀을 블록 설정하여 채우기 핸들을 드래그하면 두 숫자가 반복하여 채워진다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#37번"
+      ],
+      "question": "다음 중 조건부 서식에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "조건부 서식의 조건은 결과가 TRUE(1) 또는 FALSE(0)가 나오도록 작성한다.",
+        "같은 통합 문서의 특정 셀을 이용하여 조건을 지정할 수 있다.",
+        "수식을 이용하여 조건을 지정할 경우 워크시트의, 특정 셀을 클릭하면 상대 참조로 작성된다.",
+        "이동 옵션을 이용하여 조건부 서식이 지정된 셀을 찾을 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#38번"
+      ],
+      "question": "다음 중 고급 필터 실행을 위한 조건 지정 방법에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "함수나 식을 사용하여 조건을 입력하면 셀에는 비교되는 현재 대상의 값에 따라 TRUE나 FALSE가 표시된다.",
+        "함수를 사용하여 조건을 입력하는 경우 원본 필드 명과 동일한 필드 명을 조건 레이블로 사용해야한다.",
+        "다양한 함수와 식을 혼합하여 조건을 지정할 수 있다.",
+        "텍스트 데이터를 필터링할 때 대소 문자는/ 구분되지 않으나 수식으로 대소 문자를/ 구분하여 검색할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#39번"
+      ],
+      "question": "다음 중 차트에서 사용하는 축에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "방사형 차트와 거품형 차트에서는 기본 가로 축만 표시된다.",
+        "가로 항 목축에서( ) [축 위치 옵션은] 데이터 표시와 레이블이 축에 표시되는 방식에 영향을 주며 2 차원 영역형 차트 세로, 막대형 차트 및 꺾은 선형 차트에 사용할 수 있다.",
+        "가로 항 목축이( ) 날짜 값인 경우 [축 종류에서] ‘날짜 축을’ 선택하여 [단위를] ‘일’, ‘월’, ‘년중’ 선택하여 지정할 수 있다.",
+        "3 차원 꺾은 선형 차트는 세 개의 축 가로 세로 깊이(, 축에) 따라 데이터 요소를 비교한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#컴퓨터활용능력1급",
+        "#2026년_상시2회",
+        "#2과목_스프레드시트일반",
+        "#40번"
+      ],
+      "question": "다음 중 공유 통합 문서에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "여러 사용자가 동시에 동일한 셀을 변경하려면 충돌이 발생한다.",
+        "통합 문서를 공유한 후 하이퍼링크 시나리오 매크로, 등의 기능은 변경할 수 없지만 조건부 서식 차트 그림, 등의 기능은 변경할 수 있다.",
+        "공유 통합 문서를 네트워크 위치에 복사해도 다른 통합 문서나 문서의 연결은 그대로 유지된다.",
+        "공유 통합 문서를 열면 창의 제목 표시 줄의 엑셀 파일 명 옆에 ‘공유됨이라는’ 글자가 표시된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "explanation": "",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}

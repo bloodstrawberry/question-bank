@@ -17,6 +17,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import { saveFileScript } from 'src/api/indexDB';
 
@@ -148,6 +149,7 @@ export function ProblemSetEditorView({
     handleApplyBulk,
     handleOpenProblemBulkDialog,
     handleApplyProblemBulk,
+    handleCopyProblem,
   } = useProblemSetEditor({
     fileId,
     initialProblemIndex,
@@ -310,9 +312,7 @@ export function ProblemSetEditorView({
             onClick={handleOpenReorderDialog}
             startIcon={<ReorderIcon />}
             sx={{ fontWeight: 700 }}
-          >
-            순서 변경
-          </Button>
+          />
         </Tooltip>
 
         <Tooltip title="문제 추가 (Ctrl + Q)">
@@ -323,7 +323,7 @@ export function ProblemSetEditorView({
             startIcon={<AddIcon />}
             sx={{ fontWeight: 700 }}
           >
-            문제 추가
+            추가
           </Button>
         </Tooltip>
 
@@ -553,6 +553,24 @@ export function ProblemSetEditorView({
 
       {/* Footer Save Button */}
       <Box sx={{ mt: 6, pb: 10, display: 'flex', justifyContent: 'center' }}>
+        <Tooltip title="Copy (Ctrl + B)">
+          <Button
+            variant="outlined"
+            size="large"
+            color="inherit"
+            onClick={handleCopyProblem}
+            startIcon={<ContentCopyIcon />}
+            sx={{
+              px: 4,
+              height: 48,
+              borderRadius: 1.5,
+              mr: 2,
+            }}
+          >
+            복사
+          </Button>
+        </Tooltip>
+
         <Tooltip title="Save (Ctrl + S)">
           <Button
             variant="contained"

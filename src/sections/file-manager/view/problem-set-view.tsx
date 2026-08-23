@@ -8,6 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 
 import {
@@ -49,6 +50,7 @@ export function ProblemSetView({
     handleSelectAnswer,
     handleSubmitAnswer,
     handleRevealAnswer,
+    handleCopyProblem,
   } = useProblemSetView({
     fileId,
     initialProblemIndex,
@@ -151,6 +153,18 @@ export function ProblemSetView({
           onPageInputBlur={handlePageInputBlur}
           onPageInputKeyDown={handlePageInputKeyDown}
         />
+
+        <Tooltip title="Copy (Ctrl + B)">
+          <Button
+            variant="outlined"
+            color="inherit"
+            onClick={handleCopyProblem}
+            startIcon={<ContentCopyIcon />}
+            sx={{ mr: 1 }}
+          >
+            복사
+          </Button>
+        </Tooltip>
 
         <Tooltip title="Edit (Ctrl + E)">
           <Button
