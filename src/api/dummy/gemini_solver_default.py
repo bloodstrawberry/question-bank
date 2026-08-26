@@ -97,9 +97,16 @@ if not API_KEYS:
     sys.exit(1)
 
 
+class AllKeysExhaustedError(Exception):
+    """모든 Gemini API 키가 소진되었거나 연속 에러로 한 바퀴 모두 실패했을 때 발생하는 예외"""
+
+    pass
+
+
 class GeminiKeyManager:
     """
     GEMINI API 키들을 순차적으로 관리하며, 3회 이상 에러 발생 시 다음 키로 자동 전환합니다.
+    모든 키가 연속으로 실패하여 한 바퀴를 완전히 순회했을 경우 AllKeysExhaustedError를 발생시킵니다.
     """
 
     def __init__(self, key_entries: list[tuple[str, str]], max_errors_per_key: int = 3):
@@ -107,6 +114,7 @@ class GeminiKeyManager:
         self.max_errors = max_errors_per_key
         self.current_idx = 0
         self.consecutive_errors = 0
+        self.consecutive_failed_keys = 0  # 연속으로 max_errors에 도달하여 실패한 키의 개수
         self.client = genai.Client(api_key=self.current_key)
 
     @property
@@ -118,13 +126,15 @@ class GeminiKeyManager:
         return self.key_entries[self.current_idx][0]
 
     def record_success(self):
-        """호출 성공 시 현재 키의 연속 에러 카운트를 0으로 리셋"""
+        """호출 성공 시 현재 키의 연속 에러 카운트 및 연속 실패 키 카운트 초기화"""
         self.consecutive_errors = 0
+        self.consecutive_failed_keys = 0
 
     def record_error(self, err: Exception) -> bool:
         """
         에러 발생 시 카운트 증가.
         max_errors(3회) 이상이면 다음 키로 전환하고 True 반환, 아니면 False 반환.
+        모든 키가 한 바퀴 모두 실패했을 경우 AllKeysExhaustedError 발생.
         """
         self.consecutive_errors += 1
         logger.warning(
@@ -136,7 +146,25 @@ class GeminiKeyManager:
         return False
 
     def switch_to_next_key(self):
-        """다음 API 키로 전환"""
+        """다음 API 키로 전환 또는 모든 키 소진 시 AllKeysExhaustedError 발생"""
+        self.consecutive_failed_keys += 1
+        old_label = self.current_key_label
+
+        # 등록된 모든 키를 한 바퀴 다 순회하면서 실패했는지 검사
+        if self.consecutive_failed_keys >= len(self.key_entries):
+            logger.error("=" * 65)
+            logger.error(
+                f"🛑 [모든 키 점검 완료 / 소진] 등록된 총 {len(self.key_entries)}개의 API 키가 "
+                f"모두 각각 {self.max_errors}회 이상 에러가 발생하여 한 바퀴({len(self.key_entries)}개 키)를 완전히 순회했습니다."
+            )
+            logger.error(
+                f"🛑 마지막 점검 키: {old_label} (누적 소진 키: {self.consecutive_failed_keys}/{len(self.key_entries)})"
+            )
+            logger.error("=" * 65)
+            raise AllKeysExhaustedError(
+                f"모든 Gemini API 키({len(self.key_entries)}개)의 할당량/호출 한도가 초과되어 한 바퀴 점검을 완료했습니다."
+            )
+
         if len(self.key_entries) <= 1:
             logger.warning(
                 f"  ⚠️ 사용 가능한 다른 API 키가 없습니다. 기존 키({self.current_key_label})를 유지합니다."
@@ -144,14 +172,14 @@ class GeminiKeyManager:
             self.consecutive_errors = 0
             return
 
-        old_label = self.current_key_label
         self.current_idx = (self.current_idx + 1) % len(self.key_entries)
         self.consecutive_errors = 0
         new_label = self.current_key_label
 
         logger.warning(
             f"  🔄 [API 키 전환] {old_label}에서 {self.max_errors}회 이상 에러가 발생하여 "
-            f"{new_label} (키 인덱스 {self.current_idx + 1}/{len(self.key_entries)})로 자동 전환합니다."
+            f"{new_label} (키 인덱스 {self.current_idx + 1}/{len(self.key_entries)}, "
+            f"연속 소진 키: {self.consecutive_failed_keys}/{len(self.key_entries)})로 자동 전환합니다."
         )
         self.client = genai.Client(api_key=self.current_key)
 
@@ -248,10 +276,14 @@ def solve_single_problem(
     question: str,
     description: str,
     choices: list[str],
-    max_retries: int = 12,
+    max_retries: Optional[int] = None,
     retry_delay: float = 3.0,
 ) -> Optional[ProblemSolution]:
     """LLM에게 question, description, choices만 전달하여 정답 및 해설을 생성합니다. (실제 정답은 절대 전달하지 않음)"""
+    if max_retries is None:
+        # 키 개수 * 3회 에러 + 여유분(5회)으로 동적 산출하여 키 전환 도중 조기 실패 방지
+        max_retries = max(12, len(key_manager.key_entries) * key_manager.max_errors + 5)
+
     prompt_parts = [
         "다음 시험 문제를 풀고 가장 알맞은 정답 번호(1~N), 종합 해설, 각 선택지별 정오답 이유, 핵심 개념을 작성해줘.",
         "",
@@ -274,6 +306,7 @@ def solve_single_problem(
     full_prompt = "\n".join(prompt_parts)
 
     for attempt in range(1, max_retries + 1):
+        active_key_label = key_manager.current_key_label
         try:
             response = key_manager.client.models.generate_content(
                 model=MODEL_NAME,
@@ -286,7 +319,7 @@ def solve_single_problem(
             )
             parsed = ProblemSolution.model_validate_json(response.text)
 
-            # 성공 시 현재 키의 연속 에러 카운트 리셋
+            # 성공 시 현재 키의 연속 에러 카운트 및 연속 실패 키 리셋
             key_manager.record_success()
 
             # 선택지 개수와 choice_explanations 길이가 맞지 않을 경우 패딩/자르기 보정
@@ -298,6 +331,9 @@ def solve_single_problem(
                 parsed.choice_explanations = parsed.choice_explanations[: len(choices)]
 
             return parsed
+        except AllKeysExhaustedError:
+            # 모든 키가 한 바퀴 모두 실패했을 때 상위 루프로 즉시 전파
+            raise
         except APIError as e:
             err_msg = str(e)
             switched = key_manager.record_error(e)
@@ -307,13 +343,13 @@ def solve_single_problem(
             elif "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg or "Quota" in err_msg:
                 wait_time = 15 * min(attempt, 4)
                 logger.warning(
-                    f"  ⚠️ [할당량/토큰 한도 초과] {wait_time}초 대기 후 재시도합니다 (시도 {attempt}/{max_retries})..."
+                    f"  ⚠️ [{active_key_label}] [할당량/토큰 한도 초과] {wait_time}초 대기 후 재시도합니다 (시도 {attempt}/{max_retries})..."
                 )
                 time.sleep(wait_time)
             else:
                 wait_time = retry_delay * attempt
                 logger.warning(
-                    f"  ⚠️ [APIError] 시도 {attempt}/{max_retries} 실패: {e}. {wait_time}초 대기 후 재시도..."
+                    f"  ⚠️ [{active_key_label}] [APIError] 시도 {attempt}/{max_retries} 실패: {e}. {wait_time}초 대기 후 재시도..."
                 )
                 time.sleep(wait_time)
         except Exception as e:
@@ -324,7 +360,7 @@ def solve_single_problem(
             else:
                 wait_time = retry_delay * attempt
                 logger.warning(
-                    f"  ⚠️ [Exception] 시도 {attempt}/{max_retries} 실패: {e}. {wait_time}초 대기 후 재시도..."
+                    f"  ⚠️ [{active_key_label}] [Exception] 시도 {attempt}/{max_retries} 실패: {e}. {wait_time}초 대기 후 재시도..."
                 )
                 time.sleep(wait_time)
 
@@ -401,96 +437,105 @@ def process_default_json(
     processed_count = 0
     error_count = 0
 
-    for global_idx in range(start_global_idx, total_problems + 1):
-        if max_problems is not None and processed_count >= max_problems:
-            logger.info(f"🎯 지정된 최대 문제 처리 수({max_problems}개)에 도달하여 작업을 종료합니다.")
-            break
+    try:
+        for global_idx in range(start_global_idx, total_problems + 1):
+            if max_problems is not None and processed_count >= max_problems:
+                logger.info(f"🎯 지정된 최대 문제 처리 수({max_problems}개)에 도달하여 작업을 종료합니다.")
+                break
 
-        script_id, p_idx, problem = flat_problems[global_idx - 1]
+            script_id, p_idx, problem = flat_problems[global_idx - 1]
 
-        question = problem.get("question", "")
-        description = problem.get("description", "")
-        choices = problem.get("choices", [])
-        actual_answer = problem.get("answer")
-        actual_answers = problem.get("answers", [actual_answer])
+            question = problem.get("question", "")
+            description = problem.get("description", "")
+            choices = problem.get("choices", [])
+            actual_answer = problem.get("answer")
+            actual_answers = problem.get("answers", [actual_answer])
 
-        logger.info("-" * 65)
-        logger.info(
-            f"[{global_idx}/{total_problems}] Script: {script_id} | 문제 #{p_idx + 1}"
-        )
-        logger.info(
-            f"  질문: {question[:70]}..." if len(question) > 70 else f"  질문: {question}"
-        )
-        logger.info(f"  실제 정답: {actual_answer} (복수정답: {actual_answers})")
-
-        # LLM 호출 (실제 정답은 절대 전달하지 않음)
-        solution = solve_single_problem(
-            question=question,
-            description=description,
-            choices=choices,
-        )
-
-        if solution is None:
-            logger.error(
-                f"  ❌ [{global_idx}/{total_problems}] 문제 해설 생성 실패. 다음 문제로 넘어갑니다."
+            logger.info("-" * 65)
+            logger.info(
+                f"[{global_idx}/{total_problems}] Script: {script_id} | 문제 #{p_idx + 1}"
             )
-            error_count += 1
-            continue
+            logger.info(
+                f"  질문: {question[:70]}..." if len(question) > 70 else f"  질문: {question}"
+            )
+            logger.info(f"  실제 정답: {actual_answer} (복수정답: {actual_answers})")
 
-        predicted_ans = solution.predicted_answer
-        is_match = (predicted_ans == actual_answer) or (predicted_ans in actual_answers)
+            # LLM 호출 (실제 정답은 절대 전달하지 않음)
+            solution = solve_single_problem(
+                question=question,
+                description=description,
+                choices=choices,
+            )
 
-        processed_count += 1
-        if is_match:
-            matched_count += 1
-            match_symbol = "✅ MATCH (일치)"
-        else:
-            match_symbol = "❌ MISMATCH (불일치)"
+            if solution is None:
+                logger.error(
+                    f"  ❌ [{global_idx}/{total_problems}] 문제 해설 생성 실패. 다음 문제로 넘어갑니다."
+                )
+                error_count += 1
+                continue
 
-        total_done = skipped_count + processed_count
-        accuracy = (matched_count / total_done) * 100 if total_done > 0 else 0
+            predicted_ans = solution.predicted_answer
+            is_match = (predicted_ans == actual_answer) or (predicted_ans in actual_answers)
 
+            processed_count += 1
+            if is_match:
+                matched_count += 1
+                match_symbol = "✅ MATCH (일치)"
+            else:
+                match_symbol = "❌ MISMATCH (불일치)"
+
+            total_done = skipped_count + processed_count
+            accuracy = (matched_count / total_done) * 100 if total_done > 0 else 0
+
+            logger.info(
+                f"  🤖 LLM 예측 정답: {predicted_ans} -> {match_symbol} "
+                f"(누적 정답률: {matched_count}/{total_done} = {accuracy:.1f}%)"
+            )
+            logger.info(f"  🔑 핵심 개념: {solution.key_concept}")
+
+            # 문제 객체 업데이트
+            problem["explanation"] = solution.explanation
+            problem["choiceExplanations"] = solution.choice_explanations
+            problem["llmPredictedAnswer"] = solution.predicted_answer
+            problem["llmKeyConcept"] = solution.key_concept
+            problem["isLlmMatch"] = is_match
+            problem["isLlmProcessed"] = True
+
+            # 중간 저장 (매 문제 성공 시마다 안전하게 덮어쓰기 저장)
+            try:
+                with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+            except Exception as save_err:
+                logger.error(f"  ⚠️ 결과 파일({OUTPUT_FILE}) 저장 중 에러 발생: {save_err}")
+
+            # 마지막 문제가 아니면 delay_between_requests초 대기
+            if global_idx < total_problems and (
+                max_problems is None or processed_count < max_problems
+            ):
+                if delay_between_requests > 0:
+                    countdown_sleep(delay_between_requests)
+
+    except AllKeysExhaustedError as e:
+        logger.error("=" * 65)
+        logger.error(f"🛑 [프로세스 중단] {e}")
+        logger.error("🛑 모든 API 키의 할당량이 소진되어 현재까지의 진행 상황을 안전하게 저장하고 종료합니다.")
+        logger.error("=" * 65)
+    except KeyboardInterrupt:
+        logger.warning("\n⚠️ 사용자에 의해 작업이 강제 중단(KeyboardInterrupt)되었습니다.")
+    finally:
+        logger.info("=" * 65)
+        logger.info("🎉 작업 세션이 종료되었습니다.")
+        total_effective = skipped_count + processed_count
         logger.info(
-            f"  🤖 LLM 예측 정답: {predicted_ans} -> {match_symbol} "
-            f"(누적 정답률: {matched_count}/{total_done} = {accuracy:.1f}%)"
+            f"📊 결과 요약: 이번 세션 처리={processed_count}, 이전 완료 스킵={skipped_count}, "
+            f"총 완료={total_effective}/{total_problems}, 일치={matched_count}, 오류={error_count}"
         )
-        logger.info(f"  🔑 핵심 개념: {solution.key_concept}")
-
-        # 문제 객체 업데이트
-        problem["explanation"] = solution.explanation
-        problem["choiceExplanations"] = solution.choice_explanations
-        problem["llmPredictedAnswer"] = solution.predicted_answer
-        problem["llmKeyConcept"] = solution.key_concept
-        problem["isLlmMatch"] = is_match
-        problem["isLlmProcessed"] = True
-
-        # 중간 저장 (매 문제 성공 시마다 안전하게 덮어쓰기 저장)
-        try:
-            with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-        except Exception as save_err:
-            logger.error(f"  ⚠️ 결과 파일({OUTPUT_FILE}) 저장 중 에러 발생: {save_err}")
-
-        # 마지막 문제가 아니면 30초 대기
-        if global_idx < total_problems and (
-            max_problems is None or processed_count < max_problems
-        ):
-            if delay_between_requests > 0:
-                countdown_sleep(delay_between_requests)
-
-    logger.info("=" * 65)
-    logger.info("🎉 작업 세션이 완료되었습니다.")
-    total_effective = skipped_count + processed_count
-    logger.info(
-        f"📊 결과 요약: 이번 세션 처리={processed_count}, 이전 완료 스킵={skipped_count}, "
-        f"총 완료={total_effective}/{total_problems}, 일치={matched_count}, 오류={error_count}"
-    )
-    if total_effective > 0:
-        final_acc = (matched_count / total_effective) * 100
-        logger.info(f"🏆 전체 일치율: {final_acc:.2f}%")
-    logger.info(f"📁 결과 파일 저장 위치: {OUTPUT_FILE}")
-    logger.info(f"📝 로그 파일 위치: {LOG_FILE}")
-    logger.info("=" * 65)
+        if total_effective > 0:
+            final_acc = (matched_count / total_effective) * 100
+            logger.info(f"🏆 전체 일치율: {final_acc:.2f}%")
+        logger.info(f"📁 결과 파일 저장 위치: {OUTPUT_FILE}")
+        logger.info(f"📝 로그 파일 위치: {LOG_FILE}")
+        logger.info("=" * 65)
 
 
 if __name__ == "__main__":
