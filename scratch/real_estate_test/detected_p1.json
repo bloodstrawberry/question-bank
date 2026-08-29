@@ -1,0 +1,170 @@
+[
+  {
+    "question_number": 1,
+    "full_box": [
+      86,
+      29,
+      342,
+      481
+    ],
+    "question_box": [
+      86,
+      29,
+      222,
+      481
+    ],
+    "choices_box": [
+      230,
+      29,
+      342,
+      281
+    ]
+  },
+  {
+    "question_number": 2,
+    "full_box": [
+      364,
+      29,
+      470,
+      482
+    ],
+    "question_box": [
+      364,
+      29,
+      399,
+      482
+    ],
+    "choices_box": [
+      405,
+      29,
+      470,
+      468
+    ]
+  },
+  {
+    "question_number": 3,
+    "full_box": [
+      493,
+      29,
+      715,
+      482
+    ],
+    "question_box": [
+      493,
+      29,
+      666,
+      482
+    ],
+    "choices_box": [
+      673,
+      29,
+      715,
+      446
+    ]
+  },
+  {
+    "question_number": 4,
+    "full_box": [
+      738,
+      29,
+      942,
+      482
+    ],
+    "question_box": [
+      738,
+      29,
+      891,
+      482
+    ],
+    "choices_box": [
+      900,
+      29,
+      942,
+      474
+    ]
+  },
+  {
+    "question_number": 5,
+    "full_box": [
+      28,
+      517,
+      155,
+      932
+    ],
+    "question_box": [
+      28,
+      517,
+      45,
+      932
+    ],
+    "choices_box": [
+      50,
+      518,
+      155,
+      741
+    ]
+  },
+  {
+    "question_number": 6,
+    "full_box": [
+      173,
+      517,
+      432,
+      971
+    ],
+    "question_box": [
+      173,
+      517,
+      319,
+      971
+    ],
+    "choices_box": [
+      325,
+      518,
+      432,
+      792
+    ]
+  },
+  {
+    "question_number": 7,
+    "full_box": [
+      450,
+      517,
+      646,
+      971
+    ],
+    "question_box": [
+      450,
+      517,
+      467,
+      863
+    ],
+    "choices_box": [
+      473,
+      518,
+      646,
+      971
+    ]
+  },
+  {
+    "question_number": 8,
+    "full_box": [
+      671,
+      517,
+      960,
+      973
+    ],
+    "question_box": [
+      671,
+      517,
+      853,
+      973
+    ],
+    "choices_box": [
+      858,
+      518,
+      960,
+      973
+    ]
+  }
+]
