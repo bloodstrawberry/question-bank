@@ -105,16 +105,16 @@ class AllKeysExhaustedError(Exception):
 
 class GeminiKeyManager:
     """
-    GEMINI API 키들을 순차적으로 관리하며, 3회 이상 에러 발생 시 다음 키로 자동 전환합니다.
-    모든 키가 연속으로 실패하여 한 바퀴를 완전히 순회했을 경우 AllKeysExhaustedError를 발생시킵니다.
+    GEMINI API 키들을 순차적으로 관리하며, 1회 에러/할당량 초과 발생 시 즉시 다음 키로 전환합니다.
+    처음 로드된 모든 키가 한 바퀴 완전히 순회(소진)되었을 경우 AllKeysExhaustedError를 발생시키고 스크립트를 종료합니다.
     """
 
-    def __init__(self, key_entries: list[tuple[str, str]], max_errors_per_key: int = 3):
+    def __init__(self, key_entries: list[tuple[str, str]], max_errors_per_key: int = 1):
         self.key_entries = key_entries
         self.max_errors = max_errors_per_key
         self.current_idx = 0
         self.consecutive_errors = 0
-        self.consecutive_failed_keys = 0  # 연속으로 max_errors에 도달하여 실패한 키의 개수
+        self.consecutive_failed_keys = 0  # 연속으로 실패하여 전환된 키의 개수
         self.client = genai.Client(api_key=self.current_key)
 
     @property
@@ -133,12 +133,12 @@ class GeminiKeyManager:
     def record_error(self, err: Exception) -> bool:
         """
         에러 발생 시 카운트 증가.
-        max_errors(3회) 이상이면 다음 키로 전환하고 True 반환, 아니면 False 반환.
+        max_errors(1회) 이상이면 다음 키로 전환하고 True 반환, 아니면 False 반환.
         모든 키가 한 바퀴 모두 실패했을 경우 AllKeysExhaustedError 발생.
         """
         self.consecutive_errors += 1
         logger.warning(
-            f"  ⚠️ [{self.current_key_label}] 에러 누적 ({self.consecutive_errors}/{self.max_errors}): {err}"
+            f"  ⚠️ [{self.current_key_label}] 에러 감지 ({self.consecutive_errors}/{self.max_errors}): {err}"
         )
         if self.consecutive_errors >= self.max_errors:
             self.switch_to_next_key()
@@ -154,15 +154,15 @@ class GeminiKeyManager:
         if self.consecutive_failed_keys >= len(self.key_entries):
             logger.error("=" * 65)
             logger.error(
-                f"🛑 [모든 키 점검 완료 / 소진] 등록된 총 {len(self.key_entries)}개의 API 키가 "
-                f"모두 각각 {self.max_errors}회 이상 에러가 발생하여 한 바퀴({len(self.key_entries)}개 키)를 완전히 순회했습니다."
+                f"🛑 [모든 키 순회 완료 / 소진] 등록된 총 {len(self.key_entries)}개의 API 키가 "
+                f"한 바퀴({len(self.key_entries)}개 키)를 완전히 순회(할당량 초과/소진)했습니다."
             )
             logger.error(
-                f"🛑 마지막 점검 키: {old_label} (누적 소진 키: {self.consecutive_failed_keys}/{len(self.key_entries)})"
+                f"🛑 마지막 점검 키: {old_label} (순회 완료 키: {self.consecutive_failed_keys}/{len(self.key_entries)})"
             )
             logger.error("=" * 65)
             raise AllKeysExhaustedError(
-                f"모든 Gemini API 키({len(self.key_entries)}개)의 할당량/호출 한도가 초과되어 한 바퀴 점검을 완료했습니다."
+                f"처음 로드된 모든 Gemini API 키({len(self.key_entries)}개)의 1바퀴 순회가 완료되어 스크립트를 종료합니다."
             )
 
         if len(self.key_entries) <= 1:
@@ -177,14 +177,14 @@ class GeminiKeyManager:
         new_label = self.current_key_label
 
         logger.warning(
-            f"  🔄 [API 키 전환] {old_label}에서 {self.max_errors}회 이상 에러가 발생하여 "
+            f"  🔄 [API 키 전환] {old_label} (에러/할당량 초과) -> "
             f"{new_label} (키 인덱스 {self.current_idx + 1}/{len(self.key_entries)}, "
-            f"연속 소진 키: {self.consecutive_failed_keys}/{len(self.key_entries)})로 자동 전환합니다."
+            f"순회 완료: {self.consecutive_failed_keys}/{len(self.key_entries)})로 자동 전환합니다."
         )
         self.client = genai.Client(api_key=self.current_key)
 
 
-key_manager = GeminiKeyManager(API_KEYS, max_errors_per_key=3)
+key_manager = GeminiKeyManager(API_KEYS, max_errors_per_key=1)
 key_names = ", ".join([label for label, _ in API_KEYS])
 logger.info(f"🔑 총 {len(API_KEYS)}개의 Gemini API 키 로드 완료 ({key_names}). 현재 사용 중인 키: {key_manager.current_key_label}")
 
@@ -277,12 +277,12 @@ def solve_single_problem(
     description: str,
     choices: list[str],
     max_retries: Optional[int] = None,
-    retry_delay: float = 3.0,
+    retry_delay: float = 2.0,
 ) -> Optional[ProblemSolution]:
     """LLM에게 question, description, choices만 전달하여 정답 및 해설을 생성합니다. (실제 정답은 절대 전달하지 않음)"""
     if max_retries is None:
-        # 키 개수 * 3회 에러 + 여유분(5회)으로 동적 산출하여 키 전환 도중 조기 실패 방지
-        max_retries = max(12, len(key_manager.key_entries) * key_manager.max_errors + 5)
+        # 처음 로드된 키 개수만큼 시도 (모든 키를 1회씩 순회)
+        max_retries = max(len(key_manager.key_entries), 1)
 
     prompt_parts = [
         "다음 시험 문제를 풀고 가장 알맞은 정답 번호(1~N), 종합 해설, 각 선택지별 정오답 이유, 핵심 개념을 작성해줘.",
@@ -332,26 +332,34 @@ def solve_single_problem(
 
             return parsed
         except AllKeysExhaustedError:
-            # 모든 키가 한 바퀴 모두 실패했을 때 상위 루프로 즉시 전파
+            # 처음 로드된 모든 키가 한 바퀴 모두 순회/소진되었을 때 상위 루프로 즉시 전파하여 스크립트 종료
             raise
         except APIError as e:
             err_msg = str(e)
-            switched = key_manager.record_error(e)
-            if switched:
+            is_quota_error = (
+                "429" in err_msg
+                or "RESOURCE_EXHAUSTED" in err_msg
+                or "Quota" in err_msg
+                or "quota" in err_msg
+            )
+            if is_quota_error:
+                logger.warning(
+                    f"  ⚠️ [{active_key_label}] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: {e}"
+                )
+                key_manager.switch_to_next_key()
                 logger.info(f"  ⚡ 다음 키({key_manager.current_key_label})로 즉시 재시도합니다.")
                 time.sleep(1.0)
-            elif "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg or "Quota" in err_msg:
-                wait_time = 15 * min(attempt, 4)
-                logger.warning(
-                    f"  ⚠️ [{active_key_label}] [할당량/토큰 한도 초과] {wait_time}초 대기 후 재시도합니다 (시도 {attempt}/{max_retries})..."
-                )
-                time.sleep(wait_time)
             else:
-                wait_time = retry_delay * attempt
-                logger.warning(
-                    f"  ⚠️ [{active_key_label}] [APIError] 시도 {attempt}/{max_retries} 실패: {e}. {wait_time}초 대기 후 재시도..."
-                )
-                time.sleep(wait_time)
+                switched = key_manager.record_error(e)
+                if switched:
+                    logger.info(f"  ⚡ 다음 키({key_manager.current_key_label})로 즉시 재시도합니다.")
+                    time.sleep(1.0)
+                else:
+                    wait_time = retry_delay * attempt
+                    logger.warning(
+                        f"  ⚠️ [{active_key_label}] [APIError] 시도 {attempt}/{max_retries} 실패: {e}. {wait_time}초 대기 후 재시도..."
+                    )
+                    time.sleep(wait_time)
         except Exception as e:
             switched = key_manager.record_error(e)
             if switched:
@@ -364,7 +372,7 @@ def solve_single_problem(
                 )
                 time.sleep(wait_time)
 
-    logger.error("  ❌ 최대 재시도 횟수를 초과하여 문제 풀이에 실패했습니다.")
+    logger.error("  ❌ 모든 재시도를 소진하여 문제 풀이에 실패했습니다.")
     return None
 
 
@@ -517,8 +525,8 @@ def process_default_json(
 
     except AllKeysExhaustedError as e:
         logger.error("=" * 65)
-        logger.error(f"🛑 [프로세스 중단] {e}")
-        logger.error("🛑 모든 API 키의 할당량이 소진되어 현재까지의 진행 상황을 안전하게 저장하고 종료합니다.")
+        logger.error(f"🛑 [프로세스 종료] {e}")
+        logger.error("🛑 처음 로드된 모든 API 키의 1바퀴 순회가 완료되어 현재까지의 진행 상황을 안전하게 저장하고 스크립트를 종료합니다.")
         logger.error("=" * 65)
     except KeyboardInterrupt:
         logger.warning("\n⚠️ 사용자에 의해 작업이 강제 중단(KeyboardInterrupt)되었습니다.")
