@@ -53,7 +53,7 @@ const CustomHardBreak = HardBreak.extend({
     return {
       markdown: {
         serialize(state: any, node: any, parent: any, index: number) {
-          state.write(state.inTable ? '<br>' : '\\\n');
+          state.write(state.inTable ? '<br>' : '\n');
         },
         parse: {},
       },
