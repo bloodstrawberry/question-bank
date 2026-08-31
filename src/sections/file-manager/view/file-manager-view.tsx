@@ -1,61 +1,57 @@
 'use client';
 
+import type { DragEndEvent } from '@dnd-kit/core';
 import type { IFile, IFileFilters } from 'src/types/file';
 
-import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { useRef, useMemo, useState, useEffect, useCallback } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useBoolean, useSetState, useLocalStorage } from 'minimal-shared/hooks';
 import {
-  DndContext,
-  PointerSensor,
   useSensor,
+  DndContext,
   useSensors,
   useDroppable,
-  DragEndEvent,
+  PointerSensor,
   pointerWithin,
 } from '@dnd-kit/core';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
 import { fIsBetween } from 'src/utils/format-time';
 
+import TREE_DATA from 'src/api/dummy/default.json';
 import { DashboardContent } from 'src/layouts/dashboard';
+import {
+  getTreeData,
+  getFullData,
+  saveTreeData,
+  saveFullData,
+  deleteTreeItems,
+} from 'src/api/indexDB';
 
 import { toast } from 'src/components/snackbar';
 import { fileFormat } from 'src/components/file-thumbnail';
-import { EmptyContent } from 'src/components/empty-content';
 import { ConfirmDialog } from 'src/components/custom-dialog';
-import { useTable, rowInPage, getComparator } from 'src/components/table';
 import { LoadingScreen } from 'src/components/loading-screen';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useTable, rowInPage, getComparator } from 'src/components/table';
 
-import {
-  getTreeData,
-  saveTreeData,
-  getFileScript,
-  clearAllScripts,
-  getFullData,
-  saveFullData,
-  deleteFileScripts,
-  deleteTreeItems,
-} from 'src/api/indexDB';
+import { ProblemSetView } from './problem-set-view';
 import { FileManagerFilters } from '../file-manager-filters';
 import { FileManagerSidebar } from '../file-manager-sidebar';
 import { FileManagerGridView } from '../file-manager-grid-view';
+import { ProblemSetEditorView } from './problem-set-editor-view';
 import { FileManagerFiltersResult } from '../file-manager-filters-result';
 import { FileManagerCreateFolderDialog } from '../file-manager-create-folder-dialog';
-import { ProblemSetEditorView } from './problem-set-editor-view';
-import { ProblemSetView } from './problem-set-view';
-import TREE_DATA from 'src/api/dummy/default.json';
 
 // ----------------------------------------------------------------------
 
@@ -223,8 +219,8 @@ export function FileManagerView() {
       let movedItem: any = null;
 
       // 1. Find and remove the item
-      const removeNode = (list: any[]): any[] => {
-        return list.filter((node) => {
+      const removeNode = (list: any[]): any[] =>
+        list.filter((node) => {
           if (node.id === sourceId) {
             movedItem = node;
             return false;
@@ -235,7 +231,6 @@ export function FileManagerView() {
           }
           return true;
         });
-      };
 
       const filteredTree = removeNode(JSON.parse(JSON.stringify(nodes)));
 

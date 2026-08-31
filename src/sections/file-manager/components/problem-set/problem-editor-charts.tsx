@@ -10,8 +10,8 @@ import { alpha } from '@mui/material/styles';
 import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import BarChartIcon from '@mui/icons-material/BarChart';
 import DeleteIcon from '@mui/icons-material/Delete';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 import { ChartRenderer } from 'src/components/chart';
 

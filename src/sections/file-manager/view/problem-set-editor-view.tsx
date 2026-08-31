@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -16,8 +16,10 @@ import ReorderIcon from '@mui/icons-material/Reorder';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 
 import { saveFileScript } from 'src/api/indexDB';
 
@@ -26,9 +28,9 @@ import {
   useProblemSetEditor,
   ProblemSetPagination,
   ProblemEditorBulkDialog,
+  ProblemEditorDeleteDialog,
   ProblemEditorReorderDialog,
   ProblemEditorNoAnswerDialog,
-  ProblemEditorDeleteDialog,
 } from '../components/problem-set';
 
 // ----------------------------------------------------------------------
@@ -63,11 +65,9 @@ export function ProblemSetEditorView({
     bulkDialogOpen,
     setBulkDialogOpen,
     bulkText,
-    setBulkText,
     problemBulkDialogOpen,
     setProblemBulkDialogOpen,
     problemBulkText,
-    setProblemBulkText,
     reorderDialogOpen,
     setReorderDialogOpen,
     noAnswerWarningOpen,
@@ -206,6 +206,7 @@ export function ProblemSetEditorView({
         }
         return '';
       }
+      return undefined;
     };
 
     const handleVisibilityChange = () => {
@@ -304,6 +305,25 @@ export function ProblemSetEditorView({
           onPageInputBlur={handlePageInputBlur}
           onPageInputKeyDown={handlePageInputKeyDown}
         />
+
+        {/* 문제 보류 토글 버튼 */}
+        <Tooltip title={activeProblem?.isHold ? '문제 보류 해제' : '문제 보류'}>
+          <Button
+            variant={activeProblem?.isHold ? 'contained' : 'outlined'}
+            color="warning"
+            onClick={() => updateProblem(activeProblemIndex, { isHold: !activeProblem?.isHold })}
+            startIcon={activeProblem?.isHold ? <PauseCircleIcon /> : <PauseCircleOutlineIcon />}
+            sx={{
+              fontWeight: 700,
+              whiteSpace: 'nowrap',
+              ...(activeProblem?.isHold && {
+                boxShadow: (t) => t.customShadows?.warning,
+              }),
+            }}
+          >
+            {activeProblem?.isHold ? '보류 중' : '문제 보류'}
+          </Button>
+        </Tooltip>
 
         <Tooltip title="문제 순서 변경">
           <Button

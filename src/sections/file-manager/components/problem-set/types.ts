@@ -43,6 +43,7 @@ export interface Problem {
   isLlmProcessed?: boolean;
   llmPredictedAnswer?: number;
   llmKeyConcept?: string;
+  isHold?: boolean;
 }
 
 export interface ProblemSetData {
@@ -77,6 +78,7 @@ export function createEmptyProblem(choicesCount: number = 4): Problem {
     isMultipleAnswer: false,
     showMultipleCount: true,
     disableChoiceShuffle: false,
+    isHold: false,
     explanation: '',
     choiceExplanations: Array(count).fill(''),
     choiceExplanationDescriptions: Array(count).fill(''),

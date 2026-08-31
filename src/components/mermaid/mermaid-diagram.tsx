@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, useId } from 'react';
+import { useId, useState, useEffect } from 'react';
+
 import Box from '@mui/material/Box';
+import { alpha } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { alpha } from '@mui/material/styles';
 
 interface MermaidDiagramProps {
   chart: string;

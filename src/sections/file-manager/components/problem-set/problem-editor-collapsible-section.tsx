@@ -4,11 +4,11 @@ import { memo } from 'react';
 
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
+import { alpha } from '@mui/material/styles';
 import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { alpha } from '@mui/material/styles';
 
 interface ProblemEditorCollapsibleSectionProps {
   title: string;

@@ -1,12 +1,31 @@
+import type { DragEndEvent } from '@dnd-kit/core';
+import type { Problem } from './types';
+
+import { CSS } from '@dnd-kit/utilities';
 import { memo, useState, useEffect, useCallback } from 'react';
+import {
+  useSensor,
+  DndContext,
+  useSensors,
+  closestCenter,
+  PointerSensor,
+  KeyboardSensor,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  useSortable,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
 import Box from '@mui/material/Box';
 import Radio from '@mui/material/Radio';
 import Switch from '@mui/material/Switch';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import Checkbox from '@mui/material/Checkbox';
 import { alpha } from '@mui/material/styles';
+import Checkbox from '@mui/material/Checkbox';
 import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -21,27 +40,8 @@ import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 
-import {
-  DndContext,
-  closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
-  DragEndEvent,
-} from '@dnd-kit/core';
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  verticalListSortingStrategy,
-  useSortable,
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-
 import { MarkdownEditor } from 'src/components/markdown-editor';
 
-import type { Problem } from './types';
 import { FastTextField } from './fast-text-field';
 import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorCharts } from './problem-editor-charts';

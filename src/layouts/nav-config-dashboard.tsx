@@ -1,13 +1,13 @@
-import type { NavSectionProps } from 'src/components/nav-section';
 import type { NavMainProps } from './main/nav/types';
-
-import { paths } from 'src/routes/paths';
+import type { NavSectionProps } from 'src/components/nav-section';
 
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import FolderRoundedIcon from '@mui/icons-material/FolderRounded';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import HeadphonesRoundedIcon from '@mui/icons-material/HeadphonesRounded';
-import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
+
+import { paths } from 'src/routes/paths';
 
 const ICONS = {
   home: <HomeRoundedIcon fontSize="small" />,

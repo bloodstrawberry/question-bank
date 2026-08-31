@@ -2,16 +2,16 @@
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
+import Container from '@mui/material/Container';
 import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 
 import {
   useProblemSetView,

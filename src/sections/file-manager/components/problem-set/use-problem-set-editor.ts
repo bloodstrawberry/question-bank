@@ -1,7 +1,7 @@
 import type { Problem, ProblemSetData } from './types';
 
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { arrayMove } from '@dnd-kit/sortable';
+import { useRef, useMemo, useState, useEffect, useCallback } from 'react';
 
 import { getFileScript, saveFileScript } from 'src/api/indexDB';
 
@@ -79,6 +79,7 @@ export function useProblemSetEditor({
             const showMultipleCount =
               p.showMultipleCount !== undefined ? Boolean(p.showMultipleCount) : true;
             const disableChoiceShuffle = Boolean(p.disableChoiceShuffle);
+            const isHold = Boolean(p.isHold);
 
             const explanationFormulas = Array.isArray(p.explanationFormulas)
               ? p.explanationFormulas
@@ -163,6 +164,7 @@ export function useProblemSetEditor({
               answers: rawAnswers,
               showMultipleCount,
               disableChoiceShuffle,
+              isHold,
             };
           });
           const nextData = { problems: normalized };

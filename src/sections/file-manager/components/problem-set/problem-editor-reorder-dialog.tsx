@@ -1,37 +1,37 @@
+import type { DragEndEvent } from '@dnd-kit/core';
 import type { Problem } from './types';
 
+import { CSS } from '@dnd-kit/utilities';
 import { useState, useEffect } from 'react';
+import {
+  useSensor,
+  DndContext,
+  useSensors,
+  closestCenter,
+  PointerSensor,
+  KeyboardSensor,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  useSortable,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import { alpha } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 import DialogTitle from '@mui/material/DialogTitle';
+import ReorderIcon from '@mui/icons-material/Reorder';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import IconButton from '@mui/material/IconButton';
-import ReorderIcon from '@mui/icons-material/Reorder';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
-
-import {
-  DndContext,
-  closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
-  DragEndEvent,
-} from '@dnd-kit/core';
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  verticalListSortingStrategy,
-  useSortable,
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 
 interface ProblemItemWrap {
   tempId: string;
@@ -123,6 +123,16 @@ function SortableProblemItem({ id, index, problem, isActive }: SortableProblemIt
       >
         {index + 1}번 문제
       </Typography>
+
+      {problem.isHold && (
+        <Chip
+          label="보류"
+          size="small"
+          color="warning"
+          variant="soft"
+          sx={{ fontWeight: 700, fontSize: 11, height: 20, flexShrink: 0 }}
+        />
+      )}
 
       {questionSnippet ? (
         <Typography

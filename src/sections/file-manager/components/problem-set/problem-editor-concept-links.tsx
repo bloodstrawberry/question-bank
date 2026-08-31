@@ -1,25 +1,21 @@
 'use client';
 
+import type { ConceptLink } from './types';
+
 import { memo, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import TextField from '@mui/material/TextField';
 import { alpha } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import Autocomplete from '@mui/material/Autocomplete';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import LinkIcon from '@mui/icons-material/Link';
 
 import { getAllStudyConcepts, type StudyConceptSummary } from 'src/api/indexDB';
-import { StudyConceptModal } from 'src/sections/study/components/study-concept-modal';
 
-import type { ConceptLink } from './types';
+import { StudyConceptModal } from 'src/sections/study/components/study-concept-modal';
 
 // ----------------------------------------------------------------------
 

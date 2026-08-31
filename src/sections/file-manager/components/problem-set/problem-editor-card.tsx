@@ -1,6 +1,6 @@
 import type { Problem } from './types';
 
-import { useState, useEffect, useCallback, memo } from 'react';
+import { memo, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -19,23 +19,25 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 
 import { MarkdownEditor } from 'src/components/markdown-editor';
 
 import { FastTextField } from './fast-text-field';
 import { ProblemEditorErds } from './problem-editor-erds';
 import { ProblemEditorCharts } from './problem-editor-charts';
-import { RichContentRenderer, isRichTextEmpty } from './rich-content-renderer';
 import { ProblemEditorChoices } from './problem-editor-choices';
 import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
-import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
-import { ProblemEditorCorrectionDialog } from './problem-editor-correction-dialog';
 import { ProblemEditorConceptLinks } from './problem-editor-concept-links';
+import { isRichTextEmpty, RichContentRenderer } from './rich-content-renderer';
+import { ProblemEditorCorrectionDialog } from './problem-editor-correction-dialog';
+import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
 
 type SectionKey =
   | 'description'
@@ -323,6 +325,16 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
             </Typography>
           </Typography>
 
+          {problem.isHold && (
+            <Chip
+              label="보류 중"
+              size="small"
+              color="warning"
+              variant="soft"
+              sx={{ fontWeight: 700, fontSize: 12, height: 22 }}
+            />
+          )}
+
           {isLlmProcessed && (
             <Chip
               label="LLM 처리완료"
@@ -344,7 +356,26 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           )}
         </Box>
 
-        <Box sx={{ display: 'flex', gap: 0.5 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <Tooltip title={problem.isHold ? '문제 보류 해제' : '문제 보류'}>
+            <Button
+              size="small"
+              tabIndex={-1}
+              variant={problem.isHold ? 'contained' : 'outlined'}
+              color="warning"
+              onClick={() => onUpdateProblem({ isHold: !problem.isHold })}
+              startIcon={
+                problem.isHold ? (
+                  <PauseCircleIcon fontSize="small" />
+                ) : (
+                  <PauseCircleOutlineIcon fontSize="small" />
+                )
+              }
+              sx={{ fontWeight: 700, height: 30, px: 1, mr: 0.5 }}
+            >
+              {problem.isHold ? '보류 중' : '보류'}
+            </Button>
+          </Tooltip>
           <Tooltip title="문제 복제">
             <IconButton size="small" tabIndex={-1} onClick={() => onDuplicateProblem(problemIndex)}>
               <ContentCopyIcon fontSize="small" />

@@ -25,6 +25,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 
@@ -162,6 +163,16 @@ export function ProblemSetViewCard({
               {problemIndex + 1}
             </Box>
 
+            {problem.isHold && (
+              <Chip
+                label="보류 중"
+                size="small"
+                color="warning"
+                variant="soft"
+                sx={{ fontWeight: 700, fontSize: 12 }}
+              />
+            )}
+
             {isSubmitted && (
               <Typography
                 variant="subtitle2"
@@ -216,6 +227,33 @@ export function ProblemSetViewCard({
             ))}
           </Box>
         </Box>
+
+        {/* Hold Notice Banner */}
+        {problem.isHold && (
+          <Box
+            sx={{
+              p: 1.5,
+              px: 2,
+              borderRadius: 1.5,
+              bgcolor: (t) => alpha(t.palette.warning.main, 0.08),
+              border: (t) => `1px solid ${alpha(t.palette.warning.main, 0.24)}`,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1.5,
+            }}
+          >
+            <PauseCircleOutlineIcon sx={{ color: 'warning.main', fontSize: 22 }} />
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontWeight: 700,
+                color: 'warning.darker',
+              }}
+            >
+              이 문제는 보류 중입니다.
+            </Typography>
+          </Box>
+        )}
 
         {/* Question */}
         <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>

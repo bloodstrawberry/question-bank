@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo } from 'react';
+import type { Theme, SxProps } from '@mui/material/styles';
+
 import katex from 'katex';
+import { useMemo } from 'react';
 
 import Box from '@mui/material/Box';
-import type { SxProps, Theme } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 

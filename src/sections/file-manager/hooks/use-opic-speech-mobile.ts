@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
+
 import { toast } from 'src/components/snackbar';
 
 // ----------------------------------------------------------------------
@@ -190,8 +191,8 @@ export function useOpicSpeech() {
     speakingIndexRef.current = speakingIndex;
   }, [speakingIndex]);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (recognitionRef.current) {
         try {
           recognitionRef.current.onend = null;
@@ -203,8 +204,9 @@ export function useOpicSpeech() {
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
-    };
-  }, []);
+    },
+    []
+  );
 
   const toggleSpeak = useCallback((text: string, index: number | string) => {
     const currentSpeaking = speakingIndexRef.current;
