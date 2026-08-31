@@ -68,13 +68,17 @@
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
-          "explanation": "정답: (2)",
+          "explanation": "[지문 해석]\n그들의 사무 업무는 동일한 기능을 수행하는 컴퓨터 프로그램의 사용으로 주로 대체되었다.\n\n[정답 해설]\n'supplant'는 '(다른 사람·사물을) 대신하다, 대체하다, 밀어내다(replace, substitute, supersede)'라는 의미를 가진 핵심 동사입니다. 지문은 기존의 사무 업무가 동일한 기능을 수행하는 컴퓨터 프로그램에 의해 '대체되었다'는 내용이므로, '대체된, 대신된'을 뜻하는 2번 'substituted'가 문맥상 가장 적절합니다.\n\n[오답 분석 요약]\n1. supported: '지원된, 지지된'이라는 뜻으로 문맥에 맞지 않습니다.\n3. dismissed: '해고된, 묵살된, 해산된'이라는 뜻으로 대체되었다는 의미와 다릅니다.\n4. provided: '제공된'이라는 뜻으로 의미상 적절하지 않습니다.",
           "choiceExplanations": [
-            "",
-            "",
-            "",
-            ""
-          ]
+            "지원된, 지지된",
+            "대체된, 대신된",
+            "해고된, 묵살된",
+            "제공된"
+          ],
+          "llmPredictedAnswer": 2,
+          "llmKeyConcept": "[핵심 어휘]\n* supplant: 대신하다, 대체하다 (= replace, substitute, supersede)\n* substitute: 대체하다, 대신하다\n* support: 지지하다, 지원하다\n* dismiss: 해고하다, 묵살하다, 해산시키다\n* provide: 제공하다",
+          "isLlmMatch": true,
+          "isLlmProcessed": true
         },
         {
           "hashtags": [
@@ -132,13 +136,17 @@
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
-          "explanation": "정답: (3)",
+          "explanation": "[지문 해석]\n1. 그녀의 어머니는 유명한 여배우였다.\n2. 폴 스코필드는 아주 뛰어난 연기를 선보였다.\n3. 생선을 씻고 칼로 비늘을 벗겨내어라.\n4. 그녀는 9월 말까지 학업 휴가 중이다.\n\n[정답 해설]\n3번 문장의 'scales'는 문맥상 생선의 '비늘'을 뜻합니다. 반면 괄호 안의 'measures'는 '조치, 수단, 측정' 등을 의미하므로 두 단어의 의미가 서로 다릅니다. (scale이 '저울'이나 '규모'를 뜻할 때 measure와 연관될 수는 있으나, 이 지문에서는 생선의 비늘을 의미하므로 완전히 다릅니다.) 따라서 정답은 3번입니다.\n\n[오답 분석 요약]\n1. celebrated와 famous는 모두 '유명한, 저명한'이라는 뜻의 동의어입니다.\n2. exquisite와 excellent는 모두 '아주 뛰어난, 훌륭한'이라는 의미의 동의어입니다.\n4. leave와 vacation은 모두 '휴가'를 의미하므로 문맥상 동의어입니다.",
           "choiceExplanations": [
-            "",
-            "",
-            "",
-            ""
-          ]
+            "그녀의 어머니는 유명한 여배우였다.",
+            "폴 스코필드는 아주 뛰어난 연기를 선보였다.",
+            "생선을 씻고 칼로 비늘을 벗겨내어라.",
+            "그녀는 9월 말까지 학업 휴가 중이다."
+          ],
+          "llmPredictedAnswer": 3,
+          "llmKeyConcept": "동의어 및 다의어 구분 (celebrated=famous 유명한 / exquisite=excellent 뛰어난 / scale 비늘, 저울 / leave=vacation 휴가)",
+          "isLlmMatch": true,
+          "isLlmProcessed": true
         },
         {
           "hashtags": [
@@ -196,13 +204,17 @@
           "isMultipleAnswer": false,
           "showMultipleCount": true,
           "disableChoiceShuffle": false,
-          "explanation": "정답: (2)",
+          "explanation": "[지문 해석] 이 과정을 마치는 대로 당신을 곤경(의무)에서 벗어나게 해 줄 수 있습니다.  [정답 해설] 'off the hook'은 낚싯바늘(hook)에서 풀려난다는 직역에서 유래하여 '곤경, 곤란한 상황, 책무 등에서 벗어난, 해방된'이라는 의미를 나타내는 관용구입니다. 따라서 '자유로운, 벗어난'을 뜻하는 2번 'free'가 밑줄 친 부분의 의미로 가장 적절합니다.  [오답 분석 요약] 1번 clean은 '깨끗한'이라는 뜻으로 곤경이나 의무 탈출의 의미와 부합하지 않습니다. 3번 involved는 '관여된, 연루된'이라는 뜻으로 오히려 어떠한 상황에 얽혀 있는 상태를 나타냅니다. 4번 exposed는 '노출된'이라는 뜻으로 위험이나 상황에 드러나 있는 상태를 의미하므로 정답이 될 수 없습니다.",
           "choiceExplanations": [
-            "",
-            "",
-            "",
-            ""
-          ]
+            "깨끗한",
+            "자유로운, 벗어난",
+            "관여된, 연관된",
+            "노출된"
+          ],
+          "llmPredictedAnswer": 2,
+          "llmKeyConcept": "off the hook: (곤경·의무 등에서) 벗어난, 해방된(=free) / get someone off the hook: ~를 곤경에서 벗어나게 해주다",
+          "isLlmMatch": true,
+          "isLlmProcessed": true
         },
         {
           "hashtags": [

@@ -164,7 +164,6 @@ class GeminiKeyManager:
             raise AllKeysExhaustedError(
                 f"처음 로드된 모든 Gemini API 키({len(self.key_entries)}개)의 1바퀴 순회가 완료되어 스크립트를 종료합니다."
             )
-
         if len(self.key_entries) <= 1:
             logger.warning(
                 f"  ⚠️ 사용 가능한 다른 API 키가 없습니다. 기존 키({self.current_key_label})를 유지합니다."
@@ -197,13 +196,25 @@ class ProblemSolution(BaseModel):
         description="가장 타당한 정답 선택지 번호 (1, 2, 3, 4, 5 중 하나 정수)"
     )
     explanation: str = Field(
-        description="문제의 종합 상세 해설 (정답 도출 이유, 관련 이론/조문, 풀이 과정 등)"
+        description=(
+            "문제의 종합 상세 해설. 반드시 다음 항목 구성을 따를 것:\n"
+            "[지문 해석]\n(지문/문제에 영어 문장이 있는 경우 모든 문장의 자연스러운 한글 번역/해석 제공. 영어가 없으면 생략 가능)\n\n"
+            "[정답 해설]\n(정답인 이유, 핵심 문법/구문 분석, 어휘 관계, 문맥상 근거 등을 상세히 설명)\n\n"
+            "[오답 분석 요약]\n(다른 오답 선택지들이 왜 정답이 아닌지 명확하게 요약 정리)"
+        )
     )
     choice_explanations: list[str] = Field(
-        description="선택지 번호(1번부터 순서대로)별로 왜 맞는지 또는 왜 틀렸는지에 대한 구체적인 해설 목록 (전달된 choices 개수와 동일)"
+        description=(
+            "선택지 번호(1번부터 순서대로 choices 개수와 동일)별 해석 목록.\n"
+            "- 선택지에 영어 단어, 구, 문장이 있는 경우 오직 해당 단어/문장의 '한국어 번역/뜻'만 간결하게 작성할 것.\n"
+            "  * 단어 예시: '대체된, 대신된'\n"
+            "  * 문장 예시: '그녀의 어머니는 유명한 배우였다.'\n"
+            "- 정오답 이유나 부연 설명은 절대 중복 작성하지 말 것 (이미 explanation에 모두 포함됨).\n"
+            "- 선택지가 이미 한국어로만 되어 있어 번역이 불필요한 경우는 빈 문자열('')로 작성할 것."
+        )
     )
     key_concept: str = Field(
-        description="문제 풀이에 사용된 핵심 개념이나 관련 법령/이론 요약"
+        description="문제 풀이에 사용된 핵심 개념, 주요 어휘/숙어 정리(뜻 포함), 또는 핵심 문법 포인트 요약"
     )
 
 
@@ -224,7 +235,7 @@ def get_last_successful_problem_from_log(log_path: str) -> Optional[Dict[str, An
 
     with open(log_path, "r", encoding="utf-8", errors="ignore") as f:
         for line in f:
-            # 문제 시작 로그: [1/1400] Script: 1787100000001 | 문제 #1
+            # 문제 시작 로그: [1/1400] Script: 1787100000030 | 문제 #1
             prob_match = re.search(r"\[(\d+)/(\d+)\] Script:\s*(\S+)\s*\|\s*문제 #(\d+)", line)
             if prob_match:
                 last_started = {
@@ -249,7 +260,7 @@ def get_last_successful_problem_from_log(log_path: str) -> Optional[Dict[str, An
 
 
 # ==========================================
-# 5. 카운트다운 대기 함수 (30초 대기)
+# 5. 카운트다운 대기 함수
 # ==========================================
 def countdown_sleep(seconds: float):
     """대기 시간 동안 남은 초를 표시하며 안전하게 대기합니다."""
@@ -279,13 +290,38 @@ def solve_single_problem(
     max_retries: Optional[int] = None,
     retry_delay: float = 2.0,
 ) -> Optional[ProblemSolution]:
-    """LLM에게 question, description, choices만 전달하여 정답 및 해설을 생성합니다. (실제 정답은 절대 전달하지 않음)"""
+    """LLM에게 question, description, choices만 전달하여 정답 및 상세 해설/번역을 생성합니다. (실제 정답은 절대 전달하지 않음)"""
     if max_retries is None:
         # 처음 로드된 키 개수만큼 시도 (모든 키를 1회씩 순회)
         max_retries = max(len(key_manager.key_entries), 1)
 
     prompt_parts = [
-        "다음 시험 문제를 풀고 가장 알맞은 정답 번호(1~N), 종합 해설, 각 선택지별 정오답 이유, 핵심 개념을 작성해줘.",
+        "당신은 대한민국 공무원 시험(9급 등) 영어 전문 강사이자 해설 전문가입니다.",
+        "제공된 영어 시험 문제를 풀고 정답 번호(1~N), 종합 상세 해설, 각 선택지별 단순 번역/해석, 핵심 개념을 작성해주세요.",
+        "",
+        "★ [해설 작성 지침] ★",
+        "1. [종합 상세 해설 (explanation)]:",
+        "   - explanation 안에 모든 해설을 아래 세 가지 명확한 소제목으로 나누어 빠짐없이 작성하세요:",
+        "     [지문 해석]",
+        "     (지문이나 문제에 영어 문장이 있는 경우 모든 문장의 매끄러운 한글 전문 번역을 제공. 영어가 전혀 없으면 생략)",
+        "",
+        "     [정답 해설]",
+        "     (왜 해당 선택지가 정답인지 구문 분석, 문법 규칙, 어휘의 정확한 의미/뉘앙스, 문맥상 근거 등을 상세하게 설명)",
+        "",
+        "     [오답 분석 요약]",
+        "     (다른 오답 선택지들이 왜 정답이 아닌지 명확하게 요약 정리)",
+        "",
+        "2. [선택지별 해석 (choice_explanations)]:",
+        "   - 각 객관식 선택지에 영어 단어, 구, 문장이 있는 경우 '오직 한국어 뜻/번역만' 간결하게 작성하세요.",
+        "     * 단어 예: '지지된, 지원된'",
+        "     * 문장 예: '그녀의 어머니는 유명한 배우였다.'",
+        "     * 대화문 예: 'A: 이 자리 비어 있나요? / B: 네, 앉으세요.'",
+        "   - 정오답 이유나 '오답입니다/정답입니다' 같은 부연 설명은 choice_explanations에 절대 중복 작성하지 마세요 (이미 explanation에 모두 들어감).",
+        "   - 선택지가 이미 한국어로만 되어 있어 번역이 불필요한 경우에는 빈 문자열('')을 넣으세요.",
+        "   - choices 배열의 요소 개수와 정확히 동일하게 1:1로 리스트를 작성하세요.",
+        "",
+        "3. [핵심 개념 (key_concept)]:",
+        "   - 해당 문제에서 알아두어야 할 핵심 어휘(단어-뜻 정리), 숙어, 또는 필수 문법 포인트를 요약하여 제공하세요.",
         "",
         f"[문제 질문]\n{question.strip()}",
     ]
@@ -298,9 +334,9 @@ def solve_single_problem(
         prompt_parts.append(f"{idx}. {choice.strip()}")
 
     prompt_parts.append(
-        f"\n[주의사항]\n"
+        f"\n[출력 형식 주의사항]\n"
         f"- 반드시 1번부터 {len(choices)}번 중 가장 적절한 정답 번호를 predicted_answer에 정수로 기재하세요.\n"
-        f"- choice_explanations 리스트에는 1번부터 {len(choices)}번까지 각 선택지가 정답인 이유 또는 오답인 이유를 순서대로 빠짐없이 총 {len(choices)}개 작성하세요."
+        f"- choice_explanations 리스트에는 1번부터 {len(choices)}번까지 각 선택지의 한국어 번역/뜻만(정오답 이유 제외) 순서대로 총 {len(choices)}개 작성하세요."
     )
 
     full_prompt = "\n".join(prompt_parts)
@@ -386,7 +422,7 @@ def process_default_json(
 ):
     """
     default.json의 모든 문제에 대해 LLM 해설을 생성하고 default_result.json 및 log.txt에 기록합니다.
-    - resume: True일 경우 log.txt 및 default_result.json을 검사하여 마지막으로 성공한 다음 문제부터 이어서 진행합니다.
+    - resume: True일 경우 log.txt 및 default_result.json을 검사하여 마지막으로 성공한 다음 문제부터 이어서 진행합니다. (기본값: True - 이어하기)
     """
     logger.info("=" * 65)
     logger.info("🚀 Gemini 문제 해설 자동 생성 시스템 가동")
@@ -394,6 +430,7 @@ def process_default_json(
     logger.info(f"📁 출력 파일: {OUTPUT_FILE}")
     logger.info(f"📝 로그 파일: {LOG_FILE}")
     logger.info(f"⏱️ 호출 간 대기 시간: {delay_between_requests}초")
+    logger.info(f"🔄 이어하기 모드(resume): {'활성화 (이어하기)' if resume else '비활성화 (1번 문제부터 처음 시작)'}")
     logger.info("=" * 65)
 
     if not os.path.exists(INPUT_FILE):
@@ -402,10 +439,11 @@ def process_default_json(
 
     # 1. 원본 데이터 및 기존 결과 데이터 로드
     if resume and os.path.exists(OUTPUT_FILE):
-        logger.info(f"기존 결과 파일({OUTPUT_FILE})을 로드합니다.")
+        logger.info(f"기존 결과 파일({OUTPUT_FILE})을 로드하여 이어합니다.")
         with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
     else:
+        logger.info(f"원본 입력 파일({INPUT_FILE})을 로드하여 1번 문제부터 시작합니다.")
         with open(INPUT_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
 
@@ -441,6 +479,8 @@ def process_default_json(
             )
         else:
             logger.info("📌 log.txt에서 이전 성공 기록이 없어 처음부터 시작합니다.")
+    else:
+        logger.info(f"📌 처음부터 시작 모드: 총 {total_problems}개 문제를 1번부터 순차적으로 모두 풉니다.")
 
     processed_count = 0
     error_count = 0
@@ -567,7 +607,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--no-resume",
         action="store_true",
-        help="log.txt 이어하기를 무시하고 1번 문제부터 다시 실행",
+        help="log.txt 이어하기를 무시하고 1번 문제부터 새로 실행 (기본값: 이어하기 활성화)",
     )
 
     args = parser.parse_args()
