@@ -1,0 +1,307 @@
+[2026-08-30 22:55:39] 🔑 총 10개의 Gemini API 키 로드 완료 (GEMINI_API_KEY_0, GEMINI_API_KEY_1, GEMINI_API_KEY_2, GEMINI_API_KEY_3, GEMINI_API_KEY_4, GEMINI_API_KEY_5, GEMINI_API_KEY_6, GEMINI_API_KEY_7, GEMINI_API_KEY_8, GEMINI_API_KEY_9). 현재 사용 중인 키: GEMINI_API_KEY_0
+[2026-08-30 22:55:51] 🔑 총 10개의 Gemini API 키 로드 완료 (GEMINI_API_KEY_0, GEMINI_API_KEY_1, GEMINI_API_KEY_2, GEMINI_API_KEY_3, GEMINI_API_KEY_4, GEMINI_API_KEY_5, GEMINI_API_KEY_6, GEMINI_API_KEY_7, GEMINI_API_KEY_8, GEMINI_API_KEY_9). 현재 사용 중인 키: GEMINI_API_KEY_0
+[2026-08-30 22:55:59] 🔑 총 10개의 Gemini API 키 로드 완료 (GEMINI_API_KEY_0, GEMINI_API_KEY_1, GEMINI_API_KEY_2, GEMINI_API_KEY_3, GEMINI_API_KEY_4, GEMINI_API_KEY_5, GEMINI_API_KEY_6, GEMINI_API_KEY_7, GEMINI_API_KEY_8, GEMINI_API_KEY_9). 현재 사용 중인 키: GEMINI_API_KEY_0
+[2026-08-30 22:55:59] =================================================================
+[2026-08-30 22:55:59] 🎯 Gemini 오답(MISMATCH) 집중 재풀이 시스템 가동
+[2026-08-30 22:55:59] 📁 결과 파일: D:\github\question-bank\src\api\dummy\default_result.json
+[2026-08-30 22:55:59] 📋 원본 로그: D:\github\question-bank\src\api\dummy\log.txt
+[2026-08-30 22:55:59] 📝 오답 로그: D:\github\question-bank\src\api\dummy\log_error.txt
+[2026-08-30 22:55:59] ⏱️ 호출 간 대기 시간: 1.0초
+[2026-08-30 22:55:59] =================================================================
+[2026-08-30 22:55:59] 🔍 총 42개의 오답(MISMATCH) 문제를 발견했습니다.
+[2026-08-30 22:55:59] 📌 log_error.txt에서 이전 완료 기록이 없어 1번째 오답 문제부터 시작합니다.
+[2026-08-30 22:55:59] -----------------------------------------------------------------
+[2026-08-30 22:55:59] [1/42] (원래 전체 11번) Script: 1787100000001 | 문제 #11
+[2026-08-30 22:55:59]   질문: 부동산에 관한 수요와 공급의 가격 탄력성에 관한 설명으로 틀린 것은?(단, 다른 조건은 동일함)
+[2026-08-30 22:55:59]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 5
+[2026-08-30 22:56:21]   🤖 LLM 예측 정답: 5 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 0/1 = 0.0%)
+[2026-08-30 22:56:21]   🔑 핵심 개념: 부동산 수요 및 공급의 가격 탄력성 (완전탄력성, 대체재 유무, 조세의 귀속, 단위 탄력성과 총수입, 생산 소요 기간과 공급 탄력성)
+[2026-08-30 22:56:22] 🎯 지정된 최대 문제 처리 수(1개)에 도달하여 작업을 종료합니다.
+[2026-08-30 22:56:22] =================================================================
+[2026-08-30 22:56:22] 🎉 오답 재풀이 세션이 종료되었습니다.
+[2026-08-30 22:56:22] 📊 결과 요약: 이번 세션 처리=1, 이전 완료 스킵=0, 총 완료=1/42, 일치=0, 오류=0
+[2026-08-30 22:56:22] 🏆 오답 재풀이 성공률: 0.00% (0/1)
+[2026-08-30 22:56:22] 📁 결과 파일 저장 위치: D:\github\question-bank\src\api\dummy\default_result.json
+[2026-08-30 22:56:22] 📝 오답 로그 파일 위치: D:\github\question-bank\src\api\dummy\log_error.txt
+[2026-08-30 22:56:22] =================================================================
+[2026-08-30 22:56:35] 🔑 총 10개의 Gemini API 키 로드 완료 (GEMINI_API_KEY_0, GEMINI_API_KEY_1, GEMINI_API_KEY_2, GEMINI_API_KEY_3, GEMINI_API_KEY_4, GEMINI_API_KEY_5, GEMINI_API_KEY_6, GEMINI_API_KEY_7, GEMINI_API_KEY_8, GEMINI_API_KEY_9). 현재 사용 중인 키: GEMINI_API_KEY_0
+[2026-08-30 22:56:35] =================================================================
+[2026-08-30 22:56:35] 🎯 Gemini 오답(MISMATCH) 집중 재풀이 시스템 가동
+[2026-08-30 22:56:35] 📁 결과 파일: D:\github\question-bank\src\api\dummy\default_result.json
+[2026-08-30 22:56:35] 📋 원본 로그: D:\github\question-bank\src\api\dummy\log.txt
+[2026-08-30 22:56:35] 📝 오답 로그: D:\github\question-bank\src\api\dummy\log_error.txt
+[2026-08-30 22:56:35] ⏱️ 호출 간 대기 시간: 1.0초
+[2026-08-30 22:56:35] =================================================================
+[2026-08-30 22:56:35] 🔍 총 42개의 오답(MISMATCH) 문제를 발견했습니다.
+[2026-08-30 22:56:35] 📌 [오답 이어하기 감지] log_error.txt 기록 기준 마지막 완료 오답 문제: 오답 #1/42 (원래 전체 11번, Script: 1787100000001, 문제 #11)
+[2026-08-30 22:56:35] ➡️  다음 오답 문제인 [2/42]번부터 이어서 작업을 진행합니다.
+[2026-08-30 22:56:35] -----------------------------------------------------------------
+[2026-08-30 22:56:35] [2/42] (원래 전체 205번) Script: 1787100000001 | 문제 #205
+[2026-08-30 22:56:35]   질문: 효력규정이 아닌 것을 모두 고른 것은?(다툼이 있으면 판례에 따름)
+[2026-08-30 22:56:35]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 1
+[2026-08-30 22:56:35]   ⚠️ [GEMINI_API_KEY_0] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 24.235804287s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}
+[2026-08-30 22:56:35]   🔄 [API 키 전환] GEMINI_API_KEY_0 (에러/할당량 초과) -> GEMINI_API_KEY_1 (키 인덱스 2/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 22:56:38]   ⚡ 다음 키(GEMINI_API_KEY_1)로 즉시 재시도합니다.
+[2026-08-30 22:56:50]   🤖 LLM 예측 정답: 4 -> ✅ MATCH (일치 - 오답 극복 성공!) (오답 재풀이 성공률: 1/2 = 50.0%)
+[2026-08-30 22:56:50]   🔑 핵심 개념: 강행법규 중 단속규정에 위반한 행위는 사법상 효력에는 영향이 없어 유효하지만, 효력규정에 위반한 행위는 사법상 무효가 됩니다. 중간생략등기 금지 규정과 공인중개사의 직접거래 금지 규정은 단속규정이며, 초과 중개보수 수수 금지 규정은 효력규정입니다.
+[2026-08-30 22:56:51] 🎯 지정된 최대 문제 처리 수(1개)에 도달하여 작업을 종료합니다.
+[2026-08-30 22:56:51] =================================================================
+[2026-08-30 22:56:51] 🎉 오답 재풀이 세션이 종료되었습니다.
+[2026-08-30 22:56:51] 📊 결과 요약: 이번 세션 처리=1, 이전 완료 스킵=1, 총 완료=2/42, 일치=1, 오류=0
+[2026-08-30 22:56:51] 🏆 오답 재풀이 성공률: 50.00% (1/2)
+[2026-08-30 22:56:51] 📁 결과 파일 저장 위치: D:\github\question-bank\src\api\dummy\default_result.json
+[2026-08-30 22:56:51] 📝 오답 로그 파일 위치: D:\github\question-bank\src\api\dummy\log_error.txt
+[2026-08-30 22:56:51] =================================================================
+[2026-08-30 22:58:06] 🔑 총 10개의 Gemini API 키 로드 완료 (GEMINI_API_KEY_0, GEMINI_API_KEY_1, GEMINI_API_KEY_2, GEMINI_API_KEY_3, GEMINI_API_KEY_4, GEMINI_API_KEY_5, GEMINI_API_KEY_6, GEMINI_API_KEY_7, GEMINI_API_KEY_8, GEMINI_API_KEY_9). 현재 사용 중인 키: GEMINI_API_KEY_0
+[2026-08-30 22:58:06] =================================================================
+[2026-08-30 22:58:06] 🎯 Gemini 오답(MISMATCH) 집중 재풀이 시스템 가동
+[2026-08-30 22:58:06] 📁 결과 파일: D:\github\question-bank\src\api\dummy\default_result.json
+[2026-08-30 22:58:06] 📋 원본 로그: D:\github\question-bank\src\api\dummy\log.txt
+[2026-08-30 22:58:06] 📝 오답 로그: D:\github\question-bank\src\api\dummy\log_error.txt
+[2026-08-30 22:58:06] ⏱️ 호출 간 대기 시간: 10.0초
+[2026-08-30 22:58:06] =================================================================
+[2026-08-30 22:58:06] 🔍 총 42개의 오답(MISMATCH) 문제를 발견했습니다.
+[2026-08-30 22:58:06] 📌 [오답 이어하기 감지] log_error.txt 기록 기준 마지막 완료 오답 문제: 오답 #2/42 (원래 전체 205번, Script: 1787100000001, 문제 #205)
+[2026-08-30 22:58:06] ➡️  다음 오답 문제인 [3/42]번부터 이어서 작업을 진행합니다.
+[2026-08-30 22:58:06] -----------------------------------------------------------------
+[2026-08-30 22:58:06] [3/42] (원래 전체 244번) Script: 1787100000001 | 문제 #244
+[2026-08-30 22:58:06]   질문: 신규 주택 시장에서 공급을 감소시키는 요인을 모두 고른 것은?(단, 신규 주택은 정상재이며, 다른 조건은 동일함)
+[2026-08-30 22:58:06]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 2
+[2026-08-30 22:58:07]   ⚠️ [GEMINI_API_KEY_0] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 52.694568879s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}
+[2026-08-30 22:58:07]   🔄 [API 키 전환] GEMINI_API_KEY_0 (에러/할당량 초과) -> GEMINI_API_KEY_1 (키 인덱스 2/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 22:58:09]   ⚡ 다음 키(GEMINI_API_KEY_1)로 즉시 재시도합니다.
+[2026-08-30 22:58:19]   🤖 LLM 예측 정답: 2 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 1/3 = 33.3%)
+[2026-08-30 22:58:19]   🔑 핵심 개념: 공급의 변동 요인: 생산 요소 가격의 변화, 생산 기술 수준, 생산자 수, 정부의 조세 및 보조금 정책, 미래 가격에 대한 예상 등이 있으며, 생산비용 상승이나 생산자 수 감소 등은 공급 감소를 유발합니다.
+[2026-08-30 22:58:19] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 22:58:29] -----------------------------------------------------------------
+[2026-08-30 22:58:29] [4/42] (원래 전체 480번) Script: 1787100000001 | 문제 #480
+[2026-08-30 22:58:29]   질문: 상가건물 임대차보호법이 적용되는 X 건물에 관하여 임대인 甲과 임차인 乙이 보증금 3억원, 월 차임 60만원으로 정하여 체결한...
+[2026-08-30 22:58:29]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 3
+[2026-08-30 22:58:30]   ⚠️ [GEMINI_API_KEY_1] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 29.842935921s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '29s'}]}}
+[2026-08-30 22:58:30]   🔄 [API 키 전환] GEMINI_API_KEY_1 (에러/할당량 초과) -> GEMINI_API_KEY_2 (키 인덱스 3/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 22:58:32]   ⚡ 다음 키(GEMINI_API_KEY_2)로 즉시 재시도합니다.
+[2026-08-30 22:59:01]   🤖 LLM 예측 정답: 3 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 1/4 = 25.0%)
+[2026-08-30 22:59:01]   🔑 핵심 개념: 임대차 종료 후 동시이행 항변권에 따른 점유, 차임 상당의 부당이득 반환의무, 보증금반환채권과 유치권의 견련성 여부
+[2026-08-30 22:59:01] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 22:59:12] -----------------------------------------------------------------
+[2026-08-30 22:59:12] [5/42] (원래 전체 494번) Script: 1787100000001 | 문제 #494
+[2026-08-30 22:59:12]   질문: 지대 이론에 관한 설명으로 옳은 것을 모두 고른 것은?
+[2026-08-30 22:59:12]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 3
+[2026-08-30 22:59:26]   🤖 LLM 예측 정답: 3 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 1/5 = 20.0%)
+[2026-08-30 22:59:26]   🔑 핵심 개념: 리카도의 차액지대설(비옥도, 수확체감, 잉여), 마르크스의 절대지대설(토지 사유화, 독점적 지위), 튀넨의 위치지대설(수송비, 집약적/조방적 농업), 알론소의 입찰지대이론
+[2026-08-30 22:59:27] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 22:59:37] -----------------------------------------------------------------
+[2026-08-30 22:59:37] [6/42] (원래 전체 555번) Script: 1787100000001 | 문제 #555
+[2026-08-30 22:59:37]   질문: 甲이 2023.6.1. 乙로부터 乙 소유의 X 주택을 보증금 2억원, 기간은 1년으로 정하여 임차하는 계약을 체결한 경우, 주...
+[2026-08-30 22:59:37]   실제 정답: 5 (복수정답: [5]) | 이전 LLM 예측: 3
+[2026-08-30 22:59:37]   ⚠️ [GEMINI_API_KEY_2] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 22.650390504s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '22s'}]}}
+[2026-08-30 22:59:37]   🔄 [API 키 전환] GEMINI_API_KEY_2 (에러/할당량 초과) -> GEMINI_API_KEY_3 (키 인덱스 4/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 22:59:39]   ⚡ 다음 키(GEMINI_API_KEY_3)로 즉시 재시도합니다.
+[2026-08-30 23:00:15]   🤖 LLM 예측 정답: 3 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 1/6 = 16.7%)
+[2026-08-30 23:00:15]   🔑 핵심 개념: 주택임대차보호법(임대차기간의 보장, 묵시적 갱신, 계약갱신요구권의 효력 발생 시기)
+[2026-08-30 23:00:15] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:00:25] -----------------------------------------------------------------
+[2026-08-30 23:00:25] [7/42] (원래 전체 560번) Script: 1787100000001 | 문제 #560
+[2026-08-30 23:00:25]   질문: 甲은 상품 판매를 위해 2025.5.1. 乙로부터 부산 광역시 소재 乙 소유의 X 상가를 보증금 6억원, 월 차임 100만원에...
+[2026-08-30 23:00:25]   실제 정답: 2 (복수정답: [2]) | 이전 LLM 예측: 5
+[2026-08-30 23:00:42]   🤖 LLM 예측 정답: 2 -> ✅ MATCH (일치 - 오답 극복 성공!) (오답 재풀이 성공률: 2/7 = 28.6%)
+[2026-08-30 23:00:42]   🔑 핵심 개념: 상가건물 임대차보호법상 환산보증금 한도 초과 임대차에 적용되는 규정(대항력, 계약갱신요구권, 3기 차임 연체 해지, 권리금 회수기회 보호 등)과 적용되지 않는 규정(우선변제권, 임차권등기명령, 차임증액제한 등)의 구분
+[2026-08-30 23:00:43] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:00:53] -----------------------------------------------------------------
+[2026-08-30 23:00:53] [8/42] (원래 전체 588번) Script: 1787100000002 | 문제 #28
+[2026-08-30 23:00:53]   질문: 부동산거래신고 등에 관한 법령상 토지 거래 계약 불허 가처분 토지에 대하여 매수 청구를 받은 경우, 매수할 자로 지정될 수 있...
+[2026-08-30 23:00:53]   실제 정답: 2 (복수정답: [2]) | 이전 LLM 예측: 4
+[2026-08-30 23:01:41]   🤖 LLM 예측 정답: 4 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 2/8 = 25.0%)
+[2026-08-30 23:01:41]   🔑 핵심 개념: 부동산 거래신고 등에 관한 법률 제12조 및 시행령 제10조(불허가 처분을 받은 토지의 매수 청구 및 매수할 자의 범위)
+[2026-08-30 23:01:41] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:01:52] -----------------------------------------------------------------
+[2026-08-30 23:01:52] [9/42] (원래 전체 614번) Script: 1787100000002 | 문제 #54
+[2026-08-30 23:01:52]   질문: 도시개발법령상 지정권자가 ‘도시개발구역 전부를 환지방식으로 시행하는 도시개발사업’을 ‘지방 자치 단체의 장이 집행하는 공공 시...
+[2026-08-30 23:01:52]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 5
+[2026-08-30 23:02:14]   🤖 LLM 예측 정답: 5 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 2/9 = 22.2%)
+[2026-08-30 23:02:14]   🔑 핵심 개념: 도시개발법 제11조 제2항(전부 환지 방식 사업의 예외적 시행자 지정: 지방자치단체, 한국토지주택공사, 지방공사, 정부출자기관)
+[2026-08-30 23:02:15] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:02:25] -----------------------------------------------------------------
+[2026-08-30 23:02:25] [10/42] (원래 전체 630번) Script: 1787100000002 | 문제 #70
+[2026-08-30 23:02:25]   질문: 「주택법」상 청문을하여야하는 처분이 아닌 것은?(단, 다른 법령에 따른 청문은 고려하지 않음)
+[2026-08-30 23:02:25]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 2
+[2026-08-30 23:03:19]   🤖 LLM 예측 정답: 2 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 2/10 = 20.0%)
+[2026-08-30 23:03:19]   🔑 핵심 개념: 「주택법」 제93조(청문) 대상 처분: ① 주택건설사업 등의 등록 말소, ② 공업화주택 인정의 취소, ③ 사업계획승인의 취소 또는 리모델링 허가의 취소
+[2026-08-30 23:03:19] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:03:29] -----------------------------------------------------------------
+[2026-08-30 23:03:29] [11/42] (원래 전체 652번) Script: 1787100000002 | 문제 #92
+[2026-08-30 23:03:29]   질문: 공인중개사법령상 개업공인중개사가 중개 사무소 안의 보기 쉬운 곳에 게시해야하는 것은?
+[2026-08-30 23:03:29]   실제 정답: 5 (복수정답: [5]) | 이전 LLM 예측: 3
+[2026-08-30 23:03:29]   ⚠️ [GEMINI_API_KEY_3] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 30.140982153s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '30s'}]}}
+[2026-08-30 23:03:29]   🔄 [API 키 전환] GEMINI_API_KEY_3 (에러/할당량 초과) -> GEMINI_API_KEY_4 (키 인덱스 5/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:03:31]   ⚡ 다음 키(GEMINI_API_KEY_4)로 즉시 재시도합니다.
+[2026-08-30 23:03:52]   🤖 LLM 예측 정답: 3 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 2/11 = 18.2%)
+[2026-08-30 23:03:52]   🔑 핵심 개념: 공인중개사법령상 중개사무소 게시 의무 사항 (등록증 원본/신고확인서 원본, 자격증 원본, 중개보수 요율표, 보증설치 증명서류, 사업자등록증 원본)
+[2026-08-30 23:03:53] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:04:03] -----------------------------------------------------------------
+[2026-08-30 23:04:03] [12/42] (원래 전체 704번) Script: 1787100000002 | 문제 #144
+[2026-08-30 23:04:03]   질문: 도시 및 주거환경정비법령상 재건축사업의 사업 시행자가 작성하여야하는 사업 시행 계획서에 포함되어야하는 사항이 아닌 것은?(단,...
+[2026-08-30 23:04:03]   실제 정답: 3 (복수정답: [3]) | 이전 LLM 예측: 4
+[2026-08-30 23:04:47]   🤖 LLM 예측 정답: 4 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 2/12 = 16.7%)
+[2026-08-30 23:04:47]   🔑 핵심 개념: 도시 및 주거환경정비법 제52조(사업시행계획서의 작성) - 세입자의 주거 및 이주대책은 재건축사업의 경우 포함 대상에서 제외됨
+[2026-08-30 23:04:48] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:04:58] -----------------------------------------------------------------
+[2026-08-30 23:04:58] [13/42] (원래 전체 710번) Script: 1787100000002 | 문제 #150
+[2026-08-30 23:04:58]   질문: 주택법령상 주택의 감리자에 관한 설명으로 옳은 것을 모두 고른 것은?
+[2026-08-30 23:04:58]   실제 정답: 5 (복수정답: [5]) | 이전 LLM 예측: 2
+[2026-08-30 23:05:04]   🤖 LLM 예측 정답: 5 -> ✅ MATCH (일치 - 오답 극복 성공!) (오답 재풀이 성공률: 3/13 = 23.1%)
+[2026-08-30 23:05:04]   🔑 핵심 개념: 주택법상 감리자의 지정제한(1년 이내), 감리자의 업무Scope(설계도서 적합성 확인 등), 위반사항 발견 시 시정통지 및 보고의무(7일 이내)
+[2026-08-30 23:05:05] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:05:15] -----------------------------------------------------------------
+[2026-08-30 23:05:15] [14/42] (원래 전체 718번) Script: 1787100000002 | 문제 #158
+[2026-08-30 23:05:15]   질문: 건축법령상 신고 대상 가설 건축물인 전시를 위한 견본 주택을 축조하는 경우에 관한 설명으로 옳은 것을 모두 고른 것은?(단, ...
+[2026-08-30 23:05:15]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 4
+[2026-08-30 23:05:38]   🤖 LLM 예측 정답: 2 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 3/14 = 21.4%)
+[2026-08-30 23:05:38]   🔑 핵심 개념: 건축법상 가설건축물(제20조, 시행령 제15조): 신고대상 가설건축물은 대지와 도로의 관계, 건폐율, 용적률 등 대부분의 규정이 적용 배제되며, 존치기간은 원칙적으로 3년 이내이다. 다만, 2층 이상인 견본주택의 경우 예외적으로 공사감리(제25조), 구조안전(제48조) 등의 규정이 적용된다.
+[2026-08-30 23:05:39] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:05:49] -----------------------------------------------------------------
+[2026-08-30 23:05:49] [15/42] (원래 전체 778번) Script: 1787100000002 | 문제 #218
+[2026-08-30 23:05:49]   질문: 도시개발법령상 도시개발구역 지정권자가 속한 기관에 종사하는 자로부터 제공 받은 미공개 정보를 지정 목적 외로 사용하여 1억 5...
+[2026-08-30 23:05:49]   실제 정답: 5 (복수정답: [5]) | 이전 LLM 예측: 4
+[2026-08-30 23:06:05]   🤖 LLM 예측 정답: 2 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 3/15 = 20.0%)
+[2026-08-30 23:06:05]   🔑 핵심 개념: 도시개발법상 미공개 정보 이용 금지 위반 시 벌칙(재산상 이익 또는 회피한 손실액의 3배 이하 벌금)
+[2026-08-30 23:06:05] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:06:16] -----------------------------------------------------------------
+[2026-08-30 23:06:16] [16/42] (원래 전체 810번) Script: 1787100000002 | 문제 #250
+[2026-08-30 23:06:16]   질문: 공인중개사법령상 중개보수의 제한에 관한 설명으로 옳은 것을 모두 고른 것은?(다툼이 있으면 판례에 따름)
+[2026-08-30 23:06:16]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 5
+[2026-08-30 23:06:33]   🤖 LLM 예측 정답: 5 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 3/16 = 18.8%)
+[2026-08-30 23:06:33]   🔑 핵심 개념: 공인중개사법상 중개보수 제한 규정의 적용 범위(공매 알선 미적용, 초과 약정의 무효, 계약 미완료 시 상응 보수 약정 및 제한 규정 적용 - 대법원 2005다32159, 2000다54806, 2012다103704 판결)
+[2026-08-30 23:06:34] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:06:44] -----------------------------------------------------------------
+[2026-08-30 23:06:44] [17/42] (원래 전체 858번) Script: 1787100000002 | 문제 #298
+[2026-08-30 23:06:44]   질문: 도시개발법령상 환지방식으로 시행하는 도시개발사업 개발 계획의 경미한 변경에 관한 규정의 일부이다. ()에 들어갈 숫자를 바르게...
+[2026-08-30 23:06:44]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 1
+[2026-08-30 23:07:04]   🤖 LLM 예측 정답: 2 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 3/17 = 17.6%)
+[2026-08-30 23:07:04]   🔑 핵심 개념: 도시개발법 시행령 제5조 제2항(환지 방식 도시개발사업 개발계획의 경미한 변경): 총면적의 100분의 5 미만 변경, 12미터 미만 도로 변경/신설, 단위기반시설/기반시설 총면적의 100분의 10 미만 변경 시 토지소유자의 동의를 요하지 않음.
+[2026-08-30 23:07:04] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:07:14] -----------------------------------------------------------------
+[2026-08-30 23:07:14] [18/42] (원래 전체 862번) Script: 1787100000002 | 문제 #302
+[2026-08-30 23:07:14]   질문: 도시 및 주거환경정비법령상 조합설립추진위원회가 운영에 필요한 사항 중 추진 위원회 구성에 동의한 토지 등 소유자에게 등기 우편...
+[2026-08-30 23:07:14]   실제 정답: 2 (복수정답: [2]) | 이전 LLM 예측: 3
+[2026-08-30 23:07:14]   ⚠️ [GEMINI_API_KEY_4] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 45.340883898s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '45s'}]}}
+[2026-08-30 23:07:14]   🔄 [API 키 전환] GEMINI_API_KEY_4 (에러/할당량 초과) -> GEMINI_API_KEY_5 (키 인덱스 6/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:07:16]   ⚡ 다음 키(GEMINI_API_KEY_5)로 즉시 재시도합니다.
+[2026-08-30 23:07:35]   🤖 LLM 예측 정답: 2 -> ✅ MATCH (일치 - 오답 극복 성공!) (오답 재풀이 성공률: 4/18 = 22.2%)
+[2026-08-30 23:07:35]   🔑 핵심 개념: 도시 및 주거환경정비법 시행령 제26조 제3항(추진위원회의 운영 - 등기우편 통지 사항: 건축물 설계개요, 정비사업비 추산액, 정비사업비 분담기준, 소유권 귀속, 조합정관 등)
+[2026-08-30 23:07:35] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:07:45] -----------------------------------------------------------------
+[2026-08-30 23:07:45] [19/42] (원래 전체 863번) Script: 1787100000002 | 문제 #303
+[2026-08-30 23:07:45]   질문: 도시 및 주거환경정비법령상 한국토지주택공사가 단독으로 정비사업을 시행하는 경우에 작성하는 시행 규정에 포함하여야하는 사항이 아...
+[2026-08-30 23:07:45]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 4
+[2026-08-30 23:07:53]   🤖 LLM 예측 정답: 1 -> ✅ MATCH (일치 - 오답 극복 성공!) (오답 재풀이 성공률: 5/19 = 26.3%)
+[2026-08-30 23:07:53]   🔑 핵심 개념: 도시 및 주거환경정비법상 시행규정의 작성 내용(법 제53조, 시행령 제43조)
+[2026-08-30 23:07:53] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:08:03] -----------------------------------------------------------------
+[2026-08-30 23:08:03] [20/42] (원래 전체 865번) Script: 1787100000002 | 문제 #305
+[2026-08-30 23:08:03]   질문: 주택법령상 도시형생활주택으로서 소형 주택의 요건에 해당하는 것을 모두 고른 것은?
+[2026-08-30 23:08:03]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 5
+[2026-08-30 23:08:03]   ⚠️ [GEMINI_API_KEY_5] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 56.415217471s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}
+[2026-08-30 23:08:03]   🔄 [API 키 전환] GEMINI_API_KEY_5 (에러/할당량 초과) -> GEMINI_API_KEY_6 (키 인덱스 7/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:08:05]   ⚡ 다음 키(GEMINI_API_KEY_6)로 즉시 재시도합니다.
+[2026-08-30 23:08:12]   🤖 LLM 예측 정답: 5 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 5/20 = 25.0%)
+[2026-08-30 23:08:12]   🔑 핵심 개념: 주택법 시행령 제3조(도시형 생활주택) 제1항 제1호 '소형 주택'의 요건
+[2026-08-30 23:08:12] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:08:22] -----------------------------------------------------------------
+[2026-08-30 23:08:22] [21/42] (원래 전체 868번) Script: 1787100000002 | 문제 #308
+[2026-08-30 23:08:22]   질문: 주택법령상 징역 또는 벌금의 부과 대상자는?
+[2026-08-30 23:08:22]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 4
+[2026-08-30 23:08:23]   ⚠️ [GEMINI_API_KEY_6] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 36.83787231s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '36s'}]}}
+[2026-08-30 23:08:23]   🔄 [API 키 전환] GEMINI_API_KEY_6 (에러/할당량 초과) -> GEMINI_API_KEY_7 (키 인덱스 8/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:08:24]   ⚡ 다음 키(GEMINI_API_KEY_7)로 즉시 재시도합니다.
+[2026-08-30 23:08:36]   🤖 LLM 예측 정답: 5 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 5/21 = 23.8%)
+[2026-08-30 23:08:36]   🔑 핵심 개념: 주택법상 벌칙(징역 및 벌금)과 과태료의 구분: 품질점검단 점검 결과에 따른 보수ㆍ보강 조치명령 불이행은 2년 이하의 징역 또는 2천만원 이하의 벌금에 처해지며, 단순 검사/조사 방해나 겸직 금지 위반 등은 과태료 부과 대상입니다.
+[2026-08-30 23:08:37] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:08:47] -----------------------------------------------------------------
+[2026-08-30 23:08:47] [22/42] (원래 전체 871번) Script: 1787100000002 | 문제 #311
+[2026-08-30 23:08:47]   질문: 주택법령상 시ㆍ도지사에게 위임한 국토교통부장관의 권한이 아닌 것은?
+[2026-08-30 23:08:47]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 3
+[2026-08-30 23:09:21]   🤖 LLM 예측 정답: 4 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 5/22 = 22.7%)
+[2026-08-30 23:09:21]   🔑 핵심 개념: 주택법령상 국토교통부장관의 권한 위임 범위 (사용검사는 시·도지사 위임 사항에 포함되나, 임시 사용승인은 위임 대상에서 제외됨)
+[2026-08-30 23:09:21] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:09:31] -----------------------------------------------------------------
+[2026-08-30 23:09:31] [23/42] (원래 전체 875번) Script: 1787100000002 | 문제 #315
+[2026-08-30 23:09:31]   질문: 건축법령상 결합 건축을 할 수 있는 지역ㆍ구역에 해당하지 않는 것은? (단, 조례는 고려하지 않음)
+[2026-08-30 23:09:31]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 5
+[2026-08-30 23:09:31]   ⚠️ [GEMINI_API_KEY_7] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 28.386084034s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '28s'}]}}
+[2026-08-30 23:09:31]   🔄 [API 키 전환] GEMINI_API_KEY_7 (에러/할당량 초과) -> GEMINI_API_KEY_8 (키 인덱스 9/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:09:32]   ⚡ 다음 키(GEMINI_API_KEY_8)로 즉시 재시도합니다.
+[2026-08-30 23:09:52]   🤖 LLM 예측 정답: 5 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 5/23 = 21.7%)
+[2026-08-30 23:09:52]   🔑 핵심 개념: 건축법 제77조의15(결합건축), 건축법 시행령 제110조의2(결합건축 대상 지역 등)
+[2026-08-30 23:09:52] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:10:02] -----------------------------------------------------------------
+[2026-08-30 23:10:02] [24/42] (원래 전체 906번) Script: 1787100000002 | 문제 #346
+[2026-08-30 23:10:02]   질문: 공인중개사법령상 중개대상물 확인 ․설명서 [Ⅰ] (주거용 건축물)의 작성 방법으로 옳은 것을 모두 고른 것은?
+[2026-08-30 23:10:02]   실제 정답: 2 (복수정답: [2]) | 이전 LLM 예측: 5
+[2026-08-30 23:10:15]   🤖 LLM 예측 정답: 2 -> ✅ MATCH (일치 - 오답 극복 성공!) (오답 재풀이 성공률: 6/24 = 25.0%)
+[2026-08-30 23:10:15]   🔑 핵심 개념: 중개대상물 확인·설명서[Ⅰ] 작성방법 (취득세 비적용 항목, 환경조건의 자료요구, 실제 권리관계의 고지사항 작성)
+[2026-08-30 23:10:15] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:10:25] -----------------------------------------------------------------
+[2026-08-30 23:10:25] [25/42] (원래 전체 928번) Script: 1787100000002 | 문제 #368
+[2026-08-30 23:10:25]   질문: 국토의 계획 및 이용에 관한 법령상 입지규제최소구역의 지정 대상으로 명시되지 않은 것은?
+[2026-08-30 23:10:25]   실제 정답: 2 (복수정답: [2]) | 이전 LLM 예측: 4
+[2026-08-30 23:10:25]   ⚠️ [GEMINI_API_KEY_8] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 34.105810624s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '34s'}]}}
+[2026-08-30 23:10:25]   🔄 [API 키 전환] GEMINI_API_KEY_8 (에러/할당량 초과) -> GEMINI_API_KEY_9 (키 인덱스 10/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:10:27]   ⚡ 다음 키(GEMINI_API_KEY_9)로 즉시 재시도합니다.
+[2026-08-30 23:10:35]   🤖 LLM 예측 정답: 4 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 6/25 = 24.0%)
+[2026-08-30 23:10:35]   🔑 핵심 개념: 국토의 계획 및 이용에 관한 법률상 입지규제최소구역의 지정 대상 (도시경제기반형 활성화계획 지역 등)
+[2026-08-30 23:10:35] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:10:45] -----------------------------------------------------------------
+[2026-08-30 23:10:45] [26/42] (원래 전체 940번) Script: 1787100000002 | 문제 #380
+[2026-08-30 23:10:45]   질문: 도시 및 주거환경정비법령상 토지 등 소유자에 대한 분양신청의 통지 및 분양 공고 양자에 공통으로 포함되어야할 사항을 모두 고른...
+[2026-08-30 23:10:45]   실제 정답: 1 (복수정답: [1]) | 이전 LLM 예측: 2
+[2026-08-30 23:11:00]   🤖 LLM 예측 정답: 2 -> ❌ MISMATCH (여전히 불일치) (오답 재풀이 성공률: 6/26 = 23.1%)
+[2026-08-30 23:11:00]   🔑 핵심 개념: 도시 및 주거환경정비법 시행령 제59조(분양신청의 통지 등) - 개별 통지사항에는 분양신청서, 분담금 추산액, 추정가액 등이 추가로 포함되며, 신문 공고에는 공통적인 절차 안내사항(권리신고 방법, 미신청자 조치 등)만 포함됨.
+[2026-08-30 23:11:00] ⏳ 다음 호출 요청까지 10초 대기합니다...
+[2026-08-30 23:11:10] -----------------------------------------------------------------
+[2026-08-30 23:11:10] [27/42] (원래 전체 941번) Script: 1787100000002 | 문제 #381
+[2026-08-30 23:11:10]   질문: 도시 및 주거환경정비법령상 조합의 정관을 변경하기 위하여 총회에서 조합원 3분의 2 이상의 찬성을 요하는 사항이 아닌 것은?
+[2026-08-30 23:11:10]   실제 정답: 4 (복수정답: [4]) | 이전 LLM 예측: 5
+[2026-08-30 23:11:11]   ⚠️ [GEMINI_API_KEY_9] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 48.851183911s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '48s'}]}}
+[2026-08-30 23:11:11]   🔄 [API 키 전환] GEMINI_API_KEY_9 (에러/할당량 초과) -> GEMINI_API_KEY_0 (키 인덱스 1/10, 순회 완료: 1/10)로 자동 전환합니다.
+[2026-08-30 23:11:13]   ⚡ 다음 키(GEMINI_API_KEY_0)로 즉시 재시도합니다.
+[2026-08-30 23:11:14]   ⚠️ [GEMINI_API_KEY_0] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 45.523705991s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '45s'}]}}
+[2026-08-30 23:11:14]   🔄 [API 키 전환] GEMINI_API_KEY_0 (에러/할당량 초과) -> GEMINI_API_KEY_1 (키 인덱스 2/10, 순회 완료: 2/10)로 자동 전환합니다.
+[2026-08-30 23:11:16]   ⚡ 다음 키(GEMINI_API_KEY_1)로 즉시 재시도합니다.
+[2026-08-30 23:11:18]   ⚠️ [GEMINI_API_KEY_1] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 41.974221809s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}
+[2026-08-30 23:11:18]   🔄 [API 키 전환] GEMINI_API_KEY_1 (에러/할당량 초과) -> GEMINI_API_KEY_2 (키 인덱스 3/10, 순회 완료: 3/10)로 자동 전환합니다.
+[2026-08-30 23:11:20]   ⚡ 다음 키(GEMINI_API_KEY_2)로 즉시 재시도합니다.
+[2026-08-30 23:11:22]   ⚠️ [GEMINI_API_KEY_2] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 37.747928364s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}
+[2026-08-30 23:11:22]   🔄 [API 키 전환] GEMINI_API_KEY_2 (에러/할당량 초과) -> GEMINI_API_KEY_3 (키 인덱스 4/10, 순회 완료: 4/10)로 자동 전환합니다.
+[2026-08-30 23:11:24]   ⚡ 다음 키(GEMINI_API_KEY_3)로 즉시 재시도합니다.
+[2026-08-30 23:11:26]   ⚠️ [GEMINI_API_KEY_3] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 33.958275746s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '33s'}]}}
+[2026-08-30 23:11:26]   🔄 [API 키 전환] GEMINI_API_KEY_3 (에러/할당량 초과) -> GEMINI_API_KEY_4 (키 인덱스 5/10, 순회 완료: 5/10)로 자동 전환합니다.
+[2026-08-30 23:11:27]   ⚡ 다음 키(GEMINI_API_KEY_4)로 즉시 재시도합니다.
+[2026-08-30 23:11:29]   ⚠️ [GEMINI_API_KEY_4] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 30.881145028s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '30s'}]}}
+[2026-08-30 23:11:29]   🔄 [API 키 전환] GEMINI_API_KEY_4 (에러/할당량 초과) -> GEMINI_API_KEY_5 (키 인덱스 6/10, 순회 완료: 6/10)로 자동 전환합니다.
+[2026-08-30 23:11:30]   ⚡ 다음 키(GEMINI_API_KEY_5)로 즉시 재시도합니다.
+[2026-08-30 23:11:31]   ⚠️ [GEMINI_API_KEY_5] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 28.201426459s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '28s'}]}}
+[2026-08-30 23:11:31]   🔄 [API 키 전환] GEMINI_API_KEY_5 (에러/할당량 초과) -> GEMINI_API_KEY_6 (키 인덱스 7/10, 순회 완료: 7/10)로 자동 전환합니다.
+[2026-08-30 23:11:33]   ⚡ 다음 키(GEMINI_API_KEY_6)로 즉시 재시도합니다.
+[2026-08-30 23:11:34]   ⚠️ [GEMINI_API_KEY_6] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 25.085522975s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '25s'}]}}
+[2026-08-30 23:11:34]   🔄 [API 키 전환] GEMINI_API_KEY_6 (에러/할당량 초과) -> GEMINI_API_KEY_7 (키 인덱스 8/10, 순회 완료: 8/10)로 자동 전환합니다.
+[2026-08-30 23:11:36]   ⚡ 다음 키(GEMINI_API_KEY_7)로 즉시 재시도합니다.
+[2026-08-30 23:11:38]   ⚠️ [GEMINI_API_KEY_7] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 21.820129265s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '21s'}]}}
+[2026-08-30 23:11:38]   🔄 [API 키 전환] GEMINI_API_KEY_7 (에러/할당량 초과) -> GEMINI_API_KEY_8 (키 인덱스 9/10, 순회 완료: 9/10)로 자동 전환합니다.
+[2026-08-30 23:11:40]   ⚡ 다음 키(GEMINI_API_KEY_8)로 즉시 재시도합니다.
+[2026-08-30 23:11:41]   ⚠️ [GEMINI_API_KEY_8] [할당량/토큰 한도 초과] 할당량 초과 1회 감지 -> 즉시 다음 키로 전환합니다: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 18.545233945s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}
+[2026-08-30 23:11:41] =================================================================
+[2026-08-30 23:11:41] 🛑 [모든 키 순회 완료 / 소진] 등록된 총 10개의 API 키가 한 바퀴(10개 키)를 완전히 순회(할당량 초과/소진)했습니다.
+[2026-08-30 23:11:41] 🛑 마지막 점검 키: GEMINI_API_KEY_8 (순회 완료 키: 10/10)
+[2026-08-30 23:11:41] =================================================================
+[2026-08-30 23:11:41] =================================================================
+[2026-08-30 23:11:41] 🛑 [프로세스 종료] 처음 로드된 모든 Gemini API 키(10개)의 1바퀴 순회가 완료되어 스크립트를 종료합니다.
+[2026-08-30 23:11:41] 🛑 처음 로드된 모든 API 키의 1바퀴 순회가 완료되어 현재까지의 진행 상황을 안전하게 저장하고 스크립트를 종료합니다.
+[2026-08-30 23:11:41] =================================================================
+[2026-08-30 23:11:41] =================================================================
+[2026-08-30 23:11:41] 🎉 오답 재풀이 세션이 종료되었습니다.
+[2026-08-30 23:11:41] 📊 결과 요약: 이번 세션 처리=24, 이전 완료 스킵=2, 총 완료=26/42, 일치=6, 오류=0
+[2026-08-30 23:11:41] 🏆 오답 재풀이 성공률: 23.08% (6/26)
+[2026-08-30 23:11:41] 📁 결과 파일 저장 위치: D:\github\question-bank\src\api\dummy\default_result.json
+[2026-08-30 23:11:41] 📝 오답 로그 파일 위치: D:\github\question-bank\src\api\dummy\log_error.txt
+[2026-08-30 23:11:41] =================================================================

@@ -10,8 +10,8 @@
     }
   },
   "scripts": {
-    "dev": "next dev -p 8083 --turbopack",
-    "start": "next start -p 8083",
+    "dev": "next dev -p 8085 --turbopack",
+    "start": "next start -p 8085",
     "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
