@@ -1,0 +1,620 @@
+[#8 - choice[0]] 어떠한 경우에도 낯선 사람들을 들어오게해서는 안 된다. → On no account must strangers be let in.
+  Matches: ['들어오게해서는']
+
+[#8 - choice[2]] 나는 학생들이 수업 시간에 지각하도록 내버려 두지 않겠다. → I won't have my students arriving late for class.
+  Matches: ['지각하도록']
+
+[#38 - description] 재활용 종이를 사용할 때마다, 숲속의 나무를 보존하게 되면서, 나무는 공기를 정화시키고 지구온난화 가스가 축적되는 것을 막을 수 있다.
+  Matches: ['정화시키고', '지구온난화']
+
+[#55 - choice[2]] 나는 나 혼자서 사업을 운영하겠다고 주장하였다. → I insisted to run my business alone.
+  Matches: ['운영하겠다고', '주장하였다']
+
+[#56 - choice[2]] 우리는 더 많은 지식을 얻음으로써 의심을 없앨 수 있다. → We can rid ourselves of our suspiciousness only by procuring more knowledge.
+  Matches: ['얻음으로써']
+
+[#56 - choice[3]] 여기에 서명하세요, 그렇지 않으면 법적 효과가 없대요. → Please sign here, in case it is not valid.
+  Matches: ['서명하세요']
+
+[#68 - choice[1]] 한국에서는 대통령 선거가 5년에 한 번씩 치러진다. → In Korea, a presidential election held every five years.
+  Matches: ['한국에서는']
+
+[#68 - choice[3]] 내일까지 논문을 제출하는 것은 불가능하다고 생각한다. → I think it impossible to hand in the paper by tomorrow.
+  Matches: ['불가능하다고']
+
+[#104 - choice[0]] 그는 거짓말했다는 것을 인정했다. → He admitted being told a lie.
+  Matches: ['거짓말했다는']
+
+[#105 - choice[2]] 언제 당신이 그녀의 어머니를 방문하는 것이 편하시겠습니까? → When will you be convenient to visit her mother?
+  Matches: ['편하시겠습니까']
+
+[#105 - choice[3]] 당신의 도움 덕분에 우리는 그 문제를 쉽게 해결할 수 있었습니다. → Thanks to your help, we were able to fix the problem
+  Matches: ['있었습니다']
+
+[#130 - description] 그 회사의 마케팅 전략은 대금을 신용카드로 지불하는 것에 익숙한 소비자들을 겨냥하고 있다.
+  Matches: ['신용카드로', '소비자들을']
+
+[#148 - choice[1]] 그 그룹은 10명으로 구성되었다. → The group was consisted of ten people.
+  Matches: ['구성되었다']
+
+[#153 - question] 주어진 글 다음에 이어질 내용을 문맥상 가장 자연스럽게 배열한 것은?
+  Matches: ['자연스럽게']
+
+[#169 - description] ① 그들은 지구상에서 진화한 가장 큰 동물인데, 공룡보다 훨씬 크다. → They are the largest animals ever to evolve on Earth, larger by far than the dinosaurs. ② 그녀는 나의 엄마가 그랬던 것만큼이나 아메리카 원주민이라는 용어를 좋아하지 않았다. → She didn't like the term Native American any more than my mother did. ③ 우리가 자연에 대해 정보로 받아들이는 것의 4분의 3은 눈을 통해 우리 뇌로 들어온다. → Three-quarters of what we absorb in the way of information about nature comes into our brains via our eyes. ④ 많은 의사들이 의학에서의 모든 최신의 발전에 뒤떨어지지 않기 위해서 열심히 공부한다. → The number of doctors study hard in order that they can keep abreast of all the latest developments in medicine.
+  Matches: ['지구상에서', '것만큼이나', '원주민이라는', '받아들이는', '의학에서의', '뒤떨어지지']
+
+[#170 - description] China's government has talked about introducing a fully fledged tax on home ownership since 2003. What has stopped it? The logistical barriers should not be underestimated. <u>정부는누가무엇을소유하고있는지, 또한자산의가치가</u> <u>얼마인지규명해야 한다.</u> Fair valuations need expertise and independent judgment－both in short supply in China.
+  Matches: ['정부는누가무엇을소유하고있는지', '또한자산의가치가', '얼마인지규명해야']
+
+[#184 - choice[3]] copes with ※ 밑줄친부분중어법상옳지않은것을고르시오. [문 5 ∼문 6]
+  Matches: ['밑줄친부분중어법상옳지않은것을고르시오']
+
+[#187 - choice[1]] 그를 보는 순간, 그가 범인이라는 감이 왔다. → The moment I saw him, I had a feeling that he was the criminal.
+  Matches: ['범인이라는']
+
+[#187 - choice[3]] 초록 단추를 눌러야한다. 그렇지 않으면 작동하지 않을 것이다. → You have to press the green button; otherwise it won't work.
+  Matches: ['눌러야한다']
+
+[#188 - choice[0]] 당신은 그 영화를 봤어야했다. → You should have watched the movie.
+  Matches: ['봤어야했다']
+
+[#188 - choice[2]] 시간을 엄수하는 것은 모든 사람들이 갖추어야할 미덕이다. → Being punctual is the virtue everyone has to have.
+  Matches: ['갖추어야할']
+
+[#199 - choice[2]] 식물을 찾기 위해 밤에 사막을 돌아다니는 것을 좋아한다.
+  Matches: ['돌아다니는']
+
+[#205 - description] Goods for which the marginal costs are close to zero are inherently public goods and should be made publicly available. Bridges and roads are good examples. Once society has incurred the capital costs of constructing a bridge or road, maximum benefit from the initial investment is gained only if use is not restricted by charging. <u>따라서</u> <u>사람들은무료로그러한시설들을이용할수있어야한다.</u>
+  Matches: ['사람들은무료로그러한시설들을이용할수있어야한다']
+
+[#216 - choice[0]] 어려움에 처한 사람을 격려하려고
+  Matches: ['격려하려고']
+
+[#216 - choice[1]] 아이들을 돌보아 줄 사람을 찾아 부탁하려고
+  Matches: ['부탁하려고']
+
+[#216 - choice[2]] 힘들 때 도와주었던 사람에게 감사하려고
+  Matches: ['도와주었던', '감사하려고']
+
+[#226 - choice[0]] 그는 외출하면 반드시 무엇인가를 산다. → He never goes out without buying something.
+  Matches: ['무엇인가를']
+
+[#235 - description] Speaking two languages has obvious practical benefits in an increasingly globalized world. But in recent years, scientists have begun to show that the advantages of bilingualism are even more fundamental than being able to converse with a wider range of people. Being bilingual, it turns out, makes you smarter. It can have a profound effect on your brain, improving cognitive skills not related to language and even shielding against dementia in old age. ① 이중언어 구사력이 근본적으로 두뇌에 미치는 영향 ② 노인 질환 예방 수단으로써의 이중언어 교육의 효과 ③ 효과적인 대화 기술을 위한 언어 교육의 필요성
+  Matches: ['근본적으로', '수단으로써의']
+
+[#237 - choice[0]] 영화 한 편을 만들어도 제작 비용을 최소화하여야한다.
+  Matches: ['최소화하여야한다']
+
+[#237 - choice[1]] 동물 보호 기부금은 효과를 극대화하도록 사용되어야한다.
+  Matches: ['극대화하도록', '사용되어야한다']
+
+[#237 - choice[2]] 큰 동물보다는 작은 동물 위주로 보호 활동을 펼쳐야한다.
+  Matches: ['동물보다는', '펼쳐야한다']
+
+[#244 - description] 소년이 잠들자마자 그의 아버지가 집에 왔다.
+  Matches: ['잠들자마자']
+
+[#254 - choice[3]] 학교는 어린이들의 과다한 TV 시청을 막기 위한 프로그램을 시작할 것이다. → The school will start a program designed to deter kids to watch TV too much.
+  Matches: ['어린이들의', '프로그램을']
+
+[#269 - choice[2]] 분노는 정상적이고 건강한 감정이다. → Anger is a normal and healthy emotion.
+  Matches: ['정상적이고']
+
+[#269 - choice[3]] 어떤 상황에서도 너는 이 곳을 떠나면 안 된다. → Under no circumstances you should not leave here.
+  Matches: ['상황에서도']
+
+[#279 - choice[2]] 시속 36마일의 기관차를 개발하여 기관차 대회에서 준우승했다.
+  Matches: ['준우승했다']
+
+[#284 - choice[3]] 자원봉사자들은 그들이 가치가 없기 때문이 아니라, 매우 귀중하기 때문에 보수를 받지 않는다. → Volunteers aren't paid, not because they are worthless,
+  Matches: ['자원봉사자들은']
+
+[#304 - choice[0]] 오늘 밤 나는 영화 보러 가기보다는 집에서 쉬고 싶다. → I'd rather relax at home than going to the movies tonight.
+  Matches: ['가기보다는']
+
+[#304 - choice[1]] 경찰은 집안 문제에 대해서는 개입하기를 무척 꺼린다. → The police are very unwilling to interfere in family problems.
+  Matches: ['개입하기를']
+
+[#305 - choice[0]] 그녀가 어리석은 계획을 포기하도록 설득해 줄래요? → Can you talk her out of her foolish plan?
+  Matches: ['포기하도록']
+
+[#309 - choice[1]] 브로콜리와 양배추와 함께 배추 속에 속한다.
+  Matches: ['브로콜리와']
+
+[#309 - choice[2]] 다른 배추 속 식물과는 달리 항산화제가 적다.
+  Matches: ['항산화제가']
+
+[#333 - choice[0]] 나는 매달 두세 번 그에게 전화하기로 규칙을 세웠다. → I made it a rule to call him two or three times a month.
+  Matches: ['전화하기로']
+
+[#334 - choice[0]] 그를 당황하게한 것은 그녀의 거절이 아니라 그녀의 무례함이었다. → It was not her refusal but her rudeness that perplexed him.
+  Matches: ['당황하게한', '무례함이었다']
+
+[#334 - choice[2]] 환자들과 부상자들을 돌보기 위해 더 많은 의사가 필요했다. → More doctors were required to tend sick and wounded.
+  Matches: ['부상자들을']
+
+[#334 - choice[3]] 설상가상으로, 또 다른 태풍이 곧 올 것이라는 보도가 있다. → To make matters worse, there is a report that another
+  Matches: ['설상가상으로']
+
+[#349 - choice[0]] 내가 열쇠를 잃어버리지 않았더라면 모든 것이 괜찮았을 텐데. → Everything would have been OK if I haven't lost my keys.
+  Matches: ['잃어버리지', '않았더라면']
+
+[#350 - choice[1]] 시스템 업그레이드를 위해 해야 될 많은 일이 있다. → There is a lot of work to be done for the system upgrade.
+  Matches: ['업그레이드를']
+
+[#350 - choice[2]] 그 프로젝트를 완성하는 데 최소 한 달, 어쩌면 더 긴 시간이 걸릴 것이다. → It will take at least a month, maybe longer to complete the project.
+  Matches: ['프로젝트를']
+
+[#364 - choice[0]] 모든 정보는 거짓이었다. → All of the information was false.
+  Matches: ['거짓이었다']
+
+[#364 - choice[1]] 토마스는 더 일찍 사과했어야 했다. → Thomas should have apologized earlier.
+  Matches: ['사과했어야']
+
+[#364 - choice[2]] 우리가 도착했을 때 영화는 이미 시작했었다. → The movie had already started when we arrived.
+  Matches: ['시작했었다']
+
+[#396 - choice[1]] 나는 유럽 여행을 준비하느라 바쁘다. → I am busy preparing for a trip to Europe.
+  Matches: ['준비하느라']
+
+[#408 - description] ① 보증이 만료되어서 수리는 무료가 아니었다. → Since the warranty had expired, the repairs were not free of charge. ② 설문지를 완성하는 누구에게나 선물 카드가 주어질 예정이다. → A gift card will be given to whomever completes the questionnaire. ③ 지난달 내가 휴가를 요청했더라면 지금 하와이에 있을 텐데. → If I had asked for a vacation last month, I would be in Hawaii now. ④ 그의 아버지가 갑자기 작년에 돌아가셨고, 설상가상으로 그의 어머니도 병에 걸리셨다. → His father suddenly passed away last year, and, what was worse, his mother became sick.
+  Matches: ['만료되어서', '누구에게나', '요청했더라면', '돌아가셨고', '설상가상으로']
+
+[#412 - choice[0]] 나는 네 열쇠를 잃어버렸다고 네게 말한 것을 후회한다. → I regret to tell you that I lost your key.
+  Matches: ['잃어버렸다고']
+
+[#412 - choice[1]] 그 병원에서의 그의 경험은 그녀의 경험보다 더 나빴다. → His experience at the hospital was worse than hers.
+  Matches: ['병원에서의']
+
+[#413 - question] 두 사람의 대화 중 가장 자연스러운 것은?
+  Matches: ['자연스러운']
+
+[#426 - choice[1]] 학생들을 설득하려고해 봐야 소용없다. → It is no use trying to persuade the students.
+  Matches: ['설득하려고해']
+
+[#426 - choice[2]] 나의 집은 5년마다 페인트칠된다. → My house is painted every five years.
+  Matches: ['페인트칠된다']
+
+[#427 - choice[0]] 경찰 당국은 자신의 이웃을 공격했기 때문에 그 여성을 체포하도록했다. → The police authorities had the woman arrested for attacking her neighbor.
+  Matches: ['체포하도록했다']
+
+[#427 - choice[3]] 그는 학생들에게 모르는 사람들에게 전화를 걸어 성금을 기부할 것을 부탁하도록 시켰다. → He had the students phone strangers and ask them to donate money.
+  Matches: ['학생들에게', '사람들에게', '부탁하도록']
+
+[#433 - choice[0]] 남성들은 여성들의 대화 주제가 항상 사소한 것들이라고 생각해 왔다.
+  Matches: ['것들이라고']
+
+[#433 - choice[1]] 여성들의 대화 주제는 건강에서 스포츠에 이르기까지 매우 다양하다.
+  Matches: ['이르기까지']
+
+[#436 - description] epistemological: 인식론의 ①Remaking Identities on SNS ②Linguistic Turn Versus Digital Turn ③How to Share Information in the Digital Age 문10.
+
+Growing concern about global climate change has motivated activists to organize not only campaigns against fossil fuel extraction consumption, but also campaigns to support renewable energy.
+
+(A) This solar cooperative produces enough energy to power 1,400 homes, making it the first large-scale solar farm cooperative in the country and, in the words of its members, a visible reminder that solar power represents “a new era of sustainable and ‘democratic’ energy supply that enables ordinary people to produce clean power, not only on their rooftops, but also at utility scale.” (B) Similarly, renewable energy enthusiasts from the United States have founded the Clean Energy Collective, a company that has pioneered “the model of delivering clean power-generation through medium-scale facilities that are collectively owned by participating utility customers.” (C) Environmental activists frustrated with the UK government’s inability to rapidly accelerate the growth of renewable energy industries have formed the Westmill Wind Farm Co-operative, a community-owned organization with more than 2,000 members who own an onshore wind farm estimated to produce as much electricity in a year as that used by 2,500 homes. The Westmill Wind Farm Co-operative has inspired local citizens to form the Westmill Solar Co-operative. ①(C) －(A) －(B) ②(A) －(C) －(B) ③(B) －(C) －(A) ④(C) －(B) －(A) 문11. 밑줄 친 부분에 들어갈 말로 가장 적절한 것은?
+
+A: Did you have a nice weekend?
+B: Yes, it was pretty good. We went to the movies.
+
+A: Oh! What did you see?
+B: Interstellar. It was really good.
+
+A: Really? ------- 
+B: The special effects. They were fantastic. I wouldn’t mind seeing it again. ①What did you like the most about it? ②What’s your favorite movie genre? ③Was the film promoted internationally? ④Was the movie very costly? 문12. 두 사람의 대화 중 가장 어색한 것은? ①A: I’m so nervous about this speech that I must give today.
+B: The most important thing is to stay cool. ②A: You know what? Minsu and Yujin are tying the knot!
+B: Good for them! When are they getting married? ③A: A two-month vacation just passed like one week. A new semester is around the corner.
+B: That’s the word. Vacation has dragged on for weeks. ④A: How do you say ‘water’ in French? 문13. 다음 글의 내용과 일치하지 않는 것은? Women are experts at gossiping, and they always talk about trivial things, or at least that’s what men have always thought. However, some new research suggests that when women talk to women, their conversations are far from frivolous, and cover many more topics (up to 40 subjects) than when men talk to other men. Women’s conversations range from health to their houses, from politics to fashion, from movies to family, from education to relationship problems, but sports are notably absent. Men tend to have a more limited range of subjects, the most popular being work, sports, jokes, cars, and women. According to Professor Petra Boynton, a psychologist who interviewed over 1,000 women, women also tend to move quickly from one subject to another in conversation, while men usually stick to one subject for longer periods of time. At work, this difference can be an advantage for men, as they can put other matters aside and concentrate fully on the topic being discussed. On the other hand, it also means that they sometimes find it hard to concentrate when several things have to be discussed at the same time in a meeting. ①남성들은여성들의대화주제가항상사소한것들이라고 생각해왔다. ②여성들의대화주제는건강에서스포츠에이르기까지매우 다양하다. ③여성들은대화하는중에주제의변환을빨리한다. ④남성들은회의중여러주제가논의될때집중하기어렵다. 문14. 다음 글의 흐름상 적절하지 않은 문장은? There was no divide between science, philosophy, and magic in the 15th century. All three came under the general heading of ‘natural philosophy’. <u>①Central to the</u> <u>development of natural philosophy was the recovery of</u> <u>classical authors, most importantly the work of Aristotle.</u> <u>②Humanists quickly realized the power of the printing</u> <u>press for spreading their knowledge. ③At the beginning</u> <u>of the 15th century Aristotle remained the basis for all</u> <u>scholastic speculation on philosophy and science. ④Kept</u> <u>alive in the Arabic translations and commentaries of</u> <u>Averroes and Avicenna, Aristotle provided a systematic</u> <u>perspective on mankind’s relationship with the natural</u> <u>world.</u> Surviving texts like his Physics, Metaphysics, and Meteorology provided scholars with the logical tools to understand the forces that created the natural world. 문15. 어법상 옳지 않은 것은? ①Fire following an earthquake is of special interest to the insurance industry. ②Word processors were considered to be the ultimate tool for a typist in the past. ③Elements of income in a cash forecast will be vary according to the company’s circumstances. ④The world’s first digital camera was created by Steve ※ The slowing of China’s economy from historically high rates of growth has long been expected to ------- growth elsewhere. “The China that had been growing at 10 percent for 30 years was a powerful source of fuel for much of what drove the global economy forward”, said Stephen Roach at Yale. The growth rate has slowed to an official figure of around 7 percent. “That’s a concrete deceleration”, Mr. Roach added.
+  Matches: ['남성들은여성들의대화주제가항상사소한것들이라고', '생각해왔다', '여성들의대화주제는건강에서스포츠에이르기까지매우', '여성들은대화하는중에주제의변환을빨리한다', '남성들은회의중여러주제가논의될때집중하기어렵다']
+
+[#437 - description] epistemological: 인식론의 ①Remaking Identities on SNS ②Linguistic Turn Versus Digital Turn ③How to Share Information in the Digital Age 문10.
+
+Growing concern about global climate change has motivated activists to organize not only campaigns against fossil fuel extraction consumption, but also campaigns to support renewable energy.
+
+(A) This solar cooperative produces enough energy to power 1,400 homes, making it the first large-scale solar farm cooperative in the country and, in the words of its members, a visible reminder that solar power represents “a new era of sustainable and ‘democratic’ energy supply that enables ordinary people to produce clean power, not only on their rooftops, but also at utility scale.” (B) Similarly, renewable energy enthusiasts from the United States have founded the Clean Energy Collective, a company that has pioneered “the model of delivering clean power-generation through medium-scale facilities that are collectively owned by participating utility customers.” (C) Environmental activists frustrated with the UK government’s inability to rapidly accelerate the growth of renewable energy industries have formed the Westmill Wind Farm Co-operative, a community-owned organization with more than 2,000 members who own an onshore wind farm estimated to produce as much electricity in a year as that used by 2,500 homes. The Westmill Wind Farm Co-operative has inspired local citizens to form the Westmill Solar Co-operative. ①(C) －(A) －(B) ②(A) －(C) －(B) ③(B) －(C) －(A) ④(C) －(B) －(A) 문11. 밑줄 친 부분에 들어갈 말로 가장 적절한 것은?
+
+A: Did you have a nice weekend?
+B: Yes, it was pretty good. We went to the movies.
+
+A: Oh! What did you see?
+B: Interstellar. It was really good.
+
+A: Really? ------- 
+B: The special effects. They were fantastic. I wouldn’t mind seeing it again. ①What did you like the most about it? ②What’s your favorite movie genre? ③Was the film promoted internationally? ④Was the movie very costly? 문12. 두 사람의 대화 중 가장 어색한 것은? ①A: I’m so nervous about this speech that I must give today.
+B: The most important thing is to stay cool. ②A: You know what? Minsu and Yujin are tying the knot!
+B: Good for them! When are they getting married? ③A: A two-month vacation just passed like one week. A new semester is around the corner.
+B: That’s the word. Vacation has dragged on for weeks. ④A: How do you say ‘water’ in French? 문13. 다음 글의 내용과 일치하지 않는 것은? Women are experts at gossiping, and they always talk about trivial things, or at least that’s what men have always thought. However, some new research suggests that when women talk to women, their conversations are far from frivolous, and cover many more topics (up to 40 subjects) than when men talk to other men. Women’s conversations range from health to their houses, from politics to fashion, from movies to family, from education to relationship problems, but sports are notably absent. Men tend to have a more limited range of subjects, the most popular being work, sports, jokes, cars, and women. According to Professor Petra Boynton, a psychologist who interviewed over 1,000 women, women also tend to move quickly from one subject to another in conversation, while men usually stick to one subject for longer periods of time. At work, this difference can be an advantage for men, as they can put other matters aside and concentrate fully on the topic being discussed. On the other hand, it also means that they sometimes find it hard to concentrate when several things have to be discussed at the same time in a meeting. ①남성들은여성들의대화주제가항상사소한것들이라고 생각해왔다. ②여성들의대화주제는건강에서스포츠에이르기까지매우 다양하다. ③여성들은대화하는중에주제의변환을빨리한다. ④남성들은회의중여러주제가논의될때집중하기어렵다. 문14. 다음 글의 흐름상 적절하지 않은 문장은? There was no divide between science, philosophy, and magic in the 15th century. All three came under the general heading of ‘natural philosophy’. <u>①Central to the</u> <u>development of natural philosophy was the recovery of</u> <u>classical authors, most importantly the work of Aristotle.</u> <u>②Humanists quickly realized the power of the printing</u> <u>press for spreading their knowledge. ③At the beginning</u> <u>of the 15th century Aristotle remained the basis for all</u> <u>scholastic speculation on philosophy and science. ④Kept</u> <u>alive in the Arabic translations and commentaries of</u> <u>Averroes and Avicenna, Aristotle provided a systematic</u> <u>perspective on mankind’s relationship with the natural</u> <u>world.</u> Surviving texts like his Physics, Metaphysics, and Meteorology provided scholars with the logical tools to understand the forces that created the natural world. 문15. 어법상 옳지 않은 것은? ①Fire following an earthquake is of special interest to the insurance industry. ②Word processors were considered to be the ultimate tool for a typist in the past. ③Elements of income in a cash forecast will be vary according to the company’s circumstances. ④The world’s first digital camera was created by Steve ※ As more and more leaders work remotely or with teams scattered around the nation or the globe, as well as with consultants and freelancers, you’ll have to give them more -------. The more trust you bestow, the more others trust you. I am convinced that there is a direct correlation between job satisfaction and how empowered people are to fully execute their job without someone shadowing them every step of the way. Giving away responsibility to those you trust can not only make your organization run more smoothly but also free up more of your time so you can focus on larger issues.
+  Matches: ['남성들은여성들의대화주제가항상사소한것들이라고', '생각해왔다', '여성들의대화주제는건강에서스포츠에이르기까지매우', '여성들은대화하는중에주제의변환을빨리한다', '남성들은회의중여러주제가논의될때집중하기어렵다']
+
+[#448 - choice[0]] 식사를 마치자마자 나는 다시 배고프기 시작했다. → No sooner I have finishing the meal than I started feeling hungry again.
+  Matches: ['마치자마자']
+
+[#448 - choice[3]] 그는 대학에서 의학을 공부했으나 결국 회계 회사에서 일하게 되었다. → He studied medicine at university but ended up working for an accounting firm.
+  Matches: ['공부했으나']
+
+[#469 - description] 미국 우주비행사들을 대상으로 실험한 결과 강하고 튼튼한 뼈를 유지하기 위해서는 신체 활동이 매우 중요하다는 것이 입증되었다. ①With an experiment conducted on American astronauts, it has been proven how important is body movement in maintaining strong, healthy bones. ②An experiment done on American astronauts made clear that physical activity is important to retain strong, healthy bones. ③An experiment done with American astronauts made it clear how important physical activity is in maintaining strong, healthy bones. ④With an experiment conducted on American astronauts proved that body movement is important to retain strong, healthy bones.
+  Matches: ['우주비행사들을', '중요하다는', '입증되었다']
+
+[#483 - choice[0]] 난 그 파티에 가지 말았어야했다. → I should not have gone to the party.
+  Matches: ['말았어야했다']
+
+[#483 - choice[3]] 아프면 운전을 하지 말아야한다. → You ought not to drive if you’re sick.
+  Matches: ['말아야한다']
+
+[#506 - choice[0]] 그에게서는 악취가 난다. → He smells badly.
+  Matches: ['그에게서는']
+
+[#506 - choice[3]] 중요한 것은 사람됨이지 재산이 아니다. → The important thing is not what you have but what
+  Matches: ['사람됨이지']
+
+[#507 - choice[3]] 내 기억에는 그가 나에게 그런 뻔뻔스러운 거짓말을 한 적이 없다. → I don't remember for him to tell me such a direct lie.
+  Matches: ['뻔뻔스러운']
+
+[#521 - description] 우리가 작년에 그 아파트를 구입했었더라면 얼마나 좋을까.
+  Matches: ['구입했었더라면']
+
+[#532 - choice[1]] 비록 가난하지만 그녀는 정직하고 부지런하다. → Poor as she is, she is honest and diligent.
+  Matches: ['가난하지만', '부지런하다']
+
+[#547 - choice[1]] 그는 주먹다짐을 할 바에야 타협하는 것이 낫다고 생각한다. → He would much rather make a compromise than fight with his fists.
+  Matches: ['주먹다짐을']
+
+[#547 - choice[2]] 프레스코는 이태리 교회의 익숙한 요소이기 때문에 이것을 당연하게 생각하기 쉽다. → Frescoes are so familiar a feature of Italian churches that they are easy to take it for granted.
+  Matches: ['프레스코는']
+
+[#567 - choice[0]] 어제 눈이 많이 와서 많은 사람들이 길에서 미끄러졌다. → We had much snow yesterday, which caused lots of people slip on the road.
+  Matches: ['미끄러졌다']
+
+[#567 - choice[3]] 나는 뒤돌아보지 않고 앞문으로 걸어 나갔다. → I walked out of the front door without looking back.
+  Matches: ['뒤돌아보지']
+
+[#568 - description] 우리말을 영어로 잘못 옮긴 것을 고르시오. ① 예산이 빡빡해서 나는 15달러밖에 쓸 수가 없다. → I am on a tight budget so that I have only fifteen dollars to spend. ② 그의 최근 영화는 이전 작품들보다 훨씬 더 지루하다. → His latest film is far more boring than his previous ones. ③ 우리 회사 모든 구성원의 이름을 기억하다니 그는 생각이 깊군요. → It's thoughtful of him to remember the names of every member in our firm. ④ 현관 열쇠를 잃어버려서 안으로 들어가기 위해 나는 벽돌로 유리창을 깼다. → I'd lost my front door key, and I had to smash a window by a brick to get in. ※
+  Matches: ['작품들보다', '기억하다니', '잃어버려서']
+
+[#573 - description] No matter how satisfying our work is, it is a mistake to rely on work as our only source of satisfaction. Just as humans need a varied diet to supply a variety of needed vitamins and minerals to maintain health, so we need a varied diet of activities that can supply a sense of enjoyment and satisfaction. Some experts suggest that one can start by making an inventory－a list of the things you enjoy doing, your talents and interests, and even new things that you think you might enjoy if you tried them. It may be gardening, cooking, a sport, learning a new language, or volunteer work. If you shift your interest and attention to other activities for a while, eventually the cycle will swing again, and you can return to your work with renewed interest and enthusiasm. ① 다양한 비타민 섭취를 통해 건강한 삶을 유지할 수 있다. ② 성공적인 직장 생활은 일 자체를 즐김으로써 이루어진다. ③ 만족스러운 삶을 위해서는 일 외의 다양한 활동이 필요하다.
+  Matches: ['즐김으로써', '이루어진다', '만족스러운']
+
+[#577 - choice[0]] 영국은 세계화 초기에 가장 큰 수혜를 입은 나라였으나, 1920년대에 과거 정책들은 효과를 발휘하지 못 했던 듯하다.
+  Matches: ['나라였으나']
+
+[#577 - choice[1]] 제1차세계대전당시진빚에대한영국의이자지출은1920년대 중반까지중앙정부예산지출의약10 %를잠식했다.
+  Matches: ['차세계대전당시진빚에대한영국의이자지출은', '중반까지중앙정부예산지출의약', '를잠식했다']
+
+[#577 - choice[2]] 전쟁 중 그리고 전쟁 후 노동조합의 커진 힘은 영국에서의 노동 쟁의를 격렬하게 만들었다.
+  Matches: ['노동조합의', '영국에서의']
+
+[#577 - choice[3]] 대공황해인1932년에영국의실업자수는보험가입노동자의 25 %에육박했다.
+  Matches: ['대공황해인', '년에영국의실업자수는보험가입노동자의', '에육박했다']
+
+[#597 - choice[3]] 내 기억에는 그가 나에게 그런 뻔뻔스러운 거짓말을 한 적이 없다. → I don’t remember for him to tell me such a direct lie.
+  Matches: ['뻔뻔스러운']
+
+[#598 - choice[2]] 최근에서야 나는 나에게 음악에 대한 숨겨진 열정이 있다는 것을 알았다. → It was not until recently that I knew I had a hidden passion for music.
+  Matches: ['최근에서야']
+
+[#607 - description] ① 나이가 들어가면 들어갈수록 그만큼 더 외국어 공부하기가 어려워진다. → The older you grow, the more difficult it becomes to learn a foreign language. ② 우리가 가지고 있는 학식이란 기껏해야 우리가 모르고 있는 것과 비교할 때 지극히 작은 것이다. → The learning and knowledge that we have is at the least but little compared with that of which we are ignorant. ③ 인생의 비밀은 좋아하는 것을 하는 것이 아니라 해야 할 것을 좋아하도록 시도하는 것이다. → The secret of life is not to do what one likes, but to try to like what one has to do. ④ 이 세상에서 당신이 소유하고 있는 것은 당신이 죽을 때 다른 누군가에게 가지만, 당신의 인격은 영원히 당신의 것일 것이다. → What you possess in this world will go to someone else when you die, but your personality will be yours forever.
+  Matches: ['들어갈수록', '공부하기가', '어려워진다', '좋아하도록', '누군가에게']
+
+[#608 - description] ① 그들이 10년간 살았던 집이 폭풍에 심하게 손상되었다. → The house which they have lived for 10 years badly damaged by the storm. ② 수학 시험에 실패했을 때에서야 그는 공부를 열심히 하기로 결심했다. → It was not until when he failed the math test that he decided to study hard. ③냉장고에먹을것이하나도남아있지않아서, 어젯밤에우리는 외식을해야 했다. → We had nothing to eat left in the refrigerator, we had to eat out last night. ④ 우리는 운이 좋게도 그랜드캐년을 방문했는데, 거기에는 경치가 아름다운 곳이 많다. → We were enough fortunate to visit the Grand Canyon, that has much beautiful landscape.
+  Matches: ['손상되었다', '냉장고에먹을것이하나도남아있지않아서', '어젯밤에우리는', '외식을해야', '그랜드캐년을', '방문했는데']
+
+[#637 - choice[0]] 상대방에게 직접 전달하는 것이 바람직하다.
+  Matches: ['상대방에게', '바람직하다']
+
+[#637 - choice[1]] 상대방의 인격보다는 업무에 초점을 두어야한다.
+  Matches: ['인격보다는', '두어야한다']
+
+[#637 - choice[2]] 긍정적인 평가가 부정적인 것보다 더 많아야한다.
+  Matches: ['많아야한다']
+
+[#657 - choice[0]] 가능한 모든 일자리를 알아보았음에도 불구하고, 그는 적당한 일자리를 찾지 못했다. → Despite searching for every job opening possible, he could not find a suitable job.
+  Matches: ['알아보았음에도']
+
+[#658 - description] ① 그는 자신의 정적들을 투옥시켰다. → He had his political enemies imprisoned. ② 경제적 자유가 없다면 진정한 자유가 있을 수 없다. → There can be no true liberty unless there is economic liberty. ③ 나는 가능하면 빨리 당신과 거래할 수 있기를 바란다. → I look forward to doing business with you as soon as possible. ④ 30년 전 고향을 떠날 때, 그는 다시는 고향을 못 볼 거라고 꿈에도 생각지 않았다. → When he left his hometown thirty years ago, little does he dream that he could never see it again.
+  Matches: ['투옥시켰다']
+
+[#676 - choice[0]] 하버드의 새로운 연구가 통조림 음식의 안전성을 입증하였다.
+  Matches: ['입증하였다']
+
+[#676 - choice[1]] 비스페놀A와암, 심장병, 비만의연관성이과장되었다는데에 모든학자들이동의한다.
+  Matches: ['비만의연관성이과장되었다는데에', '모든학자들이동의한다']
+
+[#676 - choice[2]] 통조림음식으로부터사람의몸에유입된비스페놀A의양이 아직측정되지않았다.
+  Matches: ['통조림음식으로부터사람의몸에유입된비스페놀', '아직측정되지않았다']
+
+[#676 - choice[3]] 미국의보건관리들은비스페놀A를규제하라는압력을점점 더받고있다.
+  Matches: ['미국의보건관리들은비스페놀', '를규제하라는압력을점점', '더받고있다']
+
+[#695 - choice[1]] 나는 소년 시절에 독서하는 버릇을 길러 놓았어야만했다. → I ought to have formed a habit of reading in my boyhood.
+  Matches: ['놓았어야만했다']
+
+[#695 - choice[3]] 내가 그때 그 계획을 포기했었다면 이렇게 훌륭한 성과를 얻지 못 했을 것이다. → Had I given up the project at that time, I should have
+  Matches: ['포기했었다면']
+
+[#696 - description] ① 그 회의 후에야 그는 금융위기의 심각성을 알아차렸다. → Only after the meeting did he recognize the seriousness of the financial crisis. ② 장관은 교통문제를 해결하기 위해 강 위에 다리를 건설해야 한다고 주장했다. → The minister insisted that a bridge be constructed over the river to solve the traffic problem. ③ 비록 그 일이 어려운 것이었지만, Linda는 그것을 끝내기 위해 최선을 다했다. → As difficult a task as it was, Linda did her best to complete it. ④ 그는 문자 메시지에 너무 정신이 팔려서 제한 속도보다 빠르게 달리고 있다는 것을 몰랐다. → He was so distracted by a text message to know that he was going over the speed limit.
+  Matches: ['금융위기의', '알아차렸다', '교통문제를', '것이었지만']
+
+[#697 - description] The amount of information gathered by the eyes as contrasted with the ears has not been precisely calculated. Such a calculation not only involves a translation process, but scientists have been handicapped by lack of knowledge of what to count. A general notion, however, of the relative complexities of the two systems can be obtained by <u>(A)</u> the size of the nerves connecting the eyes and the ears to the centers of the brain. Since the optic nerve contains roughly eighteen times as many neurons as the cochlear nerve, we assume it transmits at least that much more information. Actually, in normally alert subjects, it is probable that the eyes may be as much as a thousand times as effective as the ears in <u>(B)</u> information. ＊cochlear : 달팽이관의 <u>(A) (B)</u>
+  Matches: ['달팽이관의']
+
+[#703 - choice[1]] 무서운 영화를 좋아한다면 이것은 꼭 봐야할 영화이다. → If you like scary movies, this is a must-see movie.
+  Matches: ['좋아한다면']
+
+[#703 - choice[2]] 뒤쪽은 너무 멀어요. 중간에 앉는 걸로 타협합시다. → The back is too far away. Let's promise and sit in the middle.
+  Matches: ['타협합시다']
+
+[#703 - choice[3]] 제 예산이 빠듯합니다. 제가 쓸 수 있는 돈은 15달러뿐입니다. → I am on a tight budget. I only have fifteen dollars to spend.
+  Matches: ['빠듯합니다', '달러뿐입니다']
+
+[#704 - choice[3]] 과정을 관리하면서 발전시키는 것이 나의 목표였다. → To control the process and making improvement was my objectives.
+  Matches: ['관리하면서', '발전시키는']
+
+[#733 - choice[0]] MHC에서는모든학생이4년간수업료를내지않는다.
+  Matches: ['에서는모든학생이', '년간수업료를내지않는다']
+
+[#733 - choice[1]] MHC에서는학생들에게컴퓨터구입비용과교외활동비용을 합하여$7,500를지급한다.
+  Matches: ['에서는학생들에게컴퓨터구입비용과교외활동비용을', '를지급한다']
+
+[#733 - choice[2]] 수업료로인한빚부담이있으면학생들이자유롭게공부할 수없다고Kirschner 학장은말한다.
+  Matches: ['수업료로인한빚부담이있으면학생들이자유롭게공부할', '학장은말한다']
+
+[#733 - choice[3]] MHC와달리학업우수자에게만장학금을주는대학도있다.
+  Matches: ['와달리학업우수자에게만장학금을주는대학도있다']
+
+[#745 - choice[0]] 제가 당신께 말씀 드렸던 새로운 선생님은 원래 페루 출신입니다. → The new teacher I told you about is originally from Peru.
+  Matches: ['출신입니다']
+
+[#746 - choice[1]] 지난 여름 나의 사랑스러운 손자에게 일어난 일은 놀라웠다. → What happened to my lovely grandson last summer was amazing.
+  Matches: ['사랑스러운']
+
+[#746 - choice[2]] 나무 숟가락은 아이들에게 매우 좋은 장난감이고 플라스틱 병 또한 그렇다. → Wooden spoons are excellent toys for children, and so are plastic bottles.
+  Matches: ['아이들에게', '장난감이고']
+
+[#751 - choice[0]] Hughes는많은미국흑인들이다녔던대학교를졸업하였다.
+  Matches: ['는많은미국흑인들이다녔던대학교를졸업하였다']
+
+[#751 - choice[1]] Hughes는실제사투리를그의작품에반영하였다.
+  Matches: ['는실제사투리를그의작품에반영하였다']
+
+[#751 - choice[2]] Hughes는하층계급흑인들의문화적요소를반영한인물을 만들었다.
+  Matches: ['는하층계급흑인들의문화적요소를반영한인물을']
+
+[#751 - choice[3]] Hughes는인종편견을엄숙한문체로공격하였다.
+  Matches: ['는인종편견을엄숙한문체로공격하였다']
+
+[#766 - choice[1]] 그 위원회는 그 건물의 건설을 중단하라고 명했다. → The committee commanded that construction of the building cease.
+  Matches: ['중단하라고']
+
+[#766 - choice[2]] 그들은 한 시간에 40마일이 넘는 바람과 싸워야했다. → They had to fight against winds that will blow over 40 miles an hour.
+  Matches: ['싸워야했다']
+
+[#766 - choice[3]] 거의 모든 식물의 씨앗은 혹독한 날씨에도 살아남는다. → The seeds of most plants are survived by harsh weather.
+  Matches: ['살아남는다']
+
+[#767 - choice[0]] 인간은 환경에 자신을 빨리 적응시킨다. → Human beings quickly adapt themselves to the environment.
+  Matches: ['적응시킨다']
+
+[#767 - choice[2]] 그 회사는 그가 부회장으로 승진하는 것을 금했다. → The company prohibited him from promoting to vice- president.
+  Matches: ['부회장으로']
+
+[#778 - description] Dubrovnik, Croatia, is a mess. Because its main attraction is its seaside Old Town surrounded by 80-foot medieval walls, this Dalmatian Coast town does not absorb visitors very well. And when cruise ships are docked here, a legion of tourists turn Old Town into a miasma of tank-top-clad tourists marching down the town’s limestone-blanketed streets. Yes, the city of Dubrovnik has been proactive in trying to curb cruise ship tourism, but nothing will save Old Town from the perpetual swarm of tourists. To make matters worse, the lure of making extra money has inspired many homeowners in Old Town to turn over their places to Airbnb, making the walled portion of town one giant hotel. You want an “authentic” Dubrovnik experience in Old Town, just like a local? You’re not going to find it here. Ever. ① Old Town은 80피트 중세 시대 벽으로 둘러싸여 있다. ② 크루즈 배가 정박할 때면 많은 여행객이 Old Town 거리를 활보한다. ③ Dubrovnik 시는 크루즈 여행을 확대하려고 노력해 왔다.
+  Matches: ['확대하려고']
+
+[#795 - choice[0]] 당신이 부자일지라도 당신은 진실한 친구들을 살 수는 없다. → Rich as if you may be, you can’t buy sincere friends.
+  Matches: ['부자일지라도']
+
+[#795 - choice[1]] 그것은 너무나 아름다운 유성 폭풍이어서 우리는 밤새 그것을 보았다. → It was such a beautiful meteor storm that we watched it all night.
+  Matches: ['폭풍이어서']
+
+[#795 - choice[3]] 그는 사형이 폐지되어야하는지 아닌지에 대한 에세이를 써야한다. → He has to write an essay on if or not the death penalty
+  Matches: ['폐지되어야하는지']
+
+[#814 - choice[1]] 친절한 사람이어서, 그녀는 모든 이에게 사랑 받는다. → Being a kind person, she is loved by everyone.
+  Matches: ['사람이어서']
+
+[#814 - choice[2]] 모든 점이 고려된다면, 그녀가 그 직위에 가장 적임인 사람이다. → All things considered, she is the best-qualified person for the position.
+  Matches: ['고려된다면']
+
+[#827 - choice[1]] 우리는 그 일을 이번 달 말까지 끝내야한다. → We have to finish the work until the end of this month.
+  Matches: ['끝내야한다']
+
+[#832 - question] 두 사람의 대화 중 자연스럽지 않은 것은?
+  Matches: ['자연스럽지']
+
+[#852 - description] ①10세 어린이는 입장료 40불을 지불해야 한다. ②공연과 강연의 입장은 선착순이다. ③비가 올 경우에는 행사장을 닫는다.
+  Matches: ['선착순이다']
+
+[#864 - description] ① 우리는 많은 불만을 접수하였다. → We have received much complaints. ② 그는 그 시험이 매우 어렵다고 느꼈다. → He found the exam very difficultly. ③ 나는 그렇게 재미있는 영화를 본 적이 없다. → I have never seen such an interesting ④ 나는 업무를 위해서 해외에 자주 나가야 한다. → I often have to go to abroad on 어 <u>the Christmas present he asked for.</u> Association announced the top children's <u>prizes were -------.</u> out out signed a peace agreement. -------. <u>successful, but it was.</u> in vain movie. business.
+  Matches: ['접수하였다']
+
+[#865 - choice[0]] 그녀는 한때 사업가와 결혼했었다. → She was once married to a businessman.
+  Matches: ['결혼했었다']
+
+[#867 - description] There are two major types of dancing: is performed to entertain spectators. comedy dance, and tap dancing. Theatrical creating something beautiful. In social own pleasure. There are many types <u>steps and rhythms.</u> ① 춤의 종류에는 무대용과 사교용이 있다. ② 모던댄스는 무대용 춤의 한 종류이다. ③ 무대에서 춤을 추는 사람들은 자신의 기쁨을 위해 춘다. ④ 많은 종류의 사교용 춤은 특정한 리듬에 맞춰 추어야 한다. their parents. to finish today. when he was young. with you as soon as possible. your room everyday. theatrical and social. Theatrical dancing It includes ballet, modern dance, musical dancers may take great pride in dancing, the participants dance for their of social dances that require specific
+  Matches: ['모던댄스는']
+
+[#868 - description] 다음글의내용을가장잘나타낸속담은? The boss was preparing the room the chairs for the expected audience heavy and he felt a little tired after his colleague John appeared and offered also appeared and joined the process <u>room was ready.</u> ① 사공이 많으면 배가 산으로 간다. ② 백지장도 맞들면 낫다. ③ 호미로 막을 것을 가래로 막는다. ④ 소 잃고 외양간 고친다. ※
+
+Sometimes when people move to a they experience culture shock. Things country like traveling by bus and talking in a new country. Body language, gestures, are all different. Becoming accustomed People experience tiredness from always simplest things. Sometimes this culture <u>become very depressed.</u>
+  Matches: ['다음글의내용을가장잘나타낸속담은']
+
+[#870 - description] 위글의 내용과 일치하지 않는 것은? ① 새로운 나라로 이주하면 문화적 충격을 받는다. ② 새로운 생활 방식에 적응해야 하는 것은 걱정거리가 된다. ③ 단순한 일상사를 항상 고민해야 하는 것에서 기쁨을 찾는다. ④ 문화적 충격이 심하면 매우 우울해진다. for the presentation. He started to set out of about five hundred. The chairs were five minutes of moving the chairs. Then, to help. A few minutes later, Tom of moving the chairs. Soon the whole new location, especially a new country, that were easy to do in their own on the telephone produce ------- idioms, foods, customs, socializing to these new ways causes a worry. having to think about how to do the shock can become serious, and people
+  Matches: ['걱정거리가', '우울해진다']
+
+[#877 - description] 다음 글의 주제로 가장 적절한 것은? Smoking is now increasingly a habit a new analysis of federal smoking rates between areas are increasing. steadily, but there is a deep geographic Washington, only about one in ten <u>Clay County in eastern Kentucky nearly</u> ① 흡연율 통계 자료의 문제점 ② 지역 및 소득에 따른 흡연율의 차이 ③ 흡연율과 사망률과의 상관관계 ④ 흡연율 증가의 심리적 요인 ※
+
+Smiling may actually make you feel side of things. In one smile study, lengthwise between their teeth to make They were shown some cartoons and the cartoons were. People holding the as ------- than people who didn't that a simple thing like shaping your <u>the bright side of things.</u>
+  Matches: ['사망률과의']
+
+[#879 - description] 위글의 주제로 가장 적절한 것은? ① 웃음의 긍정적 심리 효과 ② 만화의 교육적 장단점 ③ 올바른 마음가짐의 중요성 ④ 억지 웃음의 신체적 폐해 of the poor and the working class. Also, data shows that differences in smoking The national smoking rate has declined divide. In the rich neighborhood of people smoke. But in poor places such as <u>four in ten do.</u> better or help you see the lighter, funnier people were asked to hold a pencil themselves look like they are smiling. asked to rate how funny they thought pencil in their teeth rated the cartoons hold a pencil in their teeth. It is possible mouth into a smile can help you see
+  Matches: ['마음가짐의']
+
+[#892 - choice[3]] 우리가 높이 올라갈수록 공기가 더 희박해진다. → The more we climb higher, thinner
+  Matches: ['올라갈수록', '희박해진다']
+
+[#897 - description] 문17. The invention of the ski has contributed skis were not used for fun but for and were not designed for speed. to walk on the snow. However, it is world's oldest ski was discovered and 6 inches wide, that is, a little <u>skis.</u> ①Early skis were used for transportation. ②Early skis were made of wood. ③Early skis were invented in 1924. ④The oldest ski is a little longer than 문18. We dream during the REM (rapid about five periods of REM sleep during about 10 minutes. As the night goes morning, the REM cycle can last up REM cycle that we remember our older. Babies dream about half of the nine, children start to tell their dreams 30's say that many of their dreams <u>they did. Older men usually dream</u> ① 첫 REM 주기는 약 10분 정도 지속된다. ②우리가기억하는꿈은주로마지막REM ③ 8, 9세에 아이들은 꿈에 대한 이야기를 시작한다. ④ 20, 30대 사람들은 일과 가족에 대한 꿈을 많이 꾼다. The invention of the ski has contributed skis were not used for fun but for and were not designed for speed. to walk on the snow. However, it is world's oldest ski was discovered and 6 inches wide, that is, a little <u>skis.</u>
+  Matches: ['우리가기억하는꿈은주로마지막']
+
+[#898 - description] 문17. The invention of the ski has contributed skis were not used for fun but for and were not designed for speed. to walk on the snow. However, it is world's oldest ski was discovered and 6 inches wide, that is, a little <u>skis.</u> ①Early skis were used for transportation. ②Early skis were made of wood. ③Early skis were invented in 1924. ④The oldest ski is a little longer than 문18. We dream during the REM (rapid about five periods of REM sleep during about 10 minutes. As the night goes morning, the REM cycle can last up REM cycle that we remember our older. Babies dream about half of the nine, children start to tell their dreams 30's say that many of their dreams <u>they did. Older men usually dream</u> ① 첫 REM 주기는 약 10분 정도 지속된다. ②우리가기억하는꿈은주로마지막REM ③ 8, 9세에 아이들은 꿈에 대한 이야기를 시작한다. ④ 20, 30대 사람들은 일과 가족에 대한 꿈을 많이 꾼다. We dream during the REM (rapid about five periods of REM sleep during about 10 minutes. As the night goes morning, the REM cycle can last up REM cycle that we remember our older. Babies dream about half of the nine, children start to tell their dreams 30's say that many of their dreams <u>they did. Older men usually dream</u> ① 첫 REM 주기는 약 10분 정도 지속된다. ②우리가기억하는꿈은주로마지막REM ③ 8, 9세에 아이들은 꿈에 대한 이야기를 시작한다. ④ 20, 30대 사람들은 일과 가족에 대한 꿈을 많이 꾼다. greatly to society. Unlike today, early transportation. They were made of wood They were simply used to help a person not clear when they were invented. The in Sweden in 1924. It is 80 inches long longer than and twice as wide as modern modern skis. eye movement) stage of sleep. We have the night. The first REM cycle lasts on, the REM cycle gets longer. By early to 90 minutes. Usually, it is in this last dreams. Dreams change as people become time they are asleep. At age eight or as stories. People in their 20's and are about feeling guilty for things that <u>about work or their families.</u> 주기에꾼것이다.
+  Matches: ['우리가기억하는꿈은주로마지막', '우리가기억하는꿈은주로마지막', '주기에꾼것이다']
+
+[#912 - choice[1]] 수업료를 실제로 환불받았다. → Those lessons really paid off.
+  Matches: ['환불받았다']
+
+[#913 - choice[0]] 잡지 구독을 권유하려고
+  Matches: ['권유하려고']
+
+[#913 - choice[1]] 새로 나온 잡지를 홍보하려고
+  Matches: ['홍보하려고']
+
+[#913 - choice[2]] 이메일 받는 방법을 안내하려고
+  Matches: ['안내하려고']
+
+[#913 - choice[3]] 온라인 회원 가입 방법을 소개하려고
+  Matches: ['소개하려고']
+
+[#917 - description] Men always believe they need a way to make themselves seem more successful and charming than they really are. So after we buy our fancy cars and after we make sure we're seen talking importantly into our phones, we all do one other thing. We make up stories which we think are fascinating about ourselves. We hold on to these stories like aces in a poker game. When we need to make a big splash―for example, when we meet a woman who we have decided should adore us―we throw down our cards and tell our first lies. ① 남자는 물질적인 부를 동경하는 습성이 있다. ② 남자는 선천적으로 도박에 빠지기 쉬운 면이 있다. ③ 남자는 이성의 사랑을 얻으려고 노력하는 속성이 있다.
+  Matches: ['선천적으로']
+
+[#918 - description] 다음글의lunar eclipses에관한내용과일치하는것은? Lunar eclipses have always fascinated people. Some study eclipses as an astronomical phenomenon; others just enjoy observing their beauty. However, in ancient―and even in more recent―times, lunar eclipses were mysterious, unpredictable, and frightening. In the past, people believed that eclipses were bad omens, or signs. Today, scientists can predict lunar eclipses. We no longer fear them as evil omens. However, it is not difficult to understand how, in the past, people believed that eclipses were signs of disaster because they did not understand their true cause. ①To ancient people, they were not mysterious at all. ②People in the past regarded them as evil omens. ③Many people today easily read signs of disaster in them. ④Their true cause has so long been unknown that even now we cannot predict them. ※
+
+In 1619―one year before the Mayflower arrived in America―a Dutch ship called at Jamestown and sold some 20 black Africans to the colonists. There was a need for cheap labor on their plantations where tobacco, sugar cane, and, later, cotton were grown. The trade grew fast, serving not only British colonies but those of other European powers in the New World. In 1681, there were some 2,000 slaves in Virginia, but by the mid-nineteenth century, the slave population in America had risen to more than four million. This trade went on for almost two centuries. In the United States, slavery was finally ended in 1865 with the passage of the thirteenth Amendment to the Constitution.
+  Matches: ['에관한내용과일치하는것은']
+
+[#933 - description] Changing people's habits takes time. Even though many people are interested in watching television on the Internet, some may not want to make the switch completely. And some might be persuaded to, but only under certain circumstances. According to Harris, almost half of television viewers (44 percent) would cancel their cable television if they could get the same programs for free online. However, the number fell to 16 percent when people were told they had to pay a small fee for online viewing. This is strange, since most household's monthly cable bills are more than what they would pay for the same shows online. It's possible that people have become so used to getting online entertainment for free that they learn not to value it as much. ① 사람들이 습관을 바꾸는 데 시간이 많이 걸리지는 않는다. ② 케이블 TV 시청자들은 어떤 경우에도 온라인 시청을 좋아하지 않는다. ③ 대부분의 케이블 TV 시청료는 온라인 시청 비용보다 비싸다.
+  Matches: ['시청자들은']
+
+[#934 - choice[1]] ‘신데렐라’나‘백설공주’ 같은고전동화가많다.
+  Matches: ['같은고전동화가많다']
+
+[#934 - choice[2]] 나무 블록은 남자 아이들만을 위한 장난감으로 여겨지지 않는다.
+  Matches: ['아이들만을', '장난감으로']
+
+[#934 - choice[3]] 교사들은 남자 아이들이 다치면 아이 스스로 극복하도록 가르친다.
+  Matches: ['극복하도록']
+
+[#936 - question] 주어진 문장이 들어가기에 가장 적절한 곳은?
+  Matches: ['들어가기에']
+
+[#947 - choice[0]] 언제 먹느냐는 무엇을 먹느냐만큼 중요하다. → When you eat is as important as what you eat.
+  Matches: ['먹느냐만큼']
+
+[#947 - choice[1]] 나는 그가 찬성하리란 것을 자명하게 알고 있었다. → I took it for granted that he would agree with me.
+  Matches: ['찬성하리란']
+
+[#952 - choice[2]] 당신은 부자가 가난한 사람보다 행복하다고 생각하나요? → Do you think that the rich is happier than the poor?
+  Matches: ['행복하다고', '생각하나요']
+
+[#952 - choice[3]] 정정당당한 행동은 경기에서뿐만 아니라 인생에서도 황금률이다. → Fair play is the golden rule of life as well as of games.
+  Matches: ['정정당당한', '경기에서뿐만', '인생에서도', '황금률이다']
+
+[#955 - choice[2]] 젊은이들은 먼저 자신의 능력을 알아야한다.
+  Matches: ['젊은이들은', '알아야한다']
+
+[#957 - question] 주어진 문장이 들어가기에 가장 적절한 곳은?
+  Matches: ['들어가기에']
+
+[#959 - description] Words are powerful and they can be a leader’s greatest friend or foe. Wise leaders will find a way to use their words to their advantage. Great leaders will use their communication as a tool to empower and develop their followers. Leadership is all about the people, not the leader. Leadership is the ability to inspire vision, strength, and influence into people through the usage of positive communication. Thus, positive communication is essential to leaders who are attempting to develop people. Leaders will be much more likely to empower and develop their followers by being quick to praise, slow to judge, leading by faith, not by fear, and restoring people gently through positive communication. ①리더에게는적극적인의사결정능력이필요하다. ②리더에게는긍정적인말의사용이중요하다. ③리더는의사소통에자신감을가져야 한다.
+  Matches: ['리더에게는적극적인의사결정능력이필요하다', '리더에게는긍정적인말의사용이중요하다', '리더는의사소통에자신감을가져야']
+
+[#967 - choice[3]] 안보와 경제 외교 강화가 우리의 주요 관심사이다. → Our major concern is strengthening security and economic
+  Matches: ['관심사이다']
+
+[#969 - choice[3]] 가난한 사람들을 위하여 자선 바자회를 열자는 그의 아이디어는 성공을 거두었다. → His idea to hold a charity bazaar for the poor paid off.
+  Matches: ['아이디어는']
+
+[#979 - choice[1]] 호머의일리아드에는트로이목마와관련된묘사가없다.
+  Matches: ['에는트로이목마와관련된묘사가없다']
+
+[#979 - choice[3]] 작품오디세이에는트로이전쟁이야기가자세히언급되어 있다.
+  Matches: ['에는트로이전쟁이야기가자세히언급되어']
+
+[#989 - choice[1]] 국가는 개인과 마찬가지로 크기로 판단할 것은 아니다. → A nation is not to be judged by its size any less than an individual.
+  Matches: ['마찬가지로']
+
+[#989 - choice[2]] 동물학자들은 그 개가 집으로 어떻게 성공적으로 돌아올 수 있었는지 여전히 혼란스러워하고 있다. → Zoologists are still confusing about how the dog managed to find its way back home.
+  Matches: ['동물학자들은', '성공적으로', '혼란스러워하고']
+
+[#993 - description] Bad back? You’re not alone. Back pain affects about 80 per cent of people at some point, and according to the World Health Organization, it’s the leading cause of disability and missed workdays. In Britain it affects about nine million people, according to the charity BackCare UK, and yet fixes remain pretty elusive. The trouble is that about 85 per cent of cases of chronic back pain are described by doctors as “non-specific,” meaning that there is no precise cause (such as a slipped disc or a pulled muscle), making treatment extremely difficult. What’s more, research is increasingly showing that many of the approaches we have used to tackle back pain are ineffective. ①만성허리통증의85퍼센트는특정한원인이있다. ②인생에서어느순간허리통증을느끼는사람은약80퍼센트이다. ③세계보건기구(WHO)에따르면허리통증은장애의주요 원인이다.
+  Matches: ['만성허리통증의', '퍼센트는특정한원인이있다', '인생에서어느순간허리통증을느끼는사람은약', '퍼센트이다', '세계보건기구', '에따르면허리통증은장애의주요']
+
+[#1009 - choice[3]] 우리는 학생들에게 자신을 발전시킬 효과적인 방법들을 제공해야 한다. → We must provide our students with effective ways to develop themselves.
+  Matches: ['학생들에게']
+
+[#1010 - choice[0]] 그는 나를 도와줄 정도로 충분히 친절하지는 않다. → He is not enough kind to help me.
+  Matches: ['친절하지는']
+
+[#1011 - choice[0]] 회원권을 갱신하지 않겠다고 통보하려고
+  Matches: ['통보하려고']
+
+[#1011 - choice[1]] 연간 공연 일정에 관한 사전 안내를 요청하려고
+  Matches: ['요청하려고']
+
+[#1011 - choice[2]] 회원에게 제공되는 할인 혜택을 문의하려고
+  Matches: ['문의하려고']
+
+[#1011 - choice[3]] 공연 관람 취소 수수료에 관해 불만을 제기하려고
+  Matches: ['제기하려고']
+
+[#1012 - choice[0]] Black Tuesday는 주식시장이 폭락한 날이다.
+  Matches: ['주식시장이']
+
+[#1012 - choice[1]] Hoover 대통령은 New Deal을 약속하였다.
+  Matches: ['약속하였다']
+
+[#1012 - choice[2]] WPA는 실업률을 증가시켰다.
+  Matches: ['증가시켰다']
+
+[#1012 - choice[3]] The Great Depression은 제2차 세계대전으로 시작되었다.
+  Matches: ['세계대전으로', '시작되었다']
+
+[#1013 - description] Nicholas Copernicus was born in Poland. His father died when Nicholas was ten years old. When his uncle became Bishop of Frauenburg, Copernicus obtained a job at the cathedral. This gave him a secure income, enabled him to study in Italy, and when he returned, to continue his passion: studying the heavens. He built a roofless tower, where he could use his astronomical instruments. Since there were not yet any telescopes, these instruments simply allowed him to measure the angles between various heavenly bodies and the horizon, and the phases of the moon. ①10살 때 아버지가 돌아가셨다. ②대성당에서 얻은 일자리로 안정적 수입을 얻었다. 도구를 사용할 수 있는 지붕 없는 탑을 지었다.
+  Matches: ['돌아가셨다', '대성당에서']
+
+[#1014 - choice[0]] 수천 명의 콜롬비아 어린이들에게 독서의 기회를 제공하였다.
+  Matches: ['어린이들에게', '제공하였다']
+
+[#1014 - choice[3]] 콜롬비아의 소득 수준이 낮은 동네에서 살고 있다.
+  Matches: ['콜롬비아의']
+
+[#1028 - choice[1]] 제시간에 도착하기 위해서 나는 일찍 떠났어야했다. → I should have left early to arrive on time.
+  Matches: ['떠났어야했다']
+
+[#1028 - choice[2]] 그녀가 나의 제안을 받아들여서 나는 여행을 포기했다. → I gave up the travel although she accepted my proposal.
+  Matches: ['받아들여서']
+
+[#1029 - choice[1]] 그 가수는 모퉁이에 길게 늘어선 리포터들의 방문을 받았다. → The singer visited a long line of reporters at the corner.
+  Matches: ['리포터들의']
+
+[#1039 - choice[0]] 전문가들은 운동이 치매 발병을 예방하는 데 도움이 될 수 있다고 오랫동안 믿어 왔다.
+  Matches: ['전문가들은']
+
+[#1039 - choice[1]] 치매 예방에 가장 좋은 운동의 유형과 빈도에 대한 전문가들의 의견은 대부분 일치했다.
+  Matches: ['전문가들의']
+
+[#1039 - choice[2]] 장기간에 걸쳐 이루어진 치매 관련 주요 연구들이 최근 발표되었다.
+  Matches: ['발표되었다']
+
+[#1039 - choice[3]] 최근에 발표된 연구에서는 규칙적인 신체 활동이 치매 발병 위험을 줄인다는 것을 확인했다.
+  Matches: ['연구에서는']
+
+[#1049 - choice[0]] 우리는 날씨 때문에 여행을 연기해야만했다. → We had to postpone our trip due to the weather.
+  Matches: ['연기해야만했다']
+
+[#1049 - choice[2]] 나는 내가 게임에서 이길 것이라고는 전혀 생각하지 못했다. → I never thought that I would win the game.
+  Matches: ['것이라고는']
+
+[#1049 - choice[3]] 그녀는 좌절했지만 계속 열심히 노력하였다.
+  Matches: ['좌절했지만', '노력하였다']
+
+[#1051 - choice[1]] 사업가들의 투자를 유치하기 위해
+  Matches: ['사업가들의']
+
+[#1051 - choice[3]] 해외 관광 상품에 대한 아이디어를 구하기 위해
+  Matches: ['아이디어를']
+
+[#1055 - description] The giant Pacific octopus grows bigger and lives longer than any other octopus species. It lives to be about four years old, with both males and females dying soon after breeding. Females live long enough to tend fastidiously to their eggs, but they do not eat during this months-long brooding period, and usually die soon afterwards. The octopus hunts at night, surviving primarily on shrimp, clams, lobsters, and fish. It ranges throughout the temperate waters of the Pacific, from southern California to Alaska, west to the Aleutian Islands and Japan. A highly intelligent creature, the giant Pacific octopus can learn to open jars, mimic other octopuses, and solve mazes in lab tests. * fastidiously: 꼼꼼하게 ①다른 종의 문어들보다 오래 산다. ②암컷은 알을 품는 동안은 음식을 먹지 않는다. ③주로 낮에 사냥한다.
+  Matches: ['문어들보다']
+
+[#1060 - choice[0]] 지난밤에 레스토랑에서 딸의 생일 축하 모임을 가졌다.
+  Matches: ['레스토랑에서']
+
