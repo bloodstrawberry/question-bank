@@ -1,28 +1,29 @@
 'use client';
 
-import { useState, useCallback, useMemo, useEffect, useRef, memo } from 'react';
+import type { Editor } from '@tiptap/react';
+
+import { Icon } from '@iconify/react';
+import { debounce } from 'es-toolkit';
+import { Markdown } from 'tiptap-markdown';
+import { Link } from '@tiptap/extension-link';
+import { Color } from '@tiptap/extension-color';
+import { StarterKit } from '@tiptap/starter-kit';
+import { TaskList } from '@tiptap/extension-task-list';
+import { TaskItem } from '@tiptap/extension-task-item';
+import { Paragraph } from '@tiptap/extension-paragraph';
+import { Underline } from '@tiptap/extension-underline';
+import { Highlight } from '@tiptap/extension-highlight';
+import { HardBreak } from '@tiptap/extension-hard-break';
+import { TextAlign } from '@tiptap/extension-text-align';
+import { TextStyle } from '@tiptap/extension-text-style';
+import { useEditor, EditorContent } from '@tiptap/react';
+import { Placeholder } from '@tiptap/extension-placeholder';
+import { memo, useRef, useMemo, useState, useEffect } from 'react';
+import { Table, TableRow, TableCell, TableHeader } from '@tiptap/extension-table';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
-
-import { useEditor, EditorContent, Editor } from '@tiptap/react';
-import { StarterKit } from '@tiptap/starter-kit';
-import { Paragraph } from '@tiptap/extension-paragraph';
-import { HardBreak } from '@tiptap/extension-hard-break';
-import { Underline } from '@tiptap/extension-underline';
-import { TextAlign } from '@tiptap/extension-text-align';
-import { Link } from '@tiptap/extension-link';
-import { Placeholder } from '@tiptap/extension-placeholder';
-import { TextStyle } from '@tiptap/extension-text-style';
-import { Color } from '@tiptap/extension-color';
-import { Highlight } from '@tiptap/extension-highlight';
-import { TaskList } from '@tiptap/extension-task-list';
-import { TaskItem } from '@tiptap/extension-task-item';
-import { TableKit } from '@tiptap/extension-table';
-import { Markdown } from 'tiptap-markdown';
-import { Icon } from '@iconify/react';
-import { debounce } from 'es-toolkit';
 
 import { focusNextInput } from 'src/sections/file-manager/components/problem-set/focus-utils';
 import { isRichTextEmpty } from 'src/sections/file-manager/components/problem-set/rich-content-renderer';
@@ -53,6 +54,95 @@ const CustomHardBreak = HardBreak.extend({
       markdown: {
         serialize(state: any, node: any, parent: any, index: number) {
           state.write(state.inTable ? '<br>' : '\\\n');
+        },
+        parse: {},
+      },
+    };
+  },
+});
+
+const CustomTable = Table.extend({
+  addStorage() {
+    return {
+      markdown: {
+        serialize(state: any, node: any, parent: any) {
+          state.inTable = true;
+
+          // 1. 전체 열 개수 및 각 열의 정렬 방식 조사
+          let maxCols = 0;
+          node.forEach((row: any) => {
+            if (row.childCount > maxCols) {
+              maxCols = row.childCount;
+            }
+          });
+
+          if (maxCols === 0) {
+            state.inTable = false;
+            return;
+          }
+
+          const colAlignments: string[] = Array(maxCols).fill('---');
+
+          // 열별 정렬 속성 추출 (모든 행을 검사하여 유효한 정렬이 있다면 반영)
+          node.forEach((row: any) => {
+            row.forEach((col: any, _cp: any, colIdx: number) => {
+              if (colAlignments[colIdx] === '---' || !colAlignments[colIdx]) {
+                const align =
+                  col.attrs?.align ||
+                  col.attrs?.textAlign ||
+                  col.firstChild?.attrs?.textAlign ||
+                  null;
+                if (align === 'center') {
+                  colAlignments[colIdx] = ':---:';
+                } else if (align === 'right') {
+                  colAlignments[colIdx] = '---:';
+                } else if (align === 'left') {
+                  colAlignments[colIdx] = ':---';
+                }
+              }
+            });
+          });
+
+          // 2. 행별 마크다운 출력
+          node.forEach((row: any, _p: any, rowIndex: number) => {
+            state.write('| ');
+            row.forEach((col: any, _cp: any, colIdx: number) => {
+              if (colIdx > 0) {
+                state.write(' | ');
+              }
+              if (col.childCount === 0) {
+                // empty cell
+              } else if (col.childCount === 1) {
+                const cellContent = col.firstChild;
+                if (cellContent && cellContent.textContent.trim()) {
+                  state.renderInline(cellContent);
+                }
+              } else {
+                col.forEach((child: any, _p2: any, childIdx: number) => {
+                  if (childIdx > 0) {
+                    state.write('<br>');
+                  }
+                  if (child && child.textContent.trim()) {
+                    state.renderInline(child);
+                  }
+                });
+              }
+            });
+            state.write(' |');
+            state.ensureNewLine();
+
+            // 첫 번째 행 뒤에 구분선 행 출력 (| :---: | ... |)
+            if (rowIndex === 0) {
+              const delimiterRow = Array.from({ length: row.childCount })
+                .map((_, idx) => colAlignments[idx] || '---')
+                .join(' | ');
+              state.write(`| ${delimiterRow} |`);
+              state.ensureNewLine();
+            }
+          });
+
+          state.closeBlock(node);
+          state.inTable = false;
         },
         parse: {},
       },
@@ -508,11 +598,12 @@ export const MarkdownEditor = memo(function MarkdownEditor({
     []
   );
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       debouncedOnChange.flush();
-    };
-  }, [debouncedOnChange]);
+    },
+    [debouncedOnChange]
+  );
 
   const colorInputRef = useRef<HTMLInputElement>(null);
   const highlightInputRef = useRef<HTMLInputElement>(null);
@@ -546,7 +637,7 @@ export const MarkdownEditor = memo(function MarkdownEditor({
       }),
       Underline,
       TextAlign.configure({
-        types: ['heading', 'paragraph'],
+        types: ['heading', 'paragraph', 'tableCell', 'tableHeader'],
       }),
       Link.configure({
         openOnClick: false,
@@ -561,11 +652,12 @@ export const MarkdownEditor = memo(function MarkdownEditor({
       TaskItem.configure({
         nested: true,
       }),
-      TableKit.configure({
-        table: {
-          resizable: true,
-        },
+      CustomTable.configure({
+        resizable: true,
       }),
+      TableRow,
+      TableHeader,
+      TableCell,
     ],
     content: value || '',
     onUpdate: ({ editor: currentEditor }) => {
@@ -826,17 +918,30 @@ export const MarkdownEditor = memo(function MarkdownEditor({
                 border: `1px solid ${alpha(theme.palette.grey[500], 0.3)}`,
                 px: 1.5,
                 py: 1,
-                verticalAlign: 'top',
+                verticalAlign: 'middle',
                 boxSizing: 'border-box',
                 position: 'relative',
                 '& > *': {
                   mb: 0,
                 },
+                '&[align="center"], &[style*="text-align: center"], &[style*="text-align:center"]':
+                  {
+                    textAlign: 'center',
+                  },
+                '&[align="right"], &[style*="text-align: right"], &[style*="text-align:right"]': {
+                  textAlign: 'right',
+                },
+                '&[align="left"], &[style*="text-align: left"], &[style*="text-align:left"]': {
+                  textAlign: 'left',
+                },
               },
               '& th': {
                 fontWeight: 700,
-                textAlign: 'left',
                 bgcolor: alpha(theme.palette.grey[500], 0.1),
+              },
+              '& td p, & th p': {
+                textAlign: 'inherit',
+                m: 0,
               },
               '& .selectedCell:after': {
                 zIndex: 2,

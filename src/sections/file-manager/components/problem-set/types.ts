@@ -38,6 +38,11 @@ export interface Problem {
   choiceExplanationFormulas?: string[][];
   choiceExplanationErds?: string[][];
   choiceExplanationCharts?: string[][];
+  isLlmMatch?: boolean;
+  isLlmMath?: boolean;
+  isLlmProcessed?: boolean;
+  llmPredictedAnswer?: number;
+  llmKeyConcept?: string;
 }
 
 export interface ProblemSetData {

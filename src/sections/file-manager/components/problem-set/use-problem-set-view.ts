@@ -23,18 +23,19 @@ export function useProblemSetView({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number[]>>({});
   const [submittedAnswers, setSubmittedAnswers] = useState<Record<number, boolean>>({});
   const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
+  const [showAllAnswers, setShowAllAnswers] = useState<boolean>(false);
 
   const handleCopyProblem = useCallback(() => {
     if (!data?.problems?.[currentIndex]) return;
     const currentProb = data.problems[currentIndex];
-    
+
     // 백슬래시(\) 제거 함수
     const cleanText = (text: string) => text.replace(/\\/g, '');
 
     const { question, description, choices } = currentProb;
     const choiceText = choices.map((c, i) => `${i + 1}) ${cleanText(c)}`).join('\n');
     const textToCopy = `${cleanText(question)}${description ? `\n\n${cleanText(description)}` : ''}\n\n${choiceText}`;
-    
+
     navigator.clipboard.writeText(textToCopy);
     toast.success('복사되었습니다!');
   }, [currentIndex, data]);
@@ -48,6 +49,7 @@ export function useProblemSetView({
       setSelectedAnswers({});
       setSubmittedAnswers({});
       setRevealedAnswers({});
+      setShowAllAnswers(false);
       try {
         const saved = await getFileScript(fileId);
         if (saved?.problems && saved.problems.length > 0) {
@@ -180,9 +182,22 @@ export function useProblemSetView({
     [data, selectedAnswers]
   );
 
-  const handleRevealAnswer = useCallback((problemIndex: number) => {
-    setRevealedAnswers((prev) => ({ ...prev, [problemIndex]: !prev[problemIndex] }));
+  const handleToggleAllAnswers = useCallback(() => {
+    setShowAllAnswers((prev) => !prev);
+    setRevealedAnswers({});
   }, []);
+
+  const handleRevealAnswer = useCallback(
+    (problemIndex: number) => {
+      setRevealedAnswers((prev) => {
+        const currentRevealed = showAllAnswers
+          ? prev[problemIndex] !== false
+          : Boolean(prev[problemIndex]);
+        return { ...prev, [problemIndex]: !currentRevealed };
+      });
+    },
+    [showAllAnswers]
+  );
 
   return {
     data,
@@ -192,6 +207,7 @@ export function useProblemSetView({
     selectedAnswers,
     submittedAnswers,
     revealedAnswers,
+    showAllAnswers,
     handlePrevProblem,
     handleNextProblem,
     handlePageInputChange,
@@ -200,6 +216,7 @@ export function useProblemSetView({
     handleSelectAnswer,
     handleSubmitAnswer,
     handleRevealAnswer,
+    handleToggleAllAnswers,
     handleCopyProblem,
   };
 }

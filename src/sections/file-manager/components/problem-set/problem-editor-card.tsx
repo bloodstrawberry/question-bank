@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, memo } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
@@ -293,6 +294,9 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
     addFn();
   }, []);
 
+  const isLlmMatch = problem.isLlmMatch ?? problem.isLlmMath;
+  const isLlmProcessed = problem.isLlmProcessed;
+
   return (
     <Card
       key={problemIndex}
@@ -311,12 +315,34 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
           mb: 3,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 800 }}>
-          문제 {problemIndex + 1}
-          <Typography component="span" variant="body2" sx={{ ml: 1, color: 'text.disabled' }}>
-            / {totalProblems}
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
+          <Typography variant="h6" sx={{ fontWeight: 800 }}>
+            문제 {problemIndex + 1}
+            <Typography component="span" variant="body2" sx={{ ml: 1, color: 'text.disabled' }}>
+              / {totalProblems}
+            </Typography>
           </Typography>
-        </Typography>
+
+          {isLlmProcessed && (
+            <Chip
+              label="LLM 처리완료"
+              size="small"
+              color="info"
+              variant="soft"
+              sx={{ fontWeight: 700, fontSize: 12, height: 22 }}
+            />
+          )}
+
+          {isLlmMatch !== undefined && (
+            <Chip
+              label={isLlmMatch ? 'LLM 일치' : 'LLM 불일치'}
+              size="small"
+              color={isLlmMatch ? 'success' : 'error'}
+              variant="soft"
+              sx={{ fontWeight: 700, fontSize: 12, height: 22 }}
+            />
+          )}
+        </Box>
 
         <Box sx={{ display: 'flex', gap: 0.5 }}>
           <Tooltip title="문제 복제">

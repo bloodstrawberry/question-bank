@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import type { Problem } from './types';
 
+import { useState } from 'react';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
@@ -16,24 +16,25 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SchemaIcon from '@mui/icons-material/Schema';
-import BarChartIcon from '@mui/icons-material/BarChart';
 import { alpha, useTheme } from '@mui/material/styles';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
 import { KatexMath } from 'src/components/katex';
 import { ChartRenderer } from 'src/components/chart';
 import { MermaidDiagram } from 'src/components/mermaid';
+
 import { StudyConceptModal } from 'src/sections/study/components/study-concept-modal';
 
-import { RichContentRenderer, isRichTextEmpty } from './rich-content-renderer';
+import { isRichTextEmpty, RichContentRenderer } from './rich-content-renderer';
 
 interface ProblemSetViewCardProps {
   problem: Problem;
@@ -101,6 +102,9 @@ export function ProblemSetViewCard({
       ? [problem.answer]
       : [];
 
+  const isLlmMatch = problem.isLlmMatch ?? problem.isLlmMath;
+  const isLlmProcessed = problem.isLlmProcessed;
+
   const isCorrect =
     isSubmitted &&
     (isMultiple
@@ -123,7 +127,7 @@ export function ProblemSetViewCard({
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
-        {/* Problem Number + Hashtags */}
+        {/* Problem Number + Hashtags + LLM Status */}
         <Box
           sx={{
             display: 'flex',
@@ -132,7 +136,15 @@ export function ProblemSetViewCard({
             justifyContent: 'space-between',
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1.5 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 1.5,
+              flexWrap: 'wrap',
+            }}
+          >
             <Box
               sx={{
                 width: 36,
@@ -160,6 +172,26 @@ export function ProblemSetViewCard({
               >
                 {isCorrect ? '정답!' : '오답'}
               </Typography>
+            )}
+
+            {isLlmProcessed && (
+              <Chip
+                label="LLM 처리완료"
+                size="small"
+                color="info"
+                variant="soft"
+                sx={{ fontWeight: 700, fontSize: 12 }}
+              />
+            )}
+
+            {isLlmMatch !== undefined && (
+              <Chip
+                label={isLlmMatch ? 'LLM 일치' : 'LLM 불일치'}
+                size="small"
+                color={isLlmMatch ? 'success' : 'error'}
+                variant="soft"
+                sx={{ fontWeight: 700, fontSize: 12 }}
+              />
             )}
           </Box>
 
@@ -313,10 +345,24 @@ export function ProblemSetViewCard({
                   py: 1,
                   fontSize: 13,
                   border: (t) => `1px solid ${t.palette.divider}`,
+                  '&[align="center"], &[style*="text-align: center"], &[style*="text-align:center"]':
+                    {
+                      textAlign: 'center',
+                    },
+                  '&[align="right"], &[style*="text-align: right"], &[style*="text-align:right"]': {
+                    textAlign: 'right',
+                  },
+                  '&[align="left"], &[style*="text-align: left"], &[style*="text-align:left"]': {
+                    textAlign: 'left',
+                  },
                 },
                 '& th': {
                   fontWeight: 700,
                   bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
+                },
+                '& th p, & td p': {
+                  textAlign: 'inherit',
+                  m: 0,
                 },
               },
             }}
@@ -700,6 +746,65 @@ export function ProblemSetViewCard({
               </Typography>
             </Box>
 
+            {/* LLM Info in Reveal Section */}
+            {(problem.llmPredictedAnswer !== undefined ||
+              isLlmMatch !== undefined ||
+              isLlmProcessed !== undefined ||
+              Boolean(problem.llmKeyConcept)) && (
+              <Box
+                sx={{
+                  p: 1.5,
+                  borderRadius: 1.5,
+                  bgcolor: (t) => alpha(t.palette.info.main, 0.06),
+                  border: (t) => `1px solid ${alpha(t.palette.info.main, 0.16)}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 0.75,
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
+                  <Typography variant="caption" sx={{ fontWeight: 800, color: 'info.main' }}>
+                    🤖 LLM 분석 정보
+                  </Typography>
+                  {isLlmProcessed && (
+                    <Chip
+                      size="small"
+                      label="처리완료"
+                      color="info"
+                      variant="soft"
+                      sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
+                    />
+                  )}
+                  {problem.llmPredictedAnswer !== undefined && (
+                    <Chip
+                      size="small"
+                      label={`예측 정답: ${problem.llmPredictedAnswer}번`}
+                      color={isLlmMatch ? 'success' : 'info'}
+                      variant="soft"
+                      sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
+                    />
+                  )}
+                  {isLlmMatch !== undefined && (
+                    <Chip
+                      size="small"
+                      label={isLlmMatch ? '정답 일치' : '정답 불일치'}
+                      color={isLlmMatch ? 'success' : 'error'}
+                      variant="soft"
+                      sx={{ height: 20, fontSize: 11, fontWeight: 700 }}
+                    />
+                  )}
+                </Box>
+                {problem.llmKeyConcept && (
+                  <Typography variant="caption" sx={{ color: 'text.secondary', lineHeight: 1.5 }}>
+                    <Box component="span" sx={{ fontWeight: 700, color: 'text.primary', mr: 0.5 }}>
+                      핵심 개념:
+                    </Box>
+                    {problem.llmKeyConcept}
+                  </Typography>
+                )}
+              </Box>
+            )}
+
             {!isRichTextEmpty(problem.explanation) && (
               <Box
                 sx={{
@@ -776,10 +881,26 @@ export function ProblemSetViewCard({
                       px: 1.5,
                       py: 1,
                       fontSize: 14,
+                      '&[align="center"], &[style*="text-align: center"], &[style*="text-align:center"]':
+                        {
+                          textAlign: 'center',
+                        },
+                      '&[align="right"], &[style*="text-align: right"], &[style*="text-align:right"]':
+                        {
+                          textAlign: 'right',
+                        },
+                      '&[align="left"], &[style*="text-align: left"], &[style*="text-align:left"]':
+                        {
+                          textAlign: 'left',
+                        },
                     },
                     '& th': {
                       bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
                       fontWeight: 700,
+                    },
+                    '& th p, & td p': {
+                      textAlign: 'inherit',
+                      m: 0,
                     },
                   },
                 }}

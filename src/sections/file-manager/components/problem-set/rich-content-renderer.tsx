@@ -1,13 +1,12 @@
 'use client';
 
-import { alpha, type Theme, type SxProps } from '@mui/material/styles';
-
-import { memo, useMemo } from 'react';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
+import { memo, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import Box from '@mui/material/Box';
+import { alpha, type Theme, type SxProps } from '@mui/material/styles';
 
 import { KatexMath } from 'src/components/katex';
 import { MermaidDiagram } from 'src/components/mermaid';
@@ -135,11 +134,23 @@ export const RichContentRenderer = memo(function RichContentRenderer({
             py: 0.75,
             fontSize: 13,
             border: (t) => `1px solid ${t.palette.divider}`,
+            '&[align="center"], &[style*="text-align: center"], &[style*="text-align:center"]': {
+              textAlign: 'center',
+            },
+            '&[align="right"], &[style*="text-align: right"], &[style*="text-align:right"]': {
+              textAlign: 'right',
+            },
+            '&[align="left"], &[style*="text-align: left"], &[style*="text-align:left"]': {
+              textAlign: 'left',
+            },
           },
           '& th': {
             fontWeight: 700,
             bgcolor: (t) => alpha(t.palette.grey[500], 0.08),
-            textAlign: 'left',
+          },
+          '& th p, & td p': {
+            textAlign: 'inherit',
+            m: 0,
           },
         },
         '& strong': { fontWeight: 700 },

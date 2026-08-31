@@ -2,14 +2,16 @@
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import Container from '@mui/material/Container';
-import EditIcon from '@mui/icons-material/Edit';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import {
   useProblemSetView,
@@ -42,6 +44,7 @@ export function ProblemSetView({
     selectedAnswers,
     submittedAnswers,
     revealedAnswers,
+    showAllAnswers,
     handlePrevProblem,
     handleNextProblem,
     handlePageInputChange,
@@ -50,6 +53,7 @@ export function ProblemSetView({
     handleSelectAnswer,
     handleSubmitAnswer,
     handleRevealAnswer,
+    handleToggleAllAnswers,
     handleCopyProblem,
   } = useProblemSetView({
     fileId,
@@ -105,6 +109,9 @@ export function ProblemSetView({
 
   const activeProblem = data.problems[currentIndex] || data.problems[0];
   const pIndex = currentIndex;
+  const isRevealed = showAllAnswers
+    ? revealedAnswers[pIndex] !== false
+    : Boolean(revealedAnswers[pIndex]);
 
   return (
     <Container maxWidth={false} sx={{ py: { xs: 2, md: 5 }, px: { xs: 2, md: 8 } }}>
@@ -154,6 +161,25 @@ export function ProblemSetView({
           onPageInputKeyDown={handlePageInputKeyDown}
         />
 
+        {/* 정답 ON/OFF Toggle Button */}
+        <Tooltip title={showAllAnswers ? '정답 전체 숨기기' : '정답 전체 보기 (자동 표시)'}>
+          <Button
+            variant={showAllAnswers ? 'contained' : 'outlined'}
+            color={showAllAnswers ? 'primary' : 'inherit'}
+            onClick={handleToggleAllAnswers}
+            startIcon={showAllAnswers ? <VisibilityIcon /> : <VisibilityOffIcon />}
+            sx={{
+              fontWeight: 700,
+              whiteSpace: 'nowrap',
+              ...(showAllAnswers && {
+                boxShadow: (t) => t.customShadows?.primary,
+              }),
+            }}
+          >
+            {showAllAnswers ? '정답 ON' : '정답 OFF'}
+          </Button>
+        </Tooltip>
+
         <Tooltip title="Copy (Ctrl + B)">
           <Button
             variant="outlined"
@@ -184,7 +210,7 @@ export function ProblemSetView({
         problem={activeProblem}
         problemIndex={pIndex}
         isSubmitted={Boolean(submittedAnswers[pIndex])}
-        isRevealed={Boolean(revealedAnswers[pIndex])}
+        isRevealed={isRevealed}
         userSelections={selectedAnswers[pIndex] || []}
         onSelectAnswer={(choiceNum, isMultiple) =>
           handleSelectAnswer(pIndex, choiceNum, isMultiple)
