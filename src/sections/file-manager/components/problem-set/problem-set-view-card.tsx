@@ -105,6 +105,7 @@ export function ProblemSetViewCard({
 
   const isLlmMatch = problem.isLlmMatch ?? problem.isLlmMath;
   const isLlmProcessed = problem.isLlmProcessed;
+  const isLlmMismatch = isLlmMatch === false;
 
   const isCorrect =
     isSubmitted &&
@@ -120,10 +121,19 @@ export function ProblemSetViewCard({
       key={problemIndex}
       sx={{
         p: 3,
-        border: (t) => `solid 1px ${t.vars.palette.divider}`,
+        border: (t) =>
+          isLlmMismatch
+            ? `solid 2px ${t.vars?.palette?.error?.main || t.palette.error.main}`
+            : `solid 1px ${t.vars.palette.divider}`,
+        ...(isLlmMismatch && {
+          borderColor: 'error.main',
+          boxShadow: (t) =>
+            `0 0 0 1px ${t.vars?.palette?.error?.main || t.palette.error.main}, 0 4px 16px 0 ${alpha(t.palette.error.main, 0.16)}`,
+        }),
         ...(isSubmitted && {
           borderColor: isCorrect ? 'success.main' : 'error.main',
           borderWidth: 2,
+          boxShadow: 'none',
         }),
       }}
     >
