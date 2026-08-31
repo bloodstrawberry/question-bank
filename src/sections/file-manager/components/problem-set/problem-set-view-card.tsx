@@ -266,37 +266,59 @@ export function ProblemSetViewCard({
         )}
 
         {/* Question */}
-        <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              fontWeight: 700,
-              lineHeight: 1.8,
-              whiteSpace: 'pre-wrap',
-            }}
-          >
-            {problem.question}
-          </Typography>
-
-          {problem.isMultipleAnswer && problem.showMultipleCount !== false && (
-            <Chip
-              size="small"
-              color="warning"
-              variant="soft"
-              label={`정답 ${(problem.answers || []).length || 2}개`}
-              sx={{ fontWeight: 700, height: 22, fontSize: 11 }}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 1,
+            width: '100%',
+          }}
+        >
+          <Box sx={{ flexGrow: 1, minWidth: 240 }}>
+            <RichContentRenderer
+              content={problem.question}
+              idPrefix={`view_question_${problemIndex}`}
+              sx={{
+                '& p': {
+                  fontSize: 16,
+                  fontWeight: 700,
+                  lineHeight: 1.8,
+                  whiteSpace: 'pre-wrap',
+                  color: 'text.primary',
+                },
+                '& strong': { fontWeight: 800 },
+                '& u': {
+                  textDecoration: 'underline',
+                  textDecorationThickness: '1.5px',
+                  textUnderlineOffset: '3px',
+                },
+              }}
             />
-          )}
+          </Box>
 
-          {problem.disableChoiceShuffle && (
-            <Chip
-              size="small"
-              color="default"
-              variant="soft"
-              label="선택지 고정"
-              sx={{ fontWeight: 600, height: 22, fontSize: 11, opacity: 0.8 }}
-            />
-          )}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexShrink: 0, mt: 0.25 }}>
+            {problem.isMultipleAnswer && problem.showMultipleCount !== false && (
+              <Chip
+                size="small"
+                color="warning"
+                variant="soft"
+                label={`정답 ${(problem.answers || []).length || 2}개`}
+                sx={{ fontWeight: 700, height: 22, fontSize: 11 }}
+              />
+            )}
+
+            {problem.disableChoiceShuffle && (
+              <Chip
+                size="small"
+                color="default"
+                variant="soft"
+                label="선택지 고정"
+                sx={{ fontWeight: 600, height: 22, fontSize: 11, opacity: 0.8 }}
+              />
+            )}
+          </Box>
         </Box>
 
         {/* Description */}
@@ -384,6 +406,11 @@ export function ProblemSetViewCard({
                 textDecoration: 'line-through',
                 textDecorationColor: (t) => t.palette.error.main,
                 textDecorationThickness: '1.5px',
+              },
+              '& u': {
+                textDecoration: 'underline',
+                textDecorationThickness: '1.5px',
+                textUnderlineOffset: '3px',
               },
               '& table': {
                 width: '100%',
@@ -919,6 +946,11 @@ export function ProblemSetViewCard({
                     textDecoration: 'line-through',
                     textDecorationColor: (t) => t.palette.error.main,
                     textDecorationThickness: '1.5px',
+                  },
+                  '& u': {
+                    textDecoration: 'underline',
+                    textDecorationThickness: '1.5px',
+                    textUnderlineOffset: '3px',
                   },
                   '& table': {
                     borderCollapse: 'collapse',

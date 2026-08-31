@@ -36,6 +36,7 @@ import { ProblemEditorHashtags } from './problem-editor-hashtags';
 import { ProblemEditorFormulas } from './problem-editor-formulas';
 import { ProblemEditorAnswerSelect } from './problem-editor-answer-select';
 import { ProblemEditorConceptLinks } from './problem-editor-concept-links';
+import { RichInsertToolbar } from './rich-insert-toolbar';
 import { isRichTextEmpty, RichContentRenderer } from './rich-content-renderer';
 import { ProblemEditorCorrectionDialog } from './problem-editor-correction-dialog';
 import { ProblemEditorCollapsibleSection } from './problem-editor-collapsible-section';
@@ -447,19 +448,30 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
               문제
             </Typography>
 
-            {onOpenProblemBulkDialog && (
-              <Button
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <RichInsertToolbar
                 size="small"
-                tabIndex={-1}
-                variant="outlined"
-                color="info"
-                startIcon={<FormatListNumberedIcon />}
-                onClick={onOpenProblemBulkDialog}
-                sx={{ borderRadius: 1.5, fontWeight: 700 }}
-              >
-                Bulk
-              </Button>
-            )}
+                onInsert={(textToInsert) => {
+                  onUpdateProblem({
+                    question: (problem.question || '') + textToInsert,
+                  });
+                }}
+              />
+
+              {onOpenProblemBulkDialog && (
+                <Button
+                  size="small"
+                  tabIndex={-1}
+                  variant="outlined"
+                  color="info"
+                  startIcon={<FormatListNumberedIcon />}
+                  onClick={onOpenProblemBulkDialog}
+                  sx={{ borderRadius: 1.5, fontWeight: 700 }}
+                >
+                  Bulk
+                </Button>
+              )}
+            </Box>
           </Box>
 
           <FastTextField
@@ -471,6 +483,41 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
             onChange={(val) => onUpdateProblem({ question: val })}
             placeholder="문제를 입력하세요..."
           />
+
+          {(problem.question?.includes('<u>') ||
+            problem.question?.includes('$') ||
+            problem.question?.includes('**') ||
+            problem.question?.includes('~~') ||
+            problem.question?.includes('<ruby>')) && (
+            <Box
+              sx={{
+                mt: 1,
+                p: 1.5,
+                borderRadius: 1,
+                bgcolor: (t) => alpha(t.palette.grey[500], 0.04),
+                border: (t) => `1px dashed ${alpha(t.palette.grey[500], 0.2)}`,
+              }}
+            >
+              <Typography
+                variant="caption"
+                sx={{ color: 'text.disabled', fontWeight: 700, mb: 0.5, display: 'block' }}
+              >
+                문제 서식 미리보기:
+              </Typography>
+              <RichContentRenderer
+                content={problem.question}
+                idPrefix="question_edit_preview"
+                sx={{
+                  '& p': {
+                    fontSize: 15,
+                    fontWeight: 700,
+                    lineHeight: 1.7,
+                    color: 'text.primary',
+                  },
+                }}
+              />
+            </Box>
+          )}
         </Box>
 
         {/* Description (Collapsible) */}

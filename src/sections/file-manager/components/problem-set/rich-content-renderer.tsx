@@ -211,6 +211,11 @@ export const RichContentRenderer = memo(function RichContentRenderer({
           textDecorationColor: (t) => t.palette.error.main,
           textDecorationThickness: '1.5px',
         },
+        '& u': {
+          textDecoration: 'underline',
+          textDecorationThickness: '1.5px',
+          textUnderlineOffset: '3px',
+        },
         ...sx,
       }}
     >

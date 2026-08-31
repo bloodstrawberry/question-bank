@@ -24,6 +24,7 @@ interface RichInsertToolbarProps {
 
 const MARKDOWN_OPTIONS = [
   { label: '강조 (Bold)', code: '**강조**' },
+  { label: '밑줄 (Underline)', code: '<u>밑줄</u>' },
   { label: '기울임 (Italic)', code: '*기울임*' },
   { label: '코드 (Inline Code)', code: '`코드`' },
   { label: '취소선 (Strikethrough)', code: '~~취소선~~' },

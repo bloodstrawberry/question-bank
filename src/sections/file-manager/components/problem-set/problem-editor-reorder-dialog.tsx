@@ -67,7 +67,7 @@ function SortableProblemItem({ id, index, problem, isActive }: SortableProblemIt
     position: 'relative' as const,
   };
 
-  const questionSnippet = problem.question ? problem.question.trim() : '';
+  const questionSnippet = problem.question ? problem.question.replace(/<[^>]*>/g, '').trim() : '';
 
   return (
     <Card

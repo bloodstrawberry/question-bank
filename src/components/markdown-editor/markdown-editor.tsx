@@ -900,6 +900,11 @@ export const MarkdownEditor = memo(function MarkdownEditor({
               textDecorationColor: theme.palette.error.main,
               textDecorationThickness: '1.5px',
             },
+            '& u': {
+              textDecoration: 'underline',
+              textDecorationThickness: '1.5px',
+              textUnderlineOffset: '3px',
+            },
             '& strong': { fontWeight: 700 },
             '& em': { fontStyle: 'italic' },
             '& hr': {
