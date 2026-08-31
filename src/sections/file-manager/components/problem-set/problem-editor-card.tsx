@@ -21,6 +21,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
@@ -240,6 +241,21 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
   const toggleExpChart = useCallback((cIndex: number) => {
     setOpenExpChartState((prev) => ({ ...prev, [cIndex]: !prev[cIndex] }));
   }, []);
+
+  const handleClearChoiceExplanations = useCallback(() => {
+    const count = problem.choices?.length || 4;
+    onUpdateProblem({
+      choiceExplanations: Array(count).fill(''),
+      choiceExplanationDescriptions: Array(count).fill(''),
+      choiceExplanationFormulas: Array.from({ length: count }, () => []),
+      choiceExplanationErds: Array.from({ length: count }, () => []),
+      choiceExplanationCharts: Array.from({ length: count }, () => []),
+    });
+    setOpenExpDescState({});
+    setOpenExpFormulaState({});
+    setOpenExpErdState({});
+    setOpenExpChartState({});
+  }, [onUpdateProblem, problem.choices?.length]);
 
   useEffect(() => {
     try {
@@ -813,17 +829,31 @@ export const ProblemEditorCard = memo(function ProblemEditorCard({
               객관식별 설명
             </Typography>
 
-            <Button
-              size="small"
-              tabIndex={-1}
-              variant="outlined"
-              color={showExpPreview ? 'primary' : 'inherit'}
-              startIcon={showExpPreview ? <VisibilityIcon /> : <VisibilityOffIcon />}
-              onClick={() => setShowExpPreview((prev) => !prev)}
-              sx={{ borderRadius: 1.5, fontWeight: 700 }}
-            >
-              미리보기 {showExpPreview ? 'ON' : 'OFF'}
-            </Button>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Button
+                size="small"
+                tabIndex={-1}
+                variant="outlined"
+                color="inherit"
+                startIcon={<RotateLeftIcon />}
+                onClick={handleClearChoiceExplanations}
+                sx={{ borderRadius: 1.5, fontWeight: 700 }}
+              >
+                Clear
+              </Button>
+
+              <Button
+                size="small"
+                tabIndex={-1}
+                variant="outlined"
+                color={showExpPreview ? 'primary' : 'inherit'}
+                startIcon={showExpPreview ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                onClick={() => setShowExpPreview((prev) => !prev)}
+                sx={{ borderRadius: 1.5, fontWeight: 700 }}
+              >
+                미리보기 {showExpPreview ? 'ON' : 'OFF'}
+              </Button>
+            </Box>
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
