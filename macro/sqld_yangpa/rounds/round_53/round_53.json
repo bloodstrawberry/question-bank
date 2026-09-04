@@ -1,0 +1,4304 @@
+{
+  "problems": [
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#1번"
+      ],
+      "question": "다음 중 데이터 모델링의 세 가지 관점에 해당하는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "데이터 관점",
+        "보안 관점",
+        "성능 관점",
+        "인프라 관점"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "데이터 모델링의 세 가지 관점은 데이터 관점, 프로세스 관점, 상관 관점이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#2번"
+      ],
+      "question": "데이터 모델링 개요 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "현실 세계를 단순화·추상화하여 표현한다.",
+        "데이터 용량 산정은 데이터 모델링의 산출물이 아니다.",
+        "업무 흐름을 표현하는 도구로 활용될 수 있다.",
+        "데이터 구조와 관계를 명확히 정의한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "물리 데이터 모델링 단계에서 데이터 용량 산정도 수행된다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#3번"
+      ],
+      "question": "발생 시점에 따른 엔터티 분류에 해당하지 않는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "기본 엔터티",
+        "중심 엔터티",
+        "유형 엔터티",
+        "행위 엔터티"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "발생 시점 기준 분류는 기본·중심·행위이며 유형은 포함되지 않는다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#4번"
+      ],
+      "question": "아래 설명을 만족하는 정규형은?",
+      "description": "일반 속성이 주식별자에 모두 함수 종속하며 이행 함수 종속을 제거한 상태",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "1정규형",
+        "2정규형",
+        "3정규형",
+        "BCNF"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "주식별자에 일반 속성이 모두 함수 종속하면서 이행 함수 종속까지 제거된 상태는 3정규형이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#5번"
+      ],
+      "question": "인조 식별자에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "속성의 수가 적으면 인조 식별자를 반드시 사용해야 한다.",
+        "업무와 무관하게 시스템이 부여한다.",
+        "본질 식별자를 대체하여 관리 편의성을 높인다.",
+        "일련번호 형태로 단순하게 부여되는 경우가 많다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "속성의 수는 인조 식별자 사용의 절대적인 기준이 아니다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#6번"
+      ],
+      "question": "아래 설명에 해당하는 정규화는?",
+      "description": "부분 함수 종속을 나누어 해결한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "1정규화",
+        "2정규화",
+        "3정규화",
+        "BCNF"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "부분 함수 종속을 분리하여 해결하는 정규화 단계는 2정규화이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#7번"
+      ],
+      "question": "상호 배타적 관계(Arc Relationship) 에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "상호 배타적 관계는 배타적 상속이 불가능하다.",
+        "두 관계 중 하나만 선택된다.",
+        "차량 엔터티가 법인 또는 개인 중 하나의 소유자와 연결되는 예가 대표적이다.",
+        "ERD 상에서 아크(Arc) 기호로 표현된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "상호 배타적 관계에서도 배타적 상속이 가능하며 오히려 그 특성이 본질이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#8번"
+      ],
+      "question": "다른 엔터티의 주식별자를 참조하는 키는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "외래키(FK)",
+        "기본키(PK)",
+        "후보키",
+        "대체키"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "외래키(FK)는 다른 엔터티(부모 테이블)의 주식별자를 참조하여 참조 무결성을 보장한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#9번"
+      ],
+      "question": "데이터 모델링에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "논리적 연산의 단위이다.",
+        "트랜잭션을 모델에 표현할 수 없다.",
+        "연관된 업무를 하나의 커밋 단위로 묶을 수 있다.",
+        "데이터 정합성을 확보하는 수단이다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "데이터 모델링 단계에서 트랜잭션도 분석·표현 대상이 된다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#1과목",
+        "#10번"
+      ],
+      "question": "바커 표기법에서 인스턴스(엔터티) 존재를 표현하는 선의 형태는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "직선",
+        "점선",
+        "이중선",
+        "파선"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "바커 표기법은 필수 참여를 직선, 선택 참여를 점선으로 표기한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#11번"
+      ],
+      "question": "다음 중 데이터 제어어(DCL) 에 해당하는 명령어의 조합은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "CREATE, ALTER",
+        "INSERT, UPDATE",
+        "GRANT, REVOKE",
+        "COMMIT, ROLLBACK"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "GRANT 와 REVOKE 는 권한을 부여·회수하는 데이터 제어어(DCL)이다. CREATE/ALTER 는 DDL, INSERT/UPDATE 는 DML, COMMIT/ROLLBACK 은 TCL 이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#12번"
+      ],
+      "question": "상위 5건과 동순위 포함 5건을 조회하는 방법으로 가장 적절한 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "RANK() OVER (ORDER BY SAL DESC) 를 사용하여 순위를 매기고 조건으로 5까지 필터링한다.",
+        "DISTINCT SAL 의 상위 5건만 별도 쿼리한다.",
+        "WHERE ROWNUM = 5 로만 조회한다.",
+        "GROUP BY SAL HAVING COUNT(*) >= 5 을 사용한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "TOP-N 쿼리에서 동순위를 포함하려면 `RANK()` 또는 `FETCH FIRST N ROWS WITH TIES` 를 사용해야 한다. ③ `WHERE ROWNUM = 5` 는 ROWNUM 의사 컬럼 특성상 항상 0건이 반환되어 부적합하다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#13번"
+      ],
+      "question": "SQL 실행 결과로 적절하지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ROUND(4.875, 2) = 4.88",
+        "LENGTH('KOREAN') = 6",
+        "DATE_FORMAT('2022-11-02', '%Y-%m-%d') = 2022-11-02",
+        "SUBSTR('Gangneung Wonju', 8, 4) = 'g Wo'"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "8번째 문자부터 4글자는 'ng W' 이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#14번"
+      ],
+      "question": "아래 T 테이블에 대한 SQL 의 결과 행 개수로 옳은 것은?",
+      "description": "**T 테이블**\n\n| AMT | VOL |\n| --- | --- |\n| 4000 | 5 |\n| 6000 | 3 |\n| 3000 | 15 |\n\n```sql\nSELECT COUNT(*)\nFROM   T\nWHERE  AMT BETWEEN 3000 AND 5000\nAND    VOL <= 10;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "1개",
+        "2개",
+        "3개",
+        "0개"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "`AMT BETWEEN 3000 AND 5000` 과 `VOL <= 10` 을 동시에 만족해야 한다. (4000, 5) 만 두 조건 모두 만족, (6000, 3) 은 AMT 범위 초과, (3000, 15) 는 VOL 초과. 따라서 1 건.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#15번"
+      ],
+      "question": "아래 함수 중 NULL 을 반환하지 않는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "NVL(NULL, NULL)",
+        "NULLIF('A', 'A')",
+        "COALESCE('AB', 'CD')",
+        "CASE WHEN 1=2 THEN 'Y' END"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "COALESCE 는 NULL 이 아닌 첫 번째 값인 'AB' 를 반환한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#16번"
+      ],
+      "question": "아래 두 테이블에 대한 SQL 의 결과로 옳은 것은?",
+      "description": "**T1 테이블**\n\n| COL1 |\n| --- |\n| 1 |\n| 2 |\n| 3 |\n| 4 |\n| 5 |\n\n**T2 테이블**\n\n| COL1 |\n| --- |\n| 1 |\n| 1 |\n| 1 |\n| 3 |\n| 6 |\n\n```sql\nSELECT COUNT(*)\nFROM   T1, T2\nWHERE  T1.COL1 = T2.COL1;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "T1 의 1 은 T2 의 1(세 건) 과 매칭되고 T1 의 3 은 T2 의 3(한 건) 과 매칭되어 3 + 1 = 4 건이 나온다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#17번"
+      ],
+      "question": "아래 요구사항을 만족하는 ORDER BY 절로 가장 적절한 것은?",
+      "description": "```sql\nSELECT 회원번호,    -- 1번 컬럼\n       회원명,      -- 2번 컬럼\n       주문번호,    -- 3번 컬럼\n       금액         -- 4번 컬럼\nFROM   주문\n[ ORDER BY  ?  ];\n```\n\n요구사항: 주문번호 내림차순 정렬 후, 같은 주문번호 내에서 4번 컬럼(금액) 내림차순, 1번 컬럼(회원번호) 오름차순으로 정렬한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ORDER BY 주문번호 DESC, 금액 ASC",
+        "ORDER BY 주문번호 DESC, 금액테이블번호 ASC",
+        "ORDER BY 주문번호 DESC, 4 DESC, 1 ASC",
+        "ORDER BY 주문번호 DESC, 4 DESC, 1 DESC"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "주문번호 DESC, 4번 컬럼 DESC, 1번 컬럼 ASC 형태로 ORDER BY 절에 컬럼 순번을 사용할 수 있다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#18번"
+      ],
+      "question": "아래 테이블 DDL 에 대한 설명 중 옳지 않은 것은?",
+      "description": "```sql\nCREATE TABLE 학생 (\n  학번 NUMBER DEFAULT 100 PRIMARY KEY,\n  이름 VARCHAR2(30) NOT NULL,\n  학과번호 NUMBER REFERENCES 학과(학과번호)\n);\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "학번 컬럼에 DEFAULT 값이 지정되어 있다.",
+        "학생 이름은 NULL 을 허용하지 않는다.",
+        "학과번호는 학과 테이블을 참조한다.",
+        "DEFAULT 때문에 101·102·103 학생 번호로 입력해도 학번에는 NULL 이 들어간다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "DEFAULT 는 값 미지정 시 기본값을 적용할 뿐 값이 입력되면 그 값이 그대로 저장된다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#19번"
+      ],
+      "question": "SAL 기준 상위 3순위까지 동순위를 포함하여 조회하는 함수로 적절한 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "DENSE_RANK",
+        "ROW_NUMBER",
+        "RANK",
+        "NTILE"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "DENSE_RANK 는 동순위를 같은 등수로 부여하면서 다음 등수를 건너뛰지 않아, 상위 N 순위 동순위 포함 조회에 적합하다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#20번"
+      ],
+      "question": "아래 SQL 의 결과로 옳은 것은?",
+      "description": "**주문 테이블**\n\n| 회원번호 | 회원명 | 주문월 |\n| --- | --- | --- |\n| 1 | 홍길동 | 201001 |\n\n```sql\nSELECT * FROM 주문 WHERE 주문월 = '201010';\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "전체 회원",
+        "1건",
+        "NULL",
+        "공집합"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "조건을 만족하는 행이 없으므로 공집합이 반환된다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#21번"
+      ],
+      "question": "아래 셀프 조인 SQL 의 빈칸에 들어갈 함수로 옳은 것은?",
+      "description": "**사원 테이블**\n\n| 사원ID | 이름 | 매니저ID |\n| --- | --- | --- |\n| 1 | 김사장 | (NULL) |\n| 2 | 이부장 | 1 |\n| 3 | 박과장 | 2 |\n\n```sql\n-- 사원의 매니저 이름을 조회하되 매니저가 없는 경우 '사장' 을 반환한다.\nSELECT E.이름, (  ?  ) AS 상사명\nFROM   사원 E LEFT JOIN 사원 M ON E.매니저ID = M.사원ID;\n```\n\n**기대 결과**\n\n| 이름 | 상사명 |\n| --- | --- |\n| 김사장 | 사장 |\n| 이부장 | 김사장 |\n| 박과장 | 이부장 |",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "NVL(M.이름)",
+        "DECODE(M.이름)",
+        "NULLIF(M.이름, '사장')",
+        "COALESCE(M.이름, '사장')"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "사원 테이블에서 매니저ID 가 NULL 인 사원(예: 김사장)은 LEFT JOIN 결과에서 M 측 컬럼이 모두 NULL 이 된다. 이때 COALESCE(M.이름, '사장') 은 NULL 이 아닌 첫 인자를 반환하므로 '사장' 이 출력된다. NVL 은 인자가 두 개 필요하고 NULLIF 는 두 값이 같으면 NULL 을 반환하는 함수라 의미가 다르다. 정답은 ④.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#22번"
+      ],
+      "question": "DELETE·TRUNCATE·DROP 비교에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "특정 테이블에 WHERE 조건 없이 DELETE 를 수행하면 DROP TABLE 과 동일한 결과를 얻는다.",
+        "DROP 은 테이블 정의를 삭제하고 TRUNCATE 는 테이블을 초기 상태로 만든다.",
+        "TRUNCATE 는 UNDO 데이터를 생성하지 않아 대량 삭제 시 DELETE 보다 빠르다.",
+        "DROP 과 TRUNCATE 는 Auto Commit 이고 DELETE 는 사용자 COMMIT 이 필요하다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "WHERE 없는 DELETE 는 모든 행을 삭제하지만 테이블 구조는 유지되므로 DROP TABLE 과 결과가 다르다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#23번"
+      ],
+      "question": "아래 LTRIM 함수의 결과로 옳은 것은?",
+      "description": "```sql\nSELECT LTRIM('xxxxxxabcd', 'x') FROM DUAL;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "abcd",
+        "xxxabcd",
+        "xxxxxxabcd",
+        "NULL"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "LTRIM 은 왼쪽에서 지정된 문자를 모두 제거한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#24번"
+      ],
+      "question": "아래 SQL 의 WHERE 조건과 동일한 의미를 가지는 것은?",
+      "description": "```sql\nSELECT *\nFROM   T\nWHERE  (COL1, COL2) IN ((1, 3), (1, 4));\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "SELECT * FROM T WHERE COL1 = 1 AND COL2 = 3;",
+        "SELECT * FROM T WHERE COL1 = 1 OR COL2 IN (3, 4);",
+        "SELECT * FROM T WHERE COL1 IN (1) AND COL2 IN (3, 4);",
+        "SELECT * FROM T WHERE COL1 = 1 AND (COL2 = 3 OR COL2 = 4);"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "다중 컬럼 IN `(COL1, COL2) IN ((1, 3), (1, 4))` 는 `(COL1=1 AND COL2=3) OR (COL1=1 AND COL2=4)` 와 동일하다. COL1 이 두 튜플에서 모두 1 이라 공통 인수로 묶으면 `COL1=1 AND (COL2=3 OR COL2=4)` 로 정리된다. ① 은 한 조건만, ② 는 OR 결합으로 더 넓고, ③ 은 (1, 3) (1, 4) 가 아닌 다른 조합도 매칭하므로 의미가 다르다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#25번"
+      ],
+      "question": "소수점 내림을 수행하는 함수에 해당하지 않는 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "CEIL",
+        "FLOOR",
+        "TRUNC (양수 자리 지정)",
+        "INT"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "CEIL 은 올림 함수이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#26번"
+      ],
+      "question": "아래 SQL 의 오류가 발생하는 부분으로 가장 적절한 것은?",
+      "description": "```sql\nSELECT SUM(SAL)            -- (1)\nFROM   EMP\nWHERE  컬럼 = (SELECT ID FROM A WHERE ~)  -- (2)\nGROUP BY ID                 -- (3)\nHAVING SUM(SAL) > 5000;     -- (4)\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "(1)",
+        "(2)",
+        "(3)",
+        "(4)"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "서브쿼리가 다중 행을 반환할 수 있음에도 단일 행 비교 연산자 '=' 를 사용하여 런타임 오류가 발생할 수 있다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#27번"
+      ],
+      "question": "테이블·컬럼 별칭 사용에 대한 다음 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "컬럼 별칭은 AS 키워드를 생략할 수 있다.",
+        "테이블 별칭은 FROM 절에서 지정한다.",
+        "SELECT U1.T1.C1 FROM U1.T1 A; 처럼 별칭을 지정한 뒤에도 원래 테이블명을 SELECT 절에 사용할 수 있다.",
+        "ORDER BY 절에서는 SELECT 절의 별칭을 참조할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "테이블 별칭을 지정하면 SELECT 절에서 원본 테이블명을 직접 참조할 수 없다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#28번"
+      ],
+      "question": "아래 NATURAL JOIN SQL 의 결과로 옳은 것은?",
+      "description": "**A**\n\n| ID | COL1 |\n| --- | --- |\n| 1 | X |\n\n**B**\n\n| ID | COL1 |\n| --- | --- |\n| 1 | Y |\n\n```sql\nSELECT * FROM A NATURAL JOIN B;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "공집합 (0건)",
+        "60",
+        "90",
+        "225"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "동일 컬럼명이 여러 개이면서 값이 다르면 NATURAL JOIN 은 매칭 실패로 결과가 비거나 경우에 따라 예상과 다른 결과를 낸다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#29번"
+      ],
+      "question": "아래 회원 테이블에 대한 SQL 의 결과 정렬 순서로 옳은 것은?",
+      "description": "**회원 테이블**\n\n| 회원ID | 등급 |\n| --- | --- |\n| 1 | VIP |\n| 2 | VVIP |\n| 3 | VIP |\n| 4 | 일반 |\n| 5 | VVIP |\n\n```sql\nSELECT 등급 FROM 회원 ORDER BY DECODE(등급, 'VVIP', 1, 'VIP', 2, 3);\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "VVIP, VIP 순으로 출력",
+        "VIP, VVIP 순으로 출력",
+        "정렬되지 않은 원본 순서",
+        "오류 발생"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "DECODE 가 VVIP 에 1, VIP 에 2, 기타에 3 을 부여하므로 ORDER BY 결과는 VVIP → VIP 순으로 정렬된다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#30번"
+      ],
+      "question": "아래 SQL 의 결과로 옳은 것은?",
+      "description": "```sql\nSELECT * FROM T WHERE COL <= ALL(50, 15);\n```\n\n**T 테이블**\n\n| COL |\n| --- |\n| 10 |\n| 12 |\n| 15 |\n| 20 |\n| 60 |",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "10, 12, 15",
+        "10, 12",
+        "15 이하의 모든 값",
+        "공집합"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "`<= ALL(50, 15)` 은 두 값 모두와 비교하여 최소값 15 이하를 만족하는 행을 반환한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#31번"
+      ],
+      "question": "아래 설명에 해당하는 집합 연산자는?",
+      "description": "첫 번째 집합에서 두 번째 집합에 존재하는 행을 제외한 결과를 반환한다.",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "UNION",
+        "UNION ALL",
+        "INTERSECT",
+        "MINUS"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "MINUS 는 첫 번째 집합에서 두 번째 집합에 존재하는 행을 제외한 차집합을 반환한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#32번"
+      ],
+      "question": "집합 연산자에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "UNION 연산자는 합집합 결과에서 중복된 행을 하나의 행으로 만든다.",
+        "UNION ALL 연산자는 중복이 없는 경우 UNION 과 결과가 동일하다.",
+        "UNION 연산자를 사용한 SQL 은 각각의 집합에 GROUP BY 절을 사용할 수 있다.",
+        "UNION 연산자를 사용한 SQL 은 각각의 집합에 ORDER BY 절을 사용할 수 있다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "ORDER BY 는 최종 결과 집합에만 적용할 수 있다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#33번"
+      ],
+      "question": "아래 SQL 중 오류 원인이 올바르게 분류된 것은?",
+      "description": "```sql\nSELECT EMPNO,\n       (SELECT MAX(SAL) FROM EMP) AS MAX_SAL\nFROM   EMP;\n```\n\n```sql\nSELECT *\nFROM   EMP\nWHERE  SAL = (SELECT SAL FROM EMP WHERE DEPTNO = 10);\n```\n\n```sql\nSELECT DEPTNO, COUNT(*)\nFROM   EMP\nWHERE  SUM(SAL) > 10000\nGROUP BY DEPTNO;\n```\n\n```sql\nSELECT EMPNO, ENAME\nFROM   EMP\nORDER BY SUM(SAL);\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "가 — SELECT 서브쿼리에서 집계 함수 사용으로 인한 오류",
+        "나 — 집계 함수 오류가 아니고 '=' 연산자 때문",
+        "다 — GROUP BY 에서 집계 함수를 사용",
+        "라 — ORDER BY 에서 집계 함수를 사용했으므로 오류"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "참조 텍스트의 단서대로 본 문항은 `GROUP BY` 없는 일반 `SELECT` 컨텍스트로 한정한다. 이 경우 ④ `ORDER BY SUM(SAL)` 은 집계 그룹이 형성되지 않아 ORA-00937(단일 그룹의 그룹 함수가 아닙니다) 오류가 발생한다. ① 스칼라 서브쿼리 안의 집계는 정상, ② 는 다중 행 서브쿼리 + `=` (ORA-01427), ③ 은 `WHERE` 에 집계 함수 사용 오류로 분류 자체가 부적절하다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#34번"
+      ],
+      "question": "계층형 집계 함수에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "ROLLUP 은 시간·지형 등 계층형 데이터의 소계·총계를 반환한다.",
+        "CUBE 는 모든 컬럼 조합의 집계를 반환한다.",
+        "GROUPING SETS 는 원하는 집계 조합을 선택적으로 지정한다.",
+        "ROLLUP·CUBE·GROUPING SETS 은 내부에서 정렬을 수행하지 못한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "필요 시 ORDER BY 절을 함께 사용하여 정렬할 수 있다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#35번"
+      ],
+      "question": "아래 두 테이블에 대한 CROSS JOIN 의 결과 행 수로 옳은 것은? (T1 의 행 수 = M, T2 의 행 수 = N)",
+      "description": "**테이블 카디널리티 (M = T1 행 수, N = T2 행 수)**\n\n| M | N |\n| --- | --- |\n| 3 | 5 |\n\n```sql\nSELECT *\nFROM   T1 CROSS JOIN T2;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "15",
+        "8",
+        "5",
+        "3"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "CROSS JOIN 의 결과 행 수는 두 테이블의 카디널리티 곱이므로 3 × 5 = 15 이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#36번"
+      ],
+      "question": "아래 EMP 테이블에서 SAL 상위 5순위 사원을 조회하는 SQL 로 옳은 것은?",
+      "description": "**EMP 테이블**\n\n| EMPNO | ENAME | SAL |\n| --- | --- | --- |\n| 7839 | KING | 5000 |\n| 7902 | FORD | 3000 |\n| 7788 | SCOTT | 3000 |\n| 7566 | JONES | 2975 |\n| 7698 | BLAKE | 2850 |\n| 7782 | CLARK | 2450 |\n| 7499 | ALLEN | 1600 |\n| 7521 | WARD | 1250 |\n| 7654 | MARTIN | 1250 |\n| 7934 | MILLER | 1300 |",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "SELECT * FROM EMP WHERE ROWNUM <= 5 ORDER BY SAL DESC;",
+        "SELECT DISTINCT SAL FROM EMP ORDER BY SAL DESC;",
+        "SELECT * FROM (SELECT * FROM EMP ORDER BY SAL DESC) WHERE ROWNUM <= 5;",
+        "SELECT * FROM EMP FETCH FIRST 5 ROWS ONLY;"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "Oracle 의 `ROWNUM` 은 `ORDER BY` 가 적용되기 전에 행에 1 부터 부여된다. ① 처럼 `WHERE ROWNUM <= 5` 와 `ORDER BY` 를 한 SELECT 안에 두면 정렬되지 않은 임의의 5 건이 잡힌 뒤 정렬되어 \"상위 5 건\" 이 보장되지 않는다. ② `DISTINCT` 는 중복 제거일 뿐 행 수를 5 로 제한하지 않는다. ④ 는 `ORDER BY` 가 없어 어떤 5 건이 나올지 보장되지 않는다. 정답은 인라인 뷰에서 먼저 정렬한 뒤 외부 쿼리에서 `ROWNUM <= 5` 를 적용하는 ③ 번 패턴이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#37번"
+      ],
+      "question": "UNPIVOT 절 사용 시 열 이름의 순서에 대한 설명 중 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "AMOUNT3, AMOUNT2, AMOUNT1 순으로 UNPIVOT 해도 결과 행 자체(컬럼-값 매핑) 는 동일하고 출력 순서만 바뀐다.",
+        "UNPIVOT 시 입력 열의 순서를 바꾸면 결과 행 수가 달라진다.",
+        "UNPIVOT 은 NULL 행을 항상 유지한다.",
+        "UNPIVOT 은 반드시 세 개의 열을 대상으로 한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "UNPIVOT 의 열 나열 순서는 결과 행의 출력 순서에만 영향을 줄 뿐, 각 행의 컬럼-값 매핑 자체는 동일하게 유지되고 행 수도 같다. ② 입력 열 순서를 바꿔도 결과 행 수는 같다. ③ UNPIVOT 은 기본적으로 NULL 행을 제외하며 `INCLUDE NULLS` 옵션을 줄 때만 유지한다. ④ UNPIVOT 의 대상 열 수는 두 개 이상이면 충분하다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#38번"
+      ],
+      "question": "REGEXP_SUBSTR 로 이메일의 도메인 점(.) 유무를 검사할 때 가장 부적절한 결과가 나오는 경우는?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "name@domain.com",
+        "test@naver.co.kr",
+        "hello@nodot",
+        "user1@example.com"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "도메인에 '.' 이 없어 이메일 검증 패턴과 매칭되지 않는다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#39번"
+      ],
+      "question": "REGEXP_SUBSTR 로 'aabbc' 중 일부를 추출하는 SQL 의 결과로 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "aabbc abbc",
+        "abbc bc",
+        "aab bbc",
+        "빈 문자열"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "원본 기출에서 구체적 SQL 표기와 선지 텍스트가 유실되어 정답 번호(②) 만 보존한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#40번"
+      ],
+      "question": "아래 윈도우 절과 동등한 의미를 가진 절은?",
+      "description": "기준 절: `BETWEEN 1 PRECEDING AND 1 FOLLOWING` (ROWS/RANGE 단위 키워드를 생략한 형태)",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "RANGE BETWEEN 50 PRECEDING AND 150 FOLLOWING",
+        "ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING",
+        "ROWS UNBOUNDED PRECEDING",
+        "RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "축약형 윈도우 절에서 단위 키워드(ROWS/RANGE) 가 생략되면 기본 단위 ROWS 로 해석된다. 따라서 `BETWEEN 1 PRECEDING AND 1 FOLLOWING` 은 `ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING` 과 동등하다. RANGE 는 값 범위 기준이라 단위 자체가 다르고, UNBOUNDED 는 한쪽이 무한이라 1·1 과 다르다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#41번"
+      ],
+      "question": "계층형 SQL 에서 ORDER SIBLINGS BY 와 NOCYCLE 옵션에 대한 설명 중 옳은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "NOCYCLE 을 수행한 뒤 순환 발생 행을 CONNECT_BY_ISCYCLE 로 확인할 수 있다.",
+        "SIBLINGS 는 전체 트리를 재정렬한다.",
+        "ORDER BY 는 계층형 결과를 보존하지 않는다.",
+        "NOCYCLE 은 CONNECT_BY_ROOT 와 반드시 함께 사용한다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "NOCYCLE 옵션은 순환을 만나면 전개를 중단하며, 순환이 발생한 행은 CONNECT_BY_ISCYCLE 의사 컬럼으로 식별할 수 있다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#42번"
+      ],
+      "question": "아래 SQL 의 결과로 옳은 것은?",
+      "description": "**T 테이블**\n\n| COL1 |\n| --- |\n| 10 |\n| 50 |\n| 90 |\n\n```sql\nSELECT MIN(COL1) + MAX(TO_CHAR(COL1))\nFROM   T;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "100",
+        "190",
+        "NULL",
+        "오류"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "T.COL1 = (10, 50, 90). `MIN(COL1)` = 10 (숫자), `MAX(TO_CHAR(COL1))` = '90' (문자 비교 기준 가장 큰 문자열). `숫자 + 문자열` 은 묵시적 형변환으로 10 + 90 = 100 이 된다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#43번"
+      ],
+      "question": "아래 NAMES 테이블에서 LIKE '%n' 조건에 매칭되는 이름의 수로 옳은 것은?",
+      "description": "**NAMES 테이블**\n\n| NAME |\n| --- |\n| Kevin |\n| Jason |\n| Tom |\n\n```sql\nSELECT COUNT(*)\nFROM   NAMES\nWHERE  NAME LIKE '%n';\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "1명",
+        "2명",
+        "3명",
+        "0명"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "'n' 으로 끝나는 이름은 Kevin, Jason 의 두 명이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#44번"
+      ],
+      "question": "테이블 구조 변경에 대한 설명 중 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "기존 데이터가 있으면 컬럼 사이즈 축소 시 제한이 있다.",
+        "NULL 만 입력된 컬럼은 사이즈 축소가 가능하다.",
+        "DEFAULT 값을 변경하면 변경 이후 입력되는 데이터에만 적용된다.",
+        "DEFAULT 값을 NULL 로 변경하면 기존 NULL 데이터에도 새로운 DEFAULT 가 소급 적용된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "DEFAULT 변경은 과거 데이터에 소급 적용되지 않는다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#45번"
+      ],
+      "question": "아래 테이블에 대한 INSERT 중 오류가 발생하는 것은?",
+      "description": "```sql\nCREATE TABLE TEST45 (\n  COL1 NUMBER,\n  COL2 NUMBER,\n  COL3 NUMBER,\n  COL4 NUMBER\n);\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "INSERT INTO TEST45 VALUES (1, 2, 3);",
+        "INSERT INTO TEST45 VALUES (1, 2, 3, 4);",
+        "INSERT INTO TEST45 (COL1, COL2, COL3) VALUES (1, 2, 3);",
+        "INSERT INTO TEST45 (COL1, COL2, COL3, COL4) VALUES (1, 2, 3, 4);"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "컬럼 목록을 명시하지 않은 INSERT 는 모든 컬럼에 값을 채워야 한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#46번"
+      ],
+      "question": "아래 세 테이블 T1, T2, T3 을 키 컬럼으로 INNER JOIN 한 결과의 행 수로 옳은 것은?",
+      "description": "**T1 테이블**\n\n| KEY |\n| --- |\n| 1 |\n| 2 |\n| 3 |\n\n**T2 테이블**\n\n| KEY |\n| --- |\n| 1 |\n| 2 |\n| NULL |\n\n**T3 테이블**\n\n| KEY |\n| --- |\n| 1 |\n| NULL |\n| NULL |",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "1개",
+        "2개",
+        "3개",
+        "0개"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "세 테이블 모두에 값이 존재하는 키는 1 한 건 뿐이다. T2 의 NULL 과 T3 의 NULL 은 동등 비교 대상이 되지 않는다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#47번"
+      ],
+      "question": "아래 A, B 테이블을 UNION 한 결과(중복 제거) 의 행 수는?",
+      "description": "**A 테이블**\n\n| COL |\n| --- |\n| 1 |\n| 2 |\n| 3 |\n| 4 |\n\n**B 테이블**\n\n| COL |\n| --- |\n| 3 |\n| 4 |\n| 5 |\n| 6 |\n\n```sql\nSELECT COL FROM A\nUNION\nSELECT COL FROM B;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "6개",
+        "8개",
+        "4개",
+        "2개"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 1,
+      "answers": [
+        1
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "1·2·3·4·5·6 의 6개 값만 남는다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#48번"
+      ],
+      "question": "아래 SQL 의 결과로 옳은 것은?",
+      "description": "**T 테이블**\n\n| COLB | COLC | SCORE |\n| --- | --- | --- |\n| 5 | 10 | NULL |\n| 10 | NULL | NULL |\n\n```sql\nSELECT NVL(MIN(COLB), 0) + NVL(MAX(COLC), 0) + SUM(NVL(SCORE, 0))\nFROM   T;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "5 (5+0+0)",
+        "15 (5+10+0)",
+        "20",
+        "50"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 2,
+      "answers": [
+        2
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "MIN(COLB)=5, MAX(COLC)=10, SUM(NVL(SCORE,0))=0 이므로 5+10+0 = 15 이다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#49번"
+      ],
+      "question": "테이블 제약조건 변경에 대한 설명으로 옳지 않은 것은?",
+      "description": "",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "PK 는 NOT NULL 과 UNIQUE 가 결합된 제약이다.",
+        "FOREIGN KEY 는 참조 대상이 존재해야 추가할 수 있다.",
+        "CHECK 조건은 기존 데이터도 위반 여부를 검사한다.",
+        "제약 조건 NOT NULL 추가 시 이미 NULL 값이 존재하면 오류 없이 수행된다."
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 4,
+      "answers": [
+        4
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "기존에 NULL 값이 존재하면 NOT NULL 제약 추가가 실패한다.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "hashtags": [
+        "#SQLD",
+        "#제53회",
+        "#2과목",
+        "#50번"
+      ],
+      "question": "아래 SQL 실행 후 최종 조회 건수는?",
+      "description": "TABLE50 은 비어 있는 상태에서 시작한다.\n\n```sql\nINSERT INTO TABLE50 VALUES (1);\nINSERT INTO TABLE50 VALUES (2);\nINSERT INTO TABLE50 VALUES (3);\nSAVEPOINT SQL1;\nINSERT INTO TABLE50 VALUES (4);\nINSERT INTO TABLE50 VALUES (5);\nCOMMIT;\nINSERT INTO TABLE50 VALUES (6);\nROLLBACK TO SAVEPOINT SQL1;\n\nSELECT COUNT(*) FROM TABLE50;\n```",
+      "conceptLinks": [],
+      "formulas": [],
+      "explanationFormulas": [],
+      "erds": [],
+      "explanationErds": [],
+      "charts": [],
+      "explanationCharts": [],
+      "choices": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "choiceDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceCharts": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "answer": 3,
+      "answers": [
+        3
+      ],
+      "isMultipleAnswer": false,
+      "showMultipleCount": true,
+      "disableChoiceShuffle": false,
+      "isHold": false,
+      "explanation": "TABLE50 은 비어 있는 상태로 시작한다. INSERT 1·2·3 → 3건. SAVEPOINT SQL1 선언. INSERT 4·5 → 5건. COMMIT 시점에 5건이 영구 확정되며 이때 SAVEPOINT SQL1 은 함께 사라진다. 이후 INSERT 6 → 6건. ROLLBACK TO SAVEPOINT SQL1 은 가리킬 SAVEPOINT 가 없으므로 오류가 발생해 무시되거나 영향이 없고, 최종 SELECT 결과는 6 건이다. 정답은 ③.",
+      "choiceExplanations": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "choiceExplanationFormulas": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationErds": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "choiceExplanationCharts": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}
